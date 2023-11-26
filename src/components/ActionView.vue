@@ -1,0 +1,220 @@
+<template>
+    <div class="actionView">
+        <p class="title">世界顶尖的Telegram</p>
+        <p class="subTitle">赌场</p>
+        <p class="desc">TG.Bet是你线上匿名加密赌博的独家场所。完全授权且100%安全，立即加入我们吧！</p>
+        <div class="join"> <img class="joinLogo" alt="join logo" src="../assets/join.png"> 加入社区
+        </div>
+        <div class="play"> <img class="playLogo" alt="play logo" src="../assets/playLogo.png"> 立即试玩</div>
+        <div class="check"><img class="checkLogo" alt="play logo" src="../assets/checkLogo.png"> 验证许可证</div>
+        <div class="cashback">
+            <p class="cashbackTitle">25%</p>
+            <p class="cashbackSubTitle">返现</p>
+            <p class="cashbackDesc">在使用 $ibit 代币下注时，所有损失都可获得25%的返现</p>
+        </div>
+    </div>
+</template>
+<style scoped>
+.actionView {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 32px;
+}
+
+.subTitle {
+    color: #C5AC79;
+    font-weight: 600;
+    font-size: 64px;
+}
+
+.desc {
+    width: 100%;
+    font-size: 20px;
+    text-align: left;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+
+.cashback {
+    width: 100%;
+    border: 1px solid #30323A;
+    background-color: #181A20;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.cashbackTitle {
+    font-size: 88px;
+    color: #EFD8AA;
+}
+
+.cashbackSubTitle {
+    font-size: 32px;
+    color: #EFD8AA;
+}
+
+.cashbackDesc {
+    text-align: center;
+    font-size: 22px;
+    font-weight: 600;
+    padding: 27px 10% 32px;
+}
+
+.join {
+    width: 100%;
+    height: 54px;
+    border-radius: 24px;
+    background-color: #181A20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #30323A;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.play {
+    width: 100%;
+    height: 54px;
+    border-radius: 24px;
+    background-color: #C5AC79;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #181A20;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    border: 1px solid #EFD8AA;
+    margin-bottom: 30px;
+}
+
+.check {
+    width: 100%;
+    height: 54px;
+    border-radius: 24px;
+    background-color: #181A20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid #30323A;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.navContainer {
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 40px;
+    justify-content: space-around;
+}
+
+.navContainer a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.actionContainer {
+    display: flex;
+}
+
+.pledge {
+    width: 104px;
+    height: 44px;
+    border-radius: 24px;
+    background-color: #C5AC79;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #181A20;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.audit {
+    width: 104px;
+    height: 44px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 24px;
+    border: 1px solid #C5AC79;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.joinLogo {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.playLogo {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+}
+
+.checkLogo {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+}
+
+@media screen and (max-width: 900px) {
+    .actionView {
+        margin-bottom: 20px;
+        margin-right: 8px;
+    }
+
+    .subTitle {
+        text-align: center;
+    }
+
+    .desc {
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 0.64px;
+    }
+
+    .cashbackDesc {
+        color: #FFF;
+        text-align: center;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 24px;
+        letter-spacing: 0.56px;
+    }
+
+    .cashbackSubTitle {
+        font-size: 24px;
+    }
+
+    .cashbackTitle {
+        font-size: 68px;
+    }
+}
+</style>

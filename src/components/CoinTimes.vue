@@ -1,0 +1,110 @@
+<template>
+    <div class="coinTimesContainer">
+        <el-row style="width: 100%;display: flex;align-items:center;" :gutter="30">
+            <el-col :xs="24" :sm="24" :lg="13">
+                <div class="coinTimesDesc">
+                    <img class="coinTimesDescLogo" src="../assets/coinTimes.png">
+                    <img class="coinChanceMobileImg" src="../assets/coinChanceMobile.png">
+                    <div class="desc">加密赌博近来的爆炸性流行趋势似乎没有减缓的迹象。我们在 TG.Casino 理解到，全球玩家喜欢随时随地游玩、保持匿名并能够使用加密货币下注的灵活性。未来真的已经到来了！
+                    </div>
+                </div>
+            </el-col>
+            <el-col :lg="11" align="middle">
+                <img class="coinCountImage" src="../assets/coinCount.png">
+            </el-col>
+        </el-row>
+    </div>
+</template>
+
+<script>
+export default {
+    name: 'CoinTimes',
+    data() { },
+};
+</script>
+
+<style scoped>
+.coinTimesContainer {
+    padding: 120px 5%;
+    background-color: #2E3442;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* .coinTimesDesc {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+} */
+
+.desc {
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: left;
+    color: #FFFFFF99;
+    font-size: 20px;
+}
+
+.coinTimesDescLogo {
+    width: 638px;
+    height: 63px;
+}
+
+.coinChanceMobileImg {
+    display: none;
+}
+
+.coinCountImage {
+    width: 485px;
+    height: 232px;
+}
+
+
+.check {
+    width: 200px;
+    height: 52px;
+    border-radius: 8px;
+    background-color: #C5AC79;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #181A20;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    border: 1px solid #EFD8AA;
+}
+
+@media screen and (max-width: 900px) {
+    .coinTimesContainer {
+        padding: 40px 24px;
+        height: auto;
+        flex-direction: column;
+    }
+
+    .coinTimesDescLogo {
+        display: none;
+    }
+
+    .coinChanceMobileImg {
+        display: block;
+        width: 199px;
+        height: auto;
+    }
+
+    .desc {
+        width: 100%;
+        font-size: 14px;
+        margin-top: 16px;
+        margin-bottom: 32px;
+    }
+
+    .coinCountImage {
+        width: 100%;
+        height: auto;
+    }
+}
+</style>
