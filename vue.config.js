@@ -12,6 +12,6 @@ module.exports = defineConfig({
   },
   transpileDependencies: true,
   devServer: {
-    https: true
+    https: false
   }
 })
