@@ -96,7 +96,12 @@
       </el-col>
     </el-row>
     <el-row>
-      <div class="adde">{{ accountMsg.address }}</div>
+      <div class="adde">
+        {{ accountMsg.address
+        }}<span style="margin-left: 10px; color: red" @click="disconnect1"
+          >退出</span
+        >
+      </div>
     </el-row>
     <el-row>
       <el-col :span="24"
@@ -107,7 +112,17 @@
         >
           链接钱包
         </div>
-        <div v-else class="connect-btn" @click="transfer(0.01)">质押</div></el-col
+        <div v-if="connect" class="connect-btn" @click="contractTransfer(0.1)">
+          ERC20转账
+        </div>
+        <div
+          v-if="connect"
+          class="connect-btn"
+          style="margin-top: 10px"
+          @click="transfer(0.01)"
+        >
+          ETH转账
+        </div></el-col
       >
       <el-col :span="24" class="gray-tips">当前质押年化收益率：265.32%</el-col>
       <el-col :span="24">
@@ -128,9 +143,11 @@ import {
   prepareSendTransaction,
   sendTransaction,
 } from "@wagmi/core";
+
 import { mainnet } from "@wagmi/core/chains";
 import abi from "../abi/abi";
 import { getCurrentInstance } from "vue";
+import { disconnect } from "@wagmi/core";
 // import {}
 
 export default {
@@ -214,6 +231,13 @@ export default {
         //   弹出这个信息
       }
     };
+    // ================== 退出 ===========
+    const disconnect1 = () => {
+      disconnect();
+      const account1 = getAccount();
+      accountMsg.value = account1;
+      connect.value = account1.isConnected;
+    };
     // 转账金额towei
     const tokensToWei = (tokens, decimals) => {
       const result = Number(tokens) * Math.pow(10, decimals);
@@ -248,7 +272,8 @@ export default {
       chooseMoney,
       contractTransfer,
       transfer,
-      accountMsg
+      accountMsg,
+      disconnect1,
     };
   },
 };
