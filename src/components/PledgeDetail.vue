@@ -48,19 +48,19 @@
             <div class="actionPledgeTitle">我的质押</div>
             <div class="minePledge">
                 <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">总计 $IBit 被质押</p>
+                    <p class="actionPledgeDesc">总计 $TGB 被质押</p>
                     <el-input v-model="input" type="number" />
                 </div>
                 <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">占质押总额 $IBit 的百分比</p>
+                    <p class="actionPledgeDesc">占质押总额 $TGB 的百分比</p>
                     <el-input v-model="input" type="number" />
                 </div>
                 <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">已收获的总奖励（$IBit）</p>
+                    <p class="actionPledgeDesc">已收获的总奖励（$TGB）</p>
                     <el-input v-model="input" type="number" />
                 </div>
                 <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">可领取的总奖励（$IBit）</p>
+                    <p class="actionPledgeDesc">可领取的总奖励（$TGB）</p>
                     <div style="position: relative;">
                         <el-input v-model="input" type="number" />
                         <div class="receive">领取</div>
@@ -71,7 +71,7 @@
             <div class="actionPledge">
                 <div class="goPledge">
                     <div class="actionPledgeTitle">质押</div>
-                    <div class="actionPledgeDesc">将您的代币质押以根据所示的APY获得 $IBit 收益</div>
+                    <div class="actionPledgeDesc">将您的代币质押以根据所示的APY获得 $TGB 收益</div>
                     <div style="position: relative;">
                         <el-input v-model="input" type="number" autocomplete="off" />
                         <div class="maxVal">最大值</div>

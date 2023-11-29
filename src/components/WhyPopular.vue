@@ -63,7 +63,7 @@ export default {
         return {
             currentIndex: 0,
             data: [{
-                desc: '儘管市场上可能存在竞争，但他们无法与TG.Bet所能提供的相媲美。我们拥有所有顶级游戏、现场活动、体育赌博等等，简直无法相提并论。再加上我们为$IBit持有者提供的丰厚奖励，选择TG.Bet是一个明智的决定。',
+                desc: '儘管市场上可能存在竞争，但他们无法与TG.Bet所能提供的相媲美。我们拥有所有顶级游戏、现场活动、体育赌博等等，简直无法相提并论。再加上我们为$TGB持有者提供的丰厚奖励，选择TG.Bet是一个明智的决定。',
                 topImg: whyPopular2,
                 rightImg: play1,
                 btnText: '今天立即加入我们'

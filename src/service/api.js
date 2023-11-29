@@ -1,12 +1,19 @@
-import request from '../http'
+import request from './http'
 
-export const wcLogin = (param) => request({
+export const indexInfo = () => request({
   method: 'POST',
-  url: '/xxx',
-  data: param
+  url: '/index/info',
+  data: {}
 })
 
-export const wcConfig = () => request({
-  method: 'GET',
-  url: '/xxx'
+export const indexTimeline = () => request({
+  method: 'POST',
+  url: '/index/timeline',
+  data: {}
+})
+
+export const mineBalance = () => request({
+  method: 'POST',
+  url: '/mine/balance',
+  data: {}
 })

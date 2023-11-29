@@ -43,10 +43,10 @@ div:focus {
 
 
 @media (min-width: 2000px) {
-    .preSale, .cryptoNews, .operationContainer, .pledgeCoin, .economicToken, .safeContainer, .CoinChanceContainer, .coinTimesContainer,.whiteBookContainer, .weGameContainer, .whyPopularContainer, .noKyc, .licenseContainer, .commonProblemContainer, .bottombar{
-       padding-left: 18% !important;
-       padding-right: 18% !important;
-   }
+    .preSale, .cryptoNews, .operationContainer, .pledgeCoin, .economicToken, .safeContainer, .CoinChanceContainer, .coinTimesContainer,.whiteBookContainer, .weGameContainer, .whyPopularContainer, .noKyc, .licenseContainer, .commonProblemContainer, .bottombar, .howtoBuyTop, .howtobuyContainer .step, .container{
+        padding-left: 18% !important;
+        padding-right: 18% !important;
+    }
    .home-wrapper{
        padding-left: 5% !important;
        padding-right: 8% !important;

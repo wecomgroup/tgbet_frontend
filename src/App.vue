@@ -50,6 +50,7 @@ import EconomicToken from './components/EconomicToken.vue'
 import PledgeDetail from './components/PledgeDetail.vue'
 import HowToBuy from './components/HowToBuy.vue'
 
+
 export default {
   name: 'App',
   components: {
@@ -76,19 +77,34 @@ export default {
   data() {
     return {
       showPledgeDetail: false,
-      showHowToBuy: false
+      showHowToBuy: false,
+      info:{}
     };
+  },
+  mounted() {
+    const flag = sessionStorage.getItem('pageName');
+    if (flag === 'showPledgeDetail') {
+      this.showPledgeDetail = true
+      this.showHowToBuy = false
+    } else if ( flag === 'showHowToBuy') {
+      this.showPledgeDetail = false
+      this.showHowToBuy = true
+    } else {
+      this.showPledgeDetail = false
+      this.showHowToBuy = false
+    }
   },
   methods: {
     togglePledgeDetail(val) {
       this.showPledgeDetail = val
+      sessionStorage.setItem('pageName', 'showHowToBuy')
     },
 
     toggleHowToBuy(val) {
       this.showHowToBuy = val
-    },
-
-  },
+      sessionStorage.setItem('pageName', 'showPledgeDetail')
+    }
+  }
 }
 
 
