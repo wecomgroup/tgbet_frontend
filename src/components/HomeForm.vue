@@ -142,6 +142,7 @@ import {
   getWalletClient,
   prepareSendTransaction,
   sendTransaction,
+  watchAccount,
 } from "@wagmi/core";
 
 import { mainnet } from "@wagmi/core/chains";
@@ -166,6 +167,13 @@ export default {
     var account = getAccount();
     var accountMsg = ref(account);
     let connect = ref(account.isConnected);
+    //钱包切换
+    watchAccount((account12) => {
+      if(account12.address != account.address){
+        accountMsg.value = account12;
+        connect.value = account12.isConnected;
+      }
+    });
 
     // 钱包监听状态是否链接什么的 懂吧
     if (globalProperties.$web3modal) {
@@ -176,6 +184,7 @@ export default {
         connect.value = account1.isConnected;
       });
     }
+
     // =========================== 代币交易 ========================
     const contractTransfer = async (
       amount = 1,
@@ -193,13 +202,10 @@ export default {
           abi: abi,
           walletClient,
         });
-      
+
         var toWeiAmount = tokensToWei(amount, wei);
         // ERC20转账
-        const hash = await contract.write.transfer([
-          to_address,
-          toWeiAmount,
-        ]);
+        const hash = await contract.write.transfer([to_address, toWeiAmount]);
 
         if (hash) {
           // 交易结果
