@@ -193,14 +193,16 @@ export default {
           abi: abi,
           walletClient,
         });
+      
         var toWeiAmount = tokensToWei(amount, wei);
         // ERC20转账
-        const approve_message = await contract.write.transfer([
+        const hash = await contract.write.transfer([
           to_address,
           toWeiAmount,
         ]);
-        if (approve_message) {
-          // 通知处理交易结果
+
+        if (hash) {
+          // 交易结果
         }
       } catch (err) {
         const metamaskError = err?.message?.split(".")[0] || "Unknown error";
