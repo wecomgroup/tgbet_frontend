@@ -34,19 +34,19 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12" style="margin-top: 20px;">
-        <div class="eth-btn" :class="{ on: mName === 'eth' }" @click="chooseMoney('eth')">
+        <div class="eth-btn" :class="{ on: selectedCoin === 'eth' }" @click="chooseMoney('eth')">
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
-        <div class="eth-btn" :class="{ on: mName === 'usdt' }" @click="chooseMoney('usdt')">
-          <img src="../assets/Ellipse1.png" class="icon" />USDT
+        <div class="eth-btn" :class="{ on: selectedCoin === 'usdc' }" @click="chooseMoney('usdc')">
+          <img src="../assets/Ellipse1.png" class="icon" />USDC
         </div>
       </el-col>
       <el-col :span="12" style="margin-top: 20px;">
-        <div class="eth-btn" :class="{ on: mName === 'usdt' }" @click="chooseMoney('usdt')">
+        <div class="eth-btn" :class="{ on: selectedCoin === 'usdt' }" @click="chooseMoney('usdt')">
           <img src="../assets/Ellipse1.png" class="icon" />USDT
         </div>
-        <div class="eth-btn" :class="{ on: mName === 'usdt' }" @click="chooseMoney('usdt')">
-          <img src="../assets/Ellipse1.png" class="icon" />USDT
+        <div class="eth-btn" :class="{ on: selectedCoin === 'wbtc' }" @click="chooseMoney('wbtc')">
+          <img src="../assets/Ellipse1.png" class="icon" />WBTC
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
@@ -78,20 +78,12 @@
           ETH转账
         </div>
       </el-col>
-      <el-col :span="24" class="gray-tips">当前质押年化收益率：265.32%</el-col>
-      <el-col :span="24">
-        <div class="other-buy">
-          <img src="../assets/Ellipse2.png" class="icon" />在BSC上购买
-        </div>
-      </el-col>
+      <el-col :span="24" class="gray-tips">当前质押年化收益率：{{ infoData.apy }}%</el-col>
     </el-row>
   </div>
 </template>
 <script>
-import { ref } from "vue";
 
-
-// import connect from "../util/connect/index";
 import {
   getAccount,
   getContract,
@@ -103,62 +95,84 @@ import {
 
 import { mainnet } from "@wagmi/core/chains";
 import abi from "../abi/abi";
-import { getCurrentInstance } from "vue";
+import { getCurrentInstance, onMounted,onBeforeUnmount, reactive, ref } from "vue";
 import { disconnect } from "@wagmi/core";
 
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 
 export default {
-  data() {
-    return {
-      timer:{},
-      infoData: {},
-      leaveTime:0,
-      timeState: {
-        day: '00',
-        hour: '00',
-        minute: '00',
-        second: '00',
-      }
-    }
-  },
-  mounted() {
 
-    const startTimer = () => {
-      this.timer = setInterval(() => {
-          this.timeState.day = Math.floor(this.leaveTime  / 60 / 60 / 24)
-            .toString()
-            .padStart(2, '0');
-          this.timeState.hour = (Math.floor(this.leaveTime / 60 / 60) % 24)
-            .toString()
-            .padStart(2, '0');
-          this.timeState.minute = (Math.floor(this.leaveTime  / 60) % 60)
-            .toString()
-            .padStart(2, '0');
-          this.timeState.second = (Math.floor(this.leaveTime) % 60)
-            .toString()
-            .padStart(2, '0');
-          this.leaveTime  = this.leaveTime - 1
+  setup: () => {
+    const countdownTimer = ref()
+    const indexTimer = ref()
+    let infoData = ref({})
+    let leaveTime = ref(0)
+    let timeState = reactive({
+      day: '00',
+      hour: '00',
+      minute: '00',
+      second: '00',
+    })
+
+    const startCountdownTimer = () => {
+      clearInterval(countdownTimer.value)
+      countdownTimer.value = setInterval(() => {
+        if(!leaveTime) return
+        timeState.day = Math.floor(leaveTime / 60 / 60 / 24)
+          .toString()
+          .padStart(2, '0');
+        timeState.hour = (Math.floor(leaveTime / 60 / 60) % 24)
+          .toString()
+          .padStart(2, '0');
+        timeState.minute = (Math.floor(leaveTime / 60) % 60)
+          .toString()
+          .padStart(2, '0');
+        timeState.second = (Math.floor(leaveTime) % 60)
+          .toString()
+          .padStart(2, '0');
+        leaveTime = leaveTime - 1
       }, 1000);
+    }
 
+    const loopIndexInfo = ()=> {
+      clearInterval(indexTimer.value)
+      indexTimer.value = setInterval(() => {
+        requestIndexInfo()
+      }, 15000);
     }
 
     const requestIndexInfo = () => {
       indexInfo().then(response => {
-        console.log(response);
         if (response.data && response.statusCode === 200) {
-          console.log(response.data)
-          this.infoData = response.data
-          this.infoData.process = this.infoData.process * 100
-          this.leaveTime = this.infoData.increases_in / 1000
-          startTimer()
+          infoData.value = response.data
+          leaveTime = response.data.increases_in / 1000
+          infoData.value.process = response.data.process * 100
         }
       }).catch(() => { })
     };
-    requestIndexInfo()
-  },
-  setup: () => {
+
+    const clearTimer = () => {
+      clearInterval(countdownTimer.value)
+      clearInterval(indexTimer.value)
+    };
+
+    onMounted(() => {
+      requestIndexInfo()
+      loopIndexInfo()
+      startCountdownTimer()
+    })
+
+    onBeforeUnmount(() => {
+      clearTimer()
+    })
+
+    //代币选择
+    let selectedCoin = ref("eth");
+    const chooseMoney = (value) => {
+      selectedCoin.value = value;
+    };
+
     let color = ref("#C5AC79");
     let val1 = ref(0);
     let val2 = ref(0);
@@ -167,17 +181,17 @@ export default {
         config: { globalProperties },
       },
     } = getCurrentInstance();
-    // console.log("你妈的",globalProperties)
-    // 链接信息getAccount
 
+    // 链接信息getAccount
     var account = getAccount();
     var accountMsg = ref(account);
     let connect = ref(account.isConnected);
+
     //钱包切换
-    watchAccount((account12) => {
-      if (account12.address != account.address) {
-        accountMsg.value = account12;
-        connect.value = account12.isConnected;
+    watchAccount((changedAccount) => {
+      if (changedAccount.address != account.address) {
+        accountMsg.value = changedAccount;
+        connect.value = changedAccount.isConnected;
       }
     });
 
@@ -258,36 +272,33 @@ export default {
       return result.toString();
     };
 
-    let timeIndex = ref(-1);
-    let mName = ref("");
     const connectWithWalletConnect = () => {
       if (globalProperties.$web3modal) {
         globalProperties.$web3modal.open();
       }
+    };
 
-      // const { connectWalletConnect } = connect();
-      // connectWalletConnect();
-    };
-    const chooseTime = (index) => {
-      timeIndex.value = index;
-    };
-    const chooseMoney = (name) => {
-      mName.value = name;
-    };
+
     return {
+      countdownTimer,
+      indexTimer,
+      timeState,
+      infoData,
+      leaveTime,
       color,
       val1,
       val2,
-      timeIndex,
       connect,
-      mName,
+      selectedCoin,
       connectWithWalletConnect,
-      chooseTime,
       chooseMoney,
       contractTransfer,
       transfer,
       accountMsg,
       disconnect1,
+      startCountdownTimer,
+      loopIndexInfo,
+      requestIndexInfo
     };
   },
 };
