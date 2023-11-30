@@ -78,7 +78,6 @@ export default {
     return {
       showPledgeDetail: false,
       showHowToBuy: false,
-      info:{}
     };
   },
   mounted() {

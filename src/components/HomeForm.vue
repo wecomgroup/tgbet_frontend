@@ -2,7 +2,7 @@
   <div class="form-wrapper">
     <el-row>
       <el-col :span="12">
-        <div class="grid-content">$ {{ infoData.final_sold }}</div>
+        <div class="grid-content">$ {{ infoData.prize_pool }}</div>
       </el-col>
       <el-col :span="12">
         <img src="../assets/logo.png" class="logo" />
@@ -34,48 +34,46 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12" style="margin-top: 20px;">
-        <div class="eth-btn" :class="{ on: selectedCoin === 'eth' }" @click="chooseMoney('eth')">
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
-        <div class="eth-btn" :class="{ on: selectedCoin === 'usdc' }" @click="chooseMoney('usdc')">
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
           <img src="../assets/Ellipse1.png" class="icon" />USDC
         </div>
       </el-col>
       <el-col :span="12" style="margin-top: 20px;">
-        <div class="eth-btn" :class="{ on: selectedCoin === 'usdt' }" @click="chooseMoney('usdt')">
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
           <img src="../assets/Ellipse1.png" class="icon" />USDT
         </div>
-        <div class="eth-btn" :class="{ on: selectedCoin === 'wbtc' }" @click="chooseMoney('wbtc')">
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'WBTC' }" @click="chooseMoney('WBTC')">
           <img src="../assets/Ellipse1.png" class="icon" />WBTC
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
         <p class="tips">
-          你支付的ETH金额<label class="max-value">最大值</label>
+          你支付的{{ selectedCoin.name }}金额<label class="max-value">最大值</label>
         </p>
-        <el-input placeholder="0" class="f-ipt" v-model="val1"></el-input>
+        <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount"></el-input>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
         <p class="tips">你将收到的$TGB</p>
-        <el-input placeholder="0" class="f-ipt" v-model="val2"></el-input>
+        <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount"></el-input>
       </el-col>
     </el-row>
-    <el-row>
-      <div class="adde">
-        {{ accountMsg.address
-        }}<span style="margin-left: 10px; color: red" @click="disconnect1">退出</span>
-      </div>
+    <el-row v-if="connect">
+      <el-col :xs="24" :sm="24" :lg="12">
+        <p class="tips">{{ accountMsg.address }} <span style="margin-left: 10px;  color: #c5ac79; text-align: right;"
+            @click="disconnect1">退出</span>
+        </p>
+      </el-col>
     </el-row>
     <el-row>
       <el-col :span="24">
         <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
           链接钱包
         </div>
-        <div v-if="connect" class="connect-btn" @click="contractTransfer(0.1)">
-          ERC20转账
-        </div>
-        <div v-if="connect" class="connect-btn" style="margin-top: 10px" @click="transfer(0.01)">
-          ETH转账
+        <div v-if="connect" class="connect-btn" @click="startTransfer()">
+          转账
         </div>
       </el-col>
       <el-col :span="24" class="gray-tips">当前质押年化收益率：{{ infoData.apy }}%</el-col>
@@ -96,7 +94,7 @@ import {
 
 import { mainnet } from "@wagmi/core/chains";
 import abi from "../abi/abi";
-import { getCurrentInstance, onMounted,onBeforeUnmount, reactive, ref } from "vue";
+import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { disconnect } from "@wagmi/core";
 
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
@@ -119,7 +117,7 @@ export default {
     const startCountdownTimer = () => {
       clearInterval(countdownTimer.value)
       countdownTimer.value = setInterval(() => {
-        if(!leaveTime) return
+        if (!leaveTime) return
         timeState.day = Math.floor(leaveTime / 60 / 60 / 24)
           .toString()
           .padStart(2, '0');
@@ -136,7 +134,7 @@ export default {
       }, 1000);
     }
 
-    const loopIndexInfo = ()=> {
+    const loopIndexInfo = () => {
       clearInterval(indexTimer.value)
       indexTimer.value = setInterval(() => {
         requestIndexInfo()
@@ -168,15 +166,88 @@ export default {
       clearTimer()
     })
 
-    //代币选择
-    let selectedCoin = ref("eth");
-    const chooseMoney = (value) => {
-      selectedCoin.value = value;
-    };
+
+    //代币选择  //ETH USDT USDC WBTC
+    const coinInfo = {
+      ETH: { "contract": "", decimals: 18, name: "ETH" },
+      USDT: { "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7", decimals: 6, name: "USDT" },
+      USDC: { "contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", decimals: 6, name: "USDC" },
+      WBTC: { "contract": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", decimals: 8, name: "WBTC" },
+    }
 
     let color = ref("#C5AC79");
-    let val1 = ref(0);
-    let val2 = ref(0);
+    let coinAmount = ref();
+    let tgbAmount = ref();
+    let selectedCoin = ref({});
+
+    selectedCoin.value = coinInfo.ETH
+    const chooseMoney = (value) => {
+      if (selectedCoin.value.name === value) { return }
+      selectedCoin.value = coinInfo[value];
+      console.log(selectedCoin.value)
+
+      coinAmount.value = ""
+      tgbAmount.value = ""
+    };
+
+    const filterNumber = (val) => {
+      val = val.replace(/[^\d.]/g, "");
+      val = val.replace(/\.{2,}/g, "."); // 不能连续输入两个及以上小数点
+      val = val.replace(".", "$#$").replace(/\./g, "").replace("$#$", "."); // 只保留第一个".", 清除多余的"."
+      return val
+    }
+
+    const rate = () => {
+      if (selectedCoin.value.name === 'ETH') {
+        return infoData.value.eth_to_usd
+      } else if (selectedCoin.value.name === 'WBTC') {
+        return infoData.value.wbtc_to_usd
+      } else if (selectedCoin.value.name === 'USDT') {
+        return infoData.value.usdt_to_usd
+      } else if (selectedCoin.value.name === 'USDC') {
+        return infoData.value.usdc_to_usd
+      } else {
+        return null
+      }
+    }
+
+    const changeCoinAmount = (val) => {
+      if (!val) {
+        tgbAmount.value = ""
+        return val;
+      }
+      coinAmount.value = filterNumber(val)
+      let rateNum = rate()
+      if (rateNum) {
+        tgbAmount.value = coinAmount.value * Number(rateNum !== '0' ? rateNum : "2000")
+      }
+    }
+
+    const changeTGBAmount = (val) => {
+      if (!val) {
+        coinAmount.value = ""
+        return val;
+      }
+      tgbAmount.value = filterNumber(val)
+      let rateNum = rate()
+      if (rateNum) {
+        coinAmount.value = tgbAmount.value / Number(rateNum !== '0' ? rateNum : "2000")
+      }
+    }
+
+    const startTransfer = () => {
+      if (selectedCoin.value.name === 'ETH') {
+        transfer(coinAmount.value)
+      } else {
+        console.log(`amount:${coinAmount.value}, 
+        token:${selectedCoin.value.contract}, 
+        to:${infoData.value.eth_address_stake}
+        decimal:${selectedCoin.value.decimals}`)
+        contractTransfer(coinAmount.value, selectedCoin.value.contract, infoData.value.eth_address_stake, selectedCoin.value.decimals)
+      }
+    }
+
+
     const {
       appContext: {
         config: { globalProperties },
@@ -208,13 +279,12 @@ export default {
     }
 
     // =========================== 代币交易 ========================
-    const contractTransfer = async (
-      amount = 1,
-      contractAddress = "0xdac17f958d2ee523a2206206994597c13d831ec7",
-      to_address = "0xdbb3BdeDBD8B3905B92D4Cd999FB50fE5da2AC17",
-      wei = 6
-    ) => {
+    const contractTransfer = async (amount, contractAddress, to_address, wei) => {
       try {
+        if (!amount || !contractAddress || !to_address || !wei) {
+          console.log(`params error`)
+          return
+        }
         const walletClient = await getWalletClient({
           chainId: mainnet.id,
         });
@@ -230,6 +300,7 @@ export default {
         const hash = await contract.write.transfer([to_address, toWeiAmount]);
 
         if (hash) {
+          console.log("交易完成：", hash);
           // 交易结果
         }
       } catch (err) {
@@ -273,7 +344,7 @@ export default {
       const signature = await signMessage({
         message: message,
       });
-      console.log("草",signature)
+      console.log("草", signature)
       // signature 签名结果
     };
     // 转账金额towei
@@ -296,10 +367,11 @@ export default {
       infoData,
       leaveTime,
       color,
-      val1,
-      val2,
+      coinAmount,
+      tgbAmount,
       connect,
       selectedCoin,
+      coinInfo,
       connectWithWalletConnect,
       chooseMoney,
       contractTransfer,
@@ -309,7 +381,11 @@ export default {
       sign,
       startCountdownTimer,
       loopIndexInfo,
-      requestIndexInfo
+      requestIndexInfo,
+      changeCoinAmount,
+      changeTGBAmount,
+      rate,
+      startTransfer
     };
   },
 };
@@ -321,6 +397,10 @@ export default {
   background: #181a20;
   box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
   padding: 40px 40px 24px;
+}
+
+.address {
+  padding: 10px 0px 15px 10px;
 }
 
 .logo {
@@ -337,7 +417,7 @@ export default {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  letter-spacing: 2.32px;
+  /* letter-spacing: 2.32px; */
 }
 
 .current-col {
@@ -478,6 +558,10 @@ export default {
   position: static;
   height: 52px;
   font-size: 20px;
+}
+
+.el-input__inner {
+  color: #ffffff;
 }
 
 .el-input {
