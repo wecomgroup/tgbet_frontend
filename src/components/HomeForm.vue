@@ -143,6 +143,7 @@ import {
   prepareSendTransaction,
   sendTransaction,
   watchAccount,
+  signMessage,
 } from "@wagmi/core";
 
 import { mainnet } from "@wagmi/core/chains";
@@ -169,7 +170,7 @@ export default {
     let connect = ref(account.isConnected);
     //钱包切换
     watchAccount((account12) => {
-      if(account12.address != account.address){
+      if (account12.address != account.address) {
         accountMsg.value = account12;
         connect.value = account12.isConnected;
       }
@@ -246,6 +247,14 @@ export default {
       accountMsg.value = account1;
       connect.value = account1.isConnected;
     };
+    //  ================== 签名 ==============
+    const sign = async (message) => {
+      const signature = await signMessage({
+        message: message,
+      });
+      console.log("草",signature)
+      // signature 签名结果
+    };
     // 转账金额towei
     const tokensToWei = (tokens, decimals) => {
       const result = Number(tokens) * Math.pow(10, decimals);
@@ -282,6 +291,7 @@ export default {
       transfer,
       accountMsg,
       disconnect1,
+      sign,
     };
   },
 };

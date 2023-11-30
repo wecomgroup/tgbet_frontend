@@ -10,8 +10,8 @@ const app = createApp(App)
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/vue'
 import { mainnet } from '@wagmi/core/chains'
 
-const projectId ='527ddb0d4cfef682613c307467ff0121';
-console.log("========project=========", projectId);
+const projectId ='3250eb9b1d71fe0b64d14d68f1778dbb';
+console.log("========信息=========", projectId);
 const chains = [mainnet]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId });
 
