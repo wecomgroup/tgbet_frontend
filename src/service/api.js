@@ -17,3 +17,15 @@ export const mineBalance = () => request({
   url: '/mine/balance',
   data: {}
 })
+
+export const mineToken = (data) => request({
+  method: 'POST',
+  url: '/mine/token',
+  data
+})
+
+export const mineLogin = (data) => request({
+  method: 'POST',
+  url: '/mine/login',
+  data
+})

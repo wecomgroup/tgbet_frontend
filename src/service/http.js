@@ -14,11 +14,11 @@ const service = axios.create({
 })
 
 service.interceptors.request.use((config) => {
-    /*if (getCookie('token')) {
-      config.headers['Authorization'] = 'Bearer ' + getCookie('token');
-    }*/
-    return config
-  },
+  if (localStorage.getItem('token')) {
+    config.headers['Authorization'] = localStorage.getItem('token')
+  }
+  return config
+},
   (error) => {
     Promise.reject(error)
   }
@@ -30,12 +30,16 @@ service.interceptors.response.use(
     return response.data
   },
   (error) => {
+    // token 失效
+    if (error.response && error.response.status === 401) {
+      localStorage.removeItem("token");
+    }
     // 请求配置发生的错误
     if (!error.response) {
       console.log(error.message)
     } else {
       let message = error.response.data.message ? error.response.data.message : error.response
-      return { code: status, message: error.response }; 
+      return { code: status, message: error.response };
     }
   }
 )

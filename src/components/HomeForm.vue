@@ -97,7 +97,7 @@ import abi from "../abi/abi";
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { disconnect } from "@wagmi/core";
 
-import { indexInfo, indexTimeline, mineBalance } from '../service/api'
+import { indexInfo, indexTimeline, mineBalance, mineToken, mineLogin } from '../service/api'
 
 
 export default {
@@ -247,7 +247,6 @@ export default {
       }
     }
 
-
     const {
       appContext: {
         config: { globalProperties },
@@ -255,9 +254,45 @@ export default {
     } = getCurrentInstance();
 
     // 链接信息getAccount
-    var account = getAccount();
-    var accountMsg = ref(account);
+    let account = getAccount();
+    let accountMsg = ref(account);
     let connect = ref(account.isConnected);
+
+    let serverSign = ref()
+
+    const getToken = async (address) => {
+      mineToken({ 'address': address }).then(response => {
+        if (response.data && response.statusCode === 200) {
+          console.log(response)
+          if (response.data.sign_data) {
+            serverSign.value = response.data.sign_data
+            login(response.data.sign_data)
+          } else {
+            console.log('fetch server sign data error')
+          }
+        }
+      }).catch(() => {
+        console.log('fetch server sign data error')
+      })
+    }
+
+    const login = async (signData) => {
+      let signature = await sign(signData)
+      console.log(signature)
+      let param = {
+        'sign_data': signData,
+        'signature': signature
+      }
+
+      mineLogin(param).then(response => {
+        if (response.data && response.statusCode === 200) {
+          console.log(response)
+          localStorage.setItem('token', response.data.token)
+        }
+      }).catch(() => {
+        console.log('login error')
+      })
+    }
 
     //钱包切换
 
@@ -275,6 +310,11 @@ export default {
         const account1 = getAccount();
         accountMsg.value = account1;
         connect.value = account1.isConnected;
+
+        if (account1.isConnected && !localStorage.getItem('token')) {
+          console.log('account connected!!!')
+          getToken(account.address)
+        }
       });
     }
 
@@ -335,16 +375,16 @@ export default {
     // ================== 退出 ===========
     const disconnect1 = () => {
       disconnect();
+      localStorage.removeItem("token")
       const account1 = getAccount();
       accountMsg.value = account1;
       connect.value = account1.isConnected;
     };
     //  ================== 签名 ==============
     const sign = async (message) => {
-      const signature = await signMessage({
+      return await signMessage({
         message: message,
       });
-      console.log("草", signature)
       // signature 签名结果
     };
     // 转账金额towei
@@ -356,6 +396,8 @@ export default {
     const connectWithWalletConnect = () => {
       if (globalProperties.$web3modal) {
         globalProperties.$web3modal.open();
+
+
       }
     };
 
@@ -372,6 +414,7 @@ export default {
       connect,
       selectedCoin,
       coinInfo,
+      serverSign,
       connectWithWalletConnect,
       chooseMoney,
       contractTransfer,
@@ -385,7 +428,9 @@ export default {
       changeCoinAmount,
       changeTGBAmount,
       rate,
-      startTransfer
+      startTransfer,
+      getToken,
+      login
     };
   },
 };
