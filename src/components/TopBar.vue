@@ -93,7 +93,7 @@ export default {
                 if (window.innerWidth <= 1000) {
                     this.innerVisible = false;
                 }
-
+                sessionStorage.setItem('pageName', 'home')
                 const targetElement = document.getElementById(sectionId);
                 const fixedElementHeight = window.innerWidth <= 1000 ? 80 : 104;
 

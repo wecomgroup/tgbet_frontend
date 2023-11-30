@@ -2,7 +2,7 @@
 <template>
     <div class="preSale" id="preSale">
         <img alt="preSaleTitle" class="preSaleTitleImg" src="../assets/PreSaleTitle.png">
-        <div class="desc">在我们预售期间，你将永远无法以比目前价格更优惠的价格获得 $IBit</div>
+        <div class="desc">在我们预售期间，你将永远无法以比目前价格更优惠的价格获得 $TGB</div>
         <el-row align="middle" :gutter='40'>
             <el-col :xs="24" :sm="24" :md="6" v-for="(item, index) in preSaleDescList" :key="index">
                 <div class='descItem'>
@@ -33,12 +33,12 @@ export default {
                 src: specialRewards
             }, {
                 title: '最优惠的价格',
-                desc: '在预售期间购买$IBit 永远不会有比现在更好的时机',
+                desc: '在预售期间购买$TGB 永远不会有比现在更好的时机',
                 src: preferentialPrice
             },
             {
                 title: '成为豪客',
-                desc: '在$IBit预售中投资5K+美元，以获得独家NFT和发布后的奖励',
+                desc: '在$TGB预售中投资5K+美元，以获得独家NFT和发布后的奖励',
                 src: plutocrat
             }, {
                 title: '立即开始赚钱',

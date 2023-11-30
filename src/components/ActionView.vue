@@ -10,7 +10,7 @@
         <div class="cashback">
             <p class="cashbackTitle">25%</p>
             <p class="cashbackSubTitle">返现</p>
-            <p class="cashbackDesc">在使用 $ibit 代币下注时，所有损失都可获得25%的返现</p>
+            <p class="cashbackDesc">在使用 $TGB 代币下注时，所有损失都可获得25%的返现</p>
         </div>
     </div>
 </template>

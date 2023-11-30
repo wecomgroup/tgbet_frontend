@@ -1,6 +1,8 @@
 import axios from 'axios'
 
-const appPath = process.env.VUE_APP_PATH === '/' ? '' : process.env.VUE_APP_PATH
+
+const appPath = 'https://pwa.tg.bet/'
+
 
 const service = axios.create({
   timeout: 60000,
