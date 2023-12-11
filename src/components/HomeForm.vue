@@ -181,7 +181,12 @@ export default {
             ...proxyContract,
             functionName: 'usdtBuyHelper',
             args: [1],
-          }
+          },
+          {
+            ...proxyContract,
+            functionName: 'USDTInterface',
+          },
+
         ]
       })
       let resultData = {
@@ -195,6 +200,7 @@ export default {
         maxTokensToBuy: data[7].result,         //[7]
         paymentWallet: data[8].result,          //[8]
         stakingManagerInterface: data[9].result,//[9]
+        USDTInterface: data[10].result
       }
       let info = {
         baseDecimals: null,
@@ -204,7 +210,8 @@ export default {
         eth_to_usd: null,
         usdt_to_usd: 1,
         maxTokensToBuy: resultData.maxTokensToBuy,
-        paymentWallet: resultData.paymentWallet
+        paymentWallet: resultData.paymentWallet,
+        USDTInterface: resultData.USDTInterface
       }
 
       //leaveTime
@@ -291,7 +298,7 @@ export default {
       },
     } = getCurrentInstance();
 
-    
+
     // 链接信息getAccount
     let account = getAccount();
     let accountMsg = ref(account);
@@ -384,7 +391,7 @@ export default {
     // 4 USDT-BUY-STAKING
     const buyToken = () => {
 
-      if(Number(tgbAmount.value) < 100) {
+      if (Number(tgbAmount.value) < 100) {
         return
       }
 
@@ -397,7 +404,7 @@ export default {
 
     // user click buy and staking
     const buyTokenAndStaking = () => {
-      if(Number(tgbAmount.value) < 100) {
+      if (Number(tgbAmount.value) < 100) {
         return
       }
       if (selectedCoin.value.name === 'ETH') {
@@ -407,10 +414,52 @@ export default {
       }
     }
 
+    const getMyWalletClient = async () => {
+      return await getWalletClient({
+        chainId: sepolia.id,
+      });
+    }
 
     const getInviteCode = (inviteCode) => {
       let bytesArr = stringToBytes(inviteCode, { size: 32 })
       return '0x' + Buffer.from(bytesArr, 'utf8').toString('hex');
+    }
+
+    //检查授权额度  未授权 0 或者 授权额度小于支出数
+    const checkApprove = async () => {
+
+      const usdtContract = {
+        address: infoData.value.USDTInterface,
+        abi: erc20ABI,
+      }
+      let allowanceData = await readContract({
+        ...usdtContract,
+        functionName: "allowance",
+        args: [accountMsg.value.address, proxyContract.address]
+      })
+      console.log(`usdt allowanceData: ${allowanceData}`)
+
+      return allowanceData
+    }
+
+
+    const approveUSDT = async () => {
+
+      const usdtContract = {
+        address: infoData.value.USDTInterface,
+        abi: erc20ABI,
+      }
+      const walletClient = await getMyWalletClient()
+
+      let hash = await walletClient.writeContract({
+        ...usdtContract,
+        functionName: "approve",
+        args: [proxyContract.address, MAX_ALLOWANCE],
+        account
+      })
+      await hash()
+      console.log('usdt approve tx hash' + hash)
+      return hash
     }
 
     //ETH 购买
@@ -447,6 +496,20 @@ export default {
           console.log('ETH PAY ==> ' + hash)
 
         } else if (buyType === 3 || buyType === 4) {
+
+          if (!amount || amount < 100) {
+            ElMessage.error(`TGB购买需大于100`)
+            return
+          }
+          let needAllowAmount = parseEther(Math.floor(amount).toString())
+
+          let allowanceData = await checkApprove()
+
+          if (BigInt(allowanceData) < needAllowAmount) {
+            ElMessage.error(`需要授权`)
+            await approveUSDT()
+            return
+          }
           let usdtPayAmount = 0
           usdtPayAmount = await readContract({
             ...proxyContract,
@@ -524,7 +587,10 @@ export default {
       getInviteCode,
       buyToken,
       buyTokenAndStaking,
-      startBuyToken
+      startBuyToken,
+      checkApprove,
+      approveUSDT,
+      getMyWalletClient,
     };
   },
 };

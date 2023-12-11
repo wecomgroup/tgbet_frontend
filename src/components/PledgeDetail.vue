@@ -115,10 +115,12 @@ import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "v
 import { ElMessage } from 'element-plus'
 
 import {
+    erc20ABI,
     disconnect,
     fetchBalance,
     getAccount,
     getContract,
+    readContract,
     getWalletClient,
     prepareSendTransaction,
     sendTransaction,
@@ -139,6 +141,7 @@ export default {
         onMounted(() => {
             stakeInfo()
         })
+        const MAX_ALLOWANCE = 115792089237316195423570985008687907853269984665640564039457584007913129639935n;
 
         const {
             appContext: {
@@ -146,10 +149,6 @@ export default {
             },
         } = getCurrentInstance();
 
-        // ElMessage({
-        //     message: 'Congrats, this is a success message.',
-        //     type: 'success',
-        // })
         // 链接信息getAccount
         let account = getAccount();
         let accountMsg = ref(account);
@@ -233,14 +232,63 @@ export default {
             })
             console.log('getMyStakeReward tx hash' + hash)
         }
-        const stakeToken = async () => {
-            let amount = stakeAmount.value
 
-            if (!amount || amount < 100) {
+        //检查授权额度  未授权 0 或者 授权额度小于支出数
+        const checkApprove = async () => {
+            
+            const tgbContract = {
+                address: infoData.value.stakeTokenAddress,
+                abi: erc20ABI,
+            }
+            let allowanceData = await readContract({
+                ...tgbContract,
+                functionName: "allowance",
+                args: [accountMsg.value.address, stakeContract.address]
+            })
+            console.log(`allowanceData: ${allowanceData}`)
+
+            return allowanceData
+        }
+        
+        const approveTgb = async () => {
+         
+            const tgbContract = {
+                address: infoData.value.stakeTokenAddress,
+                abi: erc20ABI,
+            }
+            const walletClient = await getMyWalletClient()
+
+            let hash = await walletClient.writeContract({
+                ...tgbContract,
+                functionName: "approve",
+                args: [stakeContract.address, MAX_ALLOWANCE],
+                account
+            })
+            await hash()
+            console.log('approve tx hash' + hash)
+            return hash
+        }
+
+
+
+        const stakeToken = async () => {
+
+            if (!stakeAmount.value || stakeAmount.value < 100) {
                 ElMessage.error(`质押数量需大于100`)
                 return
             }
-            amount = Math.floor(amount).toFixed(0)
+
+            let allowanceData = await checkApprove()
+
+            let amount = parseEther(Math.floor(stakeAmount.value).toString())
+            console.log(`allowanceData: ${allowanceData}`)
+
+            if (BigInt(allowanceData) < amount) {
+                ElMessage.error(`需要授权`)
+                await approveTgb()
+                return
+            }
+
             const walletClient = await getMyWalletClient()
 
             let hash = await walletClient.writeContract({
@@ -254,9 +302,9 @@ export default {
 
         const unStakeToken = async () => {
 
-            let diffDays = Math.floor((infoData.value.launchTime*1000  - new Date().getTime())/1000/24/3600)
+            let diffDays = Math.floor((infoData.value.launchTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
 
-            if(diffDays) {
+            if (diffDays) {
                 ElMessage.error(`距离解除质押还有 ${diffDays} 天`)
                 return
             }
@@ -360,7 +408,7 @@ export default {
             let launchTime = Number(resultData.launchTime)
 
             //剩余质押天数
-            let RemainingStakeDays = (Math.floor(launchTime*1000  - new Date().getTime()) / 1000 / 3600 / 24) + 185
+            let RemainingStakeDays = (Math.floor(launchTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24) + 185
 
             console.log(`$tgb launchTime : ${launchTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
 
@@ -386,7 +434,8 @@ export default {
 
 
             let info = {
-                launchTime:launchTime,
+                stakeTokenAddress: resultData.stakeToken,
+                launchTime: launchTime,
                 apy: apy,
                 stateRateStr: stateRateStr,
                 totalReward: parseInt(totalReward).toLocaleString(),
@@ -421,7 +470,9 @@ export default {
             connectWithWalletConnect,
             getMyStakeReward,
             stakeToken,
-            unStakeToken
+            unStakeToken,
+            checkApprove,
+            approveTgb
 
         }
     }
