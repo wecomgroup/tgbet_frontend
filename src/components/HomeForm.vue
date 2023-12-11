@@ -85,6 +85,7 @@
 <script>
 
 import {
+  erc20ABI,
   getAccount,
   getContract,
   getWalletClient,
