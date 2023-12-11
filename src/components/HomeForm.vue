@@ -117,6 +117,8 @@ export default {
       abi: proxyABI,
     }
 
+    const usdtAddress = '0x7169D38820dfd117C3FA1f22a697dBA58d90BA06'
+
     const countdownTimer = ref()
     const indexTimer = ref()
     let infoData = ref({})
@@ -204,6 +206,7 @@ export default {
         USDTInterface: data[10].result
       }
       let info = {
+        saleToken:resultData.saleToken,
         baseDecimals: null,
         saleGoal: 5000000,
         tokenPrice: null,
@@ -212,8 +215,8 @@ export default {
         usdt_to_usd: 1,
         maxTokensToBuy: resultData.maxTokensToBuy,
         paymentWallet: resultData.paymentWallet,
-        USDTInterface: resultData.USDTInterface
       }
+
 
       //leaveTime
       let startTime = Number(resultData.startTime * 1000n)
@@ -430,15 +433,19 @@ export default {
     const checkApprove = async () => {
 
       const usdtContract = {
-        address: infoData.value.USDTInterface,
+        address: usdtAddress,
         abi: erc20ABI,
       }
+      console.log(`usdt-checkApprove ==>  
+      account address:${accountMsg.value.address}  
+      proxyAddress:${proxyContract.address} 
+      usdtAddress:${usdtAddress}`)
       let allowanceData = await readContract({
         ...usdtContract,
         functionName: "allowance",
         args: [accountMsg.value.address, proxyContract.address]
       })
-      console.log(`usdt allowanceData: ${allowanceData}`)
+     
 
       return allowanceData
     }
@@ -446,8 +453,10 @@ export default {
 
     const approveUSDT = async () => {
 
+      const MAX_ALLOWANCE = 115792089237316195423570985008687907853269984665640564039457584007913129639935n;
+
       const usdtContract = {
-        address: infoData.value.USDTInterface,
+        address: usdtAddress,
         abi: erc20ABI,
       }
       const walletClient = await getMyWalletClient()
@@ -458,7 +467,6 @@ export default {
         args: [proxyContract.address, MAX_ALLOWANCE],
         account
       })
-      await hash()
       console.log('usdt approve tx hash' + hash)
       return hash
     }
@@ -520,12 +528,12 @@ export default {
           usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1.05
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
-
+          // amount = parseEther(Math.floor(amount).toString())
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
           let hash = await walletClient.writeContract({
             ...proxyContract,
             functionName: functionName,
-            args: [BigInt(amount), inviteCodeParam],
+            args: [BigInt(parseInt(amount)), inviteCodeParam],
             account
           })
 

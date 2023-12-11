@@ -264,7 +264,6 @@ export default {
                 args: [stakeContract.address, MAX_ALLOWANCE],
                 account
             })
-            await hash()
             console.log('approve tx hash' + hash)
             return hash
         }
