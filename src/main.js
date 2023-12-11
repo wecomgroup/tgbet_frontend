@@ -4,6 +4,7 @@ import 'element-plus/dist/index.css'
 import App from './App.vue'
 import i18n from '../src/util/lang/index'
 import '../src/assets/style/reset.css'
+import Cookies from 'js-cookie'
 
 const app = createApp(App)
 
@@ -14,6 +15,13 @@ const projectId ='3250eb9b1d71fe0b64d14d68f1778dbb';
 console.log("========信息=========", projectId);
 const chains = [sepolia]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId });
+
+//inviteCode
+let invite_code = Cookies.get('tgbet.invite_code');
+console.log(`invite_code => ${invite_code}`)
+if(invite_code) {
+    localStorage.setItem("inviteCode",invite_code)
+}
 
 // 3. Create modal
 var web3modal = createWeb3Modal({defaultChain:sepolia, wagmiConfig, projectId, chains });

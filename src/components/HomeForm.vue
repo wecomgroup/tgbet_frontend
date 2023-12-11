@@ -434,7 +434,8 @@ export default {
       });
     }
 
-    const getInviteCode = (inviteCode) => {
+    const getInviteCode = () => {
+      let inviteCode = localStorage.getItem('inviteCode') || ''
       let bytesArr = stringToBytes(inviteCode, { size: 32 })
       return '0x' + Buffer.from(bytesArr, 'utf8').toString('hex');
     }
@@ -492,7 +493,7 @@ export default {
           chainId: sepolia.id,
         });
 
-        const inviteCodeParam = getInviteCode(inviteCode.value || "");
+        const inviteCodeParam = getInviteCode();
 
         if (buyType === 1 || buyType === 2) {
           let ethPayAmount = await readContract({
