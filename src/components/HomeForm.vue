@@ -2,7 +2,7 @@
   <div class="form-wrapper">
     <el-row>
       <el-col :span="12">
-        <div class="grid-content">$ {{ infoData.saleAmount }}</div>
+        <div class="grid-content">$ {{ infoData.saleAmountStr }}</div>
       </el-col>
       <el-col :span="12">
         <img src="../assets/logo.png" class="logo" />
@@ -32,13 +32,24 @@
       <el-col :span="6"><span class="time-btn">{{ timeState.minute }} M</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.second }} S</span></el-col>
     </el-row>
+    <el-row v-if="connect" style="margin-top: 20px; ">
+      <el-col :span="12">
+        <p class="tips">钱包 </p>
+      </el-col>
+      <el-col :span="12" style="text-align:right;">
+        <p class="tips">{{ filterAddress(accountMsg.address) }} <span
+            style="margin-left: 10px;color: #c5ac79;"
+            @click="disconnect1">退出</span>
+        </p>
+      </el-col>
+    </el-row>
     <el-row :gutter="20">
-      <el-col :span="12" style="margin-top: 20px;">
+      <el-col :span="12" >
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
       </el-col>
-      <el-col :span="12" style="margin-top: 20px;">
+      <el-col :span="12" >
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
           <img src="../assets/Ellipse1.png" class="icon" />USDT
         </div>
@@ -53,19 +64,12 @@
         <p class="tips">你将收到的$TGB</p>
         <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount"></el-input>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="12">
+      <!-- <el-col :xs="24" :sm="24" :lg="12">
         <p class="tips">邀请码</p>
         <el-input placeholder="" class="f-ipt" v-model="inviteCode"></el-input>
-      </el-col>
+      </el-col> -->
     </el-row>
-    <el-row v-if="connect">
-      <el-col :xs="24" :sm="24" :lg="12">
-        <p class="tips">{{ accountMsg.address }} <span
-            style="margin-left: 10px;  margin-right: 10px;color: #c5ac79; text-align: right;"
-            @click="disconnect1">退出</span>
-        </p>
-      </el-col>
-    </el-row>
+   
     <el-row>
       <el-col :span="24">
         <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
@@ -215,6 +219,7 @@ export default {
         usdt_to_usd: 1,
         maxTokensToBuy: resultData.maxTokensToBuy,
         paymentWallet: resultData.paymentWallet,
+        saleAmountStr:''
       }
 
 
@@ -240,6 +245,7 @@ export default {
       //saleProress
       info.saleProress = (info.saleAmount / info.saleGoal * 100).toFixed(4)
 
+      info.saleAmountStr = parseInt(info.saleAmount).toLocaleString()
       infoData.value = info
     }
 
@@ -372,7 +378,7 @@ export default {
       coinAmount.value = filterNumber(val)
       let rateNum = rate()
       if (rateNum) {
-        tgbAmount.value = coinAmount.value * Number(rateNum ? rateNum : "0") / infoData.value.tokenPrice
+        tgbAmount.value = parseInt(coinAmount.value * Number(rateNum ? rateNum : "0") / infoData.value.tokenPrice)
       }
     }
 
@@ -381,7 +387,7 @@ export default {
         coinAmount.value = ""
         return val;
       }
-      tgbAmount.value = filterNumber(val)
+      tgbAmount.value = parseInt(filterNumber(val))
       let rateNum = rate()
       if (rateNum) {
         coinAmount.value = (tgbAmount.value * infoData.value.tokenPrice) / Number(rateNum ? rateNum : "0")
@@ -416,6 +422,10 @@ export default {
       } else {
         startBuyToken(tgbAmount.value, 4)
       }
+    }
+
+    const filterAddress = (address)=> {
+     return  address.slice(0,6) + "..." + address.slice(-4);
     }
 
     const getMyWalletClient = async () => {
@@ -482,7 +492,7 @@ export default {
           chainId: sepolia.id,
         });
 
-        const inviteCodeParam = getInviteCode(inviteCode.value);
+        const inviteCodeParam = getInviteCode(inviteCode.value || "");
 
         if (buyType === 1 || buyType === 2) {
           let ethPayAmount = await readContract({
@@ -600,6 +610,7 @@ export default {
       checkApprove,
       approveUSDT,
       getMyWalletClient,
+      filterAddress,
     };
   },
 };
@@ -656,7 +667,7 @@ export default {
 .tips {
   font-size: 16px;
   font-weight: 600;
-  padding: 20px 0;
+  padding: 10px 0;
 }
 
 .tips>.max-value {
@@ -673,7 +684,7 @@ export default {
   text-align: center;
   font-size: 20px;
   font-style: normal;
-  font-weight: 600;
+  /* font-weight: 400; */
   line-height: 40px;
   height: 40px;
   width: 100%;
@@ -717,6 +728,7 @@ export default {
 }
 
 .stake-buy-btn {
+  color: rgba(255, 255, 255, 0.6);
   margin-top: 15px;
   /* width: 100%; */
   line-height: 30px;
