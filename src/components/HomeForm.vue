@@ -2,7 +2,7 @@
   <div class="form-wrapper">
     <el-row>
       <el-col :span="12">
-        <div class="grid-content">$ {{ infoData.prize_pool }}</div>
+        <div class="grid-content">$ {{ infoData.saleAmount }}</div>
       </el-col>
       <el-col :span="12">
         <img src="../assets/logo.png" class="logo" />
@@ -11,16 +11,16 @@
     <el-row>
       <el-col :span="12" class="current-col">
         <p>当前价格</p>
-        <p>$ {{ infoData.current_price }}</p>
+        <p>$ {{ infoData.tokenPrice }}</p>
       </el-col>
       <el-col :span="12" class="current-col">
         <p>目标达成</p>
-        <p>$ {{ infoData.final_goal }}</p>
+        <p>$ {{ infoData.saleGoal }}</p>
       </el-col>
     </el-row>
     <el-row>
       <el-col :span="24">
-        <el-progress :text-inside="true" :stroke-width="28" :percentage="infoData.process" :color="color" />
+        <el-progress :text-inside="true" :stroke-width="28" :percentage="infoData.saleProress" :color="color" />
       </el-col>
     </el-row>
     <el-row>
@@ -37,16 +37,10 @@
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
-          <img src="../assets/Ellipse1.png" class="icon" />USDC
-        </div>
       </el-col>
       <el-col :span="12" style="margin-top: 20px;">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
           <img src="../assets/Ellipse1.png" class="icon" />USDT
-        </div>
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'WBTC' }" @click="chooseMoney('WBTC')">
-          <img src="../assets/Ellipse1.png" class="icon" />WBTC
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
@@ -59,10 +53,15 @@
         <p class="tips">你将收到的$TGB</p>
         <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount"></el-input>
       </el-col>
+      <el-col :xs="24" :sm="24" :lg="12">
+        <p class="tips">邀请码</p>
+        <el-input placeholder="" class="f-ipt" v-model="inviteCode"></el-input>
+      </el-col>
     </el-row>
     <el-row v-if="connect">
       <el-col :xs="24" :sm="24" :lg="12">
-        <p class="tips">{{ accountMsg.address }} <span style="margin-left: 10px;  color: #c5ac79; text-align: right;"
+        <p class="tips">{{ accountMsg.address }} <span
+            style="margin-left: 10px;  margin-right: 10px;color: #c5ac79; text-align: right;"
             @click="disconnect1">退出</span>
         </p>
       </el-col>
@@ -70,10 +69,13 @@
     <el-row>
       <el-col :span="24">
         <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
-          链接钱包
+          连接钱包
         </div>
-        <div v-if="connect" class="connect-btn" @click="startTransfer()">
-          转账
+        <div v-if="connect" class="connect-btn" @click="buyToken">
+          购买并质押
+        </div>
+        <div v-if="connect" class="stake-buy-btn" @click="buyTokenAndStaking">
+          只想购买而不质押
         </div>
       </el-col>
       <el-col :span="24" class="gray-tips">当前质押年化收益率：{{ infoData.apy }}%</el-col>
@@ -86,23 +88,34 @@ import {
   getAccount,
   getContract,
   getWalletClient,
+  fetchBalance,
   prepareSendTransaction,
   sendTransaction,
   watchAccount,
   signMessage,
+  getNetwork,
+  multicall,
+  sepolia
 } from "@wagmi/core";
 
+import { ElMessage } from 'element-plus'
+import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { mainnet } from "@wagmi/core/chains";
-import abi from "../abi/abi";
+import proxyABI from "@/abi/proxyAbi";
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
-import { disconnect } from "@wagmi/core";
-
-import { indexInfo, indexTimeline, mineBalance, mineToken, mineLogin } from '../service/api'
-
+import { disconnect, readContract } from "@wagmi/core";
+import { stringToBytes } from 'viem'
+import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 export default {
 
   setup: () => {
+
+    const proxyContract = {
+      address: '0x79db44ea37184a73afb1b7bb4f3176dd491f2aa5',
+      abi: proxyABI,
+    }
+
     const countdownTimer = ref()
     const indexTimer = ref()
     let infoData = ref({})
@@ -113,6 +126,112 @@ export default {
       minute: '00',
       second: '00',
     })
+
+    const homeInfo = async () => {
+
+      const data = await multicall({
+        contracts: [
+          {
+            ...proxyContract,
+            functionName: 'baseDecimals',
+          },
+          {
+            ...proxyContract,
+            functionName: 'startTime',
+          },
+          {
+            ...proxyContract,
+            functionName: 'endTime',
+          },
+          {
+            ...proxyContract,
+            functionName: 'tokenPrice',
+          },
+          {
+            ...proxyContract,
+            functionName: 'getLatestPrice',
+          },
+          {
+            ...proxyContract,
+            functionName: 'saleToken',
+          },
+          {
+            ...proxyContract,
+            functionName: 'totalTokensSold',
+          },
+
+          {
+            ...proxyContract,
+            functionName: 'maxTokensToBuy',
+          },
+          {
+            ...proxyContract,
+            functionName: 'paymentWallet',
+          },
+          {
+            ...proxyContract,
+            functionName: 'stakingManagerInterface',
+          },
+          {
+            ...proxyContract,
+            functionName: 'ethBuyHelper',
+            args: [1],
+          },
+          {
+            ...proxyContract,
+            functionName: 'usdtBuyHelper',
+            args: [1],
+          }
+        ]
+      })
+      let resultData = {
+        baseDecimals: data[0].result,           //[0]
+        startTime: data[1].result,              //[1]
+        endTime: data[2].result,                //[2]
+        tokenPrice: data[3].result,             //[3]
+        getLatestPrice: data[4].result,         //[4]
+        saleToken: data[5].result,              //[5]
+        totalTokensSold: data[6].result,        //[6]
+        maxTokensToBuy: data[7].result,         //[7]
+        paymentWallet: data[8].result,          //[8]
+        stakingManagerInterface: data[9].result,//[9]
+      }
+      let info = {
+        baseDecimals: null,
+        saleGoal: 5000000,
+        tokenPrice: null,
+        saleAmount: null,
+        eth_to_usd: null,
+        usdt_to_usd: 1,
+        maxTokensToBuy: resultData.maxTokensToBuy,
+        paymentWallet: resultData.paymentWallet
+      }
+
+      //leaveTime
+      let startTime = Number(resultData.startTime * 1000n)
+      console.log(startTime)
+      let tempTime = (Math.ceil((+new Date() - startTime) / (7 * 864 * 1e5)) * (7 * 864 * 1e5) + startTime) - new Date().getTime();
+      leaveTime = tempTime / 1000
+
+
+      //TGB Price
+      info.baseDecimals = resultData.baseDecimals.toString().length - 1
+      info.tokenPrice = formatUnits(resultData.tokenPrice, info.baseDecimals)
+      console.log(`tokenPrice: ${info.tokenPrice}`)
+
+      //ethPrice
+      info.eth_to_usd = formatEther(resultData.getLatestPrice)
+      console.log(`ethPrice: ${info.eth_to_usd}, usdtPrice: ${info.usdt_to_usd}`)
+
+      //saleAmount
+      info.saleAmount = (info.tokenPrice * Number(resultData.totalTokensSold))
+
+      //saleProress
+      info.saleProress = (info.saleAmount / info.saleGoal * 100).toFixed(4)
+
+      infoData.value = info
+    }
+
 
     const startCountdownTimer = () => {
       clearInterval(countdownTimer.value)
@@ -137,7 +256,8 @@ export default {
     const loopIndexInfo = () => {
       clearInterval(indexTimer.value)
       indexTimer.value = setInterval(() => {
-        requestIndexInfo()
+
+
       }, 15000);
     }
 
@@ -157,28 +277,54 @@ export default {
     };
 
     onMounted(() => {
-      requestIndexInfo()
-      loopIndexInfo()
       startCountdownTimer()
+      homeInfo()
     })
 
     onBeforeUnmount(() => {
       clearTimer()
     })
 
+    const {
+      appContext: {
+        config: { globalProperties },
+      },
+    } = getCurrentInstance();
+
+    
+    // 链接信息getAccount
+    let account = getAccount();
+    let accountMsg = ref(account);
+    let connect = ref(account.isConnected);
+
+    //钱包切换
+    watchAccount((changedAccount) => {
+      if (changedAccount.address != account.address) {
+        accountMsg.value = changedAccount;
+        connect.value = changedAccount.isConnected;
+      }
+    });
+
+    if (globalProperties.$web3modal) {
+      globalProperties.$web3modal.subscribeState((res) => {
+        console.log("进入钱包状态", res);
+        const account1 = getAccount();
+        accountMsg.value = account1;
+        connect.value = account1.isConnected;
+      });
+    }
 
     //代币选择  //ETH USDT USDC WBTC
     const coinInfo = {
       ETH: { "contract": "", decimals: 18, name: "ETH" },
       USDT: { "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7", decimals: 6, name: "USDT" },
-      USDC: { "contract": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48", decimals: 6, name: "USDC" },
-      WBTC: { "contract": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599", decimals: 8, name: "WBTC" },
     }
 
     let color = ref("#C5AC79");
     let coinAmount = ref();
     let tgbAmount = ref();
     let selectedCoin = ref({});
+    let inviteCode = ref()
 
     selectedCoin.value = coinInfo.ETH
     const chooseMoney = (value) => {
@@ -200,12 +346,8 @@ export default {
     const rate = () => {
       if (selectedCoin.value.name === 'ETH') {
         return infoData.value.eth_to_usd
-      } else if (selectedCoin.value.name === 'WBTC') {
-        return infoData.value.wbtc_to_usd
       } else if (selectedCoin.value.name === 'USDT') {
         return infoData.value.usdt_to_usd
-      } else if (selectedCoin.value.name === 'USDC') {
-        return infoData.value.usdc_to_usd
       } else {
         return null
       }
@@ -219,7 +361,7 @@ export default {
       coinAmount.value = filterNumber(val)
       let rateNum = rate()
       if (rateNum) {
-        tgbAmount.value = coinAmount.value * Number(rateNum !== '0' ? rateNum : "2000")
+        tgbAmount.value = coinAmount.value * Number(rateNum ? rateNum : "0") / infoData.value.tokenPrice
       }
     }
 
@@ -231,151 +373,112 @@ export default {
       tgbAmount.value = filterNumber(val)
       let rateNum = rate()
       if (rateNum) {
-        coinAmount.value = tgbAmount.value / Number(rateNum !== '0' ? rateNum : "2000")
+        coinAmount.value = (tgbAmount.value * infoData.value.tokenPrice) / Number(rateNum ? rateNum : "0")
       }
     }
 
-    const startTransfer = () => {
+    // user click buy 
+    // 1 ETH-BUY  
+    // 2 ETH-BUY-STAKING  
+    // 3 USDT-BUY 
+    // 4 USDT-BUY-STAKING
+    const buyToken = () => {
+
+      if(Number(tgbAmount.value) < 100) {
+        return
+      }
+
       if (selectedCoin.value.name === 'ETH') {
-        transfer(coinAmount.value)
+        startBuyToken(tgbAmount.value, 1)
       } else {
-        console.log(`amount:${coinAmount.value}, 
-        token:${selectedCoin.value.contract}, 
-        to:${infoData.value.eth_address_stake}
-        decimal:${selectedCoin.value.decimals}`)
-        contractTransfer(coinAmount.value, selectedCoin.value.contract, infoData.value.eth_address_stake, selectedCoin.value.decimals)
+        startBuyToken(tgbAmount.value, 3)
       }
     }
 
-    const {
-      appContext: {
-        config: { globalProperties },
-      },
-    } = getCurrentInstance();
-
-    // 链接信息getAccount
-    let account = getAccount();
-    let accountMsg = ref(account);
-    let connect = ref(account.isConnected);
-
-    let serverSign = ref()
-
-    const getToken = async (address) => {
-      mineToken({ 'address': address }).then(response => {
-        if (response.data && response.statusCode === 200) {
-          console.log(response)
-          if (response.data.sign_data) {
-            serverSign.value = response.data.sign_data
-            login(response.data.sign_data)
-          } else {
-            console.log('fetch server sign data error')
-          }
-        }
-      }).catch(() => {
-        console.log('fetch server sign data error')
-      })
-    }
-
-    const login = async (signData) => {
-      let signature = await sign(signData)
-      console.log(signature)
-      let param = {
-        'sign_data': signData,
-        'signature': signature
+    // user click buy and staking
+    const buyTokenAndStaking = () => {
+      if(Number(tgbAmount.value) < 100) {
+        return
       }
-
-      mineLogin(param).then(response => {
-        if (response.data && response.statusCode === 200) {
-          console.log(response)
-          localStorage.setItem('token', response.data.token)
-        }
-      }).catch(() => {
-        console.log('login error')
-      })
-    }
-
-    //钱包切换
-
-    watchAccount((changedAccount) => {
-      if (changedAccount.address != account.address) {
-        accountMsg.value = changedAccount;
-        connect.value = changedAccount.isConnected;
+      if (selectedCoin.value.name === 'ETH') {
+        startBuyToken(tgbAmount.value, 2)
+      } else {
+        startBuyToken(tgbAmount.value, 4)
       }
-    });
-
-    // 钱包监听状态是否链接什么的 懂吧
-    if (globalProperties.$web3modal) {
-      globalProperties.$web3modal.subscribeState((res) => {
-        console.log("进入钱包状态", res);
-        const account1 = getAccount();
-        accountMsg.value = account1;
-        connect.value = account1.isConnected;
-
-        if (account1.isConnected && !localStorage.getItem('token')) {
-          console.log('account connected!!!')
-          getToken(account.address)
-        }
-      });
     }
 
-    // =========================== 代币交易 ========================
-    const contractTransfer = async (amount, contractAddress, to_address, wei) => {
+
+    const getInviteCode = (inviteCode) => {
+      let bytesArr = stringToBytes(inviteCode, { size: 32 })
+      return '0x' + Buffer.from(bytesArr, 'utf8').toString('hex');
+    }
+
+    //ETH 购买
+    const startBuyToken = async (amount, buyType) => {
       try {
-        if (!amount || !contractAddress || !to_address || !wei) {
+        if (!amount) {
           console.log(`params error`)
           return
         }
         const walletClient = await getWalletClient({
-          chainId: mainnet.id,
-        });
-        // 合约方法
-        const contract = getContract({
-          address: contractAddress,
-          abi: abi,
-          walletClient,
+          chainId: sepolia.id,
         });
 
-        var toWeiAmount = tokensToWei(amount, wei);
-        // ERC20转账
-        const hash = await contract.write.transfer([to_address, toWeiAmount]);
+        const inviteCodeParam = getInviteCode(inviteCode.value);
 
-        if (hash) {
-          console.log("交易完成：", hash);
-          // 交易结果
-        }
+        if (buyType === 1 || buyType === 2) {
+          let ethPayAmount = await readContract({
+            ...proxyContract,
+            functionName: 'ethBuyHelper',
+            args: [amount]
+          })
+          console.log(ethPayAmount)
+          ethPayAmount = formatUnits(Number(ethPayAmount), "18") * 1.05
+          console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
+
+          let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
+          let hash = await walletClient.writeContract({
+            ...proxyContract,
+            functionName: functionName,
+            args: [BigInt(amount), inviteCodeParam],
+            value: parseEther(ethPayAmount.toString()),
+            account
+          })
+          console.log('ETH PAY ==> ' + hash)
+
+        } else if (buyType === 3 || buyType === 4) {
+          let usdtPayAmount = 0
+          usdtPayAmount = await readContract({
+            ...proxyContract,
+            functionName: 'usdtBuyHelper',
+            args: [amount]
+          })
+          usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1.05
+
+          console.log(`USDT PAY Amount: ${usdtPayAmount} `)
+
+          let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
+          let hash = await walletClient.writeContract({
+            ...proxyContract,
+            functionName: functionName,
+            args: [BigInt(amount), inviteCodeParam],
+            account
+          })
+
+          console.log('USDT PAY ==> ' + hash)
+
+        } else { console.log('param error') }
       } catch (err) {
         const metamaskError = err?.message?.split(".")[0] || "Unknown error";
         const message = err?.message ? metamaskError : err;
-        console.log("钱包错误信息", message);
+        console.log("钱包错误信息", err, message, metamaskError);
         //   弹出这个信息
       }
     };
 
-    //============================== 主流币交易 ============================
-    const transfer = async (
-      amount,
-      to_address = "0xdbb3BdeDBD8B3905B92D4Cd999FB50fE5da2AC17"
-    ) => {
-      try {
-        const request = await prepareSendTransaction({
-          to: to_address,
-          value: tokensToWei(amount, 18),
-        });
-        const { hash } = await sendTransaction(request);
-        if (hash) {
-          // 交易哈希
-        }
-      } catch (err) {
-        const metamaskError = err?.message?.split(".")[0] || "Unknown error";
-        const message = err?.message ? metamaskError : err;
-        console.log("钱包错误信息", message);
-        //   弹出这个信息
-      }
-    };
     // ================== 退出 ===========
     const disconnect1 = () => {
       disconnect();
-      localStorage.removeItem("token")
       const account1 = getAccount();
       accountMsg.value = account1;
       connect.value = account1.isConnected;
@@ -387,20 +490,12 @@ export default {
       });
       // signature 签名结果
     };
-    // 转账金额towei
-    const tokensToWei = (tokens, decimals) => {
-      const result = Number(tokens) * Math.pow(10, decimals);
-      return result.toString();
-    };
 
     const connectWithWalletConnect = () => {
       if (globalProperties.$web3modal) {
         globalProperties.$web3modal.open();
-
-
       }
     };
-
 
     return {
       countdownTimer,
@@ -411,14 +506,12 @@ export default {
       color,
       coinAmount,
       tgbAmount,
+      inviteCode,
       connect,
       selectedCoin,
       coinInfo,
-      serverSign,
       connectWithWalletConnect,
       chooseMoney,
-      contractTransfer,
-      transfer,
       accountMsg,
       disconnect1,
       sign,
@@ -428,9 +521,10 @@ export default {
       changeCoinAmount,
       changeTGBAmount,
       rate,
-      startTransfer,
-      getToken,
-      login
+      getInviteCode,
+      buyToken,
+      buyTokenAndStaking,
+      startBuyToken
     };
   },
 };
@@ -545,6 +639,19 @@ export default {
   font-weight: bold;
   text-align: center;
   cursor: pointer;
+}
+
+.stake-buy-btn {
+  margin-top: 15px;
+  /* width: 100%; */
+  line-height: 30px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  /* border-bottom-color: rgb(255, 255, 255);
+  border-bottom-style: solid;
+  border-bottom-width: 1px */
 }
 
 .other-buy {

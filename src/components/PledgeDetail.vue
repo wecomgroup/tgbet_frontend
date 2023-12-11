@@ -10,87 +10,92 @@
                             当前年化收益率
                         </div>
                         <div class="dataValue" style="color: #181A20;">
-                            225.71%
+                            {{ infoData.apy }}%
                         </div>
                     </div>
                 </el-col>
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            当前年化收益率
+                            总计 $TGB 被质押
                         </div>
                         <div class="dataValue">
-                            225.71%
+                            {{ infoData.totalStake }}
                         </div>
                     </div>
                 </el-col>
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            当前年化收益率
+                            占质押总额 $TGB 的百分比
                         </div>
                         <div class="dataValue">
-                            225.71%
+                            {{ infoData.stateRateStr }}%
                         </div>
                     </div>
                 </el-col>
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            当前年化收益率
+                            已支付的总奖励（$TGB）
                         </div>
                         <div class="dataValue">
-                            225.71%
+                            {{ infoData.totalReward }}
                         </div>
                     </div>
                 </el-col>
             </el-row>
-            <div class="actionPledgeTitle">我的质押</div>
-            <div class="minePledge">
-                <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">总计 $TGB 被质押</p>
-                    <el-input v-model="input" type="number" />
+            <div class="my-pledge">
+                <div class="bg" v-if="!connect">
+                    <div class="btn" @click="connectWithWalletConnect">连接钱包</div>
                 </div>
-                <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">占质押总额 $TGB 的百分比</p>
-                    <el-input v-model="input" type="number" />
-                </div>
-                <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">已收获的总奖励（$TGB）</p>
-                    <el-input v-model="input" type="number" />
-                </div>
-                <div class="minePledgeItem">
-                    <p class="actionPledgeDesc">可领取的总奖励（$TGB）</p>
-                    <div style="position: relative;">
-                        <el-input v-model="input" type="number" />
-                        <div class="receive">领取</div>
+                <div class="actionPledgeTitle">我的质押</div>
+                <div class="minePledge">
+                    <div class="minePledgeItem">
+                        <p class="actionPledgeDesc">总计 $TGB 被质押</p>
+                        <el-input v-model="infoData.myStakeAmount" type="number" readonly />
                     </div>
+                    <div class="minePledgeItem">
+                        <p class="actionPledgeDesc">占质押总额 $TGB 的百分比</p>
+                        <el-input v-model="infoData.myStateRateStr" readonly />
+                    </div>
+                    <div class="minePledgeItem">
+                        <p class="actionPledgeDesc">已收获的总奖励（$TGB）</p>
+                        <el-input v-model="infoData.myStakeHarvestedRewards" type="number" readonly />
+                    </div>
+                    <div class="minePledgeItem">
+                        <p class="actionPledgeDesc">可领取的总奖励（$TGB）</p>
+                        <div style="position: relative;">
+                            <el-input v-model="myRewardAmount" type="number" readonly />
+                            <div class="receive" @click="getMyStakeReward">领取</div>
+                        </div>
 
-                </div>
-            </div>
-            <div class="actionPledge">
-                <div class="goPledge">
-                    <div class="actionPledgeTitle">质押</div>
-                    <div class="actionPledgeDesc">将您的代币质押以根据所示的APY获得 $TGB 收益</div>
-                    <div style="position: relative;">
-                        <el-input v-model="input" type="number" autocomplete="off" />
-                        <div class="maxVal">最大值</div>
-                    </div>
-                    <div class="goPledgeBtn">
-                        <div class="learnMore">了解更多</div>
-                        <div class="actionBtn">立即质押</div>
                     </div>
                 </div>
-                <div class="outPledge">
-                    <div class="actionPledgeTitle">解质押</div>
-                    <div class="actionPledgeDesc">解质押您的代币并赎回来自质押的APY奖励</div>
-                    <div style="position: relative;">
-                        <el-input v-model="input" type="number" />
-                        <div class="maxVal">最大值</div>
+                <div class="actionPledge">
+                    <div class="goPledge">
+                        <div class="actionPledgeTitle">质押</div>
+                        <div class="actionPledgeDesc">将您的代币质押以根据所示的APY获得 $TGB 收益</div>
+                        <div style="position: relative;">
+                            <el-input v-model="stakeAmount" type="number" autocomplete="off" />
+                            <div class="maxVal" @click="maxMyStakeBalance">最大值</div>
+                        </div>
+                        <div class="goPledgeBtn">
+                            <div class="learnMore">了解更多</div>
+                            <div class="actionBtn" @click="stakeToken">质押</div>
+                        </div>
                     </div>
-                    <div class="goPledgeBtn">
-                        <div class="learnMore">了解更多</div>
-                        <div class="actionBtn">立即解质押</div>
+                    <div class="outPledge">
+                        <div class="actionPledgeTitle">解质押</div>
+                        <div class="actionPledgeDesc">解质押您的代币并赎回来自质押的APY奖励</div>
+                        <div style="position: relative;">
+                            <el-input v-model="unStakeAmount" type="number" autocomplete="off" />
+                            <div class="maxVal" @click="maxMyUnStakeBalance">最大值</div>
+                        </div>
+                        <div class="goPledgeBtn">
+                            <div class="learnMore">了解更多</div>
+                            <div class="actionBtn" @click="unStakeToken">立即解质押</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -104,20 +109,355 @@
   
 <script>
 import PledgeDetailArea from './PledgeDetailArea.vue'
+import stakeABI from '@/abi/stakeAbi';
+import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
+import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
+import { ElMessage } from 'element-plus'
+
+import {
+    disconnect,
+    fetchBalance,
+    getAccount,
+    getContract,
+    getWalletClient,
+    prepareSendTransaction,
+    sendTransaction,
+    watchAccount,
+    getNetwork,
+    multicall,
+    sepolia
+} from "@wagmi/core";
+
 export default {
     components: {
         PledgeDetailArea
     },
     name: 'PledgeDetail',
-    data() {
-        return {
-            input: 0
+
+    setup: () => {
+
+        onMounted(() => {
+            stakeInfo()
+        })
+
+        const {
+            appContext: {
+                config: { globalProperties },
+            },
+        } = getCurrentInstance();
+
+        // ElMessage({
+        //     message: 'Congrats, this is a success message.',
+        //     type: 'success',
+        // })
+        // 链接信息getAccount
+        let account = getAccount();
+        let accountMsg = ref(account);
+        let connect = ref(account.isConnected);
+
+        console.log(` account : ${account}, ${accountMsg} is connect: ${connect}`)
+        //钱包切换
+        watchAccount((changedAccount) => {
+            if (changedAccount.address != account.address) {
+                accountMsg.value = changedAccount;
+                connect.value = changedAccount.isConnected;
+
+                if (connect.value) {
+                    stakeInfo()
+                }
+            }
+        });
+
+        if (globalProperties.$web3modal) {
+            globalProperties.$web3modal.subscribeState((res) => {
+                console.log("进入钱包状态", res);
+                const account1 = getAccount();
+                accountMsg.value = account1;
+                connect.value = account1.isConnected;
+            });
+        }
+
+        // ================== 退出 ===========
+        const disconnect1 = () => {
+            disconnect();
+            const account1 = getAccount();
+            accountMsg.value = account1;
+            connect.value = account1.isConnected;
         };
-    },
-};
+
+        const connectWithWalletConnect = () => {
+            if (globalProperties.$web3modal) {
+                globalProperties.$web3modal.open();
+            }
+        };
+
+        //  ==================================================
+
+
+        let infoData = ref({})
+        let myRewardAmount = ref({})
+        let stakeAmount = ref()
+        let unStakeAmount = ref()
+        const stakeContract = {
+            address: '0x33983a29b04B6Ad1140CEB7c6d1Bd23CCB10af18',
+            abi: stakeABI,
+        }
+
+        const maxMyStakeBalance = () => {
+            stakeAmount.value = infoData.value.myBalance
+        }
+
+        const maxMyUnStakeBalance = () => {
+            unStakeAmount.value = infoData.value.myBalance
+        }
+
+        const getMyWalletClient = async () => {
+            return await getWalletClient({
+                chainId: sepolia.id,
+            });
+        }
+
+        const getMyStakeReward = async () => {
+            let amount = myRewardAmount.value
+            if (!amount || amount < 100) {
+                ElMessage.error(`获取奖励数量需大于100`)
+                return
+            }
+            amount = Math.floor(amount).toFixed(0)
+            const walletClient = await getMyWalletClient()
+
+            let hash = await walletClient.writeContract({
+                ...stakeContract,
+                functionName: "harvestRewards",
+                account
+            })
+            console.log('getMyStakeReward tx hash' + hash)
+        }
+        const stakeToken = async () => {
+            let amount = stakeAmount.value
+
+            if (!amount || amount < 100) {
+                ElMessage.error(`质押数量需大于100`)
+                return
+            }
+            amount = Math.floor(amount).toFixed(0)
+            const walletClient = await getMyWalletClient()
+
+            let hash = await walletClient.writeContract({
+                ...stakeContract,
+                functionName: "deposit",
+                args: [parseEther(amount)],
+                account
+            })
+            console.log('getMyStakeReward tx hash' + hash)
+        }
+
+        const unStakeToken = async () => {
+
+            let diffDays = Math.floor((infoData.value.launchTime*1000  - new Date().getTime())/1000/24/3600)
+
+            if(diffDays) {
+                ElMessage.error(`距离解除质押还有 ${diffDays} 天`)
+                return
+            }
+            let amount = unStakeAmount.value
+
+            if (!amount || amount < 100) {
+                ElMessage.error(`解除质押数量需大于100`)
+                return
+            }
+            amount = Math.floor(amount).toFixed(0)
+
+            const walletClient = await getMyWalletClient()
+
+            let hash = await walletClient.writeContract({
+                ...stakeContract,
+                functionName: "withdraw",
+                args: [parseEther(amount)],
+                account
+            })
+            console.log('getMyStakeReward tx hash' + hash)
+        }
+
+
+        const stakeInfo = async () => {
+            let myAddress = ""
+            if (accountMsg.value && accountMsg.value.address) {
+                myAddress = accountMsg.value.address
+            }
+            else {
+                return
+            }
+            const data = await multicall({
+                contracts: [
+                    {
+                        ...stakeContract,
+                        functionName: 'getRewards',   //我的质押奖励
+                        args: [myAddress],
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'poolStakers',   //我的质押信息
+                        args: [myAddress],
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'rewardTokensPerBlock',  //每个区块奖励
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'tokensStaked',   //总质押Token 数量
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'tokensStakedByPresale',  //预售已质押Token 数量
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'stakeToken',   //质押代币地址
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'launchTime',   //质押开始时间
+                    }
+                ]
+            })
+
+            let resultData = {
+                getRewards: data[0].result,           //[0]
+                poolStakers: data[1].result,          //[1]
+                rewardTokensPerBlock: data[2].result, //[2]
+                tokensStaked: data[3].result,         //[3]
+                tokensStakedByPresale: data[4].result,//[4]
+                stakeToken: data[5].result,           //[5]
+                launchTime: data[6].result            //[6]
+            }
+
+            console.log()
+            let tgbBalance = await fetchBalance({
+                address: stakeContract.address,
+                token: resultData.stakeToken,
+            })
+
+            let myTgbBalance = await fetchBalance({
+                address: myAddress,
+                token: resultData.stakeToken,
+            })
+
+            console.log(`$tgb staking token $${tgbBalance.symbol} \n decemal:  ${tgbBalance.decimals} \n balance: ${tgbBalance.value} `)
+            console.log(`my  $tgb token $${myTgbBalance.symbol} \n decemal:  ${myTgbBalance.decimals} \n balance: ${myTgbBalance.value} `)
+
+            //我的 TGB 余额 
+            let myBalance = formatUnits(myTgbBalance.value, myTgbBalance.decimals)
+            //默认质押值
+            stakeAmount.value = parseInt(myBalance)
+            //当前质押总量
+            let totalStake = formatUnits(resultData.tokensStaked, tgbBalance.decimals)
+
+            //当前质押池剩余TGB总量
+            let totalBalance = formatUnits(tgbBalance.value, tgbBalance.decimals)
+            console.log(`$tgb totalBalance ${totalBalance}`)
+            let launchTime = Number(resultData.launchTime)
+
+            //剩余质押天数
+            let RemainingStakeDays = (Math.floor(launchTime*1000  - new Date().getTime()) / 1000 / 3600 / 24) + 185
+
+            console.log(`$tgb launchTime : ${launchTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
+
+            //当年年化收益率
+            let apy = ((totalBalance / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
+            console.log(`$tgb APY :${apy}, totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+
+            //占质押总额$tgb 百分比
+            let stateRateStr = (totalStake / totalBalance * 100).toFixed(4)
+
+            //已支付的总奖励
+            let totalReward = (20000000 - (totalBalance - totalStake)).toFixed(0)
+            console.log(` stake rate ${stateRateStr}  totalReward:${totalReward}`)
+
+            let myStakeAmount = formatUnits(resultData.poolStakers[0], tgbBalance.decimals)
+            let myStakeHarvestedRewards = formatUnits(resultData.poolStakers[3], tgbBalance.decimals)
+            let myStakeRewardDebt = formatUnits(resultData.poolStakers[4], tgbBalance.decimals)
+            let myGetReward = formatUnits(resultData.getRewards, tgbBalance.decimals)
+            let myStateRateStr = (myStakeAmount / totalStake * 100).toFixed(2) + '%'
+            unStakeAmount.value = parseInt(myStakeAmount)
+            myRewardAmount.value = parseInt(myGetReward)
+            console.log(`my stake info => myStakeAmount:${myStakeAmount} myStakeHarvestedRewards: ${myStakeHarvestedRewards} myStakeRewardDebt : ${myStakeRewardDebt}`)
+
+
+            let info = {
+                launchTime:launchTime,
+                apy: apy,
+                stateRateStr: stateRateStr,
+                totalReward: parseInt(totalReward).toLocaleString(),
+                myStakeAmount: parseInt(myStakeAmount),
+                myStakeHarvestedRewards: parseInt(myStakeHarvestedRewards),
+                myStakeRewardDebt: parseInt(myStakeRewardDebt),
+                myStateRateStr: myStateRateStr,
+                myGetReward: parseInt(myGetReward),
+                myBalance: parseInt(myBalance),
+                totalStake: parseInt(totalStake).toLocaleString()
+            }
+
+
+            infoData.value = info
+
+            console.log(resultData)
+
+        }
+        return {
+            infoData,
+            stakeContract,
+            stakeAmount,
+            unStakeAmount,
+            myRewardAmount,
+            connect,
+            accountMsg,
+            getMyWalletClient,
+            maxMyStakeBalance,
+            maxMyUnStakeBalance,
+            stakeInfo,
+            disconnect1,
+            connectWithWalletConnect,
+            getMyStakeReward,
+            stakeToken,
+            unStakeToken
+
+        }
+    }
+}
 </script>
   
 <style scoped>
+.my-pledge {
+    position: relative;
+}
+
+.my-pledge .bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.my-pledge .bg .btn {
+    background-color: #C5AC79;
+    color: rgb(24, 26, 32);
+    text-align: center;
+    height: 55px;
+    line-height: 55px;
+    width: 180px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .container {
     background: url('../assets/indexBackgroud.png') center/cover;
     padding: 20px 5% 120px 5%;
@@ -372,7 +712,7 @@ export default {
     }
 
     .pledgeDetail {
-        padding:40px 24px ;
+        padding: 40px 24px;
     }
 
     .desc {

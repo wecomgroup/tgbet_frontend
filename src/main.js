@@ -8,15 +8,15 @@ import '../src/assets/style/reset.css'
 const app = createApp(App)
 
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/vue'
-import { mainnet } from '@wagmi/core/chains'
+import { sepolia } from '@wagmi/core/chains'
 
 const projectId ='3250eb9b1d71fe0b64d14d68f1778dbb';
 console.log("========信息=========", projectId);
-const chains = [mainnet]
+const chains = [sepolia]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId });
 
 // 3. Create modal
-var web3modal = createWeb3Modal({defaultChain:mainnet, wagmiConfig, projectId, chains });
+var web3modal = createWeb3Modal({defaultChain:sepolia, wagmiConfig, projectId, chains });
 web3modal.setThemeMode('dark');
 app.config.globalProperties.$web3modal = web3modal
 
