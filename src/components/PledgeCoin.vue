@@ -2,7 +2,7 @@
     <div class="pledgeCoin" id="pledgeCoin">
         <img alt="pledgeCoin logo" class="pledgeCoinLogoImg" src="../assets/pledgeCoin.png">
         <div class="desc">
-            游戏期间购买的 $TGB 币会持续为你产生意想不到的收益，让博彩娱乐和质押理财站到同一个角度给你的资金带来生生不息的收益
+            {{$t('pledgeCoin.text1')}}
         </div>
         <div class="step">
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
@@ -24,9 +24,9 @@ export default {
     name: 'PledgeCoin',
     data() {
         return {
-            steps: [{ src: pig, title: '赚取被动收入', desc: '当你质押 $TGB 时，你将立即开始赚取每日奖励。观察你的持币随着时间的推移而增长！' },
-            { src: gift, title: '立即获取奖励', desc: '你将立即解锁质押的奖励，可以在TG.bet中使用，或者保存以供日后使用！' },
-            { src: copperCash, title: '分享财富', desc: '当你质押你的$TGB时，你将解锁基于收入的奖励。你将获得更大的一部分！' }]
+            steps: [{ src: pig, title: this.$t('pledgeCoin.text2'), desc: this.$t('pledgeCoin.text3') },
+            { src: gift, title: this.$t('pledgeCoin.text4'), desc: this.$t('pledgeCoin.text5') },
+            { src: copperCash, title: this.$t('pledgeCoin.text6'), desc: this.$t('pledgeCoin.text7') }]
         };
     },
 

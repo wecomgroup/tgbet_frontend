@@ -18,7 +18,7 @@
         </div>
         <p class="diver">
         </p>
-        <p class="payforTypeTitle">付款方式</p>
+        <p class="payforTypeTitle">{{$t('bottomBar.text1')}}</p>
         <div class="displayItem">
             <div class="payforType">
                 <img alt="payForA" src="../assets/payForA.png">
@@ -34,8 +34,8 @@
                 @ 2023 TG BET All Rights Reserved
             </div>
             <div class="other">
-                <a href="">隐私</a>
-                <a href="">条款</a>
+                <a href="">{{$t('bottomBar.text2')}}</a>
+                <a href="">{{$t('bottomBar.text3')}}</a>
                 <a href="">cookie</a>
             </div>
         </div>

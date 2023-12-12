@@ -5,9 +5,9 @@
 
             <img class="whiteBookImgMobile" src="../assets/whiteBookImg.png">
 
-            <div class="desc">如果你想了解有关TG.Bet如何与众不同的更多信息，请阅读我们的白皮书。我们不仅仅是一个网络赌场！</div>
+            <div class="desc">{{ $t('whiteBook.text1')}}</div>
 
-            <div class="read">阅读白皮书</div>
+            <div class="read">{{ $t('whiteBook.text2')}}</div>
         </div>
         
         <img class="whiteBookImg" src="../assets/whiteBookImg.png">

@@ -1,16 +1,16 @@
 <template>
     <div class="actionView">
-        <p class="title">世界顶尖的Telegram</p>
-        <p class="subTitle">赌场</p>
-        <p class="desc">TG.Bet是你线上匿名加密赌博的独家场所。完全授权且100%安全，立即加入我们吧！</p>
-        <div class="join"> <img class="joinLogo" alt="join logo" src="../assets/join.png"> 加入社区
+        <p class="title">{{$t('actionView.text1')}}</p>
+        <p class="subTitle">{{$t('actionView.text2')}}</p>
+        <p class="desc">{{$t('actionView.text3')}}</p>
+        <div class="join"> <img class="joinLogo" alt="join logo" src="../assets/join.png"> {{$t('actionView.text4')}}
         </div>
-        <div class="play"> <img class="playLogo" alt="play logo" src="../assets/playLogo.png"> 立即试玩</div>
-        <div class="check"><img class="checkLogo" alt="play logo" src="../assets/checkLogo.png"> 验证许可证</div>
+        <div class="play"> <img class="playLogo" alt="play logo" src="../assets/playLogo.png"> {{$t('actionView.text5')}}</div>
+        <div class="check"><img class="checkLogo" alt="play logo" src="../assets/checkLogo.png"> {{$t('actionView.text6')}}</div>
         <div class="cashback">
             <p class="cashbackTitle">25%</p>
-            <p class="cashbackSubTitle">返现</p>
-            <p class="cashbackDesc">在使用 $TGB 代币下注时，所有损失都可获得25%的返现</p>
+            <p class="cashbackSubTitle">{{$t('actionView.text7')}}</p>
+            <p class="cashbackDesc">{{$t('actionView.text8')}}</p>
         </div>
     </div>
 </template>

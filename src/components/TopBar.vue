@@ -38,14 +38,14 @@
         <el-dialog :style="{ 'background-color': '#000000CC', 'height': '100%' }" fullscreen="true" v-model="innerVisible"
             width="100%" :show-close="false">
             <div class="mobileNavContainer">
-                <a @click="handleClick('home')">首页</a>
-                <a @click="handleClick('preSale')">预售福利</a>
-                <a @click="handleClick('operationContainer')">运作方式</a>
-                <a @click="handleClick('pledgeCoin')">质押奖励</a>
-                <a @click="goMobileHowToBuy">如何购买</a>
-                <a @click="handleClick('commonProblemContainer')">常见问题</a>
-                <div class="pledge" @click="goMobilePledge">质押</div>
-                <div class="audit">审计</div>
+                <a @click="handleClick('home')">{{ $t('topBar.index') }}</a>
+                <a @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
+                <a @click="handleClick('operationContainer')">{{ $t('topBar.methods') }}</a>
+                <a @click="handleClick('pledgeCoin')">{{ $t('topBar.reward') }}</a>
+                <a @click="goMobileHowToBuy">{{ $t('topBar.howBuy') }}</a>
+                <a @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
+                <div class="pledge" @click="goMobilePledge">{{ $t('topBar.pledgeBtn') }}</div>
+                <div class="audit">{{ $t('topBar.auditBtn') }}</div>
                 <el-dropdown @command="handleChangeLang" :teleported=false>
                     <div class="menuLink">
                         <img class="zhImg" v-if="currentlang === 'zh'" src="../assets/zh.png" alt="zh">

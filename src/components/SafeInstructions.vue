@@ -2,20 +2,20 @@
     <div class="safeContainer">
         <div class="safeDesc">
             <img class="safeLogoImg" src="../assets/safe.png">
-            <div class="desc">TG.Bet不需要你进行任何KYC验证即可游玩，甚至不需要连接你的钱包。只需为你的账户充值，随时提款。就是这么简单！</div>
+            <div class="desc">{{$t('safeInstructions.text1')}}</div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">无需KYC</p>
+                <p class="safeTitle">{{$t('safeInstructions.text2')}}</p>
             </div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">无需设置账户</p>
+                <p class="safeTitle">{{$t('safeInstructions.text3')}}</p>
             </div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">使用智能手机游玩</p>
+                <p class="safeTitle">{{$t('safeInstructions.text4')}}</p>
             </div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">一切在Telegram上</p>
+                <p class="safeTitle">{{$t('safeInstructions.text5')}}</p>
             </div>
-            <div class="play">立即游玩</div>
+            <div class="play">{{$t('safeInstructions.text6')}}</div>
             <img class="webImage" src="../assets/webImage.png">
         </div>
         <img class="webImg" style="height: 499px;margin-right: -58px;" src="../assets/safeLogo.png">

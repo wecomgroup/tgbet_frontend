@@ -2,13 +2,13 @@
     <div class="weGameContainer">
         <div class="weGameDesc">
             <img class="weGameLogo" src="../assets/weGame.png">
-            <div class="desc">拥有各大游戏厂商的游戏授权，你想玩的我们都有！</div>
-            <div class="title">数百种游戏</div>
-            <div class="gameDesc">我们有你想玩的每一种游戏，从老虎机、桌上游戏、现场赌场等等。你想要的，我们都为你提供！</div>
-            <div class="title">体育赌博</div>
-            <div class="gameDesc">我们提供超过30种不同的体育运动供你下注，你一定能找到自己喜爱的！选择一场比赛，立即下注吧！</div>
-            <div class="title">加入我们的直播</div>
-            <div class="gameDesc">想要在掌握中体验真实的赌场体验吗？加入成千上万的其他玩家在赌场地板上一起游玩！</div>
+            <div class="desc">{{ $t('webGame.text1')}}</div>
+            <div class="title">{{ $t('webGame.text2')}}</div>
+            <div class="gameDesc">{{ $t('webGame.text3')}}</div>
+            <div class="title">{{ $t('webGame.text4')}}</div>
+            <div class="gameDesc">{{ $t('webGame.text5')}}</div>
+            <div class="title">{{ $t('webGame.text6')}}</div>
+            <div class="gameDesc">{{ $t('webGame.text7')}}</div>
         </div>
         <div class="gameImg">
             <img class="gamePng" src="../assets/amatic.png">

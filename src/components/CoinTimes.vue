@@ -5,7 +5,8 @@
                 <div class="coinTimesDesc">
                     <img class="coinTimesDescLogo" src="../assets/coinTimes.png">
                     <img class="coinChanceMobileImg" src="../assets/coinChanceMobile.png">
-                    <div class="desc">加密赌博近来的爆炸性流行趋势似乎没有减缓的迹象。我们在 TG.Casino 理解到，全球玩家喜欢随时随地游玩、保持匿名并能够使用加密货币下注的灵活性。未来真的已经到来了！
+                    <div class="desc">
+                        {{$t('coinTimes.text1')}}
                     </div>
                 </div>
             </el-col>

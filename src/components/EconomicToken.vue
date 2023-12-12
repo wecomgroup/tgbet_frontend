@@ -6,7 +6,7 @@
         <el-row style="width: 100%;" :gutter="30">
             <el-col :xs="24" :sm="24" :lg="12">
               <div class="desc">
-                为了实现良性循环，生态系统中每个参与者的行为非常重要。同样重要的是经过合理设计的激励措施
+                {{$t('economicToken.text1')}}
               </div>
                 <div v-for="(token, index) in economicTokenList" :key="index" class="economicTokenItem">
                     <div class="leftRadius" :style="{ background: token.color }"></div>
@@ -30,12 +30,12 @@ export default {
     name: 'EconomicToken',
     data() {
         return {
-            economicTokenList: [{ title: '流动资金池', percentage: '20%', desc: '在去中心化交易所上创建交易对', color: '#64CF3C' },
-            { title: '质押奖励', percentage: '20%', desc: '用于奖励我们忠实的持有者', color: '#FFFFFF99' },
-            { title: '预售', percentage: '40%', desc: '直接让利给首批持有者，让他们快速财富增长', color: '#C5AC79' },
-            { title: '玩家奖励', percentage: '10%', desc: '为每位参与TG.bet的玩家提供奖励', color: '#F47F30' },
-            { title: '联盟伙伴', percentage: '5%', desc: '为帮助增长TG.bet的联盟伙伴提供奖励', color: '#CF3C7A' },
-            { title: '营销与合作', percentage: '5%', desc: '用于各大平台的合作或直接营销', color: '#3CA3CF' },
+            economicTokenList: [{ title: this.$t('economicToken.text2'), percentage: '20%', desc: this.$t('economicToken.text3'), color: '#64CF3C' },
+            { title: this.$t('economicToken.text4'), percentage: '20%', desc: this.$t('economicToken.text5'), color: '#FFFFFF99' },
+            { title: this.$t('economicToken.text6'), percentage: '40%', desc: this.$t('economicToken.text7'), color: '#C5AC79' },
+            { title: this.$t('economicToken.text8'), percentage: '10%', desc: this.$t('economicToken.text9'), color: '#F47F30' },
+            { title: this.$t('economicToken.text10'), percentage: '5%', desc: this.$t('economicToken.text11'), color: '#CF3C7A' },
+            { title: this.$t('economicToken.text12'), percentage: '5%', desc: this.$t('economicToken.text13'), color: '#3CA3CF' },
             ]
         };
     },

@@ -3,7 +3,7 @@
     <div class="operationContainer" id="operationContainer">
         <div class="operationDesc">
             <img class="operationLogoImg"  src="../assets/operationWay.png">
-            <div class="desc">TG.bet不仅仅是一个赌场，他还是一个通过$TGB提供持续奖励的生态系统！</div>
+            <div class="desc">{{ $t('operationWay.text1')}}</div>
         </div>
         <img class="operationDescImg" src="../assets/operationWayDetail.png">
     </div>

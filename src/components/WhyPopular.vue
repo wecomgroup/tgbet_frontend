@@ -63,20 +63,20 @@ export default {
         return {
             currentIndex: 0,
             data: [{
-                desc: '儘管市场上可能存在竞争，但他们无法与TG.Bet所能提供的相媲美。我们拥有所有顶级游戏、现场活动、体育赌博等等，简直无法相提并论。再加上我们为$TGB持有者提供的丰厚奖励，选择TG.Bet是一个明智的决定。',
+                desc: this.$t('whyPopular.text1'),
                 topImg: whyPopular2,
                 rightImg: play1,
-                btnText: '今天立即加入我们'
+                btnText: this.$t('whyPopular.text2')
             }, {
-                desc: '仅在2023年，使用加密货币进行赌博的选择就增加了三倍。无需KYC，使用无缝、易于使用的平台，让人们纷纷涌向像TG.Casino这样的网站进行在线赌博，这一点也不奇怪。那么，为什么选择TG.Bet？',
+                desc: this.$t('whyPopular.text3'),
                 topImg: whyPopular1,
                 rightImg: play2,
-                btnText: '立即游玩'
+                btnText: this.$t('whyPopular.text4')
             }, {
-                desc: '在TG.Bet的无缝Telegram平台上轻松玩热门游戏。由于我们强大的市场营销，TG.Bet正在迅速成为家喻户晓的品牌。从我们对在线游戏的投资以及有利可图的模式中受益。与我们一起探索游戏的未来吧！',
+                desc: this.$t('whyPopular.text5'),
                 topImg: whyPopular3,
                 rightImg: play3,
-                btnText: '立即游玩'
+                btnText: this.$t('whyPopular.text4')
             }]
         }
     },

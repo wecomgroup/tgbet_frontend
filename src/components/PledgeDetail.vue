@@ -2,12 +2,12 @@
     <div class="container">
         <div class="pledgeDetail">
             <img class="pledgeDetailLogo" alt="pledgeDetail" src="../assets/pledgeDetail.png">
-            <div class="desc">TG.Bit允许您进行质押和解质押您的代币。请选择您想要的功能。只有质押的代币可以获得收益</div>
+            <div class="desc">{{$t('pledgeDetail.text1')}}</div>
             <el-row :gutter="17">
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer" style="background: #C5AC79; border: 1px solid #EFD8AA;">
                         <div class="dataTitle" style="color: #181A20;">
-                            当前年化收益率
+                            {{$t('pledgeDetail.text2')}}
                         </div>
                         <div class="dataValue" style="color: #181A20;">
                             {{ infoData.apy }}%
@@ -17,7 +17,7 @@
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            总计 $TGB 被质押
+                            {{$t('pledgeDetail.text3')}}
                         </div>
                         <div class="dataValue">
                             {{ infoData.totalStake }}
@@ -27,7 +27,7 @@
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            占质押总额 $TGB 的百分比
+                            {{$t('pledgeDetail.text4')}}
                         </div>
                         <div class="dataValue">
                             {{ infoData.stateRateStr }}%
@@ -37,7 +37,7 @@
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            已支付的总奖励（$TGB）
+                            {{$t('pledgeDetail.text5')}}
                         </div>
                         <div class="dataValue">
                             {{ infoData.totalReward }}
@@ -47,54 +47,54 @@
             </el-row>
             <div class="my-pledge">
                 <div class="bg" v-if="!connect">
-                    <div class="btn" @click="connectWithWalletConnect">连接钱包</div>
+                    <div class="btn" @click="connectWithWalletConnect">{{$t('pledgeDetail.text6')}}</div>
                 </div>
-                <div class="actionPledgeTitle">我的质押</div>
+                <div class="actionPledgeTitle">{{$t('pledgeDetail.text7')}}</div>
                 <div class="minePledge">
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">总计 $TGB 被质押</p>
+                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text8')}}</p>
                         <el-input v-model="infoData.myStakeAmount" type="number" readonly />
                     </div>
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">占质押总额 $TGB 的百分比</p>
+                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text9')}}</p>
                         <el-input v-model="infoData.myStateRateStr" readonly />
                     </div>
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">已收获的总奖励（$TGB）</p>
+                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text10')}}</p>
                         <el-input v-model="infoData.myStakeHarvestedRewards" type="number" readonly />
                     </div>
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">可领取的总奖励（$TGB）</p>
+                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text11')}}</p>
                         <div style="position: relative;">
                             <el-input v-model="myRewardAmount" type="number" readonly />
-                            <div class="receive" @click="getMyStakeReward">领取</div>
+                            <div class="receive" @click="getMyStakeReward">{{$t('pledgeDetail.text12')}}</div>
                         </div>
 
                     </div>
                 </div>
                 <div class="actionPledge">
                     <div class="goPledge">
-                        <div class="actionPledgeTitle">质押</div>
-                        <div class="actionPledgeDesc">将您的代币质押以根据所示的APY获得 $TGB 收益</div>
+                        <div class="actionPledgeTitle">{{$t('pledgeDetail.text13')}}</div>
+                        <div class="actionPledgeDesc">{{$t('pledgeDetail.text14')}}</div>
                         <div style="position: relative;">
                             <el-input v-model="stakeAmount" type="number" autocomplete="off" />
-                            <div class="maxVal" @click="maxMyStakeBalance">最大值</div>
+                            <div class="maxVal" @click="maxMyStakeBalance">{{$t('pledgeDetail.text15')}}</div>
                         </div>
                         <div class="goPledgeBtn">
-                            <div class="learnMore">了解更多</div>
-                            <div class="actionBtn" @click="stakeToken">质押</div>
+                            <div class="learnMore">{{$t('pledgeDetail.text16')}}</div>
+                            <div class="actionBtn" @click="stakeToken">{{$t('pledgeDetail.text13')}}</div>
                         </div>
                     </div>
                     <div class="outPledge">
-                        <div class="actionPledgeTitle">解质押</div>
-                        <div class="actionPledgeDesc">解质押您的代币并赎回来自质押的APY奖励</div>
+                        <div class="actionPledgeTitle">{{$t('pledgeDetail.text17')}}</div>
+                        <div class="actionPledgeDesc">{{$t('pledgeDetail.text19')}}</div>
                         <div style="position: relative;">
                             <el-input v-model="unStakeAmount" type="number" autocomplete="off" />
-                            <div class="maxVal" @click="maxMyUnStakeBalance">最大值</div>
+                            <div class="maxVal" @click="maxMyUnStakeBalance">{{$t('pledgeDetail.text15')}}</div>
                         </div>
                         <div class="goPledgeBtn">
-                            <div class="learnMore">了解更多</div>
-                            <div class="actionBtn" @click="unStakeToken">立即解质押</div>
+                            <div class="learnMore">{{$t('pledgeDetail.text16')}}</div>
+                            <div class="actionBtn" @click="unStakeToken">{{$t('pledgeDetail.text18')}}</div>
                         </div>
                     </div>
                 </div>

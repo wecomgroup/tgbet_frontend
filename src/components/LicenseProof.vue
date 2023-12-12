@@ -3,8 +3,8 @@
         <div class="licenseDesc">
             <img class="licenseDescLogo" src="../assets/license.png">
             <img class="licenseDetailMobile" src="../assets/licenseLogo.png">
-            <div class="desc">Web 3 空间通常被视为狂野的西部，充满了误导和欺诈。在 TG.Casino，我们自豪地宣称我们是在库拉索设立的 100% 完全持牌的赌场实体。因此，请放心游玩！</div>
-            <div class="check">验证许可证</div>
+            <div class="desc">{{$t('licenseProof.text1')}}</div>
+            <div class="check">{{$t('licenseProof.text2')}}</div>
         </div>
         <img class="licenseDetail" src="../assets/licenseLogo.png">
     </div>

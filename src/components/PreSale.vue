@@ -2,7 +2,7 @@
 <template>
     <div class="preSale" id="preSale">
         <img alt="preSaleTitle" class="preSaleTitleImg" src="../assets/PreSaleTitle.png">
-        <div class="desc">在我们预售期间，你将永远无法以比目前价格更优惠的价格获得 $TGB</div>
+        <div class="desc">{{$t('preSale.text1')}}</div>
         <el-row align="middle" :gutter='40'>
             <el-col :xs="24" :sm="24" :md="6" v-for="(item, index) in preSaleDescList" :key="index">
                 <div class='descItem'>
@@ -28,21 +28,21 @@ export default {
     data() {
         return {
             preSaleDescList: [{
-                title: '特别奖励',
-                desc: '预售买家在赌城游戏时独享奖励',
+                title: this.$t('preSale.text2'),
+                desc: this.$t('preSale.text3'),
                 src: specialRewards
             }, {
-                title: '最优惠的价格',
-                desc: '在预售期间购买$TGB 永远不会有比现在更好的时机',
+                title: this.$t('preSale.text4'),
+                desc: this.$t('preSale.text5'),
                 src: preferentialPrice
             },
             {
-                title: '成为豪客',
-                desc: '在$TGB预售中投资5K+美元，以获得独家NFT和发布后的奖励',
+                title: this.$t('preSale.text6'),
+                desc: this.$t('preSale.text7'),
                 src: plutocrat
             }, {
-                title: '立即开始赚钱',
-                desc: '购买预售代币，立即开始质押，即可获得即时被动奖励！',
+                title: this.$t('preSale.text8'),
+                desc: this.$t('preSale.text9'),
                 src: money
             }]
         }

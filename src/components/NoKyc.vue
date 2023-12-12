@@ -2,11 +2,11 @@
     <div class="noKyc" id="noKyc">
         <img class="noKycLogo" alt="noKycLogo logo" src="../assets/noKyc.png">
         <div class="desc">
-            无需进行 KYC 的在线赌博有着真正的优势。多年来，在线赌博的唯一方式是交出个人信息。在 TG.Bet，你无需提供个人信息。你只需要一个 Telegram 帐户、一些加密货币，就可以开始游戏！只需几个小步骤即可。
+            {{$t('noKyc.text1')}}
         </div>
         <div class="btnContainer">
-            <div class="open">打开 TG.Bet</div>
-            <div class="downLoad">下载 Telegram</div>
+            <div class="open">{{$t('noKyc.text2')}} </div>
+            <div class="downLoad">{{$t('noKyc.text3')}}</div>
         </div>
         <div class="step">
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
@@ -18,13 +18,14 @@
 </template>
 
 <script>
+
 export default {
     name: 'NoKyc',
     data() {
         return {
-            steps: [{ title: '第一步', desc: '如果你没有 Telegram，请下载应用程序后创建帐户，或者如果你已经有 Telegram，请通过链接打开' },
-            { title: '第二步', desc: '你可以选择连接你的加密钱包或将资金转入你的 TG.Ber 帐户，你有选择的自由。一旦你充值你的帐户，你就准备好了！' },
-            { title: '第三步', desc: '选择一款游戏并开始游玩！你可以随时无限制地提款。你可以在 TG.Casino 享受无忧的游戏体验，全天候、全年无休！' }]
+            steps: [{ title: this.$t('noKyc.text4'), desc: this.$t('noKyc.text5') },
+            { title: this.$t('noKyc.text6'), desc: this.$t('noKyc.text7') },
+            { title: this.$t('noKyc.text8'), desc: this.$t('noKyc.text9') }]
         };
     },
 

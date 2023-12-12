@@ -3,11 +3,8 @@
         <el-row style="width: 100%;display: flex;align-items:center;" :gutter="30">
             <el-col :xs="24" :sm="24" :lg="13">
                 <img class="coinChanceLogo" src="../assets/CoinChance.png">
-                <div class="desc">自 2017 年以来，加密赌场市场迅速增长，最新数据显示加密赌场市场现已价值 2.5 亿美元。这仅占总赌场市场的 0.1%，而目前总赌场市场价值 263.3
-                    亿美元。但研究表明，由于其易于访问、无需 KYC 和可以避免将交易显示在银行对帐单上的能力，加密赌场正在迅速从 Web2 在线赌场中夺取市场份额。</div>
-                <div class="desc">目前，80% 的在线赌场游戏是在移动设备上进行的，其中绝大多数加密赌场是专为移动设备设计的。TG.Bet 更进一步，独家提供 Telegram 平台，Telegram 目前拥有超过
-                    10
-                    亿用户，并预计在未来 3-5 年内将增至 15 亿用户。</div>
+                <div class="desc">{{$t('coinChance.text1')}}</div>
+                <div class="desc">{{$t('coinChance.text2')}}</div>
             </el-col>
             <el-col :lg="11" align="middle">
                 <img class="coinChanceDetailImgae" src="../assets/coinChanceDetail.png">

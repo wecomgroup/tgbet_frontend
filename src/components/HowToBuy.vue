@@ -3,11 +3,11 @@
         <div class="howtoBuyTop">
             <img class="howtobuyLogo" alt="howtobuyLogo" src="../assets/howtobuyLogo.png">
             <div class="desc">
-                要在预售期间购买代币，请访问TG.Bet的官方网站。在预售后，可以直接从官方网站或通过去中心化交易所获得代币。
+                {{$t('howToBuy.text1')}}
             </div>
         </div>
         <div class="step">
-            <div class="stepTopTitle">如何在预售期间购买 $TGB</div>
+            <div class="stepTopTitle">{{$t('howToBuy.text2')}}</div>
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
                 <p class="stepTitle">{{ step.title }}</p>
                 <p class="stepDesc">{{ step.desc }}</p>
@@ -21,11 +21,11 @@ export default {
     name: 'HowToBuy',
     data() {
         return {
-            steps: [{ title: '第 1 步：访问官方门户', desc: '访问TG.Bet的专用网页以找到独家的预售购买界面。请注意，这是获得预售 $TGB 代币的唯一授权平台。' },
-            { title: '第2步：选择付款方式', desc: '你可以选择使用以太坊（ETH）或泰达币（USDT）在以太坊网络上购买预售 $TGB 代币。或者，你可以利用币安智能链，选择BNB或USDT。做出你的选择并继续下一步。' },
-            { title: '第3步：连接你的加密钱包', desc: '如果你的加密钱包尚未同步，你将看到一个提示要求你进行连接。通常情况下，默认情况下钱包设置为以太坊主网；如果你使用ETH进行交易，这对你有利。但是，如果你选择了币安智能链，你可能需要确认网络切换。' },
-            { title: '第4步：指定购买金额', desc: '输入你想购买的 $TGB 代币的数量。请注意，除了你打算购买的代币的成本之外，需要至少0.015 ETH才能完成交易。在币安智能链上，此最低要求较低，但仍然适用。最少可以购买的 $TGB 代币数量设置为100 $TGB。' },
-            { title: '第5步：完成购买', desc: '当你输入了金额后，系统将提示你授权交易。通过点击“批准”，你的交易将启动并在区块链上得到验证。交易完成时间可能从几秒钟到几分钟不等，这取决于网络拥塞和智能合约活动情况。请保持在界面上，直到购买完全执行。' },
+            steps: [{ title: this.$t('howToBuy.text3'), desc: this.$t('howToBuy.text4') },
+            { title: this.$t('howToBuy.text5'), desc: this.$t('howToBuy.text6') },
+            { title: this.$t('howToBuy.text7'), desc: this.$t('howToBuy.text8') },
+            { title: this.$t('howToBuy.text9'), desc: this.$t('howToBuy.text10') },
+            { title: this.$t('howToBuy.text11'), desc:  this.$t('howToBuy.text12')},
             ]
         };
     },

@@ -10,11 +10,11 @@
     </el-row>
     <el-row>
       <el-col :span="12" class="current-col">
-        <p>当前价格</p>
+        <p>{{$t('homeForm.text1')}}</p>
         <p>$ {{ infoData.tokenPrice }}</p>
       </el-col>
       <el-col :span="12" class="current-col">
-        <p>目标达成</p>
+        <p>{{$t('homeForm.text2')}}</p>
         <p>$ {{ infoData.saleGoal }}</p>
       </el-col>
     </el-row>
@@ -24,7 +24,7 @@
       </el-col>
     </el-row>
     <el-row>
-      <el-col :span="24" class="tips">在下一轮价格上涨之前立即购买</el-col>
+      <el-col :span="24" class="tips">{{$t('homeForm.text3')}}</el-col>
     </el-row>
     <el-row :gutter="10">
       <el-col :span="6"><span class="time-btn">{{ timeState.day }} D</span></el-col>
@@ -34,34 +34,33 @@
     </el-row>
     <el-row v-if="connect" style="margin-top: 20px; ">
       <el-col :span="12">
-        <p class="tips">钱包 </p>
+        <p class="tips">{{$t('homeForm.text4')}} </p>
       </el-col>
       <el-col :span="12" style="text-align:right;">
-        <p class="tips">{{ filterAddress(accountMsg.address) }} <span
-            style="margin-left: 10px;color: #c5ac79;"
+        <p class="tips">{{ filterAddress(accountMsg.address) }} <span style="margin-left: 10px;color: #c5ac79;"
             @click="disconnect1">退出</span>
         </p>
       </el-col>
     </el-row>
     <el-row :gutter="20">
-      <el-col :span="12" >
+      <el-col :span="12">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
       </el-col>
-      <el-col :span="12" >
+      <el-col :span="12">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
           <img src="../assets/Ellipse1.png" class="icon" />USDT
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
         <p class="tips">
-          你支付的{{ selectedCoin.name }}金额<label class="max-value">最大值</label>
+          {{ selectedCoin.name }} {{$t('homeForm.text5')}} <label class="max-value">{{$t('homeForm.text7')}}</label>
         </p>
         <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount"></el-input>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
-        <p class="tips">你将收到的$TGB</p>
+        <p class="tips">{{$t('homeForm.text8')}}</p>
         <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount"></el-input>
       </el-col>
       <!-- <el-col :xs="24" :sm="24" :lg="12">
@@ -69,20 +68,20 @@
         <el-input placeholder="" class="f-ipt" v-model="inviteCode"></el-input>
       </el-col> -->
     </el-row>
-   
+
     <el-row>
       <el-col :span="24">
         <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
-          连接钱包
+          {{$t('homeForm.text9')}}
         </div>
         <div v-if="connect" class="connect-btn" @click="buyToken">
-          购买并质押
+          {{$t('homeForm.text10')}}
         </div>
         <div v-if="connect" class="stake-buy-btn" @click="buyTokenAndStaking">
-          只想购买而不质押
+          {{$t('homeForm.text11')}}
         </div>
       </el-col>
-      <el-col :span="24" class="gray-tips">当前质押年化收益率：{{ infoData.apy }}%</el-col>
+      <el-col :span="24" class="gray-tips">{{$t('homeForm.text12')}} : {{ infoData.apy }}%</el-col>
     </el-row>
   </div>
 </template>
@@ -100,14 +99,14 @@ import {
   signMessage,
   getNetwork,
   multicall,
-  disconnect, 
+  disconnect,
   readContract,
   sepolia,
   mainnet
 } from "@wagmi/core";
 
 import { ElMessage } from 'element-plus'
-import { formatUnits, parseUnits, parseEther, formatEther,stringToBytes } from 'viem'
+import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 import proxyABI from "@/abi/proxyAbi";
@@ -210,7 +209,7 @@ export default {
         USDTInterface: data[10].result
       }
       let info = {
-        saleToken:resultData.saleToken,
+        saleToken: resultData.saleToken,
         baseDecimals: null,
         saleGoal: 5000000,
         tokenPrice: null,
@@ -219,7 +218,7 @@ export default {
         usdt_to_usd: 1,
         maxTokensToBuy: resultData.maxTokensToBuy,
         paymentWallet: resultData.paymentWallet,
-        saleAmountStr:''
+        saleAmountStr: ''
       }
 
 
@@ -400,8 +399,8 @@ export default {
     // 3 USDT-BUY 
     // 4 USDT-BUY-STAKING
     const buyToken = () => {
-
       if (Number(tgbAmount.value) < 100) {
+        ElMessage.error(`$TGB购买数量需大于100`)
         return
       }
 
@@ -415,6 +414,7 @@ export default {
     // user click buy and staking
     const buyTokenAndStaking = () => {
       if (Number(tgbAmount.value) < 100) {
+        ElMessage.error(`$TGB购买数量需大于100`)
         return
       }
       if (selectedCoin.value.name === 'ETH') {
@@ -424,8 +424,8 @@ export default {
       }
     }
 
-    const filterAddress = (address)=> {
-     return  address.slice(0,6) + "..." + address.slice(-4);
+    const filterAddress = (address) => {
+      return address.slice(0, 6) + "..." + address.slice(-4);
     }
 
     const getMyWalletClient = async () => {
@@ -510,16 +510,13 @@ export default {
 
         } else if (buyType === 3 || buyType === 4) {
 
-          if (!amount || amount < 100) {
-            ElMessage.error(`TGB购买需大于100`)
-            return
-          }
+
           let needAllowAmount = parseEther(Math.floor(amount).toString())
 
           let allowanceData = await checkApprove()
 
           if (BigInt(allowanceData) < needAllowAmount) {
-            ElMessage.error(`需要授权`)
+            ElMessage.warning(`需要授权`)
             await approveUSDT()
             return
           }
