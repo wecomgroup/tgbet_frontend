@@ -380,7 +380,6 @@ export default {
                 launchTime: data[6].result            //[6]
             }
 
-            console.log()
             let tgbBalance = await fetchBalance({
                 address: stakeContract.address,
                 token: resultData.stakeToken,
@@ -396,7 +395,7 @@ export default {
 
             //我的 TGB 余额 
             let myBalance = formatUnits(myTgbBalance.value, myTgbBalance.decimals)
-            //默认质押值
+            //我的质押值
             stakeAmount.value = parseInt(myBalance)
             //当前质押总量
             let totalStake = formatUnits(resultData.tokensStaked, tgbBalance.decimals)

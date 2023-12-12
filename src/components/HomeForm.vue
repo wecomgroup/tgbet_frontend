@@ -10,11 +10,11 @@
     </el-row>
     <el-row>
       <el-col :span="12" class="current-col">
-        <p>{{$t('homeForm.text1')}}</p>
+        <p>{{ $t('homeForm.text1') }}</p>
         <p>$ {{ infoData.tokenPrice }}</p>
       </el-col>
       <el-col :span="12" class="current-col">
-        <p>{{$t('homeForm.text2')}}</p>
+        <p>{{ $t('homeForm.text2') }}</p>
         <p>$ {{ infoData.saleGoal }}</p>
       </el-col>
     </el-row>
@@ -24,7 +24,7 @@
       </el-col>
     </el-row>
     <el-row>
-      <el-col :span="24" class="tips">{{$t('homeForm.text3')}}</el-col>
+      <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
     <el-row :gutter="10">
       <el-col :span="6"><span class="time-btn">{{ timeState.day }} D</span></el-col>
@@ -34,7 +34,7 @@
     </el-row>
     <el-row v-if="connect" style="margin-top: 20px; ">
       <el-col :span="12">
-        <p class="tips">{{$t('homeForm.text4')}} </p>
+        <p class="tips">{{ $t('homeForm.text4') }} </p>
       </el-col>
       <el-col :span="12" style="text-align:right;">
         <p class="tips">{{ filterAddress(accountMsg.address) }} <span style="margin-left: 10px;color: #c5ac79;"
@@ -55,12 +55,12 @@
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
         <p class="tips">
-          {{ selectedCoin.name }} {{$t('homeForm.text5')}} <label class="max-value">{{$t('homeForm.text7')}}</label>
+          {{ selectedCoin.name }} {{ $t('homeForm.text5') }} <label class="max-value">{{ $t('homeForm.text7') }}</label>
         </p>
         <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount"></el-input>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
-        <p class="tips">{{$t('homeForm.text8')}}</p>
+        <p class="tips">{{ $t('homeForm.text8') }}</p>
         <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount"></el-input>
       </el-col>
       <!-- <el-col :xs="24" :sm="24" :lg="12">
@@ -72,16 +72,16 @@
     <el-row>
       <el-col :span="24">
         <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
-          {{$t('homeForm.text9')}}
+          {{ $t('homeForm.text9') }}
         </div>
         <div v-if="connect" class="connect-btn" @click="buyToken">
-          {{$t('homeForm.text10')}}
+          {{ $t('homeForm.text10') }}
         </div>
         <div v-if="connect" class="stake-buy-btn" @click="buyTokenAndStaking">
-          {{$t('homeForm.text11')}}
+          {{ $t('homeForm.text11') }}
         </div>
       </el-col>
-      <el-col :span="24" class="gray-tips">{{$t('homeForm.text12')}} : {{ infoData.apy }}%</el-col>
+      <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}%</el-col>
     </el-row>
   </div>
 </template>
@@ -109,8 +109,8 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
-import proxyABI from "@/abi/proxyAbi";
-
+import proxyABI from "@/abi/proxyAbi"
+import stakeABI from "@/abi/stakeAbi"
 export default {
 
   setup: () => {
@@ -118,6 +118,11 @@ export default {
     const proxyContract = {
       address: '0x79db44ea37184a73afb1b7bb4f3176dd491f2aa5',
       abi: proxyABI,
+    }
+
+    const stakeContract = {
+      address: '0x33983a29b04B6Ad1140CEB7c6d1Bd23CCB10af18',
+      abi: stakeABI,
     }
 
     const usdtAddress = '0x7169D38820dfd117C3FA1f22a697dBA58d90BA06'
@@ -179,19 +184,13 @@ export default {
             functionName: 'stakingManagerInterface',
           },
           {
-            ...proxyContract,
-            functionName: 'ethBuyHelper',
-            args: [1],
+            ...stakeContract,
+            functionName: 'tokensStaked',   //总质押Token 数量
           },
           {
-            ...proxyContract,
-            functionName: 'usdtBuyHelper',
-            args: [1],
-          },
-          {
-            ...proxyContract,
-            functionName: 'USDTInterface',
-          },
+            ...stakeContract,
+            functionName: 'launchTime',   //质押开始时间
+          }
 
         ]
       })
@@ -206,7 +205,8 @@ export default {
         maxTokensToBuy: data[7].result,         //[7]
         paymentWallet: data[8].result,          //[8]
         stakingManagerInterface: data[9].result,//[9]
-        USDTInterface: data[10].result
+        tokensStaked: data[10].result,          //[11]
+        launchTime: data[11].result             //[13]
       }
       let info = {
         saleToken: resultData.saleToken,
@@ -218,16 +218,14 @@ export default {
         usdt_to_usd: 1,
         maxTokensToBuy: resultData.maxTokensToBuy,
         paymentWallet: resultData.paymentWallet,
-        saleAmountStr: ''
+        saleAmountStr: '',
+        apy:''
       }
 
-
-      //leaveTime
-      let startTime = Number(resultData.startTime * 1000n)
-      console.log(startTime)
-      let tempTime = (Math.ceil((+new Date() - startTime) / (7 * 864 * 1e5)) * (7 * 864 * 1e5) + startTime) - new Date().getTime();
-      leaveTime = tempTime / 1000
-
+      let tgbBalance = await fetchBalance({
+        address: stakeContract.address,
+        token: resultData.saleToken,
+      })
 
       //TGB Price
       info.baseDecimals = resultData.baseDecimals.toString().length - 1
@@ -237,6 +235,30 @@ export default {
       //ethPrice
       info.eth_to_usd = formatEther(resultData.getLatestPrice)
       console.log(`ethPrice: ${info.eth_to_usd}, usdtPrice: ${info.usdt_to_usd}`)
+
+
+      //当前质押总量
+      let totalStake = formatUnits(resultData.tokensStaked, "18")
+
+      //当前质押池剩余TGB总量
+      let totalBalance = formatUnits(tgbBalance.value, "18")
+      console.log(`$tgb totalBalance ${totalBalance}`)
+      let launchTime = Number(resultData.launchTime)
+      console.log(`launchTime: ${launchTime}`)
+      //剩余质押天数
+      let RemainingStakeDays = (Math.floor(launchTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24) + 185
+
+      //当年年化收益率
+      let apy = ((totalBalance / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
+      console.log(`home $tgb APY :${apy}, totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+
+      info.apy = apy
+
+      //leaveTime
+      let startTime = Number(resultData.startTime * 1000n)
+      console.log(startTime)
+      let tempTime = (Math.ceil((+new Date() - startTime) / (7 * 864 * 1e5)) * (7 * 864 * 1e5) + startTime) - new Date().getTime();
+      leaveTime = tempTime / 1000
 
       //saleAmount
       info.saleAmount = (info.tokenPrice * Number(resultData.totalTokensSold))
