@@ -1,0 +1,181 @@
+{
+  "actionView": {
+    "text1": "El Telegram más importante del mundo",
+    "text2": "CASINO",
+    "text3": "TG.Bet es su lugar exclusivo para apuestas criptográficas anónimas y en línea. \nCon licencia completa y 100 % seguro, ¡únete a nosotros hoy!",
+    "text4": "Únete a la comunidad",
+    "text5": "Reproducir ahora",
+    "text6": "Verificar licencia",
+    "text7": "DEVOLUCIÓN DE DINERO",
+    "text8": "Obtenga un reembolso del 25% en todas las pérdidas al apostar con tokens $TGB"
+  },
+  "bottomBar": {
+    "text1": "método de pago",
+    "text2": "privacidad",
+    "text3": "Términos"
+  },
+  "coinChance": {
+    "text1": "El mercado de los criptocasinos ha crecido rápidamente desde 2017, y los datos más recientes muestran que el mercado de los criptocasinos vale ahora 250 millones de dólares.\n\nEsto representa sólo el 0,1% del mercado total de casinos, que actualmente está valorado en 26.330 millones de dólares.\n\nPero las investigaciones muestran que los criptocasinos están arrebatando rápidamente participación de mercado a los casinos en línea Web2 debido a su facilidad de acceso, la ausencia de necesidad de KYC y la capacidad de evitar que las transacciones aparezcan en los extractos bancarios.",
+    "text2": "Actualmente, el 80% de los juegos de casino en línea se juegan en dispositivos móviles, y la gran mayoría de los criptocasinos están diseñados específicamente para dispositivos móviles.\n\nTG.Bet va un paso más allá y ofrece exclusivamente la plataforma Telegram, que actualmente cuenta con más de mil millones de usuarios y se espera que crezca a 1,5 mil millones de usuarios en los próximos 3 a 5 años."
+  },
+  "coinTimes": {
+    "text1": "La reciente y explosiva popularidad de los juegos de azar con criptomonedas no parece mostrar signos de desaceleración.\n\nEn TG.Casino entendemos que los jugadores de todo el mundo aprecian la flexibilidad de jugar en cualquier momento y en cualquier lugar, permanecer en el anonimato y poder realizar apuestas utilizando criptomonedas.\n\n¡El futuro realmente ha llegado!"
+  },
+  "commonProblem": {
+    "text1": "",
+    "text10": "",
+    "text2": "",
+    "text3": "",
+    "text4": "",
+    "text5": "",
+    "text6": "",
+    "text7": "",
+    "text8": "",
+    "text9": ""
+  },
+  "economicToken": {
+    "text1": "Para lograr un círculo virtuoso, el comportamiento de cada participante del ecosistema es muy importante.\n\nIgualmente importantes son los incentivos bien diseñados",
+    "text10": "socios de la alianza",
+    "text11": "Ofrezca incentivos a los socios afiliados que ayuden a hacer crecer TG.bet",
+    "text12": "Marketing y cooperación",
+    "text13": "Se utiliza para cooperación o marketing directo en las principales plataformas.",
+    "text2": "grupo de liquidez",
+    "text3": "Cree pares comerciales en intercambios descentralizados",
+    "text4": "Recompensas de apuesta",
+    "text5": "Se utiliza para recompensar a nuestros leales poseedores.",
+    "text6": "Preventa",
+    "text7": "Transfiera ganancias directamente al primer grupo de tenedores, permitiéndoles aumentar rápidamente su riqueza.",
+    "text8": "recompensas del jugador",
+    "text9": "Proporcionar recompensas por cada jugador que participe en TG.bet"
+  },
+  "homeForm": {
+    "text1": "Precio actual",
+    "text10": "Comprar y apostar",
+    "text11": "Solo quiero comprar sin comprometerme",
+    "text12": "APY de apuesta actual",
+    "text2": "Meta final",
+    "text3": "Compra ahora antes de que aumente el precio en:",
+    "text4": "billetera",
+    "text5": "Tu pagas",
+    "text6": "",
+    "text7": "MÁXIMO",
+    "text8": "$TGB que recibes",
+    "text9": "Conectar billetera"
+  },
+  "howToBuy": {
+    "text1": "Para comprar tokens durante la preventa, visite el sitio web oficial de TG.Bet.\n\nDespués de la preventa, los tokens se pueden obtener directamente desde el sitio web oficial o mediante intercambios descentralizados.",
+    "text10": "Ingrese la cantidad de tokens $TGB que desea comprar.\n\nTenga en cuenta que, además del coste del token que desea comprar, se requiere un mínimo de 0,015 ETH para completar la transacción.\n\nEn Binance Smart Chain, este requisito mínimo es menor, pero aún se aplica.\n\nLa cantidad mínima de tokens $TGB que se pueden comprar está establecida en 100 $TGB.",
+    "text11": "Paso 5: Completa tu compra",
+    "text12": "Una vez que haya ingresado el monto, se le pedirá que autorice la transacción.\n\nAl hacer clic en \"Aprobar\", su transacción se iniciará y verificará en la cadena de bloques.\n\nLos tiempos de finalización de las transacciones pueden variar de segundos a minutos, según la congestión de la red y la actividad de los contratos inteligentes.\n\nPermanezca en la interfaz hasta que la compra se ejecute por completo.",
+    "text2": "Cómo comprar $TGB durante la preventa",
+    "text3": "Paso 1: Visita el portal oficial",
+    "text4": "Visite la página web dedicada de TG.Bet para encontrar la interfaz exclusiva de compra de preventa.\n\nTenga en cuenta que esta es la única plataforma autorizada para obtener tokens $TGB en preventa.",
+    "text5": "Paso 2: Elige el método de pago",
+    "text6": "Puede optar por comprar el token $TGB de preventa en la red Ethereum utilizando Ethereum (ETH) o Tether (USDT).\n\nAlternativamente, puede aprovechar Binance Smart Chain y elegir BNB o USDT.\n\nHaga su elección y continúe con el siguiente paso.",
+    "text7": "Paso 3: conecta tu billetera criptográfica",
+    "text8": "Si su billetera criptográfica aún no se ha sincronizado, verá un mensaje que le pedirá que se conecte.\n\nNormalmente, las billeteras están configuradas para la red principal de Ethereum de forma predeterminada; \nesto funciona a su favor si opera con ETH.\n\nSin embargo, si elige Binance Smart Chain, es posible que deba confirmar el cambio de red.",
+    "text9": "Paso 4: Especifique el monto de la compra"
+  },
+  "lang": {
+    "en": "es",
+    "zh": "Z h"
+  },
+  "licenseProof": {
+    "text1": "El espacio Web 3 a menudo se considera el Salvaje Oeste, lleno de desinformación y fraude.\n\nEn TG.Casino afirmamos con orgullo que somos una entidad de casino 100% con licencia completa con sede en Curazao.\n\n¡Así que siéntete libre de jugar!",
+    "text2": "Verificar licencia"
+  },
+  "noKyc": {
+    "text1": "Los juegos de azar online sin KYC tienen ventajas reales.\n\nDurante años, la única forma de apostar online era entregando información personal.\n\nEn TG.Bet no es necesario que proporciones información personal.\n\n¡Todo lo que necesitas es una cuenta de Telegram, algunas criptomonedas y ya estás listo para jugar!\n\nSólo se necesitan unos pequeños pasos.",
+    "text2": "Abrir TG.Bet",
+    "text3": "Descargar Telegrama",
+    "text4": "Paso 1",
+    "text5": "Si no tiene Telegram, cree una cuenta después de descargar la aplicación, o si ya tiene Telegram, ábrala a través del enlace",
+    "text6": "Paso 2",
+    "text7": "Puede optar por conectar su billetera criptográfica o transferir fondos a su cuenta TG.Ber, tiene la libertad de elegir.\n\nUna vez que recargues tu cuenta, ¡estarás listo para comenzar!",
+    "text8": "Paso 3",
+    "text9": "¡Elige un juego y empieza a jugar!\n\nPuedes realizar retiros ilimitados en cualquier momento.\n\n¡Puedes disfrutar de una experiencia de juego sin preocupaciones en TG.Casino, 24 horas al día, 7 días a la semana, durante todo el año!"
+  },
+  "operationWay": {
+    "text1": "¡TG.bet no es solo un casino, es un ecosistema que ofrece recompensas continuas a través de $TGB!"
+  },
+  "pledgeCoin": {
+    "text1": "Las monedas de $TGB compradas durante el juego seguirán generando beneficios inesperados para usted, permitiendo que los juegos de azar, el entretenimiento y la gestión financiera de las apuestas se mantengan en el mismo ángulo y aporten infinitos beneficios a sus fondos.",
+    "text2": "obtener ingresos pasivos",
+    "text3": "Cuando apuestes $TGB, inmediatamente comenzarás a ganar recompensas diarias.\n\n¡Observa cómo crecen tus participaciones con el tiempo!",
+    "text4": "Obtenga sus recompensas ahora",
+    "text5": "¡Desbloquearás instantáneamente tus recompensas apostadas, que podrás usar en TG.bet o guardar para más adelante!",
+    "text6": "Compartir la riqueza",
+    "text7": "Cuando apuestes tus $TGB, desbloquearás recompensas basadas en ingresos.\n\n¡Obtendrás una parte más grande!"
+  },
+  "pledgeDetail": {
+    "text1": "TG.Bit te permite apostar y apostar tus tokens.\n\nSeleccione las funciones que desee.\n\nSólo los tokens apostados pueden ganar recompensas",
+    "text10": "Recompensas totales obtenidas ($TGB)",
+    "text11": "Recompensas totales disponibles para reclamar ($TGB)",
+    "text12": "recibir",
+    "text13": "promesa",
+    "text14": "Apuesta tus tokens para ganar $TGB según el APY mostrado",
+    "text15": "máx.",
+    "text16": "aprende más",
+    "text17": "Dejar de comprometerse",
+    "text18": "Renunciar inmediatamente",
+    "text19": "Retire sus tokens y canjee las recompensas APY por apostar",
+    "text2": "Tasa de rendimiento anualizada actual",
+    "text3": "Total de $TGB apostados",
+    "text4": "Porcentaje del total de $TGB apostados",
+    "text5": "Recompensas totales pagadas ($TGB)",
+    "text6": "Conectar billetera",
+    "text7": "mi promesa",
+    "text8": "Total de $TGB apostados",
+    "text9": "Porcentaje del total de $TGB apostados"
+  },
+  "preSale": {
+    "text1": "Nunca podrás conseguir $TGB a un mejor precio que el precio actual durante nuestra preventa",
+    "text2": "recompensa especial",
+    "text3": "Los compradores de preventa pueden disfrutar de recompensas exclusivas al jugar en el casino.",
+    "text4": "Mejor precio $TGB Nunca hay mejor momento que ahora",
+    "text5": "Compra durante el periodo de Preventa",
+    "text6": "Conviértete en un gran apostador",
+    "text7": "Invierta $5K en la preventa de $TGB para recibir NFT exclusivos y recompensas posteriores al lanzamiento",
+    "text8": "Empieza a ganar dinero ahora",
+    "text9": "¡Compre tokens de preventa, comience a apostar de inmediato y obtenga recompensas pasivas instantáneas!"
+  },
+  "safeInstructions": {
+    "text1": "TG.Bet no requiere que realices ninguna verificación KYC para jugar, ni siquiera que conectes tu billetera.\n\nSimplemente recargue su cuenta y retire dinero en cualquier momento.\n\n¡Es así de simple!",
+    "text2": "No se requiere KYC",
+    "text3": "No es necesario configurar una cuenta",
+    "text4": "Juega en tu teléfono inteligente",
+    "text5": "Todo está en Telegram.",
+    "text6": "Reproducir ahora"
+  },
+  "topBar": {
+    "auditBtn": "Auditoría",
+    "economic": "Tokenómica",
+    "howBuy": "Cómo comprar",
+    "index": "Hogar",
+    "methods": "Cómo funciona",
+    "pledgeBtn": "Replantear",
+    "qa": "Preguntas más frecuentes",
+    "reward": "Recompensas de apuesta",
+    "welfare": "Beneficios de preventa"
+  },
+  "webGame": {
+    "text1": "Con la autorización del juego de los principales fabricantes de juegos, ¡tenemos todo lo que quieres jugar!",
+    "text2": "Cientos de juegos",
+    "text3": "Tenemos todos los juegos que puedas desear jugar, desde tragamonedas, juegos de mesa, casino en vivo y más.\n\n¡Lo que quieras, te lo proporcionamos!",
+    "text4": "apuestas deportivas",
+    "text5": "Ofrecemos más de 30 deportes diferentes en los que puedes apostar, ¡así que seguramente encontrarás algo que te guste!\n\n¡Elige un juego y haz tu apuesta ahora!",
+    "text6": "Únete a nuestra transmisión en vivo",
+    "text7": "¿Quieres una experiencia de casino real en la palma de tu mano?\n\n¡Únase a miles de jugadores que juegan en el casino!"
+  },
+  "whiteBook": {
+    "text1": "Si desea obtener más información sobre en qué se diferencia TG.Bet, lea nuestro documento técnico.\n\n¡Somos más que un simple casino en línea!",
+    "text2": "Papel blanco"
+  },
+  "whyPopular": {
+    "text1": "Si bien puede haber competencia en el mercado, no pueden igualar lo que TG.Bit tiene para ofrecer.\n\nTenemos todos los mejores juegos, eventos en vivo, apuestas deportivas y más, simplemente no hay comparación.\n\nJunto con las generosas recompensas que ofrecemos a los titulares de $TGB, elegir TG.Bit es una decisión acertada.",
+    "text2": "Únete a nosotros hoy",
+    "text3": "Sólo en 2023, las opciones para apostar con criptomonedas se han triplicado.\n\nSin necesidad de KYC y con una plataforma perfecta y fácil de usar, no sorprende que la gente acuda en masa a sitios como TG.Casino para apostar en línea.\n\nEntonces, ¿por qué elegir TG.Bit?",
+    "text4": "Reproducir ahora",
+    "text5": "Juega fácilmente a juegos populares en la perfecta plataforma Telegram de TG.Bit.\n\nGracias a nuestro sólido marketing, TG.Bit se está convirtiendo rápidamente en un nombre familiar.\n\nBenefíciate de nuestra inversión en juego online y de nuestro modelo rentable.\n\n¡Ven a explorar el futuro de los juegos con nosotros!"
+  }
+}
