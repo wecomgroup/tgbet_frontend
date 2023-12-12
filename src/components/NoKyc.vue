@@ -171,11 +171,16 @@ export default {
     }
 
     .open {
-        width: 158px;
+        width: 46%;
+        margin-right: 0;
     }
 
     .downLoad {
-        width: 158px;
+        width: 46%;
+    }
+    .btnContainer{
+      justify-content: space-between;
+      width: 100%;
     }
 
     .step {

@@ -100,17 +100,17 @@ import {
   signMessage,
   getNetwork,
   multicall,
-  sepolia
+  disconnect, 
+  readContract,
+  sepolia,
+  mainnet
 } from "@wagmi/core";
 
 import { ElMessage } from 'element-plus'
-import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
-import { mainnet } from "@wagmi/core/chains";
-import proxyABI from "@/abi/proxyAbi";
+import { formatUnits, parseUnits, parseEther, formatEther,stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
-import { disconnect, readContract } from "@wagmi/core";
-import { stringToBytes } from 'viem'
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
+import proxyABI from "@/abi/proxyAbi";
 
 export default {
 
@@ -442,22 +442,15 @@ export default {
 
     //检查授权额度  未授权 0 或者 授权额度小于支出数
     const checkApprove = async () => {
-
       const usdtContract = {
         address: usdtAddress,
         abi: erc20ABI,
       }
-      console.log(`usdt-checkApprove ==>  
-      account address:${accountMsg.value.address}  
-      proxyAddress:${proxyContract.address} 
-      usdtAddress:${usdtAddress}`)
       let allowanceData = await readContract({
         ...usdtContract,
         functionName: "allowance",
         args: [accountMsg.value.address, proxyContract.address]
       })
-     
-
       return allowanceData
     }
 
