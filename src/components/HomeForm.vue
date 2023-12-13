@@ -47,6 +47,9 @@
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
+          <img src="../assets/Ellipse1.png" class="icon" />USDC
+        </div>
       </el-col>
       <el-col :span="12">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
@@ -110,7 +113,8 @@ import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
-import { MAX_ALLOWANCE,stakeContract ,tgbContract,proxyContract,usdtContract, usdcContract} from  '../util/const/const'
+import { checkApprove, approveContract, getMyWalletClient } from "@/util/contactUtil/approve";
+import { stakeContract, tgbContract, proxyContract, usdtContract, usdcContract } from '../util/const/const'
 
 export default {
 
@@ -208,7 +212,7 @@ export default {
         maxTokensToBuy: resultData.maxTokensToBuy,
         paymentWallet: resultData.paymentWallet,
         saleAmountStr: '',
-        apy:''
+        apy: ''
       }
 
       let tgbBalance = await fetchBalance({
@@ -418,9 +422,9 @@ export default {
 
       if (selectedCoin.value.name === 'ETH') {
         startBuyToken(tgbAmount.value, 1)
-      } else if(selectedCoin.value.name === 'USDT') {
+      } else if (selectedCoin.value.name === 'USDT') {
         startBuyToken(tgbAmount.value, 3)
-      } else if(selectedCoin.value.name === 'USDC') {
+      } else if (selectedCoin.value.name === 'USDC') {
         startBuyToken(tgbAmount.value, 5)
       }
     }
@@ -433,9 +437,9 @@ export default {
       }
       if (selectedCoin.value.name === 'ETH') {
         startBuyToken(tgbAmount.value, 2)
-      } else if(selectedCoin.value.name === 'USDT') {
+      } else if (selectedCoin.value.name === 'USDT') {
         startBuyToken(tgbAmount.value, 4)
-      } else if(selectedCoin.value.name === 'USDC') {
+      } else if (selectedCoin.value.name === 'USDC') {
         startBuyToken(tgbAmount.value, 6)
       }
     }
@@ -444,42 +448,10 @@ export default {
       return address.slice(0, 6) + "..." + address.slice(-4);
     }
 
-    const getMyWalletClient = async () => {
-      return await getWalletClient({
-        chainId: sepolia.id,
-      });
-    }
-
     const getInviteCode = () => {
       let inviteCode = localStorage.getItem('inviteCode') || ''
       let bytesArr = stringToBytes(inviteCode, { size: 32 })
       return '0x' + Buffer.from(bytesArr, 'utf8').toString('hex');
-    }
-
-    //检查授权额度  未授权 0 或者 授权额度小于支出数
-    const checkApprove = async () => {
-     
-      let allowanceData = await readContract({
-        ...usdtContract,
-        functionName: "allowance",
-        args: [accountMsg.value.address, proxyContract.address]
-      })
-      return allowanceData
-    }
-
-
-    const approveUSDT = async () => {
-
-      const walletClient = await getMyWalletClient()
-
-      let hash = await walletClient.writeContract({
-        ...usdtContract,
-        functionName: "approve",
-        args: [proxyContract.address, MAX_ALLOWANCE],
-        account
-      })
-      console.log('usdt approve tx hash' + hash)
-      return hash
     }
 
     //ETH 购买
@@ -489,9 +461,7 @@ export default {
           console.log(`params error`)
           return
         }
-        const walletClient = await getWalletClient({
-          chainId: sepolia.id,
-        });
+        const walletClient = await getMyWalletClient()
 
         const inviteCodeParam = getInviteCode();
 
@@ -502,7 +472,7 @@ export default {
             args: [amount]
           })
           console.log(ethPayAmount)
-          ethPayAmount = formatUnits(Number(ethPayAmount), "18") * 1.05
+          ethPayAmount = formatUnits(Number(ethPayAmount), "18") * 1.02
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
@@ -520,11 +490,11 @@ export default {
 
           let needAllowAmount = parseEther(Math.floor(amount).toString())
 
-          let allowanceData = await checkApprove()
+          let allowanceData = await checkApprove(usdtContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
             ElMessage.warning(`需要授权`)
-            await approveUSDT()
+            await approveContract(usdtContract, proxyContract.address, account)
             return
           }
           let usdtPayAmount = 0
@@ -533,7 +503,7 @@ export default {
             functionName: 'usdtBuyHelper',
             args: [amount]
           })
-          usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1.05
+          usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1.02
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           // amount = parseEther(Math.floor(amount).toString())
@@ -545,7 +515,40 @@ export default {
             account
           })
 
-          console.log('USDT PAY ==> ' + hash)
+          console.log('USDT PAY HASH==> ' + hash)
+
+        }
+        else if (buyType === 5 || buyType === 6) {
+
+
+          let needAllowAmount = parseEther(Math.floor(amount).toString())
+
+          let allowanceData = await checkApprove(usdcContract, accountMsg.value.address, proxyContract.address)
+
+          if (BigInt(allowanceData) < needAllowAmount) {
+            ElMessage.warning(`需要授权`)
+            await approveContract(usdcContract, proxyContract.address, account)
+            return
+          }
+          let usdcPayAmount = 0
+          usdcPayAmount = await readContract({
+            ...proxyContract,
+            functionName: 'usdcBuyHelper',
+            args: [amount]
+          })
+          usdcPayAmount = formatUnits(Number(usdcPayAmount), "6") * 1.02
+
+          console.log(`USDC PAY Amount: ${usdcPayAmount} `)
+          // amount = parseEther(Math.floor(amount).toString())
+          let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
+          let hash = await walletClient.writeContract({
+            ...proxyContract,
+            functionName: functionName,
+            args: [BigInt(parseInt(amount)), inviteCodeParam],
+            account
+          })
+
+          console.log('USDTC PAY HASH==> ' + hash)
 
         } else { console.log('param error') }
       } catch (err) {
@@ -605,9 +608,6 @@ export default {
       buyToken,
       buyTokenAndStaking,
       startBuyToken,
-      checkApprove,
-      approveUSDT,
-      getMyWalletClient,
       filterAddress,
     };
   },
