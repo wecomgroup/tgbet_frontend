@@ -35,7 +35,7 @@
                 </template>
             </el-dropdown>
         </div>
-        <el-dialog :style="{ 'background-color': '#000000CC', 'height': '100%' }" fullscreen="true" v-model="innerVisible"
+        <el-dialog :style="{ 'background-color': '#000000CC', 'height': '100%' }" fullscreen v-model="innerVisible"
             width="100%" :show-close="false">
             <div class="mobileNavContainer">
                 <a @click="handleClick('home')">{{ $t('topBar.index') }}</a>

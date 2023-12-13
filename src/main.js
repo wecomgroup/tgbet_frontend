@@ -9,10 +9,10 @@ import { projectId } from './util/const/const'
 const app = createApp(App)
 
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/vue'
-import { sepolia } from '@wagmi/core/chains'
+import { bscTestnet, sepolia } from '@wagmi/core/chains'
 
 console.log("========projectId : 信息=========", projectId);
-const chains = [sepolia]
+const chains = [sepolia,bscTestnet]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId });
 
 //inviteCode

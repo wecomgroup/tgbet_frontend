@@ -31,7 +31,9 @@
 <script>
 export default {
     name: 'WeGame',
-    data() { },
+    data() { 
+        return {}
+    },
 };
 </script>
 

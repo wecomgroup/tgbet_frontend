@@ -1,7 +1,7 @@
 <template>
     <div class="commonProblemContainer" id="commonProblemContainer">
         <img class="commonProblemLogo" alt="commonProblem logo" src="../assets/commonPromble.png">
-        <el-collapse v-model="activeNames">
+        <el-collapse>
             <el-collapse-item v-for="item in commonProblems" :key="item.id" :name="item.id" title="1123">
                 <template v-slot:title>
                     <div class="custom-title">
@@ -23,11 +23,11 @@ export default {
     data() {
         return {
             commonProblems: [
-                { id: 1, name: 'TG.Bet 与众不同之处', title: 'TG.Bet 与众不同之处', content: 'TG.Bet让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
-                { id: 2, name: 'TG.Bet 与众不同之处', title: 'TG.Bet 与众不同之处', content: 'TG.Bet让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
-                { id: 3, name: 'TG.Bet 与众不同之处', title: 'TG.Bet 与众不同之处', content: 'TG.Bet让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
-                { id: 4, name: 'TG.Bet 与众不同之处', title: 'TG.Bet 与众不同之处', content: 'TG.Bet让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
-                { id: 5, name: 'TG.Bet 与众不同之处', title: 'TG.Bet 与众不同之处', content: 'TG.Bet让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
+                { id: 1, name: 'TG.Bit 与众不同之处', title: 'TG.Bit 与众不同之处', content: 'TG.Bit让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
+                { id: 2, name: 'TG.Bit 与众不同之处', title: 'TG.Bit 与众不同之处', content: 'TG.Bit让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
+                { id: 3, name: 'TG.Bit 与众不同之处', title: 'TG.Bit 与众不同之处', content: 'TG.Bit让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
+                { id: 4, name: 'TG.Bit 与众不同之处', title: 'TG.Bit 与众不同之处', content: 'TG.Bit让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
+                { id: 5, name: 'TG.Bit 与众不同之处', title: 'TG.Bit 与众不同之处', content: 'TG.Bit让你可以访问所有顶级的在线赌场游戏、体育书籍等，但我们也致力于培养一个重视忠诚度的生态系统。作为我们承诺的一个证明，我们通过回购TGB代币的方式回馈部分赌场收入。玩游戏，赚取报酬！' },
             ]
         };
     },

@@ -20,7 +20,9 @@
 <script>
 export default {
     name: 'CoinTimes',
-    data() { },
+    data() { 
+        return {}
+    },
 };
 </script>
 

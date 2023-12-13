@@ -25,7 +25,9 @@
 <script>
 export default {
     name: 'SafeInstructions',
-    data() { },
+    data() { 
+        return {}
+    },
 };
 </script>
 

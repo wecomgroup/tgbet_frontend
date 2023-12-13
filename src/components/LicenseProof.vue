@@ -13,7 +13,9 @@
 <script>
 export default {
     name: 'LicenseProof',
-    data() { },
+    data() {
+        return {}
+     },
 };
 </script>
 

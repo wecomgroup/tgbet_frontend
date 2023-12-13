@@ -16,7 +16,9 @@
 <script>
 export default {
     name: 'CoinChance',
-    data() { },
+    data() { 
+        return {}
+    },
 };
 </script>
 

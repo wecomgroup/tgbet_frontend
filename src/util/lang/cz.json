@@ -2,7 +2,7 @@
   "actionView": {
     "text1": "The world's top Telegram",
     "text2": "CASINO",
-    "text3": "TG.Bet is your exclusive place for online, anonymous crypto gambling. Fully licensed and 100% safe, join us today!",
+    "text3": "TG.Bit is your exclusive place for online, anonymous crypto gambling. Fully licensed and 100% safe, join us today!",
     "text4": "Join Community",
     "text5": "Play now",
     "text6": "Verify license",
@@ -16,7 +16,7 @@
   },
   "coinChance": {
     "text1": "The crypto casino market has grown rapidly since 2017, with the latest data showing that the crypto casino market is now worth $250 million. \nThis represents just 0.1% of the total casino market, which is currently valued at $26.33 billion. \nBut research shows that crypto casinos are quickly taking market share from Web2 online casinos due to their ease of access, no need for KYC and the ability to avoid transactions showing up on bank statements.",
-    "text2": "Currently, 80% of online casino games are played on mobile devices, with the vast majority of crypto casinos being designed specifically for mobile devices. \nTG.Bet goes one step further and exclusively offers the Telegram platform, which currently has over 1 billion users and is expected to grow to 1.5 billion users in the next 3-5 years."
+    "text2": "Currently, 80% of online casino games are played on mobile devices, with the vast majority of crypto casinos being designed specifically for mobile devices. \nTG.Bit goes one step further and exclusively offers the Telegram platform, which currently has over 1 billion users and is expected to grow to 1.5 billion users in the next 3-5 years."
   },
   "coinTimes": {
     "text1": "The recent explosive popularity of crypto gambling seems to show no signs of slowing down. \nWe at TG.Casino understand that players around the world appreciate the flexibility of playing anytime, anywhere, remaining anonymous, and being able to place bets using cryptocurrencies. \nThe future has truly arrived!"
@@ -58,13 +58,13 @@
     "text9": "Connect wallet"
   },
   "howToBuy": {
-    "text1": "To purchase tokens during the Presale, visit TG.Bet’s official website. \nAfter the Presale, tokens can be obtained directly from the official website or through decentralized exchanges.",
+    "text1": "To purchase tokens during the Presale, visit TG.Bit’s official website. \nAfter the Presale, tokens can be obtained directly from the official website or through decentralized exchanges.",
     "text10": "Enter the amount of $TGB tokens you wish to purchase. \nPlease note that in addition to the cost of the token you intend to purchase, a minimum of 0.015 ETH is required to complete the transaction. \nOn Binance Smart Chain, this minimum requirement is lower, but still applies. \nThe minimum amount of $TGB tokens that can be purchased is set to 100 $TGB.",
     "text11": "Step 5: Complete your purchase",
     "text12": "Once you have entered the amount, you will be prompted to authorize the transaction. \nBy clicking \"Approve\", your transaction will be initiated and verified on the blockchain. \nTransaction completion times can vary from seconds to minutes, depending on network congestion and smart contract activity. \nPlease stay on the interface until the purchase is fully executed.",
     "text2": "How to buy $TGB during the presale",
     "text3": "Step 1: Visit the official portal",
-    "text4": "Visit TG.Bet’s dedicated webpage to find the exclusive Presale purchase interface. \nPlease note that this is the only authorized platform to obtain Presale $TGB tokens.",
+    "text4": "Visit TG.Bit’s dedicated webpage to find the exclusive Presale purchase interface. \nPlease note that this is the only authorized platform to obtain Presale $TGB tokens.",
     "text5": "Step 2: Choose payment method",
     "text6": "You can choose to purchase the Presale $TGB token on the Ethereum network using Ethereum (ETH) or Tether (USDT). \nAlternatively, you can leverage Binance Smart Chain and choose BNB or USDT. \nMake your choice and proceed to the next step.",
     "text7": "Step 3: Connect your crypto wallet",
@@ -80,8 +80,8 @@
     "text2": "Verify license"
   },
   "noKyc": {
-    "text1": "Online gambling without KYC has real advantages. \nFor years, the only way to gamble online was to hand over personal information. \nAt TG.Bet you do not need to provide personal information. \nAll you need is a Telegram account, some cryptocurrency, and you’re ready to play! \nIt only takes a few small steps.",
-    "text2": "Open TG.Bet",
+    "text1": "Online gambling without KYC has real advantages. \nFor years, the only way to gamble online was to hand over personal information. \nAt TG.Bit you do not need to provide personal information. \nAll you need is a Telegram account, some cryptocurrency, and you’re ready to play! \nIt only takes a few small steps.",
+    "text2": "Open TG.Bit",
     "text3": "Download Telegram",
     "text4": "Step 1",
     "text5": "If you don't have Telegram, please create an account after downloading the app, or if you already have Telegram, open it via the link",
@@ -135,7 +135,7 @@
     "text9": "Buy Presale tokens, start staking immediately, and get instant passive rewards!"
   },
   "safeInstructions": {
-    "text1": "TG.Bet does not require you to perform any KYC verification to play, or even connect your wallet. \nSimply top up your account and withdraw money at any time. \nIt's that simple!",
+    "text1": "TG.Bit does not require you to perform any KYC verification to play, or even connect your wallet. \nSimply top up your account and withdraw money at any time. \nIt's that simple!",
     "text2": "No KYC required",
     "text3": "No need to set up an account",
     "text4": "Play on your smartphone",
@@ -163,7 +163,7 @@
     "text7": "Want a real casino experience in the palm of your hand? \nJoin thousands of other players playing on the casino floor!"
   },
   "whiteBook": {
-    "text1": "If you want to learn more about how TG.Bet is different, read our white paper. \nWe are more than just an online casino!",
+    "text1": "If you want to learn more about how TG.Bit is different, read our white paper. \nWe are more than just an online casino!",
     "text2": "Whitepaper"
   },
   "whyPopular": {

@@ -17,7 +17,9 @@
 <script>
 export default {
     name: 'WhiteBook',
-    data() { },
+    data() {
+        return {}
+     },
 };
 </script>
 

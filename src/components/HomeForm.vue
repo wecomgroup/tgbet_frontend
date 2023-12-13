@@ -1,10 +1,10 @@
 <template>
   <div class="form-wrapper">
     <el-row>
-      <el-col :span="12">
+      <el-col :span="16">
         <div class="grid-content">$ {{ infoData.saleAmountStr }}</div>
       </el-col>
-      <el-col :span="12">
+      <el-col :span="8">
         <img src="../assets/logo.png" class="logo" />
       </el-col>
     </el-row>
@@ -85,6 +85,10 @@
         </div>
       </el-col>
       <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}%</el-col>
+      <el-col :span="24">
+        <div class="other-buy" @click="switchNet"><img src="../assets/Ellipse2.png" class="icon" />{{
+          $t('homeForm.text13') }}</div>
+      </el-col>
     </el-row>
   </div>
 </template>
@@ -105,7 +109,8 @@ import {
   disconnect,
   readContract,
   sepolia,
-  mainnet
+  mainnet,
+  switchNetwork
 } from "@wagmi/core";
 
 import { ElMessage } from 'element-plus'
@@ -115,6 +120,7 @@ import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 import { checkApprove, approveContract, getMyWalletClient } from "@/util/contactUtil/approve";
 import { stakeContract, tgbContract, proxyContract, usdtContract, usdcContract } from '../util/const/const'
+import { bscTestnet } from "viem/chains";
 
 export default {
 
@@ -220,6 +226,9 @@ export default {
         token: resultData.saleToken,
       })
 
+      //最大购买额
+      console.log(`maxTokensToBuy: ${info.maxTokensToBuy}`)
+
       //TGB Price
       info.baseDecimals = resultData.baseDecimals.toString().length - 1
       info.tokenPrice = formatUnits(resultData.tokenPrice, info.baseDecimals)
@@ -257,9 +266,10 @@ export default {
       info.saleAmount = (info.tokenPrice * Number(resultData.totalTokensSold))
 
       //saleProress
-      info.saleProress = (info.saleAmount / info.saleGoal * 100).toFixed(4)
+      info.saleProress = parseFloat((info.saleAmount / info.saleGoal * 100).toFixed(2))
 
       info.saleAmountStr = parseInt(info.saleAmount).toLocaleString()
+      info.saleGoal = parseInt(info.saleGoal).toLocaleString()
       infoData.value = info
     }
 
@@ -319,6 +329,25 @@ export default {
         config: { globalProperties },
       },
     } = getCurrentInstance();
+
+    const switchNet = async () => {
+      try {
+        const currentNetwork = getNetwork()
+
+
+        let changeChanidId = currentNetwork.chain.id == bscTestnet.id ? sepolia.id : bscTestnet.id
+        const network = await switchNetwork({
+          chainId: changeChanidId,
+        })
+        //更新界面
+        if (currentNetwork.chain.id !== network.id) {
+          homeInfo()
+        }
+      } catch (error) {
+        console.log(`change network has some thing wrong ${error}`)
+      }
+
+    }
 
 
     // 链接信息getAccount
@@ -598,6 +627,7 @@ export default {
       accountMsg,
       disconnect1,
       sign,
+      switchNet,
       startCountdownTimer,
       loopIndexInfo,
       requestIndexInfo,
@@ -613,7 +643,12 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+:deep(.el-progress-bar__innerText) {
+  color: #fff
+}
+
 .form-wrapper {
   border-radius: 24px;
   border: 1px solid #30323a;

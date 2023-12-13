@@ -7,7 +7,7 @@
     <HowToBuy />
   </div>
   <div v-else>
-    <ActionView />
+    <!-- <ActionView /> -->
     <HomeCom />
     <CryptoNews />
     <PreSale />

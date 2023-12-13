@@ -12,7 +12,9 @@
 <script>
 export default {
     name: 'OperationWay',
-    data() { },
+    data() { 
+        return {}
+    },
 };
 </script>
 
