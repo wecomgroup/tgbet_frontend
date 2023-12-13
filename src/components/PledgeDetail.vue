@@ -109,11 +109,10 @@
   
 <script>
 import PledgeDetailArea from './PledgeDetailArea.vue'
-import stakeABI from '@/abi/stakeAbi';
 import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { ElMessage } from 'element-plus'
-
+import { MAX_ALLOWANCE,stakeContract ,tgbContract} from  '../util/const/const'
 import {
     erc20ABI,
     disconnect,
@@ -141,7 +140,6 @@ export default {
         onMounted(() => {
             stakeInfo()
         })
-        const MAX_ALLOWANCE = 115792089237316195423570985008687907853269984665640564039457584007913129639935n;
 
         const {
             appContext: {
@@ -197,10 +195,6 @@ export default {
         let myRewardAmount = ref({})
         let stakeAmount = ref()
         let unStakeAmount = ref()
-        const stakeContract = {
-            address: '0x33983a29b04B6Ad1140CEB7c6d1Bd23CCB10af18',
-            abi: stakeABI,
-        }
 
         const maxMyStakeBalance = () => {
             stakeAmount.value = infoData.value.myBalance
@@ -236,10 +230,7 @@ export default {
         //检查授权额度  未授权 0 或者 授权额度小于支出数
         const checkApprove = async () => {
             
-            const tgbContract = {
-                address: infoData.value.stakeTokenAddress,
-                abi: erc20ABI,
-            }
+            
             let allowanceData = await readContract({
                 ...tgbContract,
                 functionName: "allowance",
@@ -252,10 +243,6 @@ export default {
         
         const approveTgb = async () => {
          
-            const tgbContract = {
-                address: infoData.value.stakeTokenAddress,
-                abi: erc20ABI,
-            }
             const walletClient = await getMyWalletClient()
 
             let hash = await walletClient.writeContract({
@@ -471,7 +458,6 @@ export default {
             unStakeToken,
             checkApprove,
             approveTgb
-
         }
     }
 }

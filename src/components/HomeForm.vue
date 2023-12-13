@@ -109,23 +109,12 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
-import proxyABI from "@/abi/proxyAbi"
-import stakeABI from "@/abi/stakeAbi"
+
+import { MAX_ALLOWANCE,stakeContract ,tgbContract,proxyContract,usdtContract, usdcContract} from  '../util/const/const'
+
 export default {
 
   setup: () => {
-
-    const proxyContract = {
-      address: '0x79db44ea37184a73afb1b7bb4f3176dd491f2aa5',
-      abi: proxyABI,
-    }
-
-    const stakeContract = {
-      address: '0x33983a29b04B6Ad1140CEB7c6d1Bd23CCB10af18',
-      abi: stakeABI,
-    }
-
-    const usdtAddress = '0x7169D38820dfd117C3FA1f22a697dBA58d90BA06'
 
     const countdownTimer = ref()
     const indexTimer = ref()
@@ -302,9 +291,7 @@ export default {
     const requestIndexInfo = () => {
       indexInfo().then(response => {
         if (response.data && response.statusCode === 200) {
-          infoData.value = response.data
-          leaveTime = response.data.increases_in / 1000
-          infoData.value.process = response.data.process * 100
+
         }
       }).catch(() => { })
     };
@@ -355,7 +342,8 @@ export default {
     //代币选择  //ETH USDT USDC WBTC
     const coinInfo = {
       ETH: { "contract": "", decimals: 18, name: "ETH" },
-      USDT: { "contract": "0xdac17f958d2ee523a2206206994597c13d831ec7", decimals: 6, name: "USDT" },
+      USDT: { "contract": usdtContract.address, decimals: 6, name: "USDT" },
+      USDC: { "contract": usdcContract.address, decimals: 6, name: "USDC" },
     }
 
     let color = ref("#C5AC79");
@@ -384,7 +372,7 @@ export default {
     const rate = () => {
       if (selectedCoin.value.name === 'ETH') {
         return infoData.value.eth_to_usd
-      } else if (selectedCoin.value.name === 'USDT') {
+      } else if (selectedCoin.value.name === 'USDT' || selectedCoin.value.name === 'USDC') {
         return infoData.value.usdt_to_usd
       } else {
         return null
@@ -420,6 +408,8 @@ export default {
     // 2 ETH-BUY-STAKING  
     // 3 USDT-BUY 
     // 4 USDT-BUY-STAKING
+    // 5 USDC-BUY 
+    // 6 USDC-BUY-STAKING
     const buyToken = () => {
       if (Number(tgbAmount.value) < 100) {
         ElMessage.error(`$TGB购买数量需大于100`)
@@ -428,8 +418,10 @@ export default {
 
       if (selectedCoin.value.name === 'ETH') {
         startBuyToken(tgbAmount.value, 1)
-      } else {
+      } else if(selectedCoin.value.name === 'USDT') {
         startBuyToken(tgbAmount.value, 3)
+      } else if(selectedCoin.value.name === 'USDC') {
+        startBuyToken(tgbAmount.value, 5)
       }
     }
 
@@ -441,8 +433,10 @@ export default {
       }
       if (selectedCoin.value.name === 'ETH') {
         startBuyToken(tgbAmount.value, 2)
-      } else {
+      } else if(selectedCoin.value.name === 'USDT') {
         startBuyToken(tgbAmount.value, 4)
+      } else if(selectedCoin.value.name === 'USDC') {
+        startBuyToken(tgbAmount.value, 6)
       }
     }
 
@@ -464,10 +458,7 @@ export default {
 
     //检查授权额度  未授权 0 或者 授权额度小于支出数
     const checkApprove = async () => {
-      const usdtContract = {
-        address: usdtAddress,
-        abi: erc20ABI,
-      }
+     
       let allowanceData = await readContract({
         ...usdtContract,
         functionName: "allowance",
@@ -479,12 +470,6 @@ export default {
 
     const approveUSDT = async () => {
 
-      const MAX_ALLOWANCE = 115792089237316195423570985008687907853269984665640564039457584007913129639935n;
-
-      const usdtContract = {
-        address: usdtAddress,
-        abi: erc20ABI,
-      }
       const walletClient = await getMyWalletClient()
 
       let hash = await walletClient.writeContract({

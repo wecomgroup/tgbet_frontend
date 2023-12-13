@@ -5,14 +5,13 @@ import App from './App.vue'
 import i18n from '../src/util/lang/index'
 import '../src/assets/style/reset.css'
 import Cookies from 'js-cookie'
-
+import { projectId } from './util/const/const'
 const app = createApp(App)
 
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/vue'
 import { sepolia } from '@wagmi/core/chains'
 
-const projectId ='3250eb9b1d71fe0b64d14d68f1778dbb';
-console.log("========信息=========", projectId);
+console.log("========projectId : 信息=========", projectId);
 const chains = [sepolia]
 const wagmiConfig = defaultWagmiConfig({ chains, projectId });
 
