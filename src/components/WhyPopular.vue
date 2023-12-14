@@ -80,6 +80,26 @@ export default {
             }]
         }
     },
+    computed: {
+        data() {
+            return [{
+                desc: this.$t('whyPopular.text1'),
+                topImg: whyPopular2,
+                rightImg: play1,
+                btnText: this.$t('whyPopular.text2')
+            }, {
+                desc: this.$t('whyPopular.text3'),
+                topImg: whyPopular1,
+                rightImg: play2,
+                btnText: this.$t('whyPopular.text4')
+            }, {
+                desc: this.$t('whyPopular.text5'),
+                topImg: whyPopular3,
+                rightImg: play3,
+                btnText: this.$t('whyPopular.text4')
+            }]
+        }
+    },
 };
 </script>
 

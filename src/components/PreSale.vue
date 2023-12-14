@@ -68,12 +68,6 @@ export default {
                 src: money
             }]
         }
-    },
-    methods: {
-    },
-    mounted() {
-    },
-    beforeUnmount() {
     }
 };
 </script>
@@ -102,7 +96,7 @@ export default {
 
 
 .descItem {
-    height: 250px;
+    height: 280px;
     background-color: #1F2129;
     border-radius: 8px;
     border: 1px solid #30323A;
