@@ -82,6 +82,7 @@ export default {
 }
 
 .stepItem {
+    padding-left: 15px;
     margin-right: 60px;
     position: relative;
 }
