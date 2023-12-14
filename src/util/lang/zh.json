@@ -128,7 +128,8 @@
         "text10":"购买并质押",
         "text11":"只想购买而不质押",
         "text12":"当前质押年化收益率",
-        "text13":"在BSC上购买"
+        "text13":"在BSC上购买",
+        "text14":"在ETH上购买"
         
     },
     "economicToken": {

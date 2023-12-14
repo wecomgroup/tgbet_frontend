@@ -44,7 +44,10 @@
     </el-row>
     <el-row :gutter="20">
       <el-col :span="12">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
+        <div v-if="isBscNetwork" class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
+          <img src="../assets/Ellipse2.png" class="icon" />BNB
+        </div>
+        <div v-else class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
@@ -85,7 +88,11 @@
         </div>
       </el-col>
       <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}%</el-col>
-      <el-col :span="24">
+      <el-col :span="24" v-if="isBscNetwork">
+        <div class="other-buy" @click="switchNet"><img src="../assets/Ellipse3.png" class="icon" />{{
+          $t('homeForm.text14') }}</div>
+      </el-col>
+      <el-col :span="24" v-else>
         <div class="other-buy" @click="switchNet"><img src="../assets/Ellipse2.png" class="icon" />{{
           $t('homeForm.text13') }}</div>
       </el-col>
@@ -126,6 +133,9 @@ export default {
 
   setup: () => {
 
+    let isBscNetwork = ref(0)
+    
+   
     const countdownTimer = ref()
     const indexTimer = ref()
     let infoData = ref({})
@@ -138,7 +148,7 @@ export default {
     })
 
     const homeInfo = async () => {
-
+      isBscNetwork.value = isBscNet()
       const data = await multicall({
         contracts: [
           {
@@ -330,10 +340,15 @@ export default {
       },
     } = getCurrentInstance();
 
+   
+    const isBscNet = () => {
+      console.log(`currentNet: ${getNetwork().chain.id} bscNet:${bscTestnet.id}`)
+      return getNetwork().chain.id === bscTestnet.id
+    }
+
     const switchNet = async () => {
       try {
         const currentNetwork = getNetwork()
-
 
         let changeChanidId = currentNetwork.chain.id == bscTestnet.id ? sepolia.id : bscTestnet.id
         const network = await switchNetwork({
@@ -341,7 +356,7 @@ export default {
         })
         //更新界面
         if (currentNetwork.chain.id !== network.id) {
-          homeInfo()
+            homeInfo()
         }
       } catch (error) {
         console.log(`change network has some thing wrong ${error}`)
@@ -622,6 +637,7 @@ export default {
       connect,
       selectedCoin,
       coinInfo,
+      isBscNetwork,
       connectWithWalletConnect,
       chooseMoney,
       accountMsg,
@@ -639,6 +655,8 @@ export default {
       buyTokenAndStaking,
       startBuyToken,
       filterAddress,
+      isBscNet,
+      
     };
   },
 };

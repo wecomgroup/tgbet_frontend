@@ -127,7 +127,9 @@
     "text9": "Connect wallet",
     "text10": "Buy and stake",
     "text11": "Just want to buy without pledging",
-    "text12": "Current Staking APY"
+    "text12": "Current Staking APY",
+    "text13":"Buy at BSC",
+    "text14":"Buy at ETH"
   },
   "economicToken": {
     "text1": "In order to achieve a virtuous cycle, the behavior of each participant in the ecosystem is very important. \nEqually important are well-designed incentives",
