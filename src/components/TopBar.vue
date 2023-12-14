@@ -21,16 +21,16 @@
             </div>
             <el-dropdown @command="handleChangeLang" :teleported=false>
                 <div class="menuLink">
-                    <img class="zhImg" v-if="currentlang === 'zh'" src="../assets/zh.png" alt="zh">
-                    <img class="zhImg" v-else-if="currentlang === 'en'" src="../assets/en.png" alt="en">
-                    <p>{{ currentlang === 'zh' ? '中文' : 'EN' }}</p>
+                    <!-- src="require('../assets/lang/' + currentlang.key + '.png') -->
+                    <img class="zhImg" :src="currentlang.icon">
+                    <p>{{ currentlang.title }}</p>
                 </div>
                 <template #dropdown>
                     <el-dropdown-menu>
-                        <el-dropdown-item command="zh"><img class="zhImg" src="../assets/zh.png">{{ $t('lang.zh')
-                        }}</el-dropdown-item>
-                        <el-dropdown-item command="en"> <img class="zhImg" src="../assets/en.png">{{ $t('lang.en')
-                        }}</el-dropdown-item>
+                        <!-- // :src="require('../assets/lang/' + item.key + '.png')" -->
+                        <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhImg"
+                                :src="item.icon">{{ item.title }}
+                        </el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -48,16 +48,14 @@
                 <div class="audit">{{ $t('topBar.auditBtn') }}</div>
                 <el-dropdown @command="handleChangeLang" :teleported=false>
                     <div class="menuLink">
-                        <img class="zhImg" v-if="currentlang === 'zh'" src="../assets/zh.png" alt="zh">
-                        <img class="zhImg" v-else-if="currentlang === 'en'" src="../assets/en.png" alt="en">
-                        <p>{{ currentlang === 'zh' ? '中文' : 'EN' }}</p>
+                        <img class="zhImg" :src="currentlang.icon">
+                        <p>{{ currentlang.title }}</p>
                     </div>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item command="zh"><img class="zhImg" src="../assets/zh.png">{{ $t('lang.zh')
-                            }}</el-dropdown-item>
-                            <el-dropdown-item command="en"><img class="zhImg" src="../assets/en.png">{{ $t('lang.en')
-                            }}</el-dropdown-item>
+                            <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhImg"
+                                :src="item.icon">{{ item.title }}
+                            </el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
@@ -69,20 +67,35 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+
+import zhIcon from '@/assets/lang/zh.png'
+import deIcon from '@/assets/lang/de.png'
+import enIcon from '@/assets/lang/en.png'
+import arIcon from '@/assets/lang/ar.png'
+import esIcon from '@/assets/lang/es.png'
+import czIcon from '@/assets/lang/cz.png'
+import bgIcon from '@/assets/lang/bg.png'
 export default {
     name: 'TopBar',
     data() {
         return {
             innerVisible: false,
             isSticky: false,
-            currentlang: Cookies.get('language')
+            currentlang: { title: '', key: '' ,icon:null},
+            langList: [
+                { title: 'English', key: 'en',icon: enIcon},
+                { title: '中文', key: 'zh' ,icon: zhIcon},
+                { title: 'español', key: 'es' ,icon: esIcon},
+                { title: 'عربي', key: 'ar' ,icon: arIcon},
+                { title: 'Deutsch', key: 'de' ,icon: deIcon},
+                { title: 'България', key: 'bg' ,icon: bgIcon},
+                { title: 'Česká', key: 'cz' ,icon: czIcon},
+            ]
         };
     },
-  created() {
-    this.currentlang = this.$i18n.locale
-  },
-  methods: {
+    created() {
+    },
+    methods: {
         handleScroll() {
             this.isSticky = window.scrollY > 0;
         },
@@ -107,9 +120,11 @@ export default {
             });
         },
         handleChangeLang(e) {
-            this.currentlang = e
-            this.$i18n.locale = e
-            Cookies.set('language', e)
+            if (e && e.key) {
+                this.currentlang = e
+                this.$i18n.locale = e.key
+                localStorage.setItem('language', e.key)
+            }
         },
         handleShowMenu() {
             this.innerVisible = true
@@ -151,6 +166,9 @@ export default {
     },
     mounted() {
         window.addEventListener('scroll', this.handleScroll);
+        let lang = localStorage.getItem('language')
+        this.currentlang = this.langList.find(item => item.key == lang);
+        console.log('this currentlang: ' + this.currentlang.key)
     },
     beforeUnmount() {
         window.removeEventListener('scroll', this.handleScroll);

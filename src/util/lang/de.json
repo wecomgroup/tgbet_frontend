@@ -1,4 +1,13 @@
 {
+  "lang": {
+    "zh": "中文",
+    "en": "English",
+    "cz": "cz",
+    "de": "de",
+    "es": "es",
+    "ar": "ar",
+    "bg": "bg"
+  },
   "actionView": {
     "text1": "Das weltweit beste Telegram",
     "text2": "KASINO",
@@ -75,10 +84,6 @@
     "text7": "Schritt 3: Verbinden Sie Ihr Krypto-Wallet",
     "text8": "Wenn Ihr Krypto-Wallet noch nicht synchronisiert wurde, werden Sie aufgefordert, eine Verbindung herzustellen.\n\nNormalerweise sind Wallets standardmäßig für das Ethereum-Mainnet eingerichtet; \nDies kommt Ihnen zugute, wenn Sie mit der ETH handeln.\n\nWenn Sie sich jedoch für Binance Smart Chain entscheiden, müssen Sie möglicherweise den Netzwerkwechsel bestätigen.",
     "text9": "Schritt 4: Kaufbetrag angeben"
-  },
-  "lang": {
-    "en": "de",
-    "zh": "zh"
   },
   "licenseProof": {
     "text1": "Der Web-3-Bereich wird oft als der Wilde Westen angesehen, voller Fehlinformationen und Bitrug.\n\nBei TG.Bit können wir mit Stolz behaupten, dass wir ein zu 100 % voll lizenziertes Casino-Unternehmen mit Sitz in Curacao sind.\n\nSpielen Sie also gerne mit!",

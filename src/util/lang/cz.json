@@ -1,4 +1,13 @@
 {
+  "lang": {
+    "zh": "中文",
+    "en": "English",
+    "cz": "cz",
+    "de": "de",
+    "es": "es",
+    "ar": "ar",
+    "bg": "bg"
+  },
   "actionView": {
     "text1": "The world's top Telegram",
     "text2": "CASINO",
@@ -70,10 +79,6 @@
     "text7": "Step 3: Connect your crypto wallet",
     "text8": "If your crypto wallet has not synced yet, you will see a prompt asking you to connect. \nTypically, wallets are set up for Ethereum mainnet by default; this works to your advantage if you trade with ETH. \nHowever, if you choose Binance Smart Chain, you may need to confirm the network switch.",
     "text9": "Step 4: Specify purchase amount"
-  },
-  "lang": {
-    "en": "en",
-    "zh": "zh"
   },
   "licenseProof": {
     "text1": "The Web 3 space is often viewed as the Wild West, filled with misinformation and fraud. \nAt TG.Bit we proudly claim that we are a 100% fully licensed casino entity based in Curacao. \nSo please feel free to play!",

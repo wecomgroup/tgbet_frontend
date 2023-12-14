@@ -1,4 +1,13 @@
 {
+  "lang": {
+    "zh": "中文",
+    "en": "English",
+    "cz": "cz",
+    "de": "de",
+    "es": "es",
+    "ar": "ar",
+    "bg": "bg"
+  },
   "actionView": {
     "text1": "El Telegram más importante del mundo",
     "text2": "CASINO",
@@ -75,10 +84,6 @@
     "text7": "Paso 3: conecta tu billetera criptográfica",
     "text8": "Si su billetera criptográfica aún no se ha sincronizado, verá un mensaje que le pedirá que se conecte.\n\nNormalmente, las billeteras están configuradas para la red principal de Ethereum de forma predeterminada; \nesto funciona a su favor si opera con ETH.\n\nSin embargo, si elige Binance Smart Chain, es posible que deba confirmar el cambio de red.",
     "text9": "Paso 4: Especifique el monto de la compra"
-  },
-  "lang": {
-    "en": "es",
-    "zh": "Z h"
   },
   "licenseProof": {
     "text1": "El espacio Web 3 a menudo se considera el Salvaje Oeste, lleno de desinformación y fraude.\n\nEn TG.Bit afirmamos con orgullo que somos una entidad de casino 100% con licencia completa con sede en Curazao.\n\n¡Así que siéntete libre de jugar!",

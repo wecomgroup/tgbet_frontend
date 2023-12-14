@@ -1,7 +1,12 @@
 {
   "lang": {
-    "zh": "zh",
-    "en": "en"
+    "zh": "中文",
+    "en": "English",
+    "cz": "cz",
+    "de": "de",
+    "es": "es",
+    "ar": "ar",
+    "bg": "bg"
   },
   "topBar": {
     "index": "Home",

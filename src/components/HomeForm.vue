@@ -40,7 +40,7 @@
         <div class="wallect">
           <p class="tips">{{ filterAddress(accountMsg.address) }}
           </p>
-          <img style="margin-left: 10px; height: 25px;width: 25px;;" @click="disconnect1" src="../assets/logout.png"/>
+          <img style="margin-left: 10px; height: 25px;width: 25px;;" @click="disconnect1" src="../assets/logout.png" />
         </div>
       </el-col>
     </el-row>
@@ -150,7 +150,7 @@ export default {
     })
 
     const homeInfo = async () => {
-
+      if (!connect.value) { return }
       // await isAvaileNetwork()
       isBscNetwork.value = isBscNet()
 
@@ -338,7 +338,9 @@ export default {
 
     onMounted(() => {
       startCountdownTimer()
-      homeInfo()
+      if (connect.value) {
+        homeInfo()
+      }
     })
 
     onBeforeUnmount(() => {
@@ -353,6 +355,7 @@ export default {
 
 
     const isBscNet = () => {
+
       console.log(`currentNet: ${getNetwork().chain.id} bscNet:${bscTestnet.id}`)
       return getNetwork().chain.id === bscTestnet.id
     }
@@ -419,6 +422,9 @@ export default {
         const account1 = getAccount();
         accountMsg.value = account1;
         connect.value = account1.isConnected;
+        if (connect.value) {
+          homeInfo()
+        }
       });
     }
 
@@ -730,11 +736,12 @@ export default {
 }
 
 .wallect {
-  display: flex; 
-  flex-direction: row; 
+  display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-end;
 }
+
 .form-wrapper {
   border-radius: 24px;
   border: 1px solid #30323a;
