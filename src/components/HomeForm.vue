@@ -18,12 +18,12 @@
         <p>$ {{ infoData.saleGoal }}</p>
       </el-col>
     </el-row>
-    <el-row>
+    <el-row >
       <el-col :span="24">
         <el-progress :text-inside="true" :stroke-width="28" :percentage="infoData.saleProress" :color="color" />
       </el-col>
     </el-row>
-    <el-row>
+    <el-row style="margin-top: 10px;">
       <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
     <el-row :gutter="10" style="margin-top: 10px;">
@@ -32,19 +32,21 @@
       <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.second ? timeState.second : '00' }} S</span></el-col>
     </el-row>
-    <el-row v-if="connect" style="margin-top: 20px; ">
+    <el-row v-if="connect" style="margin-top: 30px; ">
       <el-col :span="12">
-        <p class="tips">{{ $t('homeForm.text4') }} </p>
+        <p class="logtips">{{ $t('homeForm.text4') }} </p>
       </el-col>
-      <el-col :span="12" style="text-align:right;">
+      <el-col :span="12">
         <div class="wallect">
-          <p class="tips">{{ filterAddress(accountMsg.address) }}
+          <div>
+          <p class="logtips">{{ filterAddress(accountMsg.address) }}
           </p>
-          <img style="margin-left: 10px; height: 25px;width: 25px;;" @click="disconnect1" src="../assets/logout.png" />
+          </div>
+          <img class="logout" @click="disconnect1" src="../assets/logout.png" />
         </div>
       </el-col>
     </el-row>
-    <el-row :gutter="20" style="margin-top: 10px; ">
+    <el-row :gutter="20" style="margin-top: 5px; ">
       <el-col :span="12">
         <div v-if="isBscNetwork" class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/bnb.png" class="icon" />BNB
@@ -392,6 +394,7 @@ export default {
         })
         //更新界面
         if (currentNetwork.chain.id !== network.id) {
+          accountMsg.value = getAccount();
           homeInfo()
         }
       } catch (error) {
@@ -790,8 +793,13 @@ export default {
 .tips {
   font-size: 16px;
   font-weight: 600;
-  padding: 10px 0;
-  margin-top: 10px;
+  margin-top: 15px;
+}
+
+.logtips {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 25px;
 }
 
 .tips>.max-value {
@@ -887,6 +895,7 @@ export default {
 }
 
 .f-ipt {
+  margin-top: 10px;
   margin-bottom: 24px;
 }
 
@@ -896,8 +905,24 @@ export default {
   margin-right: 10px;
   vertical-align: -5px;
 }
+.logout {
+  width: 25px;
+  height: 25px;
+
+  margin-left: 10px;
+}
 
 @media screen and (max-width: 900px) {
+  .tips {
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+  .f-ipt {
+    margin-top: 12px;
+  margin-bottom: 24px;
+}
+
   .form-wrapper {
     padding: 40px 20px 24px;
   }
