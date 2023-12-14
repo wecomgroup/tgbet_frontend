@@ -125,7 +125,7 @@ import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
-import { checkApprove, approveContract, getMyWalletClient } from "@/util/contactUtil/approve";
+import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
 import { stakeContract, tgbContract, proxyContract, usdtContract, usdcContract } from '../util/const/const'
 import { bscTestnet } from "viem/chains";
 
@@ -134,8 +134,8 @@ export default {
   setup: () => {
 
     let isBscNetwork = ref(0)
-    
-   
+
+
     const countdownTimer = ref()
     const indexTimer = ref()
     let infoData = ref({})
@@ -340,7 +340,7 @@ export default {
       },
     } = getCurrentInstance();
 
-   
+
     const isBscNet = () => {
       console.log(`currentNet: ${getNetwork().chain.id} bscNet:${bscTestnet.id}`)
       return getNetwork().chain.id === bscTestnet.id
@@ -356,7 +356,7 @@ export default {
         })
         //更新界面
         if (currentNetwork.chain.id !== network.id) {
-            homeInfo()
+          homeInfo()
         }
       } catch (error) {
         console.log(`change network has some thing wrong ${error}`)
@@ -509,6 +509,7 @@ export default {
 
         const inviteCodeParam = getInviteCode();
 
+        let hash = ''
         if (buyType === 1 || buyType === 2) {
           let ethPayAmount = await readContract({
             ...proxyContract,
@@ -520,7 +521,7 @@ export default {
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
-          let hash = await walletClient.writeContract({
+          hash = await walletClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(amount), inviteCodeParam],
@@ -552,13 +553,12 @@ export default {
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           // amount = parseEther(Math.floor(amount).toString())
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
-          let hash = await walletClient.writeContract({
+          hash = await walletClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
             account
           })
-
           console.log('USDT PAY HASH==> ' + hash)
 
         }
@@ -585,7 +585,7 @@ export default {
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
           // amount = parseEther(Math.floor(amount).toString())
           let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
-          let hash = await walletClient.writeContract({
+          hash = await walletClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
@@ -595,6 +595,11 @@ export default {
           console.log('USDTC PAY HASH==> ' + hash)
 
         } else { console.log('param error') }
+
+        if (hash) {
+          let transactionReceipt = await waitTx(hash)
+          console.log(transactionReceipt)
+        }
       } catch (err) {
         const metamaskError = err?.message?.split(".")[0] || "Unknown error";
         const message = err?.message ? metamaskError : err;
@@ -656,7 +661,7 @@ export default {
       startBuyToken,
       filterAddress,
       isBscNet,
-      
+
     };
   },
 };

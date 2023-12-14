@@ -2,12 +2,12 @@
     <div class="container">
         <div class="pledgeDetail">
             <img class="pledgeDetailLogo" alt="pledgeDetail" src="../assets/pledgeDetail.png">
-            <div class="desc">{{$t('pledgeDetail.text1')}}</div>
+            <div class="desc">{{ $t('pledgeDetail.text1') }}</div>
             <el-row :gutter="17">
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer" style="background: #C5AC79; border: 1px solid #EFD8AA;">
                         <div class="dataTitle" style="color: #181A20;">
-                            {{$t('pledgeDetail.text2')}}
+                            {{ $t('pledgeDetail.text2') }}
                         </div>
                         <div class="dataValue" style="color: #181A20;">
                             {{ infoData.apy }}%
@@ -17,7 +17,7 @@
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            {{$t('pledgeDetail.text3')}}
+                            {{ $t('pledgeDetail.text3') }}
                         </div>
                         <div class="dataValue">
                             {{ infoData.totalStake }}
@@ -27,7 +27,7 @@
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            {{$t('pledgeDetail.text4')}}
+                            {{ $t('pledgeDetail.text4') }}
                         </div>
                         <div class="dataValue">
                             {{ infoData.stateRateStr }}%
@@ -37,7 +37,7 @@
                 <el-col :xs="12" :sm="12" :lg="6">
                     <div class="dataContainer">
                         <div class="dataTitle">
-                            {{$t('pledgeDetail.text5')}}
+                            {{ $t('pledgeDetail.text5') }}
                         </div>
                         <div class="dataValue">
                             {{ infoData.totalReward }}
@@ -47,54 +47,54 @@
             </el-row>
             <div class="my-pledge">
                 <div class="bg" v-if="!connect">
-                    <div class="btn" @click="connectWithWalletConnect">{{$t('pledgeDetail.text6')}}</div>
+                    <div class="btn" @click="connectWithWalletConnect">{{ $t('pledgeDetail.text6') }}</div>
                 </div>
-                <div class="actionPledgeTitle">{{$t('pledgeDetail.text7')}}</div>
+                <div class="actionPledgeTitle">{{ $t('pledgeDetail.text7') }}</div>
                 <div class="minePledge">
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text8')}}</p>
+                        <p class="actionPledgeDesc">{{ $t('pledgeDetail.text8') }}</p>
                         <el-input v-model="infoData.myStakeAmount" type="number" readonly />
                     </div>
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text9')}}</p>
+                        <p class="actionPledgeDesc">{{ $t('pledgeDetail.text9') }}</p>
                         <el-input v-model="infoData.myStateRateStr" readonly />
                     </div>
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text10')}}</p>
+                        <p class="actionPledgeDesc">{{ $t('pledgeDetail.text10') }}</p>
                         <el-input v-model="infoData.myStakeHarvestedRewards" type="number" readonly />
                     </div>
                     <div class="minePledgeItem">
-                        <p class="actionPledgeDesc">{{$t('pledgeDetail.text11')}}</p>
+                        <p class="actionPledgeDesc">{{ $t('pledgeDetail.text11') }}</p>
                         <div style="position: relative;">
                             <el-input v-model="myRewardAmount" type="number" readonly />
-                            <div class="receive" @click="getMyStakeReward">{{$t('pledgeDetail.text12')}}</div>
+                            <div class="receive" @click="getMyStakeReward">{{ $t('pledgeDetail.text12') }}</div>
                         </div>
 
                     </div>
                 </div>
                 <div class="actionPledge">
                     <div class="goPledge">
-                        <div class="actionPledgeTitle">{{$t('pledgeDetail.text13')}}</div>
-                        <div class="actionPledgeDesc">{{$t('pledgeDetail.text14')}}</div>
+                        <div class="actionPledgeTitle">{{ $t('pledgeDetail.text13') }}</div>
+                        <div class="actionPledgeDesc">{{ $t('pledgeDetail.text14') }}</div>
                         <div style="position: relative;">
                             <el-input v-model="stakeAmount" type="number" autocomplete="off" />
-                            <div class="maxVal" @click="maxMyStakeBalance">{{$t('pledgeDetail.text15')}}</div>
+                            <div class="maxVal" @click="maxMyStakeBalance">{{ $t('pledgeDetail.text15') }}</div>
                         </div>
                         <div class="goPledgeBtn">
-                            <div class="learnMore">{{$t('pledgeDetail.text16')}}</div>
-                            <div class="actionBtn" @click="stakeToken">{{$t('pledgeDetail.text13')}}</div>
+                            <div class="learnMore">{{ $t('pledgeDetail.text16') }}</div>
+                            <div class="actionBtn" @click="stakeToken">{{ $t('pledgeDetail.text13') }}</div>
                         </div>
                     </div>
                     <div class="outPledge">
-                        <div class="actionPledgeTitle">{{$t('pledgeDetail.text17')}}</div>
-                        <div class="actionPledgeDesc">{{$t('pledgeDetail.text19')}}</div>
+                        <div class="actionPledgeTitle">{{ $t('pledgeDetail.text17') }}</div>
+                        <div class="actionPledgeDesc">{{ $t('pledgeDetail.text19') }}</div>
                         <div style="position: relative;">
                             <el-input v-model="unStakeAmount" type="number" autocomplete="off" />
-                            <div class="maxVal" @click="maxMyUnStakeBalance">{{$t('pledgeDetail.text15')}}</div>
+                            <div class="maxVal" @click="maxMyUnStakeBalance">{{ $t('pledgeDetail.text15') }}</div>
                         </div>
                         <div class="goPledgeBtn">
-                            <div class="learnMore">{{$t('pledgeDetail.text16')}}</div>
-                            <div class="actionBtn" @click="unStakeToken">{{$t('pledgeDetail.text18')}}</div>
+                            <div class="learnMore">{{ $t('pledgeDetail.text16') }}</div>
+                            <div class="actionBtn" @click="unStakeToken">{{ $t('pledgeDetail.text18') }}</div>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,10 @@ import PledgeDetailArea from './PledgeDetailArea.vue'
 import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { ElMessage } from 'element-plus'
-import { MAX_ALLOWANCE,stakeContract ,tgbContract} from  '../util/const/const'
+
+import { checkApprove, approveContract, getMyWalletClient, waitTx ,getPublicCient} from "@/util/contactUtil/approve";
+
+import { MAX_ALLOWANCE, stakeContract, tgbContract } from '@/util/const/const'
 import {
     erc20ABI,
     disconnect,
@@ -204,12 +207,6 @@ export default {
             unStakeAmount.value = infoData.value.myBalance
         }
 
-        const getMyWalletClient = async () => {
-            return await getWalletClient({
-                chainId: sepolia.id,
-            });
-        }
-
         const getMyStakeReward = async () => {
             let amount = myRewardAmount.value
             if (!amount || amount < 100) {
@@ -225,36 +222,11 @@ export default {
                 account
             })
             console.log('getMyStakeReward tx hash' + hash)
+            if (hash) {
+                let transactionReceipt = await waitTx(hash)
+                console.log(transactionReceipt)
+            }
         }
-
-        //检查授权额度  未授权 0 或者 授权额度小于支出数
-        const checkApprove = async () => {
-            
-            
-            let allowanceData = await readContract({
-                ...tgbContract,
-                functionName: "allowance",
-                args: [accountMsg.value.address, stakeContract.address]
-            })
-            console.log(`allowanceData: ${allowanceData}`)
-
-            return allowanceData
-        }
-        
-        const approveTgb = async () => {
-         
-            const walletClient = await getMyWalletClient()
-
-            let hash = await walletClient.writeContract({
-                ...tgbContract,
-                functionName: "approve",
-                args: [stakeContract.address, MAX_ALLOWANCE],
-                account
-            })
-            console.log('approve tx hash' + hash)
-            return hash
-        }
-
 
 
         const stakeToken = async () => {
@@ -264,14 +236,13 @@ export default {
                 return
             }
 
-            let allowanceData = await checkApprove()
+            let allowanceData = await checkApprove(tgbContract, accountMsg.value.address, stakeContract.address)
 
-            let amount = parseEther(Math.floor(stakeAmount.value).toString())
-            console.log(`allowanceData: ${allowanceData}`)
+            let amount = parseEther((stakeAmount.value).toString())
 
             if (BigInt(allowanceData) < amount) {
                 ElMessage.error(`需要授权`)
-                await approveTgb()
+                await approveContract(tgbContract, stakeContract.address, account)
                 return
             }
 
@@ -280,10 +251,14 @@ export default {
             let hash = await walletClient.writeContract({
                 ...stakeContract,
                 functionName: "deposit",
-                args: [parseEther(amount)],
+                args: [amount],
                 account
             })
-            console.log('getMyStakeReward tx hash' + hash)
+            console.log('stakeToken tx hash' + hash)
+            if (hash) {
+                let transactionReceipt = await waitTx(hash)
+                console.log(transactionReceipt)
+            }
         }
 
         const unStakeToken = async () => {
@@ -294,7 +269,7 @@ export default {
                 ElMessage.error(`距离解除质押还有 ${diffDays} 天`)
                 return
             }
-            let amount = unStakeAmount.value
+            let amount = parseEther(unStakeAmount.value)
 
             if (!amount || amount < 100) {
                 ElMessage.error(`解除质押数量需大于100`)
@@ -307,10 +282,14 @@ export default {
             let hash = await walletClient.writeContract({
                 ...stakeContract,
                 functionName: "withdraw",
-                args: [parseEther(amount)],
+                args: [amount],
                 account
             })
-            console.log('getMyStakeReward tx hash' + hash)
+            console.log('unStakeToken tx hash' + hash)
+            if (hash) {
+                let transactionReceipt = await waitTx(hash)
+                console.log(transactionReceipt)
+            }
         }
 
 
@@ -432,12 +411,8 @@ export default {
                 myBalance: parseInt(myBalance),
                 totalStake: parseInt(totalStake).toLocaleString()
             }
-
-
             infoData.value = info
-
             console.log(resultData)
-
         }
         return {
             infoData,
@@ -447,7 +422,6 @@ export default {
             myRewardAmount,
             connect,
             accountMsg,
-            getMyWalletClient,
             maxMyStakeBalance,
             maxMyUnStakeBalance,
             stakeInfo,
@@ -456,8 +430,6 @@ export default {
             getMyStakeReward,
             stakeToken,
             unStakeToken,
-            checkApprove,
-            approveTgb
         }
     }
 }
