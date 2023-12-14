@@ -23,13 +23,13 @@
                 <div class="menuLink">
                     <!-- src="require('../assets/lang/' + currentlang.key + '.png') -->
                     <img class="zhImg" :src="currentlang.icon">
-                    <p>{{ currentlang.title }}</p>
+                    <span class="langMenu">{{ currentlang.title }}</span>
                 </div>
                 <template #dropdown>
                     <el-dropdown-menu>
                         <!-- // :src="require('../assets/lang/' + item.key + '.png')" -->
                         <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhImg"
-                                :src="item.icon">{{ item.title }}
+                                :src="item.icon"><span class="langMenu">{{ item.title }}</span>
                         </el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
@@ -49,12 +49,12 @@
                 <el-dropdown @command="handleChangeLang" :teleported=false>
                     <div class="menuLink">
                         <img class="zhImg" :src="currentlang.icon">
-                        <p>{{ currentlang.title }}</p>
+                        <span class="langMenu">{{ currentlang.title }}</span>
                     </div>
                     <template #dropdown>
                         <el-dropdown-menu>
                             <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhImg"
-                                :src="item.icon">{{ item.title }}
+                                :src="item.icon"><span class="langMenu">{{ item.title }}</span>
                             </el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
@@ -83,13 +83,13 @@ export default {
             isSticky: false,
             currentlang: { title: '', key: '' ,icon:null},
             langList: [
-                { title: 'English', key: 'en',icon: enIcon},
-                { title: '中文', key: 'zh' ,icon: zhIcon},
-                { title: 'español', key: 'es' ,icon: esIcon},
-                { title: 'عربي', key: 'ar' ,icon: arIcon},
-                { title: 'Deutsch', key: 'de' ,icon: deIcon},
-                { title: 'България', key: 'bg' ,icon: bgIcon},
-                { title: 'Česká', key: 'cz' ,icon: czIcon},
+                { title: 'en', key: 'en',icon: enIcon},
+                { title: 'zh', key: 'zh' ,icon: zhIcon},
+                { title: 'es', key: 'es' ,icon: esIcon},
+                { title: 'ar', key: 'ar' ,icon: arIcon},
+                { title: 'de', key: 'de' ,icon: deIcon},
+                { title: 'bg', key: 'bg' ,icon: bgIcon},
+                { title: 'cz', key: 'cz' ,icon: czIcon},
             ]
         };
     },
@@ -221,6 +221,10 @@ export default {
     align-items: center;
 }
 
+.langMenu {
+    margin-left: 15px;
+}
+
 
 
 .sticky {
@@ -287,8 +291,8 @@ export default {
 .zhImg {
     width: 34px;
     height: 34px;
-    margin-right: 10px;
-    margin-left: 10px;
+    /* margin-right: 10px; */
+    margin-left: 8px;
 }
 
 .mobileNavContainer {
@@ -343,11 +347,6 @@ export default {
     color: #FFF;
     background-color: #1A1B21;
 }
-
-
-
-
-
 
 @media screen and (max-width: 1000px) {
     .navbar {

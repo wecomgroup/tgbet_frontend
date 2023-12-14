@@ -47,10 +47,10 @@
     <el-row :gutter="20">
       <el-col :span="12">
         <div v-if="isBscNetwork" class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
-          <img src="../assets/Ellipse2.png" class="icon" />BNB
+          <img src="../assets/bnb.png" class="icon" />BNB
         </div>
         <div v-else class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
-          <img src="../assets/Ellipse3.png" class="icon" />ETH
+          <img src="../assets/eth.png" class="icon" />ETH
         </div>
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
           <img src="../assets/usdc.png" class="icon" />USDC
@@ -58,7 +58,7 @@
       </el-col>
       <el-col :span="12">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
-          <img src="../assets/Ellipse1.png" class="icon" />USDT
+          <img src="../assets/usdt.png" class="icon" />USDT
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
@@ -91,11 +91,11 @@
       </el-col>
       <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}%</el-col>
       <el-col :span="24" v-if="isBscNetwork">
-        <div class="other-buy" @click="switchNet"><img src="../assets/Ellipse3.png" class="icon" />{{
+        <div class="other-buy" @click="switchNet"><img src="../assets/eth.png" class="icon" />{{
           $t('homeForm.text14') }}</div>
       </el-col>
       <el-col :span="24" v-else>
-        <div class="other-buy" @click="switchNet"><img src="../assets/Ellipse2.png" class="icon" />{{
+        <div class="other-buy" @click="switchNet"><img src="../assets/bnb.png" class="icon" />{{
           $t('homeForm.text13') }}</div>
       </el-col>
     </el-row>
@@ -104,13 +104,8 @@
 <script>
 
 import {
-  erc20ABI,
   getAccount,
-  getContract,
-  getWalletClient,
   fetchBalance,
-  prepareSendTransaction,
-  sendTransaction,
   watchAccount,
   signMessage,
   getNetwork,
@@ -150,8 +145,7 @@ export default {
     })
 
     const homeInfo = async () => {
-      if (!connect.value) { return }
-      // await isAvaileNetwork()
+
       isBscNetwork.value = isBscNet()
 
       const data = await multicall({
@@ -235,8 +229,6 @@ export default {
         saleAmountStr: '',
         apy: ''
       }
-
-
 
       let tgbBalance = await fetchBalance({
         address: stakeContract.address,
@@ -338,9 +330,8 @@ export default {
 
     onMounted(() => {
       startCountdownTimer()
-      if (connect.value) {
-        homeInfo()
-      }
+      homeInfo()
+
     })
 
     onBeforeUnmount(() => {
@@ -355,9 +346,13 @@ export default {
 
 
     const isBscNet = () => {
-
-      console.log(`currentNet: ${getNetwork().chain.id} bscNet:${bscTestnet.id}`)
-      return getNetwork().chain.id === bscTestnet.id
+      let network = getNetwork()
+      if (network && network.chain) {
+        console.log(`currentNet: ${getNetwork().chain.id} bscNet:${bscTestnet.id}`)
+        return getNetwork().chain.id === bscTestnet.id
+      } else {
+        return false;
+      }
     }
 
     const isAvaileNetwork = async () => {
@@ -384,7 +379,10 @@ export default {
     const switchNet = async () => {
       try {
         const currentNetwork = getNetwork()
-
+        if (!network || !network.chain) {
+          ElMessage.warning(`请先连接钱包`)
+          return;
+        }
         let changeChanidId = sepolia.id
         if (currentNetwork.chain.id == sepolia.id) {
           changeChanidId = bscTestnet.id
@@ -399,7 +397,6 @@ export default {
       } catch (error) {
         console.log(`change network has some thing wrong ${error}`)
       }
-
     }
 
 
