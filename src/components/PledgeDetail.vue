@@ -223,8 +223,10 @@ export default {
             })
             console.log('getMyStakeReward tx hash' + hash)
             if (hash) {
-                let transactionReceipt = await waitTx(hash)
-                console.log(transactionReceipt)
+                let result = await waitTx(hash)
+                if(result) {
+                    stakeInfo()
+                }
             }
         }
 
@@ -256,8 +258,10 @@ export default {
             })
             console.log('stakeToken tx hash' + hash)
             if (hash) {
-                let transactionReceipt = await waitTx(hash)
-                console.log(transactionReceipt)
+                let result = await waitTx(hash)
+                if(result) {
+                    stakeInfo()
+                }
             }
         }
 
@@ -287,8 +291,10 @@ export default {
             })
             console.log('unStakeToken tx hash' + hash)
             if (hash) {
-                let transactionReceipt = await waitTx(hash)
-                console.log(transactionReceipt)
+                let result = await waitTx(hash)
+                if(result) {
+                    stakeInfo()
+                }
             }
         }
 

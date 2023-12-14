@@ -43,10 +43,11 @@ const waitTx = async (tx) => {
   )
   if (receipt && receipt.status == 'success') {
     ElMessage.success(`交易成功`)
+    return true
   } else {
     ElMessage.success(`交易出错了`)
+    return false
   }
-  return receipt
 }
 
 //检查授权额度  未授权 0 或者 授权额度小于支出数

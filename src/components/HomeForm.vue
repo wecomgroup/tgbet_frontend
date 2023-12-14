@@ -51,7 +51,7 @@
           <img src="../assets/Ellipse3.png" class="icon" />ETH
         </div>
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
-          <img src="../assets/Ellipse1.png" class="icon" />USDC
+          <img src="../assets/usdc.png" class="icon" />USDC
         </div>
       </el-col>
       <el-col :span="12">
@@ -597,8 +597,12 @@ export default {
         } else { console.log('param error') }
 
         if (hash) {
-          let transactionReceipt = await waitTx(hash)
-          console.log(transactionReceipt)
+          let result = await waitTx(hash)
+          if(result) {
+            tgbAmount.value = ''
+            coinAmount.value = ''
+            homeInfo()
+          }
         }
       } catch (err) {
         const metamaskError = err?.message?.split(".")[0] || "Unknown error";
