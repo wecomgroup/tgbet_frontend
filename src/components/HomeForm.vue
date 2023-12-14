@@ -27,10 +27,10 @@
       <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
     <el-row :gutter="10">
-      <el-col :span="6"><span class="time-btn">{{ timeState.day }} D</span></el-col>
-      <el-col :span="6"><span class="time-btn">{{ timeState.hour }} H</span></el-col>
-      <el-col :span="6"><span class="time-btn">{{ timeState.minute }} M</span></el-col>
-      <el-col :span="6"><span class="time-btn">{{ timeState.second }} S</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.day?timeState.day:'00' }} D</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.hour?timeState.hour:'00' }} H</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.minute?timeState.minute:'00' }} M</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.second?timeState.second:'00' }} S</span></el-col>
     </el-row>
     <el-row v-if="connect" style="margin-top: 20px; ">
       <el-col :span="12">
@@ -61,7 +61,7 @@
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
         <p class="tips">
-          {{ selectedCoin.name }} {{ $t('homeForm.text5') }} <label class="max-value">{{ $t('homeForm.text7') }}</label>
+          {{ filterCoinName() }} {{ $t('homeForm.text5') }} <label class="max-value">{{ $t('homeForm.text7') }}</label>
         </p>
         <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount"></el-input>
       </el-col>
@@ -148,7 +148,10 @@ export default {
     })
 
     const homeInfo = async () => {
+
+      // await isAvaileNetwork()
       isBscNetwork.value = isBscNet()
+
       const data = await multicall({
         contracts: [
           {
@@ -225,11 +228,13 @@ export default {
         saleAmount: null,
         eth_to_usd: null,
         usdt_to_usd: 1,
-        maxTokensToBuy: resultData.maxTokensToBuy,
+        maxTokensToBuy: Number(resultData.maxTokensToBuy),
         paymentWallet: resultData.paymentWallet,
         saleAmountStr: '',
         apy: ''
       }
+
+
 
       let tgbBalance = await fetchBalance({
         address: stakeContract.address,
@@ -286,21 +291,25 @@ export default {
 
     const startCountdownTimer = () => {
       clearInterval(countdownTimer.value)
+      if (!leaveTime) return
       countdownTimer.value = setInterval(() => {
-        if (!leaveTime) return
-        timeState.day = Math.floor(leaveTime / 60 / 60 / 24)
-          .toString()
-          .padStart(2, '0');
-        timeState.hour = (Math.floor(leaveTime / 60 / 60) % 24)
-          .toString()
-          .padStart(2, '0');
-        timeState.minute = (Math.floor(leaveTime / 60) % 60)
-          .toString()
-          .padStart(2, '0');
-        timeState.second = (Math.floor(leaveTime) % 60)
-          .toString()
-          .padStart(2, '0');
-        leaveTime = leaveTime - 1
+        
+        if (leaveTime > 0) {
+          timeState.day = (leaveTime!=null ? Math.floor(leaveTime / 60 / 60 / 24) : 0)
+            .toString()
+            .padStart(2, '0');
+          timeState.hour = (leaveTime ? Math.floor(leaveTime / 60 / 60 % 24) : 0)
+            .toString()
+            .padStart(2, '0');
+          timeState.minute = (leaveTime ? Math.floor( leaveTime / 60 % 60) :0 )
+            .toString()
+            .padStart(2, '0');
+          timeState.second = (leaveTime ? Math.floor(leaveTime % 60) : 0)
+            .toString()
+            .padStart(2, '0');
+          leaveTime = leaveTime - 1
+        }
+
       }, 1000);
     }
 
@@ -346,11 +355,35 @@ export default {
       return getNetwork().chain.id === bscTestnet.id
     }
 
+    const isAvaileNetwork = async () => {
+      try {
+        const currentNetwork = getNetwork()
+        if (currentNetwork.chain.id == bscTestnet.id ||
+          currentNetwork.chain.id == sepolia.id) {
+          return
+        }
+        let changeChanidId = sepolia.id
+       
+        const network = await switchNetwork({
+          chainId: changeChanidId,
+        })
+        //更新界面
+        if (currentNetwork.chain.id !== network.id) {
+          homeInfo()
+        }
+      } catch (error) {
+        console.log(`change network has some thing wrong ${error}`)
+      }
+    }
+
     const switchNet = async () => {
       try {
         const currentNetwork = getNetwork()
 
-        let changeChanidId = currentNetwork.chain.id == bscTestnet.id ? sepolia.id : bscTestnet.id
+        let changeChanidId = sepolia.id
+        if (currentNetwork.chain.id == sepolia.id) {
+          changeChanidId = bscTestnet.id
+        }
         const network = await switchNetwork({
           chainId: changeChanidId,
         })
@@ -410,6 +443,14 @@ export default {
       tgbAmount.value = ""
     };
 
+    const filterCoinName = () => {
+      let coinName = selectedCoin.value.name
+      if(isBscNetwork.value && coinName === 'ETH') {
+         coinName = 'BNB'
+      } 
+      return coinName
+    }
+
     const filterNumber = (val) => {
       val = val.replace(/[^\d.]/g, "");
       val = val.replace(/\.{2,}/g, "."); // 不能连续输入两个及以上小数点
@@ -445,6 +486,7 @@ export default {
         return val;
       }
       tgbAmount.value = parseInt(filterNumber(val))
+
       let rateNum = rate()
       if (rateNum) {
         coinAmount.value = (tgbAmount.value * infoData.value.tokenPrice) / Number(rateNum ? rateNum : "0")
@@ -461,6 +503,13 @@ export default {
     const buyToken = () => {
       if (Number(tgbAmount.value) < 100) {
         ElMessage.error(`$TGB购买数量需大于100`)
+        return
+      }
+
+      let maxAmount = infoData.value.maxTokensToBuy
+      if (Number(tgbAmount.value) > maxAmount) {
+
+        ElMessage.error(`$TGB购买数量不能超过${maxAmount}`)
         return
       }
 
@@ -598,7 +647,7 @@ export default {
 
         if (hash) {
           let result = await waitTx(hash)
-          if(result) {
+          if (result) {
             tgbAmount.value = ''
             coinAmount.value = ''
             homeInfo()
@@ -665,6 +714,8 @@ export default {
       startBuyToken,
       filterAddress,
       isBscNet,
+      isAvaileNetwork,
+      filterCoinName
 
     };
   },
