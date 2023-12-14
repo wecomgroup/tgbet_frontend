@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container1">
         <div class="pledgeDetail">
             <img class="pledgeDetailLogo" alt="pledgeDetail" src="../assets/pledgeDetail.png">
             <div class="desc">{{ $t('pledgeDetail.text1') }}</div>
@@ -471,7 +471,7 @@ export default {
     cursor: pointer;
 }
 
-.container {
+.container1 {
     background: url('../assets/indexBackgroud.png') center/cover;
     padding: 20px 5% 120px 5%;
 
