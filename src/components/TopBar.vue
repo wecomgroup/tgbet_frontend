@@ -28,7 +28,7 @@
                 <template #dropdown>
                     <el-dropdown-menu>
                         <!-- // :src="require('../assets/lang/' + item.key + '.png')" -->
-                        <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhImg"
+                        <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhMenuImg"
                                 :src="item.icon"><span class="langMenu">{{ item.title }}</span>
                         </el-dropdown-item>
                     </el-dropdown-menu>
@@ -46,14 +46,14 @@
                 <a @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
                 <div class="pledge" @click="goMobilePledge">{{ $t('topBar.pledgeBtn') }}</div>
                 <div class="audit">{{ $t('topBar.auditBtn') }}</div>
-                <el-dropdown @command="handleChangeLang" :teleported=false>
+                <el-dropdown @command="handleChangeLang" :teleported=false size="medium"> 
                     <div class="menuLink">
                         <img class="zhImg" :src="currentlang.icon">
                         <span class="langMenu">{{ currentlang.title }}</span>
                     </div>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhImg"
+                            <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhMenuImg"
                                 :src="item.icon"><span class="langMenu">{{ item.title }}</span>
                             </el-dropdown-item>
                         </el-dropdown-menu>
@@ -288,6 +288,11 @@ export default {
     display: none;
 }
 
+.zhMenuImg {
+    width: 34px;
+    height: 34px;
+    margin-left: -8px;
+}
 .zhImg {
     width: 34px;
     height: 34px;
