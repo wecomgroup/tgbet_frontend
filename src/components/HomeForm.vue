@@ -26,7 +26,7 @@
     <el-row>
       <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
-    <el-row :gutter="10">
+    <el-row :gutter="10" style="margin-top: 10px;">
       <el-col :span="6"><span class="time-btn">{{ timeState.day ? timeState.day : '00' }} D</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.hour ? timeState.hour : '00' }} H</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
@@ -44,7 +44,7 @@
         </div>
       </el-col>
     </el-row>
-    <el-row :gutter="20">
+    <el-row :gutter="20" style="margin-top: 10px; ">
       <el-col :span="12">
         <div v-if="isBscNetwork" class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/bnb.png" class="icon" />BNB
@@ -791,6 +791,7 @@ export default {
   font-size: 16px;
   font-weight: 600;
   padding: 10px 0;
+  margin-top: 10px;
 }
 
 .tips>.max-value {
