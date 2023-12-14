@@ -27,19 +27,21 @@
       <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
     <el-row :gutter="10">
-      <el-col :span="6"><span class="time-btn">{{ timeState.day?timeState.day:'00' }} D</span></el-col>
-      <el-col :span="6"><span class="time-btn">{{ timeState.hour?timeState.hour:'00' }} H</span></el-col>
-      <el-col :span="6"><span class="time-btn">{{ timeState.minute?timeState.minute:'00' }} M</span></el-col>
-      <el-col :span="6"><span class="time-btn">{{ timeState.second?timeState.second:'00' }} S</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.day ? timeState.day : '00' }} D</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.hour ? timeState.hour : '00' }} H</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
+      <el-col :span="6"><span class="time-btn">{{ timeState.second ? timeState.second : '00' }} S</span></el-col>
     </el-row>
     <el-row v-if="connect" style="margin-top: 20px; ">
       <el-col :span="12">
         <p class="tips">{{ $t('homeForm.text4') }} </p>
       </el-col>
       <el-col :span="12" style="text-align:right;">
-        <p class="tips">{{ filterAddress(accountMsg.address) }} <span style="margin-left: 10px;color: #c5ac79;"
-            @click="disconnect1">退出</span>
-        </p>
+        <div class="wallect">
+          <p class="tips">{{ filterAddress(accountMsg.address) }}
+          </p>
+          <img style="margin-left: 10px; height: 25px;width: 25px;;" @click="disconnect1" src="../assets/logout.png"/>
+        </div>
       </el-col>
     </el-row>
     <el-row :gutter="20">
@@ -293,15 +295,15 @@ export default {
       clearInterval(countdownTimer.value)
       if (!leaveTime) return
       countdownTimer.value = setInterval(() => {
-        
+
         if (leaveTime > 0) {
-          timeState.day = (leaveTime!=null ? Math.floor(leaveTime / 60 / 60 / 24) : 0)
+          timeState.day = (leaveTime != null ? Math.floor(leaveTime / 60 / 60 / 24) : 0)
             .toString()
             .padStart(2, '0');
           timeState.hour = (leaveTime ? Math.floor(leaveTime / 60 / 60 % 24) : 0)
             .toString()
             .padStart(2, '0');
-          timeState.minute = (leaveTime ? Math.floor( leaveTime / 60 % 60) :0 )
+          timeState.minute = (leaveTime ? Math.floor(leaveTime / 60 % 60) : 0)
             .toString()
             .padStart(2, '0');
           timeState.second = (leaveTime ? Math.floor(leaveTime % 60) : 0)
@@ -363,7 +365,7 @@ export default {
           return
         }
         let changeChanidId = sepolia.id
-       
+
         const network = await switchNetwork({
           chainId: changeChanidId,
         })
@@ -445,9 +447,9 @@ export default {
 
     const filterCoinName = () => {
       let coinName = selectedCoin.value.name
-      if(isBscNetwork.value && coinName === 'ETH') {
-         coinName = 'BNB'
-      } 
+      if (isBscNetwork.value && coinName === 'ETH') {
+        coinName = 'BNB'
+      }
       return coinName
     }
 
@@ -727,6 +729,12 @@ export default {
   color: #fff
 }
 
+.wallect {
+  display: flex; 
+  flex-direction: row; 
+  align-items: center;
+  justify-content: flex-end;
+}
 .form-wrapper {
   border-radius: 24px;
   border: 1px solid #30323a;
