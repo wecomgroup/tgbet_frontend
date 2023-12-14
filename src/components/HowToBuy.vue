@@ -3,11 +3,11 @@
         <div class="howtoBuyTop">
             <img class="howtobuyLogo" alt="howtobuyLogo" src="../assets/howtobuyLogo.png">
             <div class="desc">
-                {{$t('howToBuy.text1')}}
+                {{ this.$t('howToBuy.text1') }}
             </div>
         </div>
         <div class="step">
-            <div class="stepTopTitle">{{$t('howToBuy.text2')}}</div>
+            <div class="stepTopTitle">{{ this.$t('howToBuy.text2') }}</div>
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
                 <p class="stepTitle">{{ step.title }}</p>
                 <p class="stepDesc">{{ step.desc }}</p>
@@ -17,6 +17,7 @@
 </template>
   
 <script>
+
 export default {
     name: 'HowToBuy',
     data() {
@@ -25,9 +26,19 @@ export default {
             { title: this.$t('howToBuy.text5'), desc: this.$t('howToBuy.text6') },
             { title: this.$t('howToBuy.text7'), desc: this.$t('howToBuy.text8') },
             { title: this.$t('howToBuy.text9'), desc: this.$t('howToBuy.text10') },
-            { title: this.$t('howToBuy.text11'), desc:  this.$t('howToBuy.text12')},
+            { title: this.$t('howToBuy.text11'), desc: this.$t('howToBuy.text12') },
             ]
         };
+    },
+    computed: {
+        steps() {
+            return [{ title: this.$t('howToBuy.text3'), desc: this.$t('howToBuy.text4') },
+            { title: this.$t('howToBuy.text5'), desc: this.$t('howToBuy.text6') },
+            { title: this.$t('howToBuy.text7'), desc: this.$t('howToBuy.text8') },
+            { title: this.$t('howToBuy.text9'), desc: this.$t('howToBuy.text10') },
+            { title: this.$t('howToBuy.text11'), desc: this.$t('howToBuy.text12') },
+            ]
+        }
     },
 
 };
