@@ -26,16 +26,20 @@
 </template>
 
 <script>
+import { getCurrentInstance } from "vue";
+
 export default {
+
     name: 'EconomicToken',
-    data() {
+    setup: () => {
+        const {$t}  = getCurrentInstance().proxy;
         return {
-            economicTokenList: [{ title: this.$t('economicToken.text2'), percentage: '20%', desc: this.$t('economicToken.text3'), color: '#64CF3C' },
-            { title: this.$t('economicToken.text4'), percentage: '20%', desc: this.$t('economicToken.text5'), color: '#FFFFFF99' },
-            { title: this.$t('economicToken.text6'), percentage: '40%', desc: this.$t('economicToken.text7'), color: '#C5AC79' },
-            { title: this.$t('economicToken.text8'), percentage: '10%', desc: this.$t('economicToken.text9'), color: '#F47F30' },
-            { title: this.$t('economicToken.text10'), percentage: '5%', desc: this.$t('economicToken.text11'), color: '#CF3C7A' },
-            { title: this.$t('economicToken.text12'), percentage: '5%', desc: this.$t('economicToken.text13'), color: '#3CA3CF' },
+            economicTokenList: [{ title: $t('economicToken.text2'), percentage: '20%', desc: $t('economicToken.text3'), color: '#64CF3C' },
+            { title: $t('economicToken.text4'), percentage: '20%', desc: $t('economicToken.text5'), color: '#FFFFFF99' },
+            { title: $t('economicToken.text6'), percentage: '40%', desc: $t('economicToken.text7'), color: '#C5AC79' },
+            { title: $t('economicToken.text8'), percentage: '10%', desc: $t('economicToken.text9'), color: '#F47F30' },
+            { title: $t('economicToken.text10'), percentage: '5%', desc: $t('economicToken.text11'), color: '#CF3C7A' },
+            { title: $t('economicToken.text12'), percentage: '5%', desc: $t('economicToken.text13'), color: '#3CA3CF' },
             ]
         };
     },

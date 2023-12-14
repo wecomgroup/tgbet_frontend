@@ -214,6 +214,7 @@
     }
 
     .cashbackTitle {
+        margin-top: 10px;
         font-size: 68px;
     }
 }
