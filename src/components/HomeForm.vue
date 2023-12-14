@@ -125,7 +125,7 @@ import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "v
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
-import { stakeContract, tgbContract, proxyContract, usdtContract, usdcContract } from '../util/const/const'
+import {  getTgbContract, getProxyContract, getStakeContract, getUsdcContract, getUsdtContract } from '../util/const/const'
 import { bscTestnet } from "viem/chains";
 
 export default {
@@ -147,8 +147,10 @@ export default {
     })
 
     const homeInfo = async () => {
-
       isBscNetwork.value = isBscNet()
+
+      let proxyContract = getProxyContract()
+      let stakeContract = getStakeContract()
 
       const data = await multicall({
         contracts: [
@@ -381,7 +383,8 @@ export default {
     const switchNet = async () => {
       try {
         const currentNetwork = getNetwork()
-        if (!network || !network.chain) {
+        console.log(`switchNet:${currentNetwork}`)
+        if (!currentNetwork || !currentNetwork.chain) {
           ElMessage.warning(`请先连接钱包`)
           return;
         }
@@ -431,8 +434,8 @@ export default {
     //代币选择  //ETH USDT USDC WBTC
     const coinInfo = {
       ETH: { "contract": "", decimals: 18, name: "ETH" },
-      USDT: { "contract": usdtContract.address, decimals: 6, name: "USDT" },
-      USDC: { "contract": usdcContract.address, decimals: 6, name: "USDC" },
+      USDT: { "contract": "", decimals: 6, name: "USDT" },
+      USDC: { "contract": "", decimals: 6, name: "USDC" },
     }
 
     let color = ref("#C5AC79");
@@ -567,6 +570,10 @@ export default {
         const inviteCodeParam = getInviteCode();
 
         let hash = ''
+        let proxyContract = getProxyContract()
+        let usdcContract = getUsdcContract()
+        let usdtContract = getUsdtContract()
+
         if (buyType === 1 || buyType === 2) {
           let ethPayAmount = await readContract({
             ...proxyContract,

@@ -110,26 +110,18 @@
 <script>
 import PledgeDetailArea from './PledgeDetailArea.vue'
 import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
-import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
+import { getCurrentInstance, onMounted, ref } from "vue";
 import { ElMessage } from 'element-plus'
 
-import { checkApprove, approveContract, getMyWalletClient, waitTx ,getPublicCient} from "@/util/contactUtil/approve";
+import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
 
-import { MAX_ALLOWANCE, stakeContract, tgbContract } from '@/util/const/const'
+import { getStakeContract, getTgbContract } from '@/util/const/const'
 import {
-    erc20ABI,
     disconnect,
     fetchBalance,
     getAccount,
-    getContract,
-    readContract,
-    getWalletClient,
-    prepareSendTransaction,
-    sendTransaction,
     watchAccount,
-    getNetwork,
     multicall,
-    sepolia
 } from "@wagmi/core";
 
 export default {
@@ -208,6 +200,7 @@ export default {
         }
 
         const getMyStakeReward = async () => {
+            let stakeContract = getStakeContract()
             let amount = myRewardAmount.value
             if (!amount || amount < 100) {
                 ElMessage.error(`获取奖励数量需大于100`)
@@ -224,7 +217,7 @@ export default {
             console.log('getMyStakeReward tx hash' + hash)
             if (hash) {
                 let result = await waitTx(hash)
-                if(result) {
+                if (result) {
                     stakeInfo()
                 }
             }
@@ -237,6 +230,8 @@ export default {
                 ElMessage.error(`质押数量需大于100`)
                 return
             }
+            let stakeContract = getStakeContract()
+            let tgbContract = getTgbContract()
 
             let allowanceData = await checkApprove(tgbContract, accountMsg.value.address, stakeContract.address)
 
@@ -259,7 +254,7 @@ export default {
             console.log('stakeToken tx hash' + hash)
             if (hash) {
                 let result = await waitTx(hash)
-                if(result) {
+                if (result) {
                     stakeInfo()
                 }
             }
@@ -279,6 +274,9 @@ export default {
                 ElMessage.error(`解除质押数量需大于100`)
                 return
             }
+
+            let stakeContract = getStakeContract()
+
             amount = Math.floor(amount).toFixed(0)
 
             const walletClient = await getMyWalletClient()
@@ -292,7 +290,7 @@ export default {
             console.log('unStakeToken tx hash' + hash)
             if (hash) {
                 let result = await waitTx(hash)
-                if(result) {
+                if (result) {
                     stakeInfo()
                 }
             }
@@ -307,6 +305,7 @@ export default {
             else {
                 return
             }
+            let stakeContract = getStakeContract()
             const data = await multicall({
                 contracts: [
                     {
@@ -422,7 +421,6 @@ export default {
         }
         return {
             infoData,
-            stakeContract,
             stakeAmount,
             unStakeAmount,
             myRewardAmount,
@@ -716,6 +714,7 @@ export default {
 
 
 @media screen and (max-width: 900px) {
+
     .actionPledge {
         flex-direction: column;
     }
@@ -868,6 +867,10 @@ export default {
         height: auto;
         margin-top: 40px;
         margin-bottom: 30px;
+    }
+
+    .outPledge {
+       margin-top: 20px;
     }
 }
 </style>

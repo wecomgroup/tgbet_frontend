@@ -1,9 +1,8 @@
 import {
+  getNetwork,
   getWalletClient,
   readContract
 } from "@wagmi/core";
-
-import { bscTestnet,mainnet,sepolia } from "viem/chains";
 
 
 import { ElMessage } from 'element-plus'
@@ -12,17 +11,19 @@ import { createPublicClient,http, } from 'viem'
 import { MAX_ALLOWANCE } from '@/util/const/const'
 
 const getMyWalletClient = async () => {
+  let currentNetwork = getNetwork()
   return await getWalletClient({
-    chainId: sepolia.id,
+    chainId: currentNetwork.chain.id,
   });
 }
 
 const getPublicCient = () => {
+  let currentNetwork = getNetwork()
   return createPublicClient({
     batch: {
       multicall: true,
     },
-    chain: sepolia,
+    chain: currentNetwork.chain,
     transport: http(),
   })
 }
