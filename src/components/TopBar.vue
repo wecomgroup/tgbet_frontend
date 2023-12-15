@@ -269,7 +269,7 @@ export default {
 }
 
 .audit {
-    width: 104px;
+    width: 76px;
     height: 44px;
     font-weight: 600;
     font-size: 14px;
