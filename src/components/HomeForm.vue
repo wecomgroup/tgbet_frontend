@@ -18,7 +18,7 @@
         <p>$ {{ infoData.saleGoal }}</p>
       </el-col>
     </el-row>
-    <el-row >
+    <el-row>
       <el-col :span="24">
         <el-progress :text-inside="true" :stroke-width="28" :percentage="infoData.saleProress" :color="color" />
       </el-col>
@@ -39,8 +39,8 @@
       <el-col :span="12">
         <div class="wallect">
           <div>
-          <p class="logtips">{{ filterAddress(accountMsg.address) }}
-          </p>
+            <p class="logtips">{{ filterAddress(accountMsg.address) }}
+            </p>
           </div>
           <img class="logout" @click="disconnect1" src="../assets/logout.png" />
         </div>
@@ -48,9 +48,6 @@
     </el-row>
     <el-row :gutter="20" style="margin-top: 5px; ">
       <el-col :span="12">
-        <!-- <div v-if="isMainNetwork" class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
-          <img src="../assets/bnb.png" class="icon" />BNB
-        </div> -->
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/eth.png" class="icon" />ETH
         </div>
@@ -67,16 +64,12 @@
         <p class="tips">
           {{ filterCoinName() }} {{ $t('homeForm.text5') }} <label class="max-value">{{ $t('homeForm.text7') }}</label>
         </p>
-        <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount"></el-input>
+        <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount" clearable></el-input>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="12">
         <p class="tips">{{ $t('homeForm.text8') }}</p>
-        <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount"></el-input>
+        <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount" clearable></el-input>
       </el-col>
-      <!-- <el-col :xs="24" :sm="24" :lg="12">
-        <p class="tips">邀请码</p>
-        <el-input placeholder="" class="f-ipt" v-model="inviteCode"></el-input>
-      </el-col> -->
     </el-row>
 
     <el-row>
@@ -92,14 +85,6 @@
         </div>
       </el-col>
       <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}</el-col>
-      <!-- <el-col :span="24">
-        <div class="other-buy" @click="switchNet"><img src="../assets/eth.png" class="icon" />{{
-          $t('homeForm.text14') }}</div>
-      </el-col> -->
-      <!-- <el-col :span="24" v-else>
-        <div class="other-buy" @click="switchNet"><img src="../assets/bnb.png" class="icon" />{{
-          $t('homeForm.text13') }}</div>
-      </el-col> -->
     </el-row>
   </div>
 </template>
@@ -125,7 +110,7 @@ import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "v
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
-import {  getTgbContract, getProxyContract, getStakeContract, getUsdcContract, getUsdtContract } from '../util/const/const'
+import { getTgbContract, getPreSaleContract, getStakeContract, getUsdcContract, getUsdtContract } from '../util/const/const'
 
 export default {
 
@@ -144,7 +129,7 @@ export default {
 
     const homeInfo = async () => {
 
-      let proxyContract = getProxyContract()
+      let proxyContract = getPreSaleContract()
       let stakeContract = getStakeContract()
 
       const data = await multicall({
@@ -184,7 +169,7 @@ export default {
           },
           {
             ...proxyContract,
-            functionName: 'paymentWallet',
+            functionName: 'paused',
           },
           {
             ...proxyContract,
@@ -197,8 +182,20 @@ export default {
           {
             ...stakeContract,
             functionName: 'launchTime',   //质押开始时间
+          },
+          {
+            ...stakeContract,
+            functionName: 'endBlock',   //结束区块
+          },
+          {
+            ...stakeContract,
+            functionName: 'lastRewardedBlock',  //最新开始获取奖励区块
+          },
+          {
+            ...stakeContract,
+            functionName: 'rewardTokensPerBlock',  //每个区块奖励
           }
-
+          
         ]
       })
       let resultData = {
@@ -210,10 +207,13 @@ export default {
         saleToken: data[5].result,              //[5]
         totalTokensSold: data[6].result,        //[6]
         maxTokensToBuy: data[7].result,         //[7]
-        paymentWallet: data[8].result,          //[8]
+        paused: data[8].result,                 //[8]
         stakingManagerInterface: data[9].result,//[9]
-        tokensStaked: data[10].result,          //[11]
-        launchTime: data[11].result             //[13]
+        tokensStaked: data[10].result,          //[10]
+        launchTime: data[11].result,            //[11]
+        endBlock: data[12].result,              //[12]
+        lastRewardedBlock: data[13].result,     //[13]
+        rewardTokensPerBlock:data[14].result    //[14]
       }
       let info = {
         saleToken: resultData.saleToken,
@@ -224,7 +224,7 @@ export default {
         eth_to_usd: null,
         usdt_to_usd: 1,
         maxTokensToBuy: Number(resultData.maxTokensToBuy),
-        paymentWallet: resultData.paymentWallet,
+        paused: resultData.paused,
         saleAmountStr: '',
         apy: ''
       }
@@ -258,11 +258,16 @@ export default {
       //剩余质押天数
       let RemainingStakeDays = (Math.floor(launchTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24) + 185
 
-      //当年年化收益率
-      let apy = ((totalBalance / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
-      console.log(`home $tgb APY :${apy}, totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+      //剩余奖励
+      let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0)
+      let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock,info.baseDecimals)
+      let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
 
-      info.apy = apy ? (apy + '%') :''
+      //当年年化收益率
+      let apy = (((20000000 - remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
+      console.log(`home $tgb APY :${apy},  remainingBlock:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+
+      info.apy = apy && (apy !== 'Infinity') ? (apy + '%') : ''
 
       //leaveTime
       let startTime = Number(resultData.startTime * 1000n)
@@ -344,59 +349,29 @@ export default {
     } = getCurrentInstance();
 
 
-    const isMainnet = () => {
-      let network = getNetwork()
-      if (network && network.chain) {
-        console.log(`currentNet: ${getNetwork().chain.id}`)
-        return getNetwork().chain.id === sepolia.id
-      } else {
-        return false;
-      }
-    }
-
-    const isAvaileNetwork = async () => {
-      try {
-        const currentNetwork = getNetwork()
-        if (currentNetwork.chain.id == bscTestnet.id ||
-          currentNetwork.chain.id == sepolia.id) {
-          return
-        }
-        let changeChanidId = sepolia.id
-
-        const network = await switchNetwork({
-          chainId: changeChanidId,
-        })
-        //更新界面
-        if (currentNetwork.chain.id !== network.id) {
-          homeInfo()
-        }
-      } catch (error) {
-        console.log(`change network has some thing wrong ${error}`)
-      }
-    }
-
-    const switchNet = async () => {
+    const checkNetwork = async () => {
       try {
         const currentNetwork = getNetwork()
         console.log(`switchNet:${currentNetwork}`)
         if (!currentNetwork || !currentNetwork.chain) {
           ElMessage.warning(`请先连接钱包`)
-          return;
+          return false;
         }
-        let changeChanidId = sepolia.id
-        if (currentNetwork.chain.id == sepolia.id) {
-          changeChanidId = bscTestnet.id
+        if (currentNetwork.chain.id != sepolia.id) {
+          const network = await switchNetwork({
+            chainId: sepolia.id,
+          })
+          //更新界面
+          if (currentNetwork.chain.id !== network.id) {
+            accountMsg.value = getAccount();
+            homeInfo()
+          }
+          return false
         }
-        const network = await switchNetwork({
-          chainId: changeChanidId,
-        })
-        //更新界面
-        if (currentNetwork.chain.id !== network.id) {
-          accountMsg.value = getAccount();
-          homeInfo()
-        }
+        return true
       } catch (error) {
         console.log(`change network has some thing wrong ${error}`)
+        return false
       }
     }
 
@@ -499,6 +474,26 @@ export default {
       }
     }
 
+    const checkEnableBuy = () => {
+
+      if (!tgbAmount.value  || (Number(tgbAmount.value) < 100)) {
+        ElMessage.error(`$TGB购买数量需大于100`)
+        return false
+      }
+
+      let maxAmount = infoData.value.maxTokensToBuy
+      if (Number(tgbAmount.value) > maxAmount) {
+
+        ElMessage.error(`$TGB 最大购买数量：` + maxAmount)
+        return false
+      }
+
+      if (infoData.value.paused) {
+        ElMessage.error(`$TGB购买已暂停`)
+        return false
+      }
+      return true
+    }
     // user click buy 
     // 1 ETH-BUY  
     // 2 ETH-BUY-STAKING  
@@ -507,15 +502,8 @@ export default {
     // 5 USDC-BUY 
     // 6 USDC-BUY-STAKING
     const buyToken = () => {
-      if (Number(tgbAmount.value) < 100) {
-        ElMessage.error(`$TGB购买数量需大于100`)
-        return
-      }
-
-      let maxAmount = infoData.value.maxTokensToBuy
-      if (Number(tgbAmount.value) > maxAmount) {
-
-        ElMessage.error(`$TGB购买数量不能超过${maxAmount}`)
+      let enableBuy = checkEnableBuy()
+      if (!enableBuy) {
         return
       }
 
@@ -530,10 +518,12 @@ export default {
 
     // user click buy and staking
     const buyTokenAndStaking = () => {
-      if (Number(tgbAmount.value) < 100) {
-        ElMessage.error(`$TGB购买数量需大于100`)
+
+      let enableBuy = checkEnableBuy()
+      if (!enableBuy) {
         return
       }
+
       if (selectedCoin.value.name === 'ETH') {
         startBuyToken(tgbAmount.value, 2)
       } else if (selectedCoin.value.name === 'USDT') {
@@ -556,16 +546,17 @@ export default {
     //ETH 购买
     const startBuyToken = async (amount, buyType) => {
       try {
-        if (!amount) {
-          console.log(`params error`)
-          return
+
+        let result = await checkNetwork()
+        if (!result) {
+          return;
         }
         const walletClient = await getMyWalletClient()
 
         const inviteCodeParam = getInviteCode();
 
         let hash = ''
-        let proxyContract = getProxyContract()
+        let proxyContract = getPreSaleContract()
         let usdcContract = getUsdcContract()
         let usdtContract = getUsdtContract()
 
@@ -610,7 +601,6 @@ export default {
           usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1.02
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
-          // amount = parseEther(Math.floor(amount).toString())
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
           hash = await walletClient.writeContract({
             ...proxyContract,
@@ -642,7 +632,6 @@ export default {
           usdcPayAmount = formatUnits(Number(usdcPayAmount), "6") * 1.02
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
-          // amount = parseEther(Math.floor(amount).toString())
           let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
           hash = await walletClient.writeContract({
             ...proxyContract,
@@ -653,7 +642,9 @@ export default {
 
           console.log('USDTC PAY HASH==> ' + hash)
 
-        } else { console.log('param error') }
+        } else {
+          console.log('param error')
+        }
 
         if (hash) {
           let result = await waitTx(hash)
@@ -710,7 +701,6 @@ export default {
       accountMsg,
       disconnect1,
       sign,
-      switchNet,
       startCountdownTimer,
       loopIndexInfo,
       requestIndexInfo,
@@ -722,10 +712,8 @@ export default {
       buyTokenAndStaking,
       startBuyToken,
       filterAddress,
-      isMainnet,
-      isAvaileNetwork,
+      checkNetwork,
       filterCoinName
-
     };
   },
 };
@@ -892,7 +880,6 @@ export default {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
-  margin-top: 21px;
   padding: 16px 0 24px;
 }
 
@@ -907,6 +894,7 @@ export default {
   margin-right: 10px;
   vertical-align: -5px;
 }
+
 .logout {
   width: 25px;
   height: 25px;
@@ -920,10 +908,11 @@ export default {
     font-weight: 600;
     margin-top: 10px;
   }
+
   .f-ipt {
     margin-top: 12px;
-  margin-bottom: 24px;
-}
+    margin-bottom: 24px;
+  }
 
   .form-wrapper {
     padding: 40px 20px 24px;

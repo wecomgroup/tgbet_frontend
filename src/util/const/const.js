@@ -25,7 +25,7 @@ const getUsdcContract = () => {
 }
 
 const getTgbContract = () => {
-    let contactAddress = '0x9D0B38880FA810E58f73A0dfe18079011FdFB149'
+    let contactAddress = '0x4F9322e8eb987fdb6bBe5aEB73662F19Fd1A4a17'
     return  {
         address: contactAddress,
         abi: erc20ABI,
@@ -33,17 +33,15 @@ const getTgbContract = () => {
 }
 
 const getStakeContract = () => {
-    let contactAddress = '0x69Be05275Ce11D881c7b538e73fFF1a24bd317Fe'
+    let contactAddress = '0xe6beb2986b4Df931D0BD05590d19335b565039Dd'
     return  {
         address: contactAddress,
         abi: stakeABI,
     } 
 }
 
-
-
-const getProxyContract = () => {
-    let contactAddress = '0xE4c0E16009Be660287619D887e130234972870fD'
+const getPreSaleContract = () => {
+    let contactAddress = '0xe32Db0bE19f796715D2DA1733AC1E11986a2f752'
     return  {
         address: contactAddress,
         abi: proxyABI,
@@ -53,7 +51,7 @@ const getProxyContract = () => {
 export {
     projectId,
     MAX_ALLOWANCE,
-    getProxyContract,
+    getPreSaleContract,
     getStakeContract,
     getTgbContract,
     getUsdcContract,

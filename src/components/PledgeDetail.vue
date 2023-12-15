@@ -10,7 +10,7 @@
                             {{ $t('pledgeDetail.text2') }}
                         </div>
                         <div class="dataValue" style="color: #181A20;">
-                            {{ infoData.apy }}%
+                            {{ infoData.apy }}
                         </div>
                     </div>
                 </el-col>
@@ -339,6 +339,18 @@ export default {
                     {
                         ...stakeContract,
                         functionName: 'launchTime',   //质押开始时间
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'endBlock',   //结束区块
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'lastRewardedBlock',  //最新开始获取奖励区块
+                    },
+                    {
+                        ...stakeContract,
+                        functionName: 'rewardTokensPerBlock',  //每个区块奖励
                     }
                 ]
             })
@@ -350,7 +362,10 @@ export default {
                 tokensStaked: data[3].result,         //[3]
                 tokensStakedByPresale: data[4].result,//[4]
                 stakeToken: data[5].result,           //[5]
-                launchTime: data[6].result            //[6]
+                launchTime: data[6].result,            //[6]
+                endBlock: data[7].result,              //[7]
+                lastRewardedBlock: data[8].result,     //[8]
+                rewardTokensPerBlock: data[9].result    //[9]
             }
 
             let tgbBalance = await fetchBalance({
@@ -383,10 +398,15 @@ export default {
 
             console.log(`$tgb launchTime : ${launchTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
 
-            //当年年化收益率
-            let apy = ((totalBalance / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
-            console.log(`$tgb APY :${apy}, totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+            let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0)
+            let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock, tgbBalance.decimals)
+            let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
 
+            //当年年化收益率
+            let apy = (((20000000 - remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
+            console.log(`home $tgb APY :${apy},  remainingBlock:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+
+            apy = apy && (apy !== 'Infinity') ? (apy + '%') : ''
             //占质押总额$tgb 百分比
             let stateRateStr = (totalStake / totalBalance * 100).toFixed(4)
 
