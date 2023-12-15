@@ -17,9 +17,8 @@ const isBsc = () => {
     return getNetwork().chain.id === bscTestnet.id
 }
 
-
 const getUsdtContract = () => {
-    let contactAddress = isBsc()? "0x4B97a38FdCc041a7D21DFf1cB39E7D9D64D2dfa7" :'0x4B97a38FdCc041a7D21DFf1cB39E7D9D64D2dfa7'
+    let contactAddress = isBsc()? "0xc1c3584BA80037173634e4CA35Af2b507933647f" :'0x4B97a38FdCc041a7D21DFf1cB39E7D9D64D2dfa7'
     return  {
         address: contactAddress,
         abi: erc20ABI,
@@ -27,7 +26,7 @@ const getUsdtContract = () => {
 }
 
 const getUsdcContract = () => {
-    let contactAddress = isBsc()? "0x84EFA7a65b6FCC59bBee581B9960C53b7627DE75" :'0x84EFA7a65b6FCC59bBee581B9960C53b7627DE75'
+    let contactAddress = isBsc()? "0x47DB5F66bC38EB8E2FeB04Aa5d5d72cE8dCff965" :'0x84EFA7a65b6FCC59bBee581B9960C53b7627DE75'
     return  {
         address: contactAddress,
         abi: erc20ABI,
@@ -35,7 +34,7 @@ const getUsdcContract = () => {
 }
 
 const getTgbContract = () => {
-    let contactAddress = isBsc()? "0x9D0B38880FA810E58f73A0dfe18079011FdFB149" :'0x9D0B38880FA810E58f73A0dfe18079011FdFB149'
+    let contactAddress = isBsc()? "0xCBBDE9e02aFD1e22721bcaC14370d0A611b58e31" :'0x9D0B38880FA810E58f73A0dfe18079011FdFB149'
     return  {
         address: contactAddress,
         abi: erc20ABI,
@@ -43,7 +42,7 @@ const getTgbContract = () => {
 }
 
 const getStakeContract = () => {
-    let contactAddress = isBsc()? "0x69Be05275Ce11D881c7b538e73fFF1a24bd317Fe" :'0x69Be05275Ce11D881c7b538e73fFF1a24bd317Fe'
+    let contactAddress = isBsc()? "0x1ED6692Df10935Cd3995494E30034F76A0dFe8c3" :'0x69Be05275Ce11D881c7b538e73fFF1a24bd317Fe'
     return  {
         address: contactAddress,
         abi: stakeABI,
@@ -53,7 +52,7 @@ const getStakeContract = () => {
 
 
 const getProxyContract = () => {
-    let contactAddress = isBsc()? "0x69Be05275Ce11D881c7b538e73fFF1a24bd317Fe" :'0xE4c0E16009Be660287619D887e130234972870fD'
+    let contactAddress = isBsc()? "0xd7B84e93e53A823Ef369F3800D8dfA4dd254254a" :'0xE4c0E16009Be660287619D887e130234972870fD'
     return  {
         address: contactAddress,
         abi: proxyABI,
