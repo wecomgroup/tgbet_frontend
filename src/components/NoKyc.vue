@@ -113,7 +113,6 @@ export default {
   border-radius: 8px;
   text-align: left;
   justify-content: center;
-  align-items: center;
 }
 
 .stepItem {
