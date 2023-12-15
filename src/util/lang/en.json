@@ -1,4 +1,25 @@
 {
+  "blockTitle": {
+    "qa": "Frequently Asked Questions",
+    "zhiya": "Staking",
+    "zhiyazr": "Total Staking",
+    "howBuy1": "How To Buy $TGB Token",
+    "wp1": "TG.Casino has it all !",
+    "wp2": "Why is Gamefi & Crypto gambling exploding?",
+    "wp4": "What sets us apart",
+    "ow1": "How it works?",
+    "lsp1": "Have full license",
+    "nokyc1": "The power of no KYC required",
+    "wg1": "Our games",
+    "wb": "Whitepaper",
+    "cc1": "Crypto Casino Opportunity",
+    "safe1": "Easy to Play",
+    "ctl1": "NO BETTER TIME THAN NOW",
+    "ctl2": "The future is here",
+    "coin": "Tokenomics",
+    "preTxt1": "Benefits of buying $TGB in pre-sale",
+    "plc1": "Staking Rewards"
+},
   "topBar": {
     "index": "Home",
     "welfare": "Presale Benefits",
@@ -124,8 +145,8 @@
     "text10": "Buy and stake",
     "text11": "Just want to buy without pledging",
     "text12": "Current Staking APY",
-    "text13":"Buy at BSC",
-    "text14":"Buy at ETH"
+    "text13": "Buy at BSC",
+    "text14": "Buy at ETH"
   },
   "economicToken": {
     "text1": "In order to achieve a virtuous cycle, the behavior of each participant in the ecosystem is very important. \nEqually important are well-designed incentives",

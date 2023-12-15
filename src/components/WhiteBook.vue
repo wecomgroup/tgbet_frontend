@@ -1,15 +1,15 @@
 <template>
     <div class="whiteBookContainer">
         <div class="whiteBookDesc">
-            <img class="whiteBookLogo" src="../assets/whiteBook.png">
+            <div class="whiteBookLogo">{{ $t('blockTitle.wb') }}</div>
 
             <img class="whiteBookImgMobile" src="../assets/whiteBookImg.png">
 
-            <div class="desc">{{ $t('whiteBook.text1')}}</div>
+            <div class="desc">{{ $t('whiteBook.text1') }}</div>
 
-            <div class="read">{{ $t('whiteBook.text2')}}</div>
+            <div class="read">{{ $t('whiteBook.text2') }}</div>
         </div>
-        
+
         <img class="whiteBookImg" src="../assets/whiteBookImg.png">
     </div>
 </template>
@@ -19,7 +19,7 @@ export default {
     name: 'WhiteBook',
     data() {
         return {}
-     },
+    },
 };
 </script>
 
@@ -40,8 +40,11 @@ export default {
 }
 
 .whiteBookLogo {
-    width: 193px;
+    /* width: 193px; */
     height: auto;
+    color: #C5AC79;
+    font-size: 52px;
+    font-weight: bold;
 }
 
 .desc {
@@ -95,9 +98,11 @@ export default {
     }
 
     .whiteBookLogo {
-        width: 123px;
+        /* width: 123px; */
         height: auto;
         margin-bottom: 40px;
+        font-size: 34px;
+        font-weight: bold;
     }
 
     .whiteBookImg {
@@ -111,7 +116,7 @@ export default {
         margin: 0 auto;
     }
 
-    .read{
+    .read {
         color: #181A20;
         font-size: 16px;
         font-style: normal;

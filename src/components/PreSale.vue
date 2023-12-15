@@ -1,8 +1,10 @@
 <!-- preSale.vue -->
 <template>
     <div class="preSale" id="preSale">
-        <img alt="preSaleTitle" class="preSaleTitleImg" src="../assets/PreSaleTitle.png">
-        <div class="desc">{{$t('preSale.text1')}}</div>
+        <div class="preSaleTitleImg">
+            {{ $t('blockTitle.preTxt1') }}
+        </div>
+        <div class="desc">{{ $t('preSale.text1') }}</div>
         <el-row align="middle" :gutter='40'>
             <el-col :xs="24" :sm="24" :md="6" v-for="(item, index) in preSaleDescList" :key="index">
                 <div class='descItem'>
@@ -122,8 +124,10 @@ export default {
 }
 
 .preSaleTitleImg {
-    width: 472px;
-    height: 63px
+    /* width: 472px; */
+    height: 63px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .preSaleImg {
@@ -138,8 +142,9 @@ export default {
     }
 
     .preSaleTitleImg {
-        width: 294px;
-        height: auto
+        /* width: 294px; */
+        height: auto;
+        font-size: 24px;
     }
 
     .desc {

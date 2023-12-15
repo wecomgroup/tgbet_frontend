@@ -1,8 +1,10 @@
 <template>
     <div class="pledgeCoin" id="pledgeCoin">
-        <img alt="pledgeCoin logo" class="pledgeCoinLogoImg" src="../assets/pledgeCoin.png">
+        <div class="pledgeCoinLogoImg">
+            {{ $t('blockTitle.plc1') }}
+        </div>
         <div class="desc">
-            {{$t('pledgeCoin.text1')}}
+            {{ $t('pledgeCoin.text1') }}
         </div>
         <div class="step">
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
@@ -53,8 +55,10 @@ export default {
 }
 
 .pledgeCoinLogoImg {
-    width: 305px;
+    /* width: 305px; */
     height: auto;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .desc {
@@ -86,17 +90,20 @@ export default {
     margin-right: 60px;
     position: relative;
 }
-.stepItem:nth-child(1):after, .stepItem:nth-child(2):after{
-  content: '';
-  position: absolute;
-  right: -30px;
-  top: 50%;
-  height: 80px;
-  background: #2E3442;
-  width: 1px;
+
+.stepItem:nth-child(1):after,
+.stepItem:nth-child(2):after {
+    content: '';
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    height: 80px;
+    background: #2E3442;
+    width: 1px;
 }
-.stepItem:nth-child(3){
-  margin-right: 0px;
+
+.stepItem:nth-child(3) {
+    margin-right: 0px;
 }
 
 .stepTitle {
@@ -142,9 +149,11 @@ export default {
         margin-right: 0;
         padding: 24px;
     }
-  .stepItem:nth-child(1):after, .stepItem:nth-child(2):after{
-    display: none;
-  }
+
+    .stepItem:nth-child(1):after,
+    .stepItem:nth-child(2):after {
+        display: none;
+    }
 
     .stepTitle {
         font-size: 16px;
@@ -156,7 +165,8 @@ export default {
     }
 
     .pledgeCoinLogoImg {
-        width: 190px;
+        /* width: 190px; */
+        font-size: 24px;
     }
 
     .pledgeCoinImg {

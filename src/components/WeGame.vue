@@ -1,14 +1,14 @@
 <template>
     <div class="weGameContainer">
         <div class="weGameDesc">
-            <img class="weGameLogo" src="../assets/weGame.png">
-            <div class="desc">{{ $t('webGame.text1')}}</div>
-            <div class="title">{{ $t('webGame.text2')}}</div>
-            <div class="gameDesc">{{ $t('webGame.text3')}}</div>
-            <div class="title">{{ $t('webGame.text4')}}</div>
-            <div class="gameDesc">{{ $t('webGame.text5')}}</div>
-            <div class="title">{{ $t('webGame.text6')}}</div>
-            <div class="gameDesc">{{ $t('webGame.text7')}}</div>
+            <div class="weGameLogo">{{ $t('blockTitle.wg1') }}</div>
+            <div class="desc">{{ $t('webGame.text1') }}</div>
+            <div class="title">{{ $t('webGame.text2') }}</div>
+            <div class="gameDesc">{{ $t('webGame.text3') }}</div>
+            <div class="title">{{ $t('webGame.text4') }}</div>
+            <div class="gameDesc">{{ $t('webGame.text5') }}</div>
+            <div class="title">{{ $t('webGame.text6') }}</div>
+            <div class="gameDesc">{{ $t('webGame.text7') }}</div>
         </div>
         <div class="gameImg">
             <img class="gamePng" src="../assets/amatic.png">
@@ -31,7 +31,7 @@
 <script>
 export default {
     name: 'WeGame',
-    data() { 
+    data() {
         return {}
     },
 };
@@ -95,8 +95,11 @@ export default {
 }
 
 .weGameLogo {
-    width: 264px;
-    height: auto
+    /* width: 264px; */
+    height: auto;
+    font-size: 40px;
+    font-weight: bold;
+    color: #C5AC79;
 }
 
 
@@ -107,9 +110,12 @@ export default {
         flex-direction: column;
     }
 
+
     .weGameLogo {
-        width: 192px;
-        height: auto
+        /* width: 192px; */
+        height: auto;
+        font-size: 32px;
+        color: #C5AC79;
     }
 
     .desc {
@@ -143,7 +149,7 @@ export default {
         margin-bottom: 16px;
     }
 
-    .weGameDesc{
+    .weGameDesc {
         margin-bottom: 40px;
     }
 

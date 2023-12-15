@@ -1,6 +1,6 @@
 <template>
     <div class="commonProblemContainer" id="commonProblemContainer">
-        <img class="commonProblemLogo" alt="commonProblem logo" src="../assets/commonPromble.png">
+        <div class="commonProblemLogo">{{ $t("blockTitle.qa") }}</div>
         <el-collapse>
             <el-collapse-item v-for="item in commonProblems" :key="item.id" :name="item.id" title="1123">
                 <template v-slot:title>
@@ -56,10 +56,17 @@ export default {
 }
 
 .commonProblemLogo {
-    width: 305px;
+    /* width: 305px; */
     height: auto;
     margin: 40px 0 40px 0;
+    font-size: 40px;
+    font-weight: bold;
 }
+
+/* .commonProblemLogo span {
+    color: #C5AC79;
+    font-size: 52px;
+} */
 
 .arrowImg {
     width: 20px;
@@ -103,13 +110,15 @@ export default {
     justify-content: center;
     align-items: center;
 }
-.el-collapse-item:after{
-  content: '';
-  display: block;
-  width: 100%;
-  height: 1px;
-  background: #30323A;
+
+.el-collapse-item:after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: #30323A;
 }
+
 @media screen and (max-width: 900px) {
     .commonProblemContainer {
         padding: 40px 24px;
@@ -117,11 +126,16 @@ export default {
     }
 
     .commonProblemLogo {
-        width: 190px;
+        /* width: 190px; */
         height: auto;
         margin-top: 0px;
         margin-bottom: 16px;
+        font-size: 24px;
     }
+
+    /* .commonProblemLogo span {
+        font-size: 32px;
+    } */
 
     .commonProblemContainer :deep() .el-collapse {
         border: 1px solid #30323A;
@@ -164,5 +178,4 @@ export default {
         height: auto;
         margin-right: 16px;
     }
-}
-</style>
+}</style>

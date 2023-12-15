@@ -1,21 +1,23 @@
 <template>
     <div class="safeContainer">
         <div class="safeDesc">
-            <img class="safeLogoImg" src="../assets/safe.png">
-            <div class="desc">{{$t('safeInstructions.text1')}}</div>
+            <div class="safeLogoImg">
+                {{ $t('blockTitle.safe1') }}
+            </div>
+            <div class="desc">{{ $t('safeInstructions.text1') }}</div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">{{$t('safeInstructions.text2')}}</p>
+                <p class="safeTitle">{{ $t('safeInstructions.text2') }}</p>
             </div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">{{$t('safeInstructions.text3')}}</p>
+                <p class="safeTitle">{{ $t('safeInstructions.text3') }}</p>
             </div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">{{$t('safeInstructions.text4')}}</p>
+                <p class="safeTitle">{{ $t('safeInstructions.text4') }}</p>
             </div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
-                <p class="safeTitle">{{$t('safeInstructions.text5')}}</p>
+                <p class="safeTitle">{{ $t('safeInstructions.text5') }}</p>
             </div>
-            <div class="play">{{$t('safeInstructions.text6')}}</div>
+            <div class="play">{{ $t('safeInstructions.text6') }}</div>
             <img class="webImage" src="../assets/webImage.png">
         </div>
         <img class="webImg" style="height: 499px;margin-right: -58px;" src="../assets/safeLogo.png">
@@ -25,7 +27,7 @@
 <script>
 export default {
     name: 'SafeInstructions',
-    data() { 
+    data() {
         return {}
     },
 };
@@ -85,8 +87,10 @@ export default {
 }
 
 .safeLogoImg {
-    width: 425px;
+    /* width: 425px; */
     height: auto;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .webImage {
@@ -100,8 +104,9 @@ export default {
     }
 
     .safeLogoImg {
-        width: 252px;
+        /* width: 252px; */
         height: auto;
+        font-size: 26px;
     }
 
     .desc {

@@ -2,8 +2,10 @@
 <template>
     <div class="operationContainer" id="operationContainer">
         <div class="operationDesc">
-            <img class="operationLogoImg"  src="../assets/operationWay.png">
-            <div class="desc">{{ $t('operationWay.text1')}}</div>
+            <div class="operationLogoImg">
+                <span>{{ $t('blockTitle.ow1') }}</span>?
+            </div>
+            <div class="desc">{{ $t('operationWay.text1') }}</div>
         </div>
         <img class="operationDescImg" src="../assets/operationWayDetail.png">
     </div>
@@ -12,7 +14,7 @@
 <script>
 export default {
     name: 'OperationWay',
-    data() { 
+    data() {
         return {}
     },
 };
@@ -43,8 +45,10 @@ export default {
 }
 
 .operationLogoImg {
-    width: 472px;
+    /* width: 472px; */
     height: auto;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .operationDescImg {
@@ -57,23 +61,24 @@ export default {
     .operationContainer {
         flex-direction: column;
         padding: 40px 24px;
-        justify-content:unset;
+        justify-content: unset;
         box-sizing: border-box;
         min-height: 0px;
         align-items: unset;
     }
 
     .desc {
-      width: 100%;
-      color: #FFFFFF99;
-      font-size: 14px;
-      margin-top: 16px;
-      margin-bottom: 24px;
+        width: 100%;
+        color: #FFFFFF99;
+        font-size: 14px;
+        margin-top: 16px;
+        margin-bottom: 24px;
     }
 
     .operationLogoImg {
-        width: 306px;
+        /* width: 306px; */
         height: auto;
+        font-size: 26px;
     }
 
     .operationDescImg {

@@ -1,10 +1,10 @@
 <template>
     <div class="licenseContainer">
         <div class="licenseDesc">
-            <img class="licenseDescLogo" src="../assets/license.png">
+            <div class="licenseDescLogo">{{ $t('blockTitle.lsp1') }}</div>
             <img class="licenseDetailMobile" src="../assets/licenseLogo.png">
-            <div class="desc">{{$t('licenseProof.text1')}}</div>
-            <div class="check">{{$t('licenseProof.text2')}}</div>
+            <div class="desc">{{ $t('licenseProof.text1') }}</div>
+            <div class="check">{{ $t('licenseProof.text2') }}</div>
         </div>
         <img class="licenseDetail" src="../assets/licenseLogo.png">
     </div>
@@ -15,7 +15,7 @@ export default {
     name: 'LicenseProof',
     data() {
         return {}
-     },
+    },
 };
 </script>
 
@@ -60,8 +60,10 @@ export default {
 }
 
 .licenseDescLogo {
-    width: 472px;
+    /* width: 472px; */
     height: auto;
+    font-size: 36px;
+    font-weight: bold;
 }
 
 .licenseDetail {
@@ -81,7 +83,8 @@ export default {
     }
 
     .licenseDescLogo {
-        width: 316px;
+        /* width: 316px; */
+        font-size: 22px;
     }
 
     .desc {

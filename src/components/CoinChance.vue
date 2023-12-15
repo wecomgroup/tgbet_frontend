@@ -2,9 +2,11 @@
     <div class="CoinChanceContainer">
         <el-row style="width: 100%;display: flex;align-items:center;" :gutter="30">
             <el-col :xs="24" :sm="24" :lg="13">
-                <img class="coinChanceLogo" src="../assets/CoinChance.png">
-                <div class="desc">{{$t('coinChance.text1')}}</div>
-                <div class="desc">{{$t('coinChance.text2')}}</div>
+                <div class="coinChanceLogo">
+                    {{ $t('blockTitle.cc1') }}
+                </div>
+                <div class="desc">{{ $t('coinChance.text1') }}</div>
+                <div class="desc">{{ $t('coinChance.text2') }}</div>
             </el-col>
             <el-col :lg="11" align="middle">
                 <img class="coinChanceDetailImgae" src="../assets/coinChanceDetail.png">
@@ -16,7 +18,7 @@
 <script>
 export default {
     name: 'CoinChance',
-    data() { 
+    data() {
         return {}
     },
 };
@@ -33,8 +35,10 @@ export default {
 }
 
 .coinChanceLogo {
-    width: 305px;
+    /* width: 385px; */
     height: 63px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .CoinChanceDesc {
@@ -66,8 +70,9 @@ export default {
     }
 
     .coinChanceLogo {
-        width: 190px;
+        /* width: 190px; */
         height: auto;
+        font-size: 26px;
     }
 
     .desc {

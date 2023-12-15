@@ -1,12 +1,12 @@
 <template>
     <div class="noKyc" id="noKyc">
-        <img class="noKycLogo" alt="noKycLogo logo" src="../assets/noKyc.png">
+        <div class="noKycLogo">{{ $t('blockTitle.nokyc1') }}</div>
         <div class="desc">
-            {{$t('noKyc.text1')}}
+            {{ $t('noKyc.text1') }}
         </div>
         <div class="btnContainer">
-            <div class="open">{{$t('noKyc.text2')}} </div>
-            <div class="downLoad">{{$t('noKyc.text3')}}</div>
+            <div class="open">{{ $t('noKyc.text2') }} </div>
+            <div class="downLoad">{{ $t('noKyc.text3') }}</div>
         </div>
         <div class="step">
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
@@ -52,8 +52,10 @@ export default {
 }
 
 .noKycLogo {
-    width: 460px;
+    /* width: 460px; */
     height: auto;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .desc {
@@ -113,41 +115,46 @@ export default {
     justify-content: center;
     align-items: center;
 }
+
 .stepItem {
     margin-right: 20px;
     position: relative;
 }
-.stepItem:nth-child(2){
-  padding: 0 30px;
-}
-.stepItem:nth-child(2):before{
-  content: '';
-  display: block;
-  width: 1px;
-  height: 70px;
-  background-color: #30323A;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -35px;
-}
-.stepItem:nth-child(2):after{
-  content: '';
-  display: block;
-  width: 1px;
-  height: 70px;
-  background-color: #30323A;
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  margin-top: -35px;
+
+.stepItem:nth-child(2) {
+    padding: 0 30px;
 }
 
-.stepItem:nth-child(3){
-  padding-right: 0;
+.stepItem:nth-child(2):before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 70px;
+    background-color: #30323A;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -35px;
 }
-.stepItem:nth-child(3):after{
-  display: none;
+
+.stepItem:nth-child(2):after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 70px;
+    background-color: #30323A;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    margin-top: -35px;
+}
+
+.stepItem:nth-child(3) {
+    padding-right: 0;
+}
+
+.stepItem:nth-child(3):after {
+    display: none;
 }
 
 .stepTitle {
@@ -186,9 +193,10 @@ export default {
     .downLoad {
         width: 46%;
     }
-    .btnContainer{
-      justify-content: space-between;
-      width: 100%;
+
+    .btnContainer {
+        justify-content: space-between;
+        width: 100%;
     }
 
     .step {
@@ -197,12 +205,15 @@ export default {
         height: auto;
         padding: 0;
     }
-    .stepItem:after{
-      display: none;
+
+    .stepItem:after {
+        display: none;
     }
-  .stepItem:nth-child(2){
-    padding: 0;
-  }
+
+    .stepItem:nth-child(2) {
+        padding: 0;
+    }
+
     .stepTitle {
         color: #FFF;
         font-size: 16px;
@@ -224,7 +235,8 @@ export default {
     }
 
     .noKycLogo {
-        width: 283px;
+        /* width: 283px; */
+        font-size: 24px;
     }
 }
 </style>

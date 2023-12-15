@@ -1,7 +1,7 @@
 <template>
     <div class="howtobuyContainer">
         <div class="howtoBuyTop">
-            <img class="howtobuyLogo" alt="howtobuyLogo" src="../assets/howtobuyLogo.png">
+            <div class="howtobuyLogo"> {{ $t('blockTitle.howBuy1') }}</div>
             <div class="desc">
                 {{ this.$t('howToBuy.text1') }}
             </div>
@@ -67,8 +67,10 @@ export default {
 }
 
 .howtobuyLogo {
-    width: 426px;
+    /* width: 426px; */
     height: auto;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .stepTitle {
@@ -194,8 +196,9 @@ export default {
     }
 
     .howtobuyLogo {
-        width: 286px;
+        /* width: 286px; */
         height: auto;
+        font-size: 28px;
     }
 
     .desc {

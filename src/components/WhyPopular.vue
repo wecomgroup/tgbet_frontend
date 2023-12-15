@@ -1,11 +1,17 @@
 <template>
     <div class="whyPopularContainer">
         <el-carousel @change="handleCarouselChange">
-            <el-carousel-item v-for="(item) in data" :key="item">
+            <el-carousel-item v-for="(item, index) in data" :key="item">
                 <div class="whyPopularDesc">
-                    <img class="whyPopularLogo" style="" :src="item.topImg">
+<!--                    <img class="whyPopularLogo" style="" :src="item.topImg">-->
+                  <div class="whyPopularLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}！</div>
+                  <div class="whyPopularLogo" v-show="index === 1">{{$t('blockTitle.wp2')}}</div>
+                  <div class="whyPopularLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}</div>
                     <div class="whyPopularDetailMobileContainer">
-                        <img class="whyPopularMobileLogo" style="max-width: 375px;" :src="item.topImg">
+<!--                        <img class="whyPopularMobileLogo" style="max-width: 375px;" :src="item.topImg">-->
+                      <div class="whyPopularMobileLogo" v-show="index === 0">TG.Bit<span>{{$t('blockTitle.wp1')}}！</span></div>
+                      <div class="whyPopularMobileLogo" v-show="index === 1">{{$t('blockTitle.wp2')}}</div>
+                      <div class="whyPopularMobileLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}</div>
                         <div style="position: relative">
                             <img class="whyPopularDetailMobile" :src="item.rightImg">
                             <div class="progress-bar">
@@ -99,7 +105,7 @@ export default {
                 btnText: this.$t('whyPopular.text4')
             }]
         }
-    },
+    }
 };
 </script>
 
@@ -164,7 +170,14 @@ export default {
 }
 
 .whyPopularLogo {
-    height: 63px;
+    color: #C5AC79;
+
+    /* height: 63px; */
+  font-size: 40px;
+  font-weight: bold;
+}
+.whyPopularLogo span{
+  font-size: 52px;
 }
 
 .whyPopularMobileLogo {
@@ -266,10 +279,23 @@ export default {
     }
 
     .whyPopularMobileLogo {
-        display: block;
-        width: 327px;
-        height: auto;
+      display: block;
+      width: 100%;
+      height: auto;
+      font-size: 24px;
+      font-weight: bold;
     }
+  .whyPopularMobileLogo:nth-child(2){
+    font-size: 20px;
+  }
+
+  .whyPopularMobileLogo span{
+    color: #C5AC79;
+    font-size: 32px;
+  }
+  .whyPopularMobileLogo:nth-child(2) span{
+    font-size: 22px;
+  }
 
     .desc {
         width: 100%;

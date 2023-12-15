@@ -1,7 +1,7 @@
 <template>
     <div class="container1">
         <div class="pledgeDetail">
-            <img class="pledgeDetailLogo" alt="pledgeDetail" src="../assets/pledgeDetail.png">
+            <div class="pledgeDetailLogo">{{ $t('blockTitle.zhiya') }}</div>
             <div class="desc">{{ $t('pledgeDetail.text1') }}</div>
             <el-row :gutter="17">
                 <el-col :xs="12" :sm="12" :lg="6">
@@ -99,7 +99,9 @@
                     </div>
                 </div>
             </div>
-            <img class="pledgeDetailAllBit" alt="pledgeDetailAllBit" src="../assets/pledgeDetailAllBit.png">
+            <div class="pledgeDetailAllBit">{{ $t("blockTitle.zhiyazr") }} $TGB</div>
+
+            <!-- <img class="pledgeDetailAllBit" alt="pledgeDetailAllBit" src="../assets/pledgeDetailAllBit.png"> -->
             <div style="width: 100%">
                 <PledgeDetailArea />
             </div>
@@ -700,16 +702,23 @@ export default {
     font-weight: 700;
 }
 
+
 .pledgeDetailLogo {
     width: 120px;
     height: auto;
+    font-size: 38px;
+    font-weight: bold;
+    color: #C5AC79;
 }
 
 .pledgeDetailAllBit {
-    width: 306px;
+    /* width: 306px; */
     height: auto;
     margin-top: 48px;
     margin-bottom: 34px;
+    font-size: 38px;
+    font-weight: bold;
+    color: #C5AC79;
 }
 
 
@@ -720,7 +729,8 @@ export default {
     }
 
     .pledgeDetailLogo {
-        width: 90px
+        width: 90px;
+        font-size: 28px;
     }
 
     .pledgeDetail {
@@ -863,14 +873,14 @@ export default {
     }
 
     .pledgeDetailAllBit {
-        width: 244px;
         height: auto;
         margin-top: 40px;
         margin-bottom: 30px;
+        font-size: 32px;
     }
 
     .outPledge {
-       margin-top: 20px;
+        margin-top: 20px;
     }
 }
 </style>

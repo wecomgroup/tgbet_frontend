@@ -3,10 +3,14 @@
         <el-row style="width: 100%;display: flex;align-items:center;" :gutter="30">
             <el-col :xs="24" :sm="24" :lg="13">
                 <div class="coinTimesDesc">
-                    <img class="coinTimesDescLogo" src="../assets/coinTimes.png">
-                    <img class="coinChanceMobileImg" src="../assets/coinChanceMobile.png">
+                    <div class="coinTimesDescLogo">
+                        <span>{{ $t('blockTitle.ctl2') }}</span>
+                    </div>
+                    <div class="coinChanceMobileImg">
+                       <span>{{ $t('blockTitle.ctl2') }}</span>
+                    </div>
                     <div class="desc">
-                        {{$t('coinTimes.text1')}}
+                        {{ $t('coinTimes.text1') }}
                     </div>
                 </div>
             </el-col>
@@ -20,7 +24,7 @@
 <script>
 export default {
     name: 'CoinTimes',
-    data() { 
+    data() {
         return {}
     },
 };
@@ -54,6 +58,13 @@ export default {
 .coinTimesDescLogo {
     width: 638px;
     height: 63px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.coinTimesDescLogo span {
+    color: #C5AC79;
+    font-size: 52px;
 }
 
 .coinChanceMobileImg {
@@ -96,6 +107,13 @@ export default {
         display: block;
         width: 199px;
         height: auto;
+        font-size: 24px;
+        font-weight: bold;
+    }
+
+    .coinChanceMobileImg span {
+        color: #C5AC79;
+        font-size: 32px;
     }
 
     .desc {

@@ -1,19 +1,21 @@
 <template>
     <div class="economicToken" id="economicToken">
         <div class="economicTokenLeft">
-            <img class="economicTokenLogo" alt="economicToken logo" src="../assets/economicToken.png">
+            <div class="economicTokenLogo">
+                {{ $t('blockTitle.coin') }}
+            </div>
         </div>
         <el-row style="width: 100%;" :gutter="30">
             <el-col :xs="24" :sm="24" :lg="12">
-              <div class="desc">
-                {{$t('economicToken.text1')}}
-              </div>
+                <div class="desc">
+                    {{ $t('economicToken.text1') }}
+                </div>
                 <div v-for="(token, index) in economicTokenList" :key="index" class="economicTokenItem">
                     <div class="leftRadius" :style="{ background: token.color }"></div>
                     <div class="economicTokenDetail">
                         <p class="economicTokenDetailTitle"><span class="tokenPercentage" :style="{ color: token.color }">{{
                             token.percentage
-                        }}</span>{{token.title }}</p>
+                        }}</span>{{ token.title }}</p>
                         <p class="economicTokenDetailDesc">{{ token.desc }}</p>
                     </div>
                 </div>
@@ -84,7 +86,7 @@ export default {
     font-weight: 400;
     margin-top: 20px;
     margin-bottom: 50px;
-  width: 85%;
+    width: 85%;
 }
 
 .btnContainer {
@@ -196,8 +198,10 @@ export default {
 }
 
 .economicTokenLogo {
-    width: 305px;
+    /* width: 305px; */
     height: auto;
+    font-size: 44px;
+    font-weight: bold;
 }
 
 .economicTokenDetailImg {
@@ -219,8 +223,9 @@ export default {
     }
 
     .economicTokenLogo {
-        width: 190px;
+        /* width: 190px; */
         height: auto;
+        font-size: 26px;
     }
 
     .desc {
