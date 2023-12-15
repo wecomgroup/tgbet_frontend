@@ -102,55 +102,39 @@ export default {
     border: 1px solid #C5AC79;
     background-color: #EFD8AA;
 }
-
 .step {
-    margin-top: 40px;
-    padding: 60px 20px;
-    display: flex;
-    flex-direction: row;
-    background-color: #1F2129;
-    border: 1px solid #30323A;
-    border-radius: 8px;
-    text-align: left;
-    justify-content: center;
-    align-items: center;
+  margin-top: 40px;
+  padding: 40px 40px 48px;
+  display: flex;
+  flex-direction: row;
+  background-color: #1F2129;
+  border: 1px solid #30323A;
+  height: auto;
+  border-radius: 8px;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
 }
 
 .stepItem {
-    margin-right: 20px;
-    position: relative;
+  margin-right: 120px;
+  position: relative;
+  flex: 1;
 }
-
-.stepItem:nth-child(2) {
-    padding: 0 30px;
-}
-
-.stepItem:nth-child(2):before {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 70px;
-    background-color: #30323A;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    margin-top: -35px;
-}
-
+.stepItem:nth-child(1):after,
 .stepItem:nth-child(2):after {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 70px;
-    background-color: #30323A;
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    margin-top: -35px;
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: 50%;
+  margin-top: -35px;
+  height: 70px;
+  background: #2E3442;
+  width: 1px;
 }
 
 .stepItem:nth-child(3) {
-    padding-right: 0;
+  margin-right: 0px;
 }
 
 .stepItem:nth-child(3):after {
@@ -159,6 +143,7 @@ export default {
 
 .stepTitle {
     font-size: 24px;
+  font-weight: 700;
 }
 
 .stepDesc {
@@ -204,6 +189,10 @@ export default {
         flex-direction: column;
         height: auto;
         padding: 0;
+      display: block;
+    }
+    .stepItem{
+      margin-right: 0;
     }
 
     .stepItem:after {

@@ -48,10 +48,10 @@
     </el-row>
     <el-row :gutter="20" style="margin-top: 5px; ">
       <el-col :span="12">
-        <div v-if="isBscNetwork" class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
+        <!-- <div v-if="isMainNetwork" class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/bnb.png" class="icon" />BNB
-        </div>
-        <div v-else class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
+        </div> -->
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/eth.png" class="icon" />ETH
         </div>
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
@@ -91,15 +91,15 @@
           {{ $t('homeForm.text11') }}
         </div>
       </el-col>
-      <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}%</el-col>
-      <el-col :span="24" v-if="isBscNetwork">
+      <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}</el-col>
+      <!-- <el-col :span="24">
         <div class="other-buy" @click="switchNet"><img src="../assets/eth.png" class="icon" />{{
           $t('homeForm.text14') }}</div>
-      </el-col>
-      <el-col :span="24" v-else>
+      </el-col> -->
+      <!-- <el-col :span="24" v-else>
         <div class="other-buy" @click="switchNet"><img src="../assets/bnb.png" class="icon" />{{
           $t('homeForm.text13') }}</div>
-      </el-col>
+      </el-col> -->
     </el-row>
   </div>
 </template>
@@ -126,14 +126,10 @@ import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
 import {  getTgbContract, getProxyContract, getStakeContract, getUsdcContract, getUsdtContract } from '../util/const/const'
-import { bscTestnet } from "viem/chains";
 
 export default {
 
   setup: () => {
-
-    let isBscNetwork = ref(0)
-
 
     const countdownTimer = ref()
     const indexTimer = ref()
@@ -147,7 +143,6 @@ export default {
     })
 
     const homeInfo = async () => {
-      isBscNetwork.value = isBscNet()
 
       let proxyContract = getProxyContract()
       let stakeContract = getStakeContract()
@@ -267,7 +262,7 @@ export default {
       let apy = ((totalBalance / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
       console.log(`home $tgb APY :${apy}, totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
 
-      info.apy = apy
+      info.apy = apy ? (apy + '%') :''
 
       //leaveTime
       let startTime = Number(resultData.startTime * 1000n)
@@ -349,11 +344,11 @@ export default {
     } = getCurrentInstance();
 
 
-    const isBscNet = () => {
+    const isMainnet = () => {
       let network = getNetwork()
       if (network && network.chain) {
-        console.log(`currentNet: ${getNetwork().chain.id} bscNet:${bscTestnet.id}`)
-        return getNetwork().chain.id === bscTestnet.id
+        console.log(`currentNet: ${getNetwork().chain.id}`)
+        return getNetwork().chain.id === sepolia.id
       } else {
         return false;
       }
@@ -456,9 +451,9 @@ export default {
 
     const filterCoinName = () => {
       let coinName = selectedCoin.value.name
-      if (isBscNetwork.value && coinName === 'ETH') {
-        coinName = 'BNB'
-      }
+      // if (isMainNetwork.value && coinName === 'ETH') {
+      //   coinName = 'BNB'
+      // }
       return coinName
     }
 
@@ -710,7 +705,6 @@ export default {
       connect,
       selectedCoin,
       coinInfo,
-      isBscNetwork,
       connectWithWalletConnect,
       chooseMoney,
       accountMsg,
@@ -728,7 +722,7 @@ export default {
       buyTokenAndStaking,
       startBuyToken,
       filterAddress,
-      isBscNet,
+      isMainnet,
       isAvaileNetwork,
       filterCoinName
 
@@ -898,6 +892,7 @@ export default {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
+  margin-top: 21px;
   padding: 16px 0 24px;
 }
 

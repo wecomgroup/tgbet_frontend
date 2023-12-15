@@ -71,31 +71,29 @@ export default {
 }
 
 .step {
-    margin-top: 40px;
-    padding: 20px;
-    display: flex;
-    flex-direction: row;
-    background-color: #1F2129;
-    border: 1px solid #30323A;
-    height: 209px;
-    border-radius: 8px;
-    text-align: left;
-    justify-content: center;
-    align-items: center;
-    height: 268px;
+  margin-top: 40px;
+  padding: 40px 40px 48px;
+  display: flex;
+  flex-direction: row;
+  background-color: #1F2129;
+  border: 1px solid #30323A;
+  height: auto;
+  border-radius: 8px;
+  text-align: left;
+  justify-content: center;
 }
 
 .stepItem {
-    padding-left: 15px;
-    margin-right: 60px;
-    position: relative;
+  margin-right: 120px;
+  position: relative;
+  flex: 1;
 }
 
 .stepItem:nth-child(1):after,
 .stepItem:nth-child(2):after {
     content: '';
     position: absolute;
-    right: -30px;
+    right: -60px;
     top: 50%;
     height: 80px;
     background: #2E3442;

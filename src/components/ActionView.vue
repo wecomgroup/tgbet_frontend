@@ -219,5 +219,11 @@
         margin-top: 10px;
         font-size: 68px;
     }
+    .play, .join{
+      margin-bottom: 12px;
+    }
+    .check{
+      margin-bottom: 16px;
+    }
 }
 </style>

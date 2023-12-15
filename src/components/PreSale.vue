@@ -6,7 +6,7 @@
         </div>
         <div class="desc">{{ $t('preSale.text1') }}</div>
         <el-row align="middle" :gutter='40'>
-            <el-col :xs="24" :sm="24" :md="6" v-for="(item, index) in preSaleDescList" :key="index">
+            <el-col :xs="24" :sm="24" :md="6" v-for="(item, index) in preSaleDescList" :key="index" style="padding-bottom: 32767px !important;margin-bottom: -32767px !important; ">
                 <div class='descItem'>
                     <img class="preSaleImg" :src="item.src">
                     <div>
@@ -18,7 +18,7 @@
         </el-row>
     </div>
 </template>
-  
+
 <script>
 import specialRewards from '../assets/specialRewards.png'
 import preferentialPrice from '../assets/preferentialPrice.png'
@@ -73,7 +73,7 @@ export default {
     }
 };
 </script>
-  
+
 <style scoped>
 .preSale {
     background-color: #2E3442;
@@ -83,6 +83,9 @@ export default {
     padding: 120px 5%;
 }
 
+.preSale .el-row.is-align-middle{
+  align-items: normal;
+}
 
 
 .desc {
@@ -98,7 +101,7 @@ export default {
 
 
 .descItem {
-    height: 280px;
+    height: 100%;
     background-color: #1F2129;
     border-radius: 8px;
     border: 1px solid #30323A;
@@ -182,4 +185,3 @@ export default {
     }
 }
 </style>
-  
