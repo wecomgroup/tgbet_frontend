@@ -54,6 +54,7 @@
 }
 
 .cashbackTitle {
+    margin-top: 8px;
     font-size: 88px;
     color: #EFD8AA;
 }

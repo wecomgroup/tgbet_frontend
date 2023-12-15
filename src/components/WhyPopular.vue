@@ -9,7 +9,7 @@
                   <div class="whyPopularLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}</div>
                     <div class="whyPopularDetailMobileContainer">
 <!--                        <img class="whyPopularMobileLogo" style="max-width: 375px;" :src="item.topImg">-->
-                      <div class="whyPopularMobileLogo" v-show="index === 0">TG.Bit<span>{{$t('blockTitle.wp1')}}！</span></div>
+                      <div class="whyPopularMobileLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}</div>
                       <div class="whyPopularMobileLogo" v-show="index === 1">{{$t('blockTitle.wp2')}}</div>
                       <div class="whyPopularMobileLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}</div>
                         <div style="position: relative">

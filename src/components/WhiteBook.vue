@@ -1,16 +1,21 @@
 <template>
     <div class="whiteBookContainer">
-        <div class="whiteBookDesc">
-            <div class="whiteBookLogo">{{ $t('blockTitle.wb') }}</div>
+        <el-row style="width: 100%;display: flex;align-items:center;" :gutter="30">
+            <el-col :xs="24" :sm="24" :lg="13">
+                <div class="whiteBookDesc">
+                    <div class="whiteBookLogo">{{ $t('blockTitle.wb') }}</div>
 
-            <img class="whiteBookImgMobile" src="../assets/whiteBookImg.png">
+                    <img class="whiteBookImgMobile" src="../assets/whiteBookImg.png">
 
-            <div class="desc">{{ $t('whiteBook.text1') }}</div>
+                    <div class="desc">{{ $t('whiteBook.text1') }}</div>
 
-            <div class="read">{{ $t('whiteBook.text2') }}</div>
-        </div>
-
-        <img class="whiteBookImg" src="../assets/whiteBookImg.png">
+                    <div class="read">{{ $t('whiteBook.text2') }}</div>
+                </div>
+            </el-col>
+            <el-col :lg="11" align="middle">
+                <img class="whiteBookImg" src="../assets/whiteBookImg.png">
+            </el-col>
+        </el-row>
     </div>
 </template>
 
