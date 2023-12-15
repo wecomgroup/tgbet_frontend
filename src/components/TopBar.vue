@@ -85,10 +85,10 @@ export default {
             langList: [
                 { title: 'en', key: 'en',icon: enIcon},
                 { title: 'zh', key: 'zh' ,icon: zhIcon},
-                { title: 'es', key: 'es' ,icon: esIcon},
+                // { title: 'es', key: 'es' ,icon: esIcon},
                 { title: 'ar', key: 'ar' ,icon: arIcon},
                 { title: 'de', key: 'de' ,icon: deIcon},
-                { title: 'bg', key: 'bg' ,icon: bgIcon},
+                // { title: 'bg', key: 'bg' ,icon: bgIcon},
                 { title: 'cz', key: 'cz' ,icon: czIcon},
             ]
         };
