@@ -35,6 +35,7 @@
 
 .desc {
     width: 100%;
+    margin-top: 15px;
     font-size: 20px;
     text-align: left;
     color: #ffffff;
