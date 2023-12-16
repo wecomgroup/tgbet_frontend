@@ -405,7 +405,7 @@ export default {
 
             console.log(`$tgb endTime : ${endTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
 
-            let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0n)
+            let remainingBlock = (resultData.lastRewardedBlock ? resultData.endBlock - resultData.lastRewardedBlock : 0n)
             let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock, tgbBalance.decimals)
             let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
 
@@ -413,12 +413,12 @@ export default {
             let apy = (((remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
             console.log(`stake $tgb APY :${apy},  remainingRecord:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
 
-            apy = (apy && (apy !== 'Infinity')) ? (apy + '%') : ''
+            apy = (apy && (apy !== 'Infinity' || apy !== 'NAN')) ? (apy + '%') : ''
             //占质押总额$tgb 百分比
             let stateRateStr = (totalStake / totalBalance * 100).toFixed(4)
 
             //已支付的总奖励
-            let totalReward = (totalBalance - totalStake - remainingRecord).toFixed(0)
+            let totalReward = totalStake > 0 ? (totalBalance - totalStake - remainingRecord).toFixed(0) : '0'
             console.log(` stake rate ${stateRateStr}  totalReward:${totalReward}`)
 
             let myStakeAmount = formatUnits(resultData.poolStakers[0], tgbBalance.decimals)
