@@ -401,24 +401,24 @@ export default {
             let endTime = Number(resultData.endTime)
 
             //剩余质押天数
-            let RemainingStakeDays = (Math.floor(endTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24) + 185
+            let RemainingStakeDays = (Math.floor(endTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24)
 
             console.log(`$tgb endTime : ${endTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
 
-            let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0)
+            let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0n)
             let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock, tgbBalance.decimals)
             let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
 
             //当年年化收益率
             let apy = (((remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
-            console.log(`home $tgb APY :${apy},  remainingBlock:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+            console.log(`stake $tgb APY :${apy},  remainingRecord:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
 
-            info.apy = (apy && (apy !== 'Infinity')) ? (apy + '%') : ''
+            apy = (apy && (apy !== 'Infinity')) ? (apy + '%') : ''
             //占质押总额$tgb 百分比
             let stateRateStr = (totalStake / totalBalance * 100).toFixed(4)
 
             //已支付的总奖励
-            let totalReward = (20000000 - (totalBalance - totalStake)).toFixed(0)
+            let totalReward = (totalBalance - totalStake - remainingRecord).toFixed(0)
             console.log(` stake rate ${stateRateStr}  totalReward:${totalReward}`)
 
             let myStakeAmount = formatUnits(resultData.poolStakers[0], tgbBalance.decimals)
