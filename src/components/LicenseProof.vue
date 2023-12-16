@@ -4,18 +4,26 @@
             <div class="licenseDescLogo">{{ $t('blockTitle.lsp1') }}</div>
             <img class="licenseDetailMobile" src="../assets/licenseLogo.png">
             <div class="desc">{{ $t('licenseProof.text1') }}</div>
-            <div class="check">{{ $t('licenseProof.text2') }}</div>
+            <div class="check" @click="openUrl(urls.licenseUrl)">{{ $t('licenseProof.text2') }}</div>
         </div>
         <img class="licenseDetail" src="../assets/licenseLogo.png">
     </div>
 </template>
 
 <script>
+import { urls,openUrl } from '@/util/const/urlConst';
+
 export default {
     name: 'LicenseProof',
     data() {
         return {}
     },
+    setup: () => {
+        return {
+            urls,
+            openUrl
+        }
+    }
 };
 </script>
 

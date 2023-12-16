@@ -27,7 +27,7 @@
                         </div>
                     </div>
                     <div class="desc">{{ item.desc }}</div>
-                    <div class="play">{{ item.btnText }}</div>
+                    <div class="play" @click="openUrl(urls.gameTgUrl)">{{ item.btnText }}</div>
                 </div>
                 <div style="position: relative;" class="whyPopularDetailContainer">
                     <img class="whyPopularDetail" :src="item.rightImg">
@@ -56,6 +56,7 @@ import whyPopular2 from '../assets/whyPopular2.png'
 import whyPopular3 from '../assets/whyPopular3.png'
 
 
+import { urls,openUrl } from '@/util/const/urlConst';
 
 
 export default {
@@ -64,6 +65,12 @@ export default {
         handleCarouselChange(index) {
             this.currentIndex = index;
         },
+    },
+    setup: () => {
+        return {
+            urls,
+            openUrl
+        }
     },
     data() {
         return {

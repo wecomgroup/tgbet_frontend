@@ -17,7 +17,7 @@
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
                 <p class="safeTitle">{{ $t('safeInstructions.text5') }}</p>
             </div>
-            <div class="play">{{ $t('safeInstructions.text6') }}</div>
+            <div class="play" @click="openUrl(urls.gameTgUrl)">{{ $t('safeInstructions.text6') }}</div>
             <img class="webImage" src="../assets/webImage.png">
         </div>
         <img class="webImg" style="height: 499px;margin-right: -58px;" src="../assets/safeLogo.png">
@@ -25,11 +25,19 @@
 </template>
 
 <script>
+import { urls,openUrl } from '@/util/const/urlConst';
+
 export default {
     name: 'SafeInstructions',
     data() {
         return {}
     },
+    setup: () => {
+        return {
+            urls,
+            openUrl
+        }
+    }
 };
 </script>
 

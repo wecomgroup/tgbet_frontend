@@ -9,7 +9,7 @@
 
                     <div class="desc">{{ $t('whiteBook.text1') }}</div>
 
-                    <div class="read">{{ $t('whiteBook.text2') }}</div>
+                    <div class="read" @click="openUrl(urls.whitePaperUrl)">{{ $t('whiteBook.text2') }}</div>
                 </div>
             </el-col>
             <el-col :lg="11" align="middle">
@@ -20,11 +20,20 @@
 </template>
 
 <script>
+
+import { urls,openUrl } from '@/util/const/urlConst';
+
 export default {
     name: 'WhiteBook',
     data() {
         return {}
     },
+    setup: () => {
+        return {
+            urls,
+            openUrl
+        }
+    }
 };
 </script>
 

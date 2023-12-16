@@ -5,8 +5,8 @@
             {{ $t('noKyc.text1') }}
         </div>
         <div class="btnContainer">
-            <div class="open">{{ $t('noKyc.text2') }} </div>
-            <div class="downLoad">{{ $t('noKyc.text3') }}</div>
+            <div class="open" @click="openUrl(urls.tgbTgUrl)">{{ $t('noKyc.text2') }} </div>
+            <div class="downLoad" @click="openUrl(urls.tgDownloadUrl)">{{ $t('noKyc.text3') }}</div>
         </div>
         <div class="step">
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
@@ -18,6 +18,8 @@
 </template>
 
 <script>
+
+import { urls,openUrl } from '@/util/const/urlConst';
 
 export default {
     name: 'NoKyc',
@@ -35,6 +37,12 @@ export default {
             { title: this.$t('noKyc.text8'), desc: this.$t('noKyc.text9') }]
         }
     },
+    setup: () => {
+        return {
+            urls,
+            openUrl
+        }
+    }
 
 };
 </script>

@@ -1,19 +1,36 @@
 <template>
     <div class="actionView">
-        <p class="title">{{$t('actionView.text1')}}</p>
-        <p class="subTitle">{{$t('actionView.text2')}}</p>
-        <p class="desc">{{$t('actionView.text3')}}</p>
-        <div class="join"> <img class="joinLogo" alt="join logo" src="../assets/join.png"> {{$t('actionView.text4')}}
+        <p class="title">{{ $t('actionView.text1') }}</p>
+        <p class="subTitle">{{ $t('actionView.text2') }}</p>
+        <p class="desc">{{ $t('actionView.text3') }}</p>
+        <div class="join" @click="openUrl(urls.tgbTgUrl)"> <img class="joinLogo" alt="join logo" src="../assets/join.png">
+            {{ $t('actionView.text4') }}
         </div>
-        <div class="play"> <img class="playLogo" alt="play logo" src="../assets/playLogo.png"> {{$t('actionView.text5')}}</div>
-        <div class="check"><img class="checkLogo" alt="play logo" src="../assets/checkLogo.png"> {{$t('actionView.text6')}}</div>
+        <div class="play" @click="openUrl(urls.gameTgUrl)"> <img class="playLogo" alt="play logo" src="../assets/playLogo.png"> {{ $t('actionView.text5') }}
+        </div>
+        <div class="check" @click="openUrl(urls.licenseUrl)"><img class="checkLogo" alt="play logo" src="../assets/checkLogo.png"> {{ $t('actionView.text6') }}
+        </div>
         <div class="cashback">
             <p class="cashbackTitle">25%</p>
-            <p class="cashbackSubTitle">{{$t('actionView.text7')}}</p>
-            <p class="cashbackDesc">{{$t('actionView.text8')}}</p>
+            <p class="cashbackSubTitle">{{ $t('actionView.text7') }}</p>
+            <p class="cashbackDesc">{{ $t('actionView.text8') }}</p>
         </div>
     </div>
 </template>
+<script>
+
+import { urls,openUrl } from '@/util/const/urlConst';
+export default {
+
+    setup: () => {
+        return {
+            urls,
+            openUrl
+        }
+    }
+}
+</script>
+        
 <style scoped>
 .actionView {
     color: #ffffff;
@@ -219,11 +236,13 @@
         margin-top: 10px;
         font-size: 68px;
     }
-    .play, .join{
-      margin-bottom: 12px;
+
+    .play,
+    .join {
+        margin-bottom: 12px;
     }
-    .check{
-      margin-bottom: 16px;
+
+    .check {
+        margin-bottom: 16px;
     }
-}
-</style>
+}</style>
