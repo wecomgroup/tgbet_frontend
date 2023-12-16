@@ -202,251 +202,267 @@ export default {
         }
 
         const getMyStakeReward = async () => {
-            let stakeContract = getStakeContract()
-            let amount = myRewardAmount.value
-            if (!amount || amount < 100) {
-                ElMessage.error(`获取奖励数量需大于100`)
-                return
-            }
-            amount = Math.floor(amount).toFixed(0)
-            const walletClient = await getMyWalletClient()
-
-            let hash = await walletClient.writeContract({
-                ...stakeContract,
-                functionName: "harvestRewards",
-                account
-            })
-            console.log('getMyStakeReward tx hash' + hash)
-            if (hash) {
-                let result = await waitTx(hash)
-                if (result) {
-                    stakeInfo()
+            try {
+                let stakeContract = getStakeContract()
+                let amount = myRewardAmount.value
+                if (!amount || amount < 100) {
+                    ElMessage.error(`获取奖励数量需大于100`)
+                    return
                 }
+                amount = Math.floor(amount).toFixed(0)
+                const walletClient = await getMyWalletClient()
+
+                let hash = await walletClient.writeContract({
+                    ...stakeContract,
+                    functionName: "harvestRewards",
+                    account
+                })
+                console.log('getMyStakeReward tx hash' + hash)
+                if (hash) {
+                    let result = await waitTx(hash)
+                    if (result) {
+                        stakeInfo()
+                    }
+                }
+            } catch (error) {   
+                ElMessage.error(error)
             }
         }
 
 
         const stakeToken = async () => {
+            try {
 
-            if (!stakeAmount.value || stakeAmount.value < 100) {
-                ElMessage.error(`质押数量需大于100`)
-                return
-            }
-            let stakeContract = getStakeContract()
-            let tgbContract = getTgbContract()
 
-            let allowanceData = await checkApprove(tgbContract, accountMsg.value.address, stakeContract.address)
-
-            let amount = parseEther((stakeAmount.value).toString())
-
-            if (BigInt(allowanceData) < amount) {
-                ElMessage.error(`需要授权`)
-                await approveContract(tgbContract, stakeContract.address, account)
-                return
-            }
-
-            const walletClient = await getMyWalletClient()
-
-            let hash = await walletClient.writeContract({
-                ...stakeContract,
-                functionName: "deposit",
-                args: [amount],
-                account
-            })
-            console.log('stakeToken tx hash' + hash)
-            if (hash) {
-                let result = await waitTx(hash)
-                if (result) {
-                    stakeInfo()
+                if (!stakeAmount.value || stakeAmount.value < 100) {
+                    ElMessage.error(`质押数量需大于100`)
+                    return
                 }
+                let stakeContract = getStakeContract()
+                let tgbContract = getTgbContract()
+
+                let allowanceData = await checkApprove(tgbContract, accountMsg.value.address, stakeContract.address)
+
+                let amount = parseEther((stakeAmount.value).toString())
+
+                if (BigInt(allowanceData) < amount) {
+                    ElMessage.error(`需要授权`)
+                    await approveContract(tgbContract, stakeContract.address, account)
+                    return
+                }
+
+                const walletClient = await getMyWalletClient()
+
+                let hash = await walletClient.writeContract({
+                    ...stakeContract,
+                    functionName: "deposit",
+                    args: [amount],
+                    account
+                })
+                console.log('stakeToken tx hash' + hash)
+                if (hash) {
+                    let result = await waitTx(hash)
+                    if (result) {
+                        stakeInfo()
+                    }
+                }
+            } catch (error) {
+                ElMessage.error(error)
             }
         }
 
         const unStakeToken = async () => {
+            try {
+                let diffDays = Math.floor((infoData.value.endTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
 
-            let diffDays = Math.floor((infoData.value.endTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
-
-            if (diffDays) {
-                ElMessage.error(`距离解除质押还有 ${diffDays} 天`)
-                return
-            }
-            let amount = parseEther(unStakeAmount.value)
-
-            if (!amount || amount < 100) {
-                ElMessage.error(`解除质押数量需大于100`)
-                return
-            }
-
-            let stakeContract = getStakeContract()
-
-            amount = Math.floor(amount).toFixed(0)
-
-            const walletClient = await getMyWalletClient()
-
-            let hash = await walletClient.writeContract({
-                ...stakeContract,
-                functionName: "withdraw",
-                args: [amount],
-                account
-            })
-            console.log('unStakeToken tx hash' + hash)
-            if (hash) {
-                let result = await waitTx(hash)
-                if (result) {
-                    stakeInfo()
+                if (diffDays) {
+                    ElMessage.error(`距离解除质押还有 ${diffDays} 天`)
+                    return
                 }
+                let amount = parseEther(unStakeAmount.value)
+
+                if (!amount || amount < 100) {
+                    ElMessage.error(`解除质押数量需大于100`)
+                    return
+                }
+
+                let stakeContract = getStakeContract()
+
+                amount = Math.floor(amount).toFixed(0)
+
+                const walletClient = await getMyWalletClient()
+
+                let hash = await walletClient.writeContract({
+                    ...stakeContract,
+                    functionName: "withdraw",
+                    args: [amount],
+                    account
+                })
+                console.log('unStakeToken tx hash' + hash)
+                if (hash) {
+                    let result = await waitTx(hash)
+                    if (result) {
+                        stakeInfo()
+                    }
+                }
+            } catch (error) {
+                ElMessage.error(error)
             }
         }
 
 
         const stakeInfo = async () => {
-            let myAddress = ""
-            if (accountMsg.value && accountMsg.value.address) {
-                myAddress = accountMsg.value.address
+            try {
+                let myAddress = ""
+                if (accountMsg && accountMsg.value && accountMsg.value.address) {
+                    myAddress = accountMsg.value.address
+                }
+                else {
+                    return
+                }
+                let stakeContract = getStakeContract()
+                let preSaleContract = getPreSaleContract()
+                const data = await multicall({
+                    contracts: [
+                        {
+                            ...stakeContract,
+                            functionName: 'getRewards',   //我的质押奖励
+                            args: [myAddress],
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'poolStakers',   //我的质押信息
+                            args: [myAddress],
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'rewardTokensPerBlock',  //每个区块奖励
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'tokensStaked',   //总质押Token 数量
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'tokensStakedByPresale',  //预售已质押Token 数量
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'stakeToken',   //质押代币地址
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'lockTime',   //锁定时间
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'endBlock',   //结束区块
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'lastRewardedBlock',  //最新开始获取奖励区块
+                        },
+                        {
+                            ...stakeContract,
+                            functionName: 'rewardTokensPerBlock',  //每个区块奖励
+                        },
+                        {
+                            ...preSaleContract,
+                            functionName: 'endTime',
+                        },
+                    ]
+                })
+
+                let resultData = {
+                    getRewards: data[0].result,           //[0]
+                    poolStakers: data[1].result,          //[1]
+                    rewardTokensPerBlock: data[2].result, //[2]
+                    tokensStaked: data[3].result,         //[3]
+                    tokensStakedByPresale: data[4].result,//[4]
+                    stakeToken: data[5].result,           //[5]
+                    lockTime: data[6].result,            //[6]
+                    endBlock: data[7].result,              //[7]
+                    lastRewardedBlock: data[8].result,     //[8]
+                    rewardTokensPerBlock: data[9].result,  //[9]
+                    endTime: data[10].result               //[10]
+
+                }
+
+                let tgbBalance = await fetchBalance({
+                    address: stakeContract.address,
+                    token: resultData.stakeToken,
+                })
+
+                let myTgbBalance = await fetchBalance({
+                    address: myAddress,
+                    token: resultData.stakeToken,
+                })
+
+                console.log(`$tgb staking token $${tgbBalance.symbol} \n decemal:  ${tgbBalance.decimals} \n balance: ${tgbBalance.value} `)
+                console.log(`my  $tgb token $${myTgbBalance.symbol} \n decemal:  ${myTgbBalance.decimals} \n balance: ${myTgbBalance.value} `)
+
+                //我的 TGB 余额 
+                let myBalance = formatUnits(myTgbBalance.value, myTgbBalance.decimals)
+                //我的质押值
+                stakeAmount.value = parseInt(myBalance)
+                //当前质押总量
+                let totalStake = formatUnits(resultData.tokensStaked, tgbBalance.decimals)
+
+                //当前质押池剩余TGB总量
+                let totalBalance = formatUnits(tgbBalance.value, tgbBalance.decimals)
+                console.log(`$tgb totalBalance ${totalBalance}`)
+                let endTime = Number(resultData.endTime)
+
+                //剩余质押天数
+                let RemainingStakeDays = (Math.floor(endTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24)
+
+                console.log(`$tgb endTime : ${endTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
+
+                let remainingBlock = (resultData.lastRewardedBlock ? resultData.endBlock - resultData.lastRewardedBlock : 0n)
+                let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock, tgbBalance.decimals)
+                let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
+
+                //当年年化收益率
+                let apy = (((remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
+                console.log(`stake $tgb APY :${apy},  remainingRecord:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+
+                apy = (apy && (apy !== 'Infinity' || apy !== 'NAN')) ? (apy + '%') : ''
+                //占质押总额$tgb 百分比
+                let stateRateStr = (totalStake / totalBalance * 100).toFixed(4)
+
+                //已支付的总奖励
+                let totalReward = totalStake > 0 ? (totalBalance - totalStake - remainingRecord).toFixed(0) : '0'
+                console.log(` stake rate ${stateRateStr}  totalReward:${totalReward}`)
+
+                let myStakeAmount = formatUnits(resultData.poolStakers[0], tgbBalance.decimals)
+                let myStakeHarvestedRewards = formatUnits(resultData.poolStakers[3], tgbBalance.decimals)
+                let myStakeRewardDebt = formatUnits(resultData.poolStakers[4], tgbBalance.decimals)
+                let myGetReward = formatUnits(resultData.getRewards, tgbBalance.decimals)
+                let myStateRateStr = (myStakeAmount / totalStake * 100).toFixed(2) + '%'
+                unStakeAmount.value = parseInt(myStakeAmount)
+                myRewardAmount.value = parseInt(myGetReward)
+                console.log(`my stake info => myStakeAmount:${myStakeAmount} myStakeHarvestedRewards: ${myStakeHarvestedRewards} myStakeRewardDebt : ${myStakeRewardDebt}`)
+
+
+                let info = {
+                    stakeTokenAddress: resultData.stakeToken,
+                    endTime: endTime,
+                    apy: apy,
+                    stateRateStr: stateRateStr,
+                    totalReward: parseInt(totalReward).toLocaleString(),
+                    myStakeAmount: parseInt(myStakeAmount),
+                    myStakeHarvestedRewards: parseInt(myStakeHarvestedRewards),
+                    myStakeRewardDebt: parseInt(myStakeRewardDebt),
+                    myStateRateStr: myStateRateStr,
+                    myGetReward: parseInt(myGetReward),
+                    myBalance: parseInt(myBalance),
+                    totalStake: parseInt(totalStake).toLocaleString()
+                }
+                infoData.value = info
+                console.log(resultData)
+            } catch (error) {
+                ElMessage.error(error)
             }
-            else {
-                return
-            }
-            let stakeContract = getStakeContract()
-            let preSaleContract = getPreSaleContract()
-            const data = await multicall({
-                contracts: [
-                    {
-                        ...stakeContract,
-                        functionName: 'getRewards',   //我的质押奖励
-                        args: [myAddress],
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'poolStakers',   //我的质押信息
-                        args: [myAddress],
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'rewardTokensPerBlock',  //每个区块奖励
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'tokensStaked',   //总质押Token 数量
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'tokensStakedByPresale',  //预售已质押Token 数量
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'stakeToken',   //质押代币地址
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'lockTime',   //锁定时间
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'endBlock',   //结束区块
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'lastRewardedBlock',  //最新开始获取奖励区块
-                    },
-                    {
-                        ...stakeContract,
-                        functionName: 'rewardTokensPerBlock',  //每个区块奖励
-                    },
-                    {
-                        ...preSaleContract,
-                        functionName: 'endTime',
-                    },
-                ]
-            })
-
-            let resultData = {
-                getRewards: data[0].result,           //[0]
-                poolStakers: data[1].result,          //[1]
-                rewardTokensPerBlock: data[2].result, //[2]
-                tokensStaked: data[3].result,         //[3]
-                tokensStakedByPresale: data[4].result,//[4]
-                stakeToken: data[5].result,           //[5]
-                lockTime: data[6].result,            //[6]
-                endBlock: data[7].result,              //[7]
-                lastRewardedBlock: data[8].result,     //[8]
-                rewardTokensPerBlock: data[9].result,  //[9]
-                endTime: data[10].result               //[10]
-
-            }
-
-            let tgbBalance = await fetchBalance({
-                address: stakeContract.address,
-                token: resultData.stakeToken,
-            })
-
-            let myTgbBalance = await fetchBalance({
-                address: myAddress,
-                token: resultData.stakeToken,
-            })
-
-            console.log(`$tgb staking token $${tgbBalance.symbol} \n decemal:  ${tgbBalance.decimals} \n balance: ${tgbBalance.value} `)
-            console.log(`my  $tgb token $${myTgbBalance.symbol} \n decemal:  ${myTgbBalance.decimals} \n balance: ${myTgbBalance.value} `)
-
-            //我的 TGB 余额 
-            let myBalance = formatUnits(myTgbBalance.value, myTgbBalance.decimals)
-            //我的质押值
-            stakeAmount.value = parseInt(myBalance)
-            //当前质押总量
-            let totalStake = formatUnits(resultData.tokensStaked, tgbBalance.decimals)
-
-            //当前质押池剩余TGB总量
-            let totalBalance = formatUnits(tgbBalance.value, tgbBalance.decimals)
-            console.log(`$tgb totalBalance ${totalBalance}`)
-            let endTime = Number(resultData.endTime)
-
-            //剩余质押天数
-            let RemainingStakeDays = (Math.floor(endTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24)
-
-            console.log(`$tgb endTime : ${endTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
-
-            let remainingBlock = (resultData.lastRewardedBlock ? resultData.endBlock - resultData.lastRewardedBlock : 0n)
-            let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock, tgbBalance.decimals)
-            let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
-
-            //当年年化收益率
-            let apy = (((remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
-            console.log(`stake $tgb APY :${apy},  remainingRecord:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
-
-            apy = (apy && (apy !== 'Infinity' || apy !== 'NAN')) ? (apy + '%') : ''
-            //占质押总额$tgb 百分比
-            let stateRateStr = (totalStake / totalBalance * 100).toFixed(4)
-
-            //已支付的总奖励
-            let totalReward = totalStake > 0 ? (totalBalance - totalStake - remainingRecord).toFixed(0) : '0'
-            console.log(` stake rate ${stateRateStr}  totalReward:${totalReward}`)
-
-            let myStakeAmount = formatUnits(resultData.poolStakers[0], tgbBalance.decimals)
-            let myStakeHarvestedRewards = formatUnits(resultData.poolStakers[3], tgbBalance.decimals)
-            let myStakeRewardDebt = formatUnits(resultData.poolStakers[4], tgbBalance.decimals)
-            let myGetReward = formatUnits(resultData.getRewards, tgbBalance.decimals)
-            let myStateRateStr = (myStakeAmount / totalStake * 100).toFixed(2) + '%'
-            unStakeAmount.value = parseInt(myStakeAmount)
-            myRewardAmount.value = parseInt(myGetReward)
-            console.log(`my stake info => myStakeAmount:${myStakeAmount} myStakeHarvestedRewards: ${myStakeHarvestedRewards} myStakeRewardDebt : ${myStakeRewardDebt}`)
-
-
-            let info = {
-                stakeTokenAddress: resultData.stakeToken,
-                endTime: endTime,
-                apy: apy,
-                stateRateStr: stateRateStr,
-                totalReward: parseInt(totalReward).toLocaleString(),
-                myStakeAmount: parseInt(myStakeAmount),
-                myStakeHarvestedRewards: parseInt(myStakeHarvestedRewards),
-                myStakeRewardDebt: parseInt(myStakeRewardDebt),
-                myStateRateStr: myStateRateStr,
-                myGetReward: parseInt(myGetReward),
-                myBalance: parseInt(myBalance),
-                totalStake: parseInt(totalStake).toLocaleString()
-            }
-            infoData.value = info
-            console.log(resultData)
         }
         return {
             infoData,

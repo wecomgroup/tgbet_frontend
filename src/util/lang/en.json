@@ -4,7 +4,7 @@
     "zhiya": "Staking",
     "zhiyazr": "Total Staking",
     "howBuy1": "How To Buy $TGB Token",
-    "wp1": "TG.Casino has it all !",
+    "wp1": "TG.Bit has it all !",
     "wp2": "Why is Gamefi & Crypto gambling exploding?",
     "wp4": "What sets us apart",
     "ow1": "How it works?",
@@ -19,7 +19,7 @@
     "coin": "Tokenomics",
     "preTxt1": "Benefits of buying $TGB in pre-sale",
     "plc1": "Staking Rewards"
-},
+  },
   "topBar": {
     "index": "Home",
     "welfare": "Presale Benefits",
@@ -143,7 +143,7 @@
     "text8": "$TGB you receive",
     "text9": "Connect wallet",
     "text10": "Buy and stake",
-    "text11": "Just want to buy without pledging",
+    "text11": "Just want to buy without staking",
     "text12": "Current Staking APY",
     "text13": "Buy at BSC",
     "text14": "Buy at ETH"

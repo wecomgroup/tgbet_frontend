@@ -74,12 +74,12 @@
 
     <el-row>
       <el-col :span="24">
-        <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
+        <el-button v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
           {{ $t('homeForm.text9') }}
-        </div>
-        <div v-if="connect" class="connect-btn" @click="buyToken">
+        </el-button>
+        <el-button v-if="connect" class="connect-btn" @click="buyToken">
           {{ $t('homeForm.text10') }}
-        </div>
+        </el-button>
         <div v-if="connect" class="stake-buy-btn" @click="buyTokenAndStaking">
           {{ $t('homeForm.text11') }}
         </div>
@@ -128,7 +128,10 @@ export default {
     })
 
     const homeInfo = async () => {
-
+      if(connect.value) {
+        let result = await checkNetwork()
+        if(!result) { return }
+      }
       let proxyContract = getPreSaleContract()
       let stakeContract = getStakeContract()
 
@@ -365,16 +368,20 @@ export default {
           ElMessage.warning(`请先连接钱包`)
           return false;
         }
-        if (currentNetwork.chain.id != sepolia.id) {
+        let currentNetId = currentNetwork.chain.id
+
+        if (currentNetId != sepolia.id) {
           const network = await switchNetwork({
             chainId: sepolia.id,
           })
           //更新界面
-          if (currentNetwork.chain.id !== network.id) {
+          if (network == sepolia.id) {
             accountMsg.value = getAccount();
-            homeInfo()
+            return true
+          } else {
+            return false
           }
-          return false
+          
         }
         return true
       } catch (error) {
