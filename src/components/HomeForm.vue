@@ -173,7 +173,11 @@ export default {
           },
           {
             ...proxyContract,
-            functionName: 'stakingManagerInterface',
+            functionName: 'startTime',
+          },
+          {
+            ...proxyContract,
+            functionName: 'endTime',
           },
           {
             ...stakeContract,
@@ -208,12 +212,13 @@ export default {
         totalTokensSold: data[6].result,        //[6]
         maxTokensToBuy: data[7].result,         //[7]
         paused: data[8].result,                 //[8]
-        stakingManagerInterface: data[9].result,//[9]
-        tokensStaked: data[10].result,          //[10]
-        launchTime: data[11].result,            //[11]
-        endBlock: data[12].result,              //[12]
-        lastRewardedBlock: data[13].result,     //[13]
-        rewardTokensPerBlock:data[14].result    //[14]
+        startTime: data[9].result,//[9]
+        endTime: data[10].result,//[9]
+        tokensStaked: data[11].result,          //[10]
+        launchTime: data[12].result,            //[11]
+        endBlock: data[13].result,              //[12]
+        lastRewardedBlock: data[14].result,     //[13]
+        rewardTokensPerBlock:data[15].result    //[14]
       }
       let info = {
         saleToken: resultData.saleToken,
@@ -226,7 +231,9 @@ export default {
         maxTokensToBuy: Number(resultData.maxTokensToBuy),
         paused: resultData.paused,
         saleAmountStr: '',
-        apy: ''
+        apy: '',
+        startTime: resultData.startTime,
+        endTime: resultData.endTime,
       }
 
       let tgbBalance = await fetchBalance({
@@ -253,21 +260,22 @@ export default {
       //当前质押池剩余TGB总量
       let totalBalance = formatUnits(tgbBalance.value, "18")
       console.log(`$tgb totalBalance ${totalBalance}`)
-      let launchTime = Number(resultData.launchTime)
-      console.log(`launchTime: ${launchTime}`)
+      let endTime = Number(resultData.endTime)
+      console.log(`endTime: ${endTime}`)
       //剩余质押天数
-      let RemainingStakeDays = (Math.floor(launchTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24) + 185
+      let RemainingStakeDays = (Math.floor(endTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24)
 
       //剩余奖励
-      let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0)
-      let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock,info.baseDecimals)
+      console.log(`endblock: ${resultData.endBlock} lastRewardedBlock:${resultData.lastRewardedBlock}`)
+      let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0n)
+      let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock,'18')
       let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
 
       //当年年化收益率
-      let apy = (((20000000 - remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
-      console.log(`home $tgb APY :${apy},  remainingBlock:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
+      let apy = (((remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
+      console.log(`home $tgb APY :${apy},  remainingRecord:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
 
-      info.apy = apy && (apy !== 'Infinity') ? (apy + '%') : ''
+      info.apy = (apy && (apy !== 'Infinity')) ? (apy + '%') : ''
 
       //leaveTime
       let startTime = Number(resultData.startTime * 1000n)

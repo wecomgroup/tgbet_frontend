@@ -25,7 +25,7 @@ const getUsdcContract = () => {
 }
 
 const getTgbContract = () => {
-    let contactAddress = '0x4F9322e8eb987fdb6bBe5aEB73662F19Fd1A4a17'
+    let contactAddress = '0x80e8F2AfFEB86D37E0FFCF245685888737B5B859'
     return  {
         address: contactAddress,
         abi: erc20ABI,
@@ -33,7 +33,7 @@ const getTgbContract = () => {
 }
 
 const getStakeContract = () => {
-    let contactAddress = '0xe6beb2986b4Df931D0BD05590d19335b565039Dd'
+    let contactAddress = '0x8A51476008109319Ed23fE80fe883A879293Ec9a'
     return  {
         address: contactAddress,
         abi: stakeABI,
@@ -41,7 +41,7 @@ const getStakeContract = () => {
 }
 
 const getPreSaleContract = () => {
-    let contactAddress = '0xe32Db0bE19f796715D2DA1733AC1E11986a2f752'
+    let contactAddress = '0x3cED181a5A2207fF0caD797e1164Fea34eeEA5e3'
     return  {
         address: contactAddress,
         abi: proxyABI,

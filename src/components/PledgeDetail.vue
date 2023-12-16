@@ -117,7 +117,7 @@ import { ElMessage } from 'element-plus'
 
 import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
 
-import { getStakeContract, getTgbContract } from '@/util/const/const'
+import { getStakeContract, getTgbContract, getPreSaleContract } from '@/util/const/const'
 import {
     disconnect,
     fetchBalance,
@@ -264,7 +264,7 @@ export default {
 
         const unStakeToken = async () => {
 
-            let diffDays = Math.floor((infoData.value.launchTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
+            let diffDays = Math.floor((infoData.value.endTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
 
             if (diffDays) {
                 ElMessage.error(`距离解除质押还有 ${diffDays} 天`)
@@ -308,6 +308,7 @@ export default {
                 return
             }
             let stakeContract = getStakeContract()
+            let preSaleContract = getPreSaleContract()
             const data = await multicall({
                 contracts: [
                     {
@@ -338,7 +339,7 @@ export default {
                     },
                     {
                         ...stakeContract,
-                        functionName: 'launchTime',   //质押开始时间
+                        functionName: 'lockTime',   //锁定时间
                     },
                     {
                         ...stakeContract,
@@ -351,7 +352,11 @@ export default {
                     {
                         ...stakeContract,
                         functionName: 'rewardTokensPerBlock',  //每个区块奖励
-                    }
+                    },
+                    {
+                        ...preSaleContract,
+                        functionName: 'endTime',
+                    },
                 ]
             })
 
@@ -362,10 +367,12 @@ export default {
                 tokensStaked: data[3].result,         //[3]
                 tokensStakedByPresale: data[4].result,//[4]
                 stakeToken: data[5].result,           //[5]
-                launchTime: data[6].result,            //[6]
+                lockTime: data[6].result,            //[6]
                 endBlock: data[7].result,              //[7]
                 lastRewardedBlock: data[8].result,     //[8]
-                rewardTokensPerBlock: data[9].result    //[9]
+                rewardTokensPerBlock: data[9].result,  //[9]
+                endTime: data[10].result               //[10]
+
             }
 
             let tgbBalance = await fetchBalance({
@@ -391,22 +398,22 @@ export default {
             //当前质押池剩余TGB总量
             let totalBalance = formatUnits(tgbBalance.value, tgbBalance.decimals)
             console.log(`$tgb totalBalance ${totalBalance}`)
-            let launchTime = Number(resultData.launchTime)
+            let endTime = Number(resultData.endTime)
 
             //剩余质押天数
-            let RemainingStakeDays = (Math.floor(launchTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24) + 185
+            let RemainingStakeDays = (Math.floor(endTime * 1000 - new Date().getTime()) / 1000 / 3600 / 24) + 185
 
-            console.log(`$tgb launchTime : ${launchTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
+            console.log(`$tgb endTime : ${endTime} currentTime:${new Date().getTime() / 1000}  RemainingStakeDays: ${RemainingStakeDays}`)
 
             let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0)
             let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock, tgbBalance.decimals)
             let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
 
             //当年年化收益率
-            let apy = (((20000000 - remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
+            let apy = (((remainingRecord) / totalStake * (365 / RemainingStakeDays)) * 100).toFixed(1)
             console.log(`home $tgb APY :${apy},  remainingBlock:${remainingRecord}  recordPerBlock:${recordPerBlock}  totalBalance: ${totalBalance}, totalStake:${totalStake} RemainingStakeDays: ${RemainingStakeDays}`)
 
-            apy = apy && (apy !== 'Infinity') ? (apy + '%') : ''
+            info.apy = (apy && (apy !== 'Infinity')) ? (apy + '%') : ''
             //占质押总额$tgb 百分比
             let stateRateStr = (totalStake / totalBalance * 100).toFixed(4)
 
@@ -426,7 +433,7 @@ export default {
 
             let info = {
                 stakeTokenAddress: resultData.stakeToken,
-                launchTime: launchTime,
+                endTime: endTime,
                 apy: apy,
                 stateRateStr: stateRateStr,
                 totalReward: parseInt(totalReward).toLocaleString(),
