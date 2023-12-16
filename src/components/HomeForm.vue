@@ -91,6 +91,7 @@
 <script>
 
 import {
+  erc20ABI,
   getAccount,
   fetchBalance,
   watchAccount,
@@ -101,7 +102,8 @@ import {
   readContract,
   sepolia,
   mainnet,
-  switchNetwork
+  switchNetwork,
+  readContracts
 } from "@wagmi/core";
 
 import { ElMessage } from 'element-plus'
@@ -110,11 +112,21 @@ import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "v
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
-import { getTgbContract, getPreSaleContract, getStakeContract, getUsdcContract, getUsdtContract } from '../util/const/const'
+import {
+  getTgbContract,
+  getPreSaleContract,
+  getStakeContract,
+  getUsdcContract,
+  getUsdtContract,
+  usdtAddress,
+  usdcAddress,
+  tgbAddress,
+} from '../util/const/const'
 
 export default {
 
   setup: () => {
+
 
     const countdownTimer = ref()
     const indexTimer = ref()
@@ -127,11 +139,74 @@ export default {
       second: '00',
     })
 
-    const homeInfo = async () => {
-      if(connect.value) {
-        let result = await checkNetwork()
-        if(!result) { return }
+    const myBalance = ref({
+      ethBalance: 0,
+      tgbBalance: 0,
+      usdtBalance: 0,
+      usdcBalance: 0
+    })
+
+    const fetchMyBalance = async () => {
+      try {
+        if (!accountMsg || !accountMsg.value.address) {
+          console.log(`Invalid address`)
+          return
+        }
+
+        const callBalanceOfConfig = {
+          abi: erc20ABI,
+          functionName: 'balanceOf',
+          args: [accountMsg.value.address]
+        }
+
+        const balanceArr = await readContracts({
+          contracts: [
+            {
+              // The TGB token
+              address: tgbAddress,
+              ...callBalanceOfConfig
+            },
+            {
+              // The USDT token
+              address: usdtAddress,
+              ...callBalanceOfConfig
+            },
+            {
+              // The USDC token
+              address: usdcAddress,
+              ...callBalanceOfConfig
+            }
+          ],
+        })
+        let ethBalance = await fetchBalance({
+          address: accountMsg.value.address,
+        })
+        
+        let resultData = {
+          ethBalance: formatEther(ethBalance.value),
+          tgbBalance: formatUnits(balanceArr[0].result, '18'),
+          usdtBalance: formatUnits(balanceArr[1].result, '6'),
+          usdcBalance: formatUnits(balanceArr[2].result, '6'),
+        }
+        myBalance.value = resultData
+        console.log(`ethBalance:${myBalance.value.ethBalance} ,tgbBalance :${myBalance.value.tgbBalance}, usdtBalance :${myBalance.value.usdtBalance}, usdcBalance :${myBalance.value.usdcBalance}`)
+
+      } catch (error) {
+        console.log(error)
       }
+    }
+
+    const homeInfo = async () => {
+      if (connect.value) {
+        let result = await checkNetwork()
+        if (!result) { return }
+      }
+
+      if (accountMsg && accountMsg.value.address) {
+        console.log('start fetch my tokens balance')
+        await fetchMyBalance()
+      }
+
       let proxyContract = getPreSaleContract()
       let stakeContract = getStakeContract()
 
@@ -202,7 +277,7 @@ export default {
             ...stakeContract,
             functionName: 'rewardTokensPerBlock',  //每个区块奖励
           }
-          
+
         ]
       })
       let resultData = {
@@ -221,7 +296,7 @@ export default {
         launchTime: data[12].result,            //[11]
         endBlock: data[13].result,              //[12]
         lastRewardedBlock: data[14].result,     //[13]
-        rewardTokensPerBlock:data[15].result    //[14]
+        rewardTokensPerBlock: data[15].result    //[14]
       }
       let info = {
         saleToken: resultData.saleToken,
@@ -271,7 +346,7 @@ export default {
       //剩余奖励
       console.log(`endblock: ${resultData.endBlock} lastRewardedBlock:${resultData.lastRewardedBlock}`)
       let remainingBlock = resultData.endBlock - (resultData.lastRewardedBlock ? resultData.lastRewardedBlock : 0n)
-      let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock,'18')
+      let recordPerBlock = formatUnits(resultData.rewardTokensPerBlock, '18')
       let remainingRecord = Number(recordPerBlock) * Number(remainingBlock)
 
       //当年年化收益率
@@ -381,7 +456,7 @@ export default {
           } else {
             return false
           }
-          
+
         }
         return true
       } catch (error) {
@@ -491,7 +566,7 @@ export default {
 
     const checkEnableBuy = () => {
 
-      if (!tgbAmount.value  || (Number(tgbAmount.value) < 100)) {
+      if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
         ElMessage.error(`$TGB购买数量需大于100`)
         return false
       }
@@ -711,6 +786,7 @@ export default {
       connect,
       selectedCoin,
       coinInfo,
+      myBalance,
       connectWithWalletConnect,
       chooseMoney,
       accountMsg,
@@ -728,7 +804,8 @@ export default {
       startBuyToken,
       filterAddress,
       checkNetwork,
-      filterCoinName
+      filterCoinName,
+      fetchMyBalance
     };
   },
 };
