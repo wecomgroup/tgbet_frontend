@@ -25,9 +25,7 @@ export default {
     name: 'NoKyc',
     data() {
         return {
-            steps: [{ title: this.$t('noKyc.text4'), desc: this.$t('noKyc.text5') },
-            { title: this.$t('noKyc.text6'), desc: this.$t('noKyc.text7') },
-            { title: this.$t('noKyc.text8'), desc: this.$t('noKyc.text9') }]
+            steps: []
         };
     },
     computed: {

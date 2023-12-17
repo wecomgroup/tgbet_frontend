@@ -22,12 +22,7 @@ export default {
     name: 'HowToBuy',
     data() {
         return {
-            steps: [{ title: this.$t('howToBuy.text3'), desc: this.$t('howToBuy.text4') },
-            { title: this.$t('howToBuy.text5'), desc: this.$t('howToBuy.text6') },
-            { title: this.$t('howToBuy.text7'), desc: this.$t('howToBuy.text8') },
-            { title: this.$t('howToBuy.text9'), desc: this.$t('howToBuy.text10') },
-            { title: this.$t('howToBuy.text11'), desc: this.$t('howToBuy.text12') },
-            ]
+            steps: []
         };
     },
     computed: {

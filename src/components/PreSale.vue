@@ -29,24 +29,7 @@ export default {
     name: 'PreSale',
     data() {
         return {
-            preSaleDescList: [{
-                title: this.$t('preSale.text2'),
-                desc: this.$t('preSale.text3'),
-                src: specialRewards
-            }, {
-                title: this.$t('preSale.text4'),
-                desc: this.$t('preSale.text5'),
-                src: preferentialPrice
-            },
-            {
-                title: this.$t('preSale.text6'),
-                desc: this.$t('preSale.text7'),
-                src: plutocrat
-            }, {
-                title: this.$t('preSale.text8'),
-                desc: this.$t('preSale.text9'),
-                src: money
-            }]
+            preSaleDescList: []
         }
     },
     computed: {

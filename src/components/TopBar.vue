@@ -76,7 +76,6 @@ import arIcon from '@/assets/lang/ar.png'
 import esIcon from '@/assets/lang/es.png'
 import czIcon from '@/assets/lang/cz.png'
 import bgIcon from '@/assets/lang/bg.png'
-
 import jaIcon from '@/assets/lang/ja.png'
 import frIcon from '@/assets/lang/fr.png'
 import idIcon from '@/assets/lang/id.png'

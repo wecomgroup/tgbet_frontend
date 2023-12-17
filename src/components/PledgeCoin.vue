@@ -26,9 +26,7 @@ export default {
     name: 'PledgeCoin',
     data() {
         return {
-            steps: [{ src: pig, title: this.$t('pledgeCoin.text2'), desc: this.$t('pledgeCoin.text3') },
-            { src: gift, title: this.$t('pledgeCoin.text4'), desc: this.$t('pledgeCoin.text5') },
-            { src: copperCash, title: this.$t('pledgeCoin.text6'), desc: this.$t('pledgeCoin.text7') }]
+            steps: []
         };
     },
     computed: {

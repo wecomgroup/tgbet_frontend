@@ -6,6 +6,9 @@
   
 <script>
 import * as echarts from 'echarts';
+import { indexTimeline } from '@/service/api';
+
+let myChar = null;
 
 export default {
     data() {
@@ -16,17 +19,51 @@ export default {
                 categories: ['2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06'],
                 data: [150, 160, 150, 140, 130, 120, 140, 140, 100, 90]
             },
+            options: {}
         };
     },
-
     mounted() {
         this.renderEChartsArea();
+        this.requestTimeline();
+    },
+    watch: {
+        //观察option的变化
+        options: {
+            handler(newVal, oldVal) {
+                if (myChar) {
+                    if (newVal) {
+                        myChar.setOption(newVal);
+                    } else {
+                        myChar.setOption(oldVal);
+                    }
+                } else {
+                    this.init();
+                }
+            },
+            deep: true //对象内部属性的监听，关键。
+        }
     },
 
     methods: {
+
+        requestTimeline() {
+            indexTimeline({})
+                .then(response => {
+                    console.log(response);
+                    if (response && response.statusCode === 200) {
+                        console.log(this.chartData.categories)
+                        this.options.xAxis.data = this.chartData.categories
+                        this.options.series[0].data = this.chartData.data
+                    }
+                }).catch(() => { })
+        },
+
+
+
         renderEChartsArea() {
-            // 基于准备好的dom，初始化echarts实例
-            const myChart = echarts.init(this.$refs.echartsArea);
+
+
+            myChar = echarts.init(this.$refs.echartsArea);
 
             // 配置项
             const options = {
@@ -46,7 +83,7 @@ export default {
                     }
                 },
                 xAxis: {
-                    data: this.chartData.categories,
+                    data: [],
                     boundaryGap: false, // 设置 boundaryGap 为 false
                     axisLine: {
                         smooth: true, // 设置 smooth 为 true 去掉锯齿
@@ -115,13 +152,16 @@ export default {
                         itemStyle: {
                             color: '#C5AC79' // 修改线上点的颜色
                         },
-                        data: this.chartData.data
+                        data: []
                     }
                 ]
             };
 
-            // 使用刚指定的配置项和数据显示图表。
-            myChart.setOption(options);
+            this.options = options
+
+            myChar.setOption(
+                this.options
+            )
         }
     }
 };
