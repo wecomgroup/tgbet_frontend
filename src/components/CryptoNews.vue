@@ -20,13 +20,13 @@
         </el-col>
     </el-row>
 </template>
-  
+
 <script>
 export default {
     name: 'CryptoNews',
 };
 </script>
-  
+
 <style scoped>
 .cryptoNews {
     padding: 0% 5%;
@@ -40,13 +40,13 @@ export default {
 
 @media screen and (max-width: 900px) {
     .newsPng {
-        width: 145px;
-        margin-bottom: 10px;
+      width: 80%;
+        margin: 20px 0;
+      opacity: 0.8;
     }
 
     .cryptoNews {
-        padding: 20px 28px;
+        padding: 20px;
     }
 }
 </style>
-  

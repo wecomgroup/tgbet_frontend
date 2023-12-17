@@ -30,12 +30,13 @@ export default {
     }
 }
 </script>
-        
+
 <style scoped>
 .actionView {
     color: #ffffff;
     display: flex;
     flex-direction: column;
+  padding-right: 80px;
 }
 
 .title {
@@ -102,7 +103,7 @@ export default {
     cursor: pointer;
     border: 1px solid #30323A;
     color: #ffffff;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
 }
 
 .play {
@@ -118,7 +119,7 @@ export default {
     font-size: 14px;
     cursor: pointer;
     border: 1px solid #EFD8AA;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
 }
 
 .check {
@@ -134,7 +135,7 @@ export default {
     cursor: pointer;
     border: 1px solid #30323A;
     color: #ffffff;
-    margin-bottom: 30px;
+    margin-bottom: 16px;
 }
 
 .navContainer {
@@ -206,11 +207,10 @@ export default {
     .actionView {
         margin-bottom: 20px;
         margin-right: 8px;
+      padding-right: 0;
     }
 
-    .subTitle {
-        text-align: center;
-    }
+
 
     .desc {
         font-size: 16px;

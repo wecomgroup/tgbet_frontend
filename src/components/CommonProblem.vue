@@ -119,6 +119,9 @@ export default {
     justify-content: center;
     align-items: center;
 }
+.custom-title div{
+  text-align: left;
+}
 
 .el-collapse-item:after {
     content: '';
@@ -180,12 +183,15 @@ export default {
     }
 
 
-
+  .custom-title{
+    align-items: normal;
+  }
 
     .arrowImg {
         width: 16px;
-        height: auto;
+        height: 9px;
         margin-right: 16px;
+      margin-top: 12px;
     }
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+  <div>
     <div class="navbar" id="navbar">
         <img alt="ibit logo" class="topLogo" src="../assets/logo.png">
         <div class="navContainer">
@@ -19,7 +20,7 @@
             <div class="audit">
                 {{ $t('topBar.auditBtn') }}
             </div>
-            <el-dropdown @command="handleChangeLang" :teleported=false>
+            <el-dropdown @command="handleChangeLang">
                 <div class="menuLink">
                     <!-- src="require('../assets/lang/' + currentlang.key + '.png') -->
                     <img class="zhImg" :src="currentlang.icon">
@@ -46,7 +47,7 @@
                 <a @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
                 <div class="pledge" @click="goMobilePledge">{{ $t('topBar.pledgeBtn') }}</div>
                 <div class="audit">{{ $t('topBar.auditBtn') }}</div>
-                <el-dropdown @command="handleChangeLang" :teleported=false size="medium"> 
+                <el-dropdown @command="handleChangeLang" :teleported=false size="medium">
                     <div class="menuLink">
                         <img class="zhImg" :src="currentlang.icon">
                         <span class="langMenu">{{ currentlang.title }}</span>
@@ -64,6 +65,8 @@
             </div>
         </el-dialog>
     </div>
+
+  </div>
 </template>
 
 <script>
@@ -85,10 +88,10 @@ export default {
             langList: [
                 { title: 'en', key: 'en',icon: enIcon},
                 { title: 'zh', key: 'zh' ,icon: zhIcon},
-                // { title: 'es', key: 'es' ,icon: esIcon},
+                { title: 'es', key: 'es' ,icon: esIcon},
                 { title: 'ar', key: 'ar' ,icon: arIcon},
                 { title: 'de', key: 'de' ,icon: deIcon},
-                // { title: 'bg', key: 'bg' ,icon: bgIcon},
+                { title: 'bg', key: 'bg' ,icon: bgIcon},
                 { title: 'cz', key: 'cz' ,icon: czIcon},
             ]
         };
@@ -178,17 +181,19 @@ export default {
 
 <style scoped>
 .navbar {
-    padding: 0 5%;
-    height: 104px;
-    background-color: #181A20;
-    color: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: calc(100% - 10%);
-    position: fixed;
-    top: 0;
-    z-index: 999;
+  height: 104px;
+  background-color: #181A20;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  overflow-x: auto;
+  padding-left: 20px;
+  box-sizing: border-box;
 }
 
 .topLogo {
@@ -236,18 +241,20 @@ export default {
 .navContainer {
     display: flex;
     flex: 1;
-    padding: 0 0 0 40px;
-    justify-content: space-around;
+    justify-content: end;
+    align-items: start;
+    padding: 0px 20px;
 }
 
 
 .navContainer a {
     color: #fff;
     text-decoration: none;
-    margin-right: 10px;
+    padding: 0 20px;
     font-weight: 600;
     font-size: clamp(14px, 16px, 18px);
     cursor: pointer;
+    white-space:nowrap;
 }
 
 .actionContainer {
@@ -362,7 +369,6 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: calc(100% - 10%);
     }
 
     .topLogo {
@@ -385,5 +391,14 @@ export default {
         position: fixed;
         right: 20px;
     }
+}
+</style>
+<style>
+.el-popper__arrow{
+  display: none;
+}
+.el-dropdown__popper.el-popper{
+  border: none;
+  height: 200px;
 }
 </style>

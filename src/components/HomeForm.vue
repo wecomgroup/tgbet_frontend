@@ -181,7 +181,7 @@ export default {
         let ethBalance = await fetchBalance({
           address: accountMsg.value.address,
         })
-        
+
         let resultData = {
           ethBalance: formatEther(ethBalance.value),
           tgbBalance: formatUnits(balanceArr[0].result, '18'),
@@ -584,12 +584,12 @@ export default {
       }
       return true
     }
-    // user click buy 
-    // 1 ETH-BUY  
-    // 2 ETH-BUY-STAKING  
-    // 3 USDT-BUY 
+    // user click buy
+    // 1 ETH-BUY
+    // 2 ETH-BUY-STAKING
+    // 3 USDT-BUY
     // 4 USDT-BUY-STAKING
-    // 5 USDC-BUY 
+    // 5 USDC-BUY
     // 6 USDC-BUY-STAKING
     const buyToken = () => {
       let enableBuy = checkEnableBuy()
@@ -813,7 +813,9 @@ export default {
 
 <style scoped>
 :deep(.el-progress-bar__innerText) {
-  color: #fff
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 .wallect {

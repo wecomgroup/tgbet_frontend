@@ -98,6 +98,9 @@ export default {
         height: auto;
         flex-direction: column;
     }
+  .coinTimesContainer .is-guttered{
+    padding: 0 !important;
+  }
 
     .coinTimesDescLogo {
         display: none;

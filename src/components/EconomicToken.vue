@@ -5,7 +5,7 @@
                 {{ $t('blockTitle.coin') }}
             </div>
         </div>
-        <el-row style="width: 100%;" :gutter="30">
+        <el-row style="width: 100%;" :gutter="gutter">
             <el-col :xs="24" :sm="24" :lg="12">
                 <div class="desc">
                     {{ $t('economicToken.text1') }}
@@ -40,7 +40,8 @@ export default {
             { title: this.$t('economicToken.text8'), percentage: '10%', desc: this.$t('economicToken.text9'), color: '#F47F30' },
             { title: this.$t('economicToken.text10'), percentage: '5%', desc: this.$t('economicToken.text11'), color: '#CF3C7A' },
             { title: this.$t('economicToken.text12'), percentage: '5%', desc: this.$t('economicToken.text13'), color: '#3CA3CF' },
-            ]
+            ],
+          gutter: 30
         };
     },
     computed: {
@@ -54,7 +55,15 @@ export default {
             ]
         }
     },
-
+  mounted() {
+    const screenWidth = window.innerWidth || document.documentElement.clientWidth
+        || document.body.clientWidth
+    if (screenWidth > 900) {
+      this.gutter = 30
+    } else {
+      this.gutter = 0
+    }
+  }
 };
 </script>
 
@@ -182,7 +191,7 @@ export default {
 
 .economicTokenDetailTitle {
     font-size: 24px;
-    font-weight: 700;
+    font-weight: bold;
     text-align: left;
 }
 
@@ -240,11 +249,11 @@ export default {
     }
 
     .economicTokenDetailTitle {
-        font-size: 16px;
+        font-size: 18px;
     }
 
     .economicTokenDetailDesc {
-        font-size: 14px;
+        font-size: 15px;
         margin-top: 5px;
     }
 

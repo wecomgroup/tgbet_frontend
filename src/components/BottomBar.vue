@@ -34,24 +34,59 @@
                 @ 2023 TG BET All Rights Reserved
             </div>
             <div class="other">
-                <a href="">{{$t('bottomBar.text2')}}</a>
-                <a href="">{{$t('bottomBar.text3')}}</a>
-                <a href="">cookie</a>
+                <span @click="personalDialogVisible = true">{{$t('bottomBar.text2')}}</span>
+                <span @click="termDialogVisible = true">{{$t('bottomBar.text3')}}</span>
+                <span @click="centerDialogVisible=true">cookie</span>
             </div>
         </div>
-
+      <el-dialog
+          v-model="centerDialogVisible"
+          title="Cookies"
+          width="520px"
+      >
+        <DialogCookie/>
+      </el-dialog>
+      <el-dialog
+          v-model="termDialogVisible"
+          title="Terms Of Service"
+          width="520px"
+      >
+        <DialogTerm/>
+      </el-dialog>
+      <el-dialog
+          v-model="personalDialogVisible"
+          title="Privacy Policy"
+          width="520px"
+      >
+        <DialogPersonal/>
+      </el-dialog>
+      <div class="four-logo">
+        <a href="https://github.com/Assure-DeFi/KYC-Certificates/blob/main/TG.Casino%20KYC%20Certificate.png" target="_blank"><img src="../assets/adLogo.webp"/></a>
+        <a href="https://licensing.gaming-curacao.com/validator/?lh=3c0894e9ea1e7e5174f8eee97afad603" target="_blank"><img src="../assets/gamingcuracao-sm.webp"/></a>
+        <a href="https://t.co/g2Xm298LUi" target="_blank"><img src="../assets/twitter-icon.webp"/></a>
+        <a href="https://twitter.com/TGCasino_" target="_blank"><img src="../assets/telegram-icon.webp"/></a>
+      </div>
     </div>
 </template>
-  
+
 <script>
+import DialogCookie from './DialogCookie.vue'
+import DialogTerm from './DialogTerm.vue'
+import DialogPersonal from './DialogPersonal.vue'
 export default {
     name: 'BottomBar',
     data() {
         return {
-
+          centerDialogVisible: false,
+          termDialogVisible: false,
+          personalDialogVisible: false
         };
     },
-
+  components: {
+    DialogCookie,
+    DialogTerm,
+    DialogPersonal
+    },
     methods: {
         goPcHowToBuy() {
 
@@ -84,7 +119,7 @@ export default {
     }
 };
 </script>
-  
+
 <style scoped>
 .bottombar {
     padding: 32px 5%;
@@ -152,12 +187,13 @@ export default {
     font-size: 14px;
 }
 
-.other a {
+.other span {
     color: #fff;
     text-decoration: none;
     margin-right: 20px;
     font-weight: 600;
     font-size: 16px;
+    cursor: pointer;
 }
 
 .showMobileLogo {
@@ -167,10 +203,19 @@ export default {
 .diverMobile {
     display: none;
 }
-
+.four-logo{
+  display: none;
+}
 
 @media screen and (max-width: 900px) {
-
+  .four-logo{
+    display: flex;
+    justify-content: center;
+  }
+  .four-logo a img{
+    height: 35px;
+    margin: 17px 17px  17px 0;
+  }
     .bottombar {
         height: auto;
         padding: 40px 24px;
@@ -227,4 +272,15 @@ export default {
     }
 }
 </style>
-  
+<style>
+@media screen and (max-width: 900px) {
+  .el-dialog{
+    max-width: calc(100vw - 16px);
+  }
+}
+.el-dialog__header{
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0,0,0,.06);
+  margin-right: 0;
+}
+</style>
