@@ -20,10 +20,9 @@
             <img class="gamePng" src="../assets/pushgame.png">
             <img class="gamePng" src="../assets/nba.png">
             <img class="gamePng" src="../assets/ufc.png">
-            <img class="gamePng" src="../assets/premierleague.png">
+            <img class="gamePng" src="../assets/championsleague.png">
             <img class="gamePng" src="../assets/bang.png">
             <img class="gamePng" src="../assets/nfl.png">
-            <img class="gamePng" src="../assets/championsleague.png">
         </div>
     </div>
 </template>
@@ -81,6 +80,11 @@ export default {
 }
 
 .gameImg {
+    max-width: 480px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
     max-width: 480px;
 }
 

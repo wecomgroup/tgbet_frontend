@@ -29,7 +29,7 @@ export default {
   
 <style scoped>
 .cryptoNews {
-    padding: 0 5%;
+    padding: 0% 5%;
     background-color: #1F2129;
     min-height: 152px;
 }

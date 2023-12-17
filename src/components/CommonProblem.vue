@@ -9,7 +9,7 @@
                         <div style="margin-right: 20px;">{{ item.title }}</div>
                     </div>
                 </template>
-                <div>
+                <div class="content">
                     {{ item.content }}
                 </div>
             </el-collapse-item>
@@ -72,6 +72,15 @@ export default {
     width: 20px;
     height: auto;
     margin-right: 25px;
+}
+
+.content {
+    /* font-family: Inter; */
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 4%;
+    text-align: left;
 }
 
 .commonProblemContainer :deep() .el-collapse {
@@ -178,4 +187,5 @@ export default {
         height: auto;
         margin-right: 16px;
     }
-}</style>
+}
+</style>

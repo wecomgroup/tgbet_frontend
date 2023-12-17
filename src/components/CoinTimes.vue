@@ -105,7 +105,7 @@ export default {
 
     .coinChanceMobileImg {
         display: block;
-        width: 199px;
+        /* width: 199px; */
         height: auto;
         font-size: 24px;
         font-weight: bold;

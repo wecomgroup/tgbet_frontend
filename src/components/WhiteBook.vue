@@ -21,7 +21,7 @@
 
 <script>
 
-import { urls,openUrl } from '@/util/const/urlConst';
+import { urls, openUrl } from '@/util/const/urlConst';
 
 export default {
     name: 'WhiteBook',
@@ -103,6 +103,12 @@ export default {
         flex-direction: column;
     }
 
+    .whiteBookDesc {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .desc {
         width: 100%;
         font-size: 14px;
@@ -135,6 +141,7 @@ export default {
         font-size: 16px;
         font-style: normal;
         font-weight: 600;
+        width: 80%;
         line-height: normal;
         letter-spacing: 0.64px;
     }
