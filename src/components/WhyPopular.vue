@@ -72,17 +72,17 @@ export default {
             currentIndex: 0,
             data: [{
                 desc: this.$t('whyPopular.text1'),
-                topImg: whyPopular2,
+                topImg: null,
                 rightImg: play1,
                 btnText: this.$t('whyPopular.text2')
             }, {
                 desc: this.$t('whyPopular.text3'),
-                topImg: whyPopular1,
+                topImg: null,
                 rightImg: play2,
                 btnText: this.$t('whyPopular.text4')
             }, {
                 desc: this.$t('whyPopular.text5'),
-                topImg: whyPopular3,
+                topImg: null,
                 rightImg: play3,
                 btnText: this.$t('whyPopular.text4')
             }]
@@ -92,17 +92,17 @@ export default {
         data() {
             return [{
                 desc: this.$t('whyPopular.text1'),
-                topImg: whyPopular2,
+                topImg: null,
                 rightImg: play1,
                 btnText: this.$t('whyPopular.text2')
             }, {
                 desc: this.$t('whyPopular.text3'),
-                topImg: whyPopular1,
+                topImg: null,
                 rightImg: play2,
                 btnText: this.$t('whyPopular.text4')
             }, {
                 desc: this.$t('whyPopular.text5'),
-                topImg: whyPopular3,
+                topImg: null,
                 rightImg: play3,
                 btnText: this.$t('whyPopular.text4')
             }]
