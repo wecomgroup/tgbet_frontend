@@ -34,14 +34,8 @@ export default {
     name: 'EconomicToken',
     data() {
         return {
-            economicTokenList: [{ title: this.$t('economicToken.text2'), percentage: '20%', desc: this.$t('economicToken.text3'), color: '#64CF3C' },
-            { title: this.$t('economicToken.text4'), percentage: '20%', desc: this.$t('economicToken.text5'), color: '#FFFFFF99' },
-            { title: this.$t('economicToken.text6'), percentage: '40%', desc: this.$t('economicToken.text7'), color: '#C5AC79' },
-            { title: this.$t('economicToken.text8'), percentage: '10%', desc: this.$t('economicToken.text9'), color: '#F47F30' },
-            { title: this.$t('economicToken.text10'), percentage: '5%', desc: this.$t('economicToken.text11'), color: '#CF3C7A' },
-            { title: this.$t('economicToken.text12'), percentage: '5%', desc: this.$t('economicToken.text13'), color: '#3CA3CF' },
-            ],
-          gutter: 30
+            // economicTokenList: [],
+            gutter: 30
         };
     },
     computed: {
@@ -55,15 +49,15 @@ export default {
             ]
         }
     },
-  mounted() {
-    const screenWidth = window.innerWidth || document.documentElement.clientWidth
-        || document.body.clientWidth
-    if (screenWidth > 900) {
-      this.gutter = 30
-    } else {
-      this.gutter = 0
+    mounted() {
+        const screenWidth = window.innerWidth || document.documentElement.clientWidth
+            || document.body.clientWidth
+        if (screenWidth > 900) {
+            this.gutter = 30
+        } else {
+            this.gutter = 0
+        }
     }
-  }
 };
 </script>
 

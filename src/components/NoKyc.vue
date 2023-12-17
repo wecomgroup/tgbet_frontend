@@ -25,7 +25,7 @@ export default {
     name: 'NoKyc',
     data() {
         return {
-            steps: []
+            // steps: []
         };
     },
     computed: {

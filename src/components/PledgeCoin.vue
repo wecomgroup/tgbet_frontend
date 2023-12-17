@@ -26,7 +26,7 @@ export default {
     name: 'PledgeCoin',
     data() {
         return {
-            steps: []
+            // steps: []
         };
     },
     computed: {

@@ -29,7 +29,7 @@ export default {
     name: 'PreSale',
     data() {
         return {
-            preSaleDescList: []
+            // preSaleDescList: []
         }
     },
     computed: {

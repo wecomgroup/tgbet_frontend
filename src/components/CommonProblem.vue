@@ -22,13 +22,7 @@ export default {
     name: 'CommonProblem',
     data() {
         return {
-            commonProblems: [
-                { id: 1, name: this.$t('commonProblem.text1'), title: this.$t('commonProblem.text1'), content: this.$t('commonProblem.text2') },
-                { id: 2, name: this.$t('commonProblem.text3'), title: this.$t('commonProblem.text3'), content: this.$t('commonProblem.text4') },
-                { id: 3, name: this.$t('commonProblem.text5'), title: this.$t('commonProblem.text5'), content: this.$t('commonProblem.text6') },
-                { id: 4, name: this.$t('commonProblem.text7'), title: this.$t('commonProblem.text7'), content: this.$t('commonProblem.text8') },
-                { id: 5, name: this.$t('commonProblem.text9'), title: this.$t('commonProblem.text9'), content: this.$t('commonProblem.text10') },
-            ]
+            // commonProblems: []
         };
     },
     computed: {
