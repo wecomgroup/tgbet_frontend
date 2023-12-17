@@ -68,7 +68,7 @@ div:focus {
        padding-right: 9%;
    }
    .navContainer{
-       justify-content: end !important;
+       justify-content: flex-end !important;
    }
    .navContainer a{
        margin-right: 30px !important;

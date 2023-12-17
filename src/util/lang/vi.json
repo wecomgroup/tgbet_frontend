@@ -1,0 +1,200 @@
+{
+  "actionView": {
+    "text1": "Telegram hàng đầu thế giới",
+    "text2": "Sòng bạc",
+    "text3": "TG.Bit là nơi độc quyền dành cho bạn để đánh bạc bằng tiền điện tử trực tuyến, ẩn danh. \nĐược cấp phép đầy đủ và an toàn 100%, hãy tham gia với chúng tôi ngay hôm nay!",
+    "text4": "Tham gia cộng đồng",
+    "text5": "Bắt đầu chơi",
+    "text6": "Xác minh giấy phép",
+    "text7": "HOÀN LẠI TIỀN",
+    "text8": "Nhận 25% hoàn tiền cho tất cả các khoản thua khi đặt cược bằng token $TGB"
+  },
+  "blockTitle": {
+    "cc1": "Cơ hội sòng bạc tiền điện tử",
+    "coin": "Tokenomics",
+    "ctl1": "KHÔNG CÓ LÚC NÀO TỐT HƠN BÂY GIỜ",
+    "ctl2": "Tương lai là đây",
+    "howBuy1": "Cách mua mã thông báo $TGB",
+    "lsp1": "Có giấy phép đầy đủ",
+    "nokyc1": "Sức mạnh của việc không cần KYC",
+    "ow1": "Làm thế nào nó hoạt động",
+    "plc1": "Đặt cược phần thưởng",
+    "preTxt1": "Lợi ích của việc mua $TGB trong đợt bán trước",
+    "qa": "Các câu hỏi thường gặp",
+    "safe1": "Dễ chơi",
+    "wb": "Giấy trắng",
+    "wg1": "Trò chơi của chúng tôi",
+    "wp1": "TG.Bit có tất cả!",
+    "wp2": "Tại sao là Gamefi",
+    "wp4": "Điều gì làm chúng tôi khác biệt",
+    "zhiya": "đặt cược",
+    "zhiyazr": "Tổng số tiền đặt cược"
+  },
+  "bottomBar": {
+    "text1": "phương thức thanh toán",
+    "text2": "sự riêng tư",
+    "text3": "Điều kiện"
+  },
+  "coinChance": {
+    "text1": "Thị trường sòng bạc tiền điện tử đã phát triển nhanh chóng kể từ năm 2017, với dữ liệu mới nhất cho thấy thị trường sòng bạc tiền điện tử hiện trị giá 250 triệu USD.\n\nCon số này chỉ chiếm 0,1% tổng thị trường sòng bạc, hiện có giá trị 26,33 tỷ USD.\n\nNhưng nghiên cứu cho thấy các sòng bạc tiền điện tử đang nhanh chóng chiếm thị phần từ các sòng bạc trực tuyến Web2 do tính dễ truy cập, không cần KYC và khả năng tránh các giao dịch hiển thị trên bảng sao kê ngân hàng.",
+    "text2": "Hiện tại, 80% trò chơi sòng bạc trực tuyến được chơi trên thiết bị di động, với phần lớn các sòng bạc tiền điện tử được thiết kế dành riêng cho thiết bị di động.\n\nTG.Bit tiến thêm một bước nữa và cung cấp độc quyền nền tảng Telegram, hiện có hơn 1 tỷ người dùng và dự kiến ​​sẽ tăng lên 1,5 tỷ người dùng trong 3-5 năm tới."
+  },
+  "coinTimes": {
+    "text1": "Sự phổ biến bùng nổ gần đây của cờ bạc tiền điện tử dường như không có dấu hiệu chậm lại.\n\nChúng tôi tại TG.Bit hiểu rằng người chơi trên toàn thế giới đánh giá cao tính linh hoạt của việc chơi mọi lúc, mọi nơi, ẩn danh và có thể đặt cược bằng cách sử dụng tiền điện tử.\n\nTương lai đã thực sự đến!"
+  },
+  "commonProblem": {
+    "text1": "Điều gì làm cho TG.Bit trở nên khác biệt",
+    "text10": "Chúng tôi sẽ ra mắt $TGB trong vòng vài ngày kể từ khi đợt bán trước kết thúc. \nChúng tôi sẽ thông báo cho mọi người về ngày ra mắt thông qua trang web và các phương tiện truyền thông xã hội của chúng tôi.",
+    "text2": "TG.Bit cung cấp cho bạn quyền truy cập vào tất cả các trò chơi sòng bạc trực tuyến hàng đầu, sách thể thao và hơn thế nữa, nhưng chúng tôi cũng cam kết phát triển một hệ sinh thái coi trọng lòng trung thành. \nNhư một minh chứng cho sự cống hiến của chúng tôi, chúng tôi sẽ đền đáp bằng cách chia sẻ một phần doanh thu sòng bạc của mình thông qua việc mua lại mã thông báo $TGB. \nChơi, kiếm tiền và được khen thưởng!",
+    "text3": "Thời gian bán trước là bao lâu?",
+    "text4": "Việc bán trước sẽ được mở cho đến khi đạt đến giới hạn cứng. \nSoftcap cho đợt bán trước là 1 triệu USD.",
+    "text5": "Tại sao tôi nên mua $TGB?",
+    "text6": "Mặc dù TG.Bit sẽ cho phép bạn chơi với nhiều loại tiền điện tử hàng đầu, nhưng chỉ $TGB mới cấp cho bạn quyền truy cập vào các phần thưởng đáng kinh ngạc, cả từ việc đặt cược và chỉ giữ mã thông báo của chúng tôi. \nKhông cần phải có $TGB để chơi trong sòng bạc nhưng nó có thể được sử dụng để đặt cược vào các trò chơi giống như tất cả các loại tiền tệ khác.",
+    "text7": "Việc bán trước có thời gian trao quyền không?",
+    "text8": "Không có thời gian trao quyền cho $TGB. \nTuy nhiên, nếu bạn đặt cược mã thông báo của mình trong đợt bán trước, chúng sẽ bị khóa cho đến ngày ra mắt 10 ngày. \nViệc đặt cược mã thông báo ngay lập tức bắt đầu kiếm được phần thưởng đặt cược và các lợi ích khác trong tương lai.",
+    "text9": "Khi nào mã thông báo sẽ ra mắt?"
+  },
+  "economicToken": {
+    "text1": "Để đạt được một chu kỳ đạo đức, hành vi của mỗi người tham gia vào hệ sinh thái là rất quan trọng.\n\nĐiều quan trọng không kém là các biện pháp khuyến khích được thiết kế tốt",
+    "text10": "liên minh",
+    "text11": "Phần thưởng dành cho những người giúp phát triển TG.Bit",
+    "text12": "Tiếp thị",
+    "text13": "Để hợp tác và tiếp thị trực tiếp",
+    "text2": "Nhóm thanh khoản",
+    "text3": "Để tạo cặp trên DEX",
+    "text4": "Đặt cược phần thưởng",
+    "text5": "Để thưởng cho những người nắm giữ tận tâm của chúng tôi",
+    "text6": "Bán trước",
+    "text7": "Để bắt đầu hệ sinh thái $TGB",
+    "text8": "Phần thưởng người chơi",
+    "text9": "Phần thưởng cho mọi người chơi"
+  },
+  "homeForm": {
+    "text1": "Giá hiện tại",
+    "text10": "Mua và đặt cược",
+    "text11": "Chỉ muốn mua mà không cần đặt cược",
+    "text12": "APY đặt cược hiện tại",
+    "text13": "Mua hàng tại BSC",
+    "text14": "Mua tại ETH",
+    "text2": "Mục tiêu cuối cùng",
+    "text3": "Mua ngay trước khi tăng giá vào:",
+    "text4": "cái ví",
+    "text5": "bạn trả",
+    "text6": "",
+    "text7": "TỐI ĐA",
+    "text8": "$TGB bạn nhận được",
+    "text9": "Kết nối ví"
+  },
+  "howToBuy": {
+    "text1": "Để mua mã thông báo trong đợt Bán trước, hãy truy cập trang web chính thức của TG.Bit.\n\nSau đợt Bán trước, bạn có thể nhận được mã thông báo trực tiếp từ trang web chính thức hoặc thông qua các sàn giao dịch phi tập trung.",
+    "text10": "Nhập số lượng token $TGB bạn muốn mua.\n\nXin lưu ý rằng ngoài chi phí của mã thông báo bạn định mua, cần có tối thiểu 0,015 ETH để hoàn tất giao dịch.\n\nTrên Binance Smart Chain, yêu cầu tối thiểu này thấp hơn nhưng vẫn được áp dụng.\n\nSố lượng token $TGB tối thiểu có thể mua được được đặt thành 100 $TGB.",
+    "text11": "Bước 5: Hoàn tất việc mua hàng của bạn",
+    "text12": "Khi bạn đã nhập số tiền, bạn sẽ được nhắc ủy quyền giao dịch.\n\nBằng cách nhấp vào \"Chấp thuận\", giao dịch của bạn sẽ được bắt đầu và xác minh trên blockchain.\n\nThời gian hoàn thành giao dịch có thể thay đổi từ vài giây đến vài phút, tùy thuộc vào tình trạng tắc nghẽn mạng và hoạt động hợp đồng thông minh.\n\nVui lòng ở lại giao diện cho đến khi giao dịch mua được thực hiện đầy đủ.",
+    "text2": "Cách mua $TGB trong đợt bán trước",
+    "text3": "Bước 1: Truy cập cổng thông tin chính thức",
+    "text4": "Truy cập trang web chuyên dụng của TG.Bit để tìm giao diện mua Presale độc ​​quyền.\n\nXin lưu ý rằng đây là nền tảng được ủy quyền duy nhất để nhận mã thông báo Presale $TGB.",
+    "text5": "Bước 2: Chọn phương thức thanh toán",
+    "text6": "Bạn có thể chọn mua mã thông báo Presale $TGB trên mạng Ethereum bằng cách sử dụng Ethereum (ETH) hoặc Tether (USDT).\n\nNgoài ra, bạn có thể tận dụng Binance Smart Chain và chọn BNB hoặc USDT.\n\nHãy lựa chọn và tiến hành bước tiếp theo.",
+    "text7": "Bước 3: Kết nối ví tiền điện tử của bạn",
+    "text8": "Nếu ví tiền điện tử của bạn chưa được đồng bộ hóa, bạn sẽ thấy lời nhắc yêu cầu bạn kết nối.\n\nThông thường, ví được thiết lập mặc định cho mạng chính Ethereum; \nđiều này có lợi cho bạn nếu bạn giao dịch bằng ETH.\n\nTuy nhiên, nếu bạn chọn Binance Smart Chain, bạn có thể cần xác nhận việc chuyển đổi mạng.",
+    "text9": "Bước 4: Chỉ định số tiền mua"
+  },
+  "licenseProof": {
+    "text1": "Không gian Web 3 thường được coi là miền Tây hoang dã, chứa đầy thông tin sai lệch và lừa đảo.\n\nTại TG.Bit, chúng tôi tự hào tuyên bố rằng chúng tôi là tổ chức sòng bạc được cấp phép đầy đủ 100% có trụ sở tại Curacao.\n\nVì vậy xin vui lòng chơi thoải mái!",
+    "text2": "Xác minh giấy phép"
+  },
+  "noKyc": {
+    "text1": "Cờ bạc trực tuyến không có KYC có lợi thế thực sự.\n\nTrong nhiều năm, cách duy nhất để đánh bạc trực tuyến là cung cấp thông tin cá nhân.\n\nTại TG.Bit bạn không cần cung cấp thông tin cá nhân.\n\nTất cả những gì bạn cần là một tài khoản Telegram, một ít tiền điện tử và bạn đã sẵn sàng chơi!\n\nNó chỉ mất một vài bước nhỏ.",
+    "text2": "Mở TG.Bit",
+    "text3": "Tải xuống Telegram",
+    "text4": "Bước 1",
+    "text5": "Nếu bạn chưa có Telegram, vui lòng tạo tài khoản sau khi tải ứng dụng xuống, hoặc nếu bạn đã có Telegram, hãy mở nó qua liên kết",
+    "text6": "Bước 2",
+    "text7": "Bạn có thể chọn kết nối ví tiền điện tử của mình hoặc chuyển tiền vào tài khoản TG.Ber của mình, bạn có quyền tự do lựa chọn.\n\nKhi bạn nạp tiền vào tài khoản của mình, bạn đã sẵn sàng để bắt đầu!",
+    "text8": "Bước 3",
+    "text9": "Chọn một trò chơi và bắt đầu chơi!\n\nBạn có thể thực hiện rút tiền không giới hạn bất cứ lúc nào.\n\nBạn có thể tận hưởng trải nghiệm chơi game thoải mái tại TG.Bit, 24/7, quanh năm!"
+  },
+  "operationWay": {
+    "text1": "TG.Bit không chỉ là một sòng bạc, nó còn là một hệ sinh thái cung cấp phần thưởng liên tục thông qua $TGB!"
+  },
+  "pledgeCoin": {
+    "text1": "Đồng $TGB được mua trong trò chơi sẽ tiếp tục mang lại lợi ích bất ngờ cho bạn, cho phép quản lý tài chính cờ bạc, giải trí và đặt cược ở cùng một góc độ và mang lại lợi ích vô tận cho số tiền của bạn.",
+    "text2": "Kiếm thu nhập thụ động",
+    "text3": "Khi bạn đặt cược $TGB của mình, bạn sẽ ngay lập tức bắt đầu kiếm được phần thưởng hàng ngày. \nXem tài sản của bạn tăng lên theo thời gian!",
+    "text4": "Truy cập phần thưởng ngay lập tức",
+    "text5": "Bạn sẽ ngay lập tức mở khóa phần thưởng từ việc đặt cược mà bạn có thể sử dụng trong TG.Bit hoặc lưu chúng để sử dụng sau!",
+    "text6": "Chia sẻ sự giàu có",
+    "text7": "Khi bạn đặt cược $TGB của mình, bạn sẽ có quyền truy cập vào các phần thưởng dựa trên doanh thu. \nMiếng bánh thậm chí còn lớn hơn của bạn!"
+  },
+  "pledgeDetail": {
+    "text1": "TG.Bit cho phép bạn đặt cược và hủy đặt cược mã thông báo của mình. \nChọn chức năng bạn muốn. \nChỉ các token đã đặt cọc mới kiếm được APY.",
+    "text10": "Tổng số phần thưởng thu được ($TGB)",
+    "text11": "Tổng số phần thưởng có thể nhận được ($TGB)",
+    "text12": "Nhận được",
+    "text13": "Cổ phần",
+    "text14": "Đặt cược mã thông báo của bạn để nhận phần thưởng thụ động dựa trên APY được chỉ định.",
+    "text15": "Tối đa",
+    "text16": "Tìm hiểu thêm",
+    "text17": "Hủy đặt cược",
+    "text18": "Hủy đặt cược",
+    "text19": "Hủy đặt cược mã thông báo của bạn và đổi phần thưởng APY của bạn từ việc đặt cược.",
+    "text2": "APY hiện tại",
+    "text3": "Tổng số $TGB đã đặt cược",
+    "text4": "% trên tổng số $TGB được đặt cược",
+    "text5": "Tổng số tiền thưởng được trả ($TGB)",
+    "text6": "Kết nối ví",
+    "text7": "Đặt cược của bạn",
+    "text8": "Tổng số $TGB đã đặt cược",
+    "text9": "% trên tổng số $TGB được đặt cược"
+  },
+  "preSale": {
+    "text1": "Bạn sẽ không bao giờ có thể nhận được $TGB ở mức giá tốt hơn giá hiện tại trong đợt bán trước của chúng tôi",
+    "text2": "Phần thưởng đặc biệt",
+    "text3": "Người mua bán trước được thưởng độc quyền khi họ chơi trong sòng bạc",
+    "text4": "Giá tốt nhất có thể",
+    "text5": "Sẽ không bao giờ có thời điểm nào tốt hơn để mua $TGB so với thời điểm bán trước.",
+    "text6": "Trở thành một con lăn cao",
+    "text7": "Đầu tư 5 nghìn USD vào đợt bán trước $TGB để nhận phần thưởng NFT độc quyền sau khi ra mắt.",
+    "text8": "Bắt đầu kiếm tiền ngay hôm nay",
+    "text9": "Mua mã thông báo bán trước, bắt đầu đặt cược để nhận phần thưởng thụ động ngay lập tức!"
+  },
+  "safeInstructions": {
+    "text1": "TG.Bit không yêu cầu bạn thực hiện bất kỳ xác minh KYC nào để chơi hoặc thậm chí kết nối ví của bạn.\n\nĐơn giản chỉ cần nạp tiền vào tài khoản của bạn và rút tiền bất cứ lúc nào.\n\nNó đơn giản mà!",
+    "text2": "Không cần KYC",
+    "text3": "Không cần thiết lập tài khoản",
+    "text4": "Chơi trên điện thoại thông minh của bạn",
+    "text5": "Mọi thứ đều có trên Telegram",
+    "text6": "Bắt đầu chơi"
+  },
+  "topBar": {
+    "auditBtn": "Kiểm toán",
+    "economic": "Tokenomics",
+    "howBuy": "Lam thê nao để mua",
+    "index": "Trang chủ",
+    "methods": "Làm thế nào nó hoạt động",
+    "pledgeBtn": "đặt cược",
+    "qa": "Câu hỏi thường gặp",
+    "reward": "Đặt cược phần thưởng",
+    "welfare": "Lợi ích bán trước"
+  },
+  "webGame": {
+    "text1": "Với sự cho phép trò chơi từ các nhà sản xuất trò chơi lớn, chúng tôi có mọi thứ bạn muốn chơi!",
+    "text2": "Hàng trăm trò chơi",
+    "text3": "Chúng tôi có mọi trò chơi mà bạn có thể muốn chơi, từ máy đánh bạc, trò chơi trên bàn, sòng bạc trực tiếp và hơn thế nữa.\n\nBất cứ điều gì bạn muốn, chúng tôi cung cấp cho bạn!",
+    "text4": "cờ bạc thể thao",
+    "text5": "Chúng tôi cung cấp hơn 30 môn thể thao khác nhau để bạn đặt cược, vì vậy bạn chắc chắn sẽ tìm được môn thể thao mình thích!\n\nHãy chọn một trò chơi và đặt cược ngay bây giờ!",
+    "text6": "Tham gia chương trình phát sóng trực tiếp của chúng tôi",
+    "text7": "Muốn có trải nghiệm sòng bạc thực sự trong lòng bàn tay của bạn?\n\nTham gia cùng hàng ngàn người chơi khác đang chơi trên sàn sòng bạc!"
+  },
+  "whiteBook": {
+    "text1": "Nếu bạn muốn tìm hiểu thêm về sự khác biệt của TG.Bit, hãy đọc sách trắng của chúng tôi.\n\nChúng tôi không chỉ là một sòng bạc trực tuyến!",
+    "text2": "Giấy trắng"
+  },
+  "whyPopular": {
+    "text1": "Mặc dù có thể có sự cạnh tranh trên thị trường nhưng chúng không thể sánh được với những gì TG.Bit cung cấp.\n\nChúng tôi có tất cả các trò chơi hàng đầu, sự kiện trực tiếp, cá cược thể thao và hơn thế nữa, đơn giản là không có gì có thể so sánh được.\n\nCùng với những phần thưởng hào phóng mà chúng tôi dành cho những người nắm giữ $TGB, việc chọn TG.Bit là một quyết định sáng suốt.",
+    "text2": "Tham gia với chúng tôi ngay hôm nay",
+    "text3": "Chỉ riêng trong năm 2023, các lựa chọn đánh bạc bằng tiền điện tử đã tăng gấp ba lần.\n\nKhông cần KYC và nền tảng liền mạch, dễ sử dụng, không có gì ngạc nhiên khi mọi người đổ xô đến các trang web như TG.Bit để đánh bạc trực tuyến.\n\nVậy tại sao lại chọn TG.Bit?",
+    "text4": "Bắt đầu chơi",
+    "text5": "Dễ dàng chơi các trò chơi phổ biến trên nền tảng Telegram liền mạch của TG.Bit.\n\nNhờ hoạt động tiếp thị mạnh mẽ của chúng tôi, TG.Bit đang nhanh chóng trở thành một cái tên quen thuộc.\n\nHưởng lợi từ khoản đầu tư vào trò chơi trực tuyến và mô hình sinh lời của chúng tôi.\n\nHãy cùng chúng tôi khám phá tương lai của trò chơi!"
+  }
+}

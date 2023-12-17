@@ -1,6 +1,6 @@
 {
   "actionView": {
-    "text1": "Das weltweit beste Telegram",
+    "text1": "Das beste Telegramm der Welt",
     "text2": "KASINO",
     "text3": "TG.Bit ist Ihr exklusiver Ort für anonymes Online-Krypto-Glücksspiel. \nVoll lizenziert und 100 % sicher, kommen Sie noch heute zu uns!",
     "text4": "Treten Sie der Community bei",
@@ -8,6 +8,27 @@
     "text6": "Lizenz überprüfen",
     "text7": "BARGELD ZURÜCK",
     "text8": "Erhalten Sie 25 % Cashback auf alle Verluste, wenn Sie mit $TGB-Tokens wetten"
+  },
+  "blockTitle": {
+    "cc1": "Krypto-Casino-Gelegenheit",
+    "coin": "Tokenomics",
+    "ctl1": "KEINE BESSERE ZEIT ALS JETZT",
+    "ctl2": "Die Zukunft ist da",
+    "howBuy1": "So kaufen Sie $TGB-Token",
+    "lsp1": "Habe eine Volllizenz",
+    "nokyc1": "Die Macht, dass kein KYC erforderlich ist",
+    "ow1": "Wie es funktioniert",
+    "plc1": "Einsatzprämien",
+    "preTxt1": "Vorteile des Kaufs von $TGB im Vorverkauf",
+    "qa": "Häufig gestellte Fragen",
+    "safe1": "Einfach zu spielen",
+    "wb": "Weißes Papier",
+    "wg1": "Unsere Spiele",
+    "wp1": "TG.Bit hat alles!",
+    "wp2": "Warum ist Gamefi",
+    "wp4": "Was uns auszeichnet",
+    "zhiya": "Abstecken",
+    "zhiyazr": "Gesamteinsatz"
   },
   "bottomBar": {
     "text1": "Bezahlverfahren",
@@ -28,7 +49,7 @@
     "text3": "Wie lange dauert der Vorverkauf?",
     "text4": "Der Vorverkauf ist geöffnet, bis die feste Obergrenze erreicht ist. \nDer Soft Cap für den Vorverkauf beträgt 1 Million USD.",
     "text5": "Warum sollte ich $TGB kaufen?",
-    "text6": "Während Sie mit TG.Bit mit vielen Top-Kryptowährungen spielen können, erhalten Sie nur mit $TGB Zugang zu unglaublichen Belohnungen, sowohl durch das Abstecken als auch durch das bloße Halten unseres Tokens. \n$TGB ist für das Spielen im Casino nicht erforderlich, kann aber wie alle anderen Währungen zum Wetten auf Spiele verwendet werden.",
+    "text6": "Während Sie mit TG.Bit mit vielen Top-Kryptowährungen spielen können, erhalten Sie nur mit $TGB Zugriff auf unglaubliche Belohnungen, sowohl durch das Staken als auch durch das bloße Halten unseres Tokens. \n$TGB ist für das Spielen im Casino nicht erforderlich, kann aber wie alle anderen Währungen zum Wetten auf Spiele verwendet werden.",
     "text7": "Hat der Vorverkauf eine Sperrfrist?",
     "text8": "Für $TGB gibt es keine Sperrfrist. \nWenn Sie Ihre Token jedoch während des Vorverkaufs einsetzen, werden sie bis zum Starttag 10 Tage lang gesperrt. \nDas Abstecken der Token beginnt sofort mit dem Verdienen von Absteckprämien und anderen zukünftigen Vorteilen.",
     "text9": "Wann wird der Token eingeführt?"
@@ -175,26 +196,5 @@
     "text3": "Allein im Jahr 2023 haben sich die Möglichkeiten zum Glücksspiel mit Kryptowährungen verdreifacht.\n\nDa kein KYC erforderlich ist und eine nahtlose, benutzerfreundliche Plattform vorhanden ist, ist es keine Überraschung, dass Menschen auf Websites wie TG.Bit strömen, um online zu spielen.\n\nWarum also TG.Bit wählen?",
     "text4": "Jetzt spielen",
     "text5": "Spielen Sie beliebte Spiele ganz einfach auf der nahtlosen Telegram-Plattform von TG.Bit.\n\nDank unseres starken Marketings wird TG.Bit schnell zu einem bekannten Namen.\n\nProfitieren Sie von unserer Investition in Online-Gaming und unserem profitablen Modell.\n\nEntdecken Sie mit uns die Zukunft des Gamings!"
-  },
-  "blockTitle": {
-    "cc1": "Krypto-Casino-Gelegenheit",
-    "coin": "Tokenomics",
-    "ctl1": "KEINE BESSERE ZEIT ALS JETZT",
-    "ctl2": "Die Zukunft ist da",
-    "howBuy1": "So kaufen Sie $TGB-Token",
-    "lsp1": "Habe eine Volllizenz",
-    "nokyc1": "Die Macht, dass kein KYC erforderlich ist",
-    "ow1": "Wie es funktioniert?",
-    "plc1": "Einsatzprämien",
-    "preTxt1": "Vorteile des Kaufs von $TGB im Vorverkauf",
-    "qa": "Häufig gestellte Fragen",
-    "safe1": "Einfach zu spielen",
-    "wb": "Weißes Papier",
-    "wg1": "Unsere Spiele",
-    "wp1": "TG.Bit hat alles!",
-    "wp2": "Warum ist Gamefi",
-    "wp4": "Was uns auszeichnet",
-    "zhiya": "Abstecken",
-    "zhiyazr": "Gesamteinsatz"
   }
 }

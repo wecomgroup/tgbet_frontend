@@ -1,0 +1,200 @@
+{
+  "actionView": {
+    "text1": "Le meilleur télégramme au monde",
+    "text2": "CASINO",
+    "text3": "TG.Bit est votre espace exclusif pour les jeux de crypto-monnaie anonymes en ligne. \nEntièrement sous licence et 100 % sûr, rejoignez-nous dès aujourd'hui !",
+    "text4": "Rejoindre la communauté",
+    "text5": "Joue maintenant",
+    "text6": "Vérifier la licence",
+    "text7": "REMBOURSEMENT EN ARGENT",
+    "text8": "Obtenez 25 % de remise en argent sur toutes les pertes lorsque vous pariez avec des jetons $TGB"
+  },
+  "blockTitle": {
+    "cc1": "Opportunité de casino cryptographique",
+    "coin": "Tokénomique",
+    "ctl1": "PAS DE MEILLEUR MOMENT QUE MAINTENANT",
+    "ctl2": "Le futur est là",
+    "howBuy1": "Comment acheter un jeton $TGB",
+    "lsp1": "Avoir une licence complète",
+    "nokyc1": "La puissance d’aucun KYC requis",
+    "ow1": "Comment ça fonctionne",
+    "plc1": "Récompenses de mise",
+    "preTxt1": "Avantages d'acheter des $TGB en prévente",
+    "qa": "Questions fréquemment posées",
+    "safe1": "Facile à jouer",
+    "wb": "Papier blanc",
+    "wg1": "Nos jeux",
+    "wp1": "TG.Bit a tout pour plaire !",
+    "wp2": "Pourquoi Gamefi",
+    "wp4": "Ce qui nous distingue",
+    "zhiya": "Jalonnement",
+    "zhiyazr": "Jalonnement total"
+  },
+  "bottomBar": {
+    "text1": "mode de paiement",
+    "text2": "confidentialité",
+    "text3": "Termes"
+  },
+  "coinChance": {
+    "text1": "Le marché des casinos cryptographiques a connu une croissance rapide depuis 2017, les dernières données montrant que le marché des casinos cryptographiques vaut désormais 250 millions de dollars.\n\nCela ne représente que 0,1 % du marché total des casinos, actuellement évalué à 26,33 milliards de dollars.\n\nMais les recherches montrent que les casinos cryptographiques prennent rapidement des parts de marché aux casinos en ligne Web2 en raison de leur facilité d'accès, de l'absence de KYC et de la possibilité d'éviter que les transactions n'apparaissent sur les relevés bancaires.",
+    "text2": "Actuellement, 80 % des jeux de casino en ligne sont joués sur des appareils mobiles, la grande majorité des casinos cryptographiques étant conçus spécifiquement pour les appareils mobiles.\n\nTG.Bit va encore plus loin et propose en exclusivité la plateforme Telegram, qui compte actuellement plus d'un milliard d'utilisateurs et devrait atteindre 1,5 milliard d'utilisateurs dans les 3 à 5 prochaines années."
+  },
+  "coinTimes": {
+    "text1": "La récente popularité explosive des jeux de crypto-monnaie ne semble montrer aucun signe de ralentissement.\n\nChez TG.Bit, nous comprenons que les joueurs du monde entier apprécient la flexibilité de jouer à tout moment, n'importe où, en restant anonyme et en pouvant placer des paris en utilisant des crypto-monnaies.\n\nLe futur est vraiment arrivé !"
+  },
+  "commonProblem": {
+    "text1": "Ce qui différencie TG.Bit",
+    "text10": "Nous lancerons $TGB dans les jours suivant la fin de la prévente. \nNous tiendrons tout le monde informé du jour du lancement via notre site Web et nos réseaux sociaux.",
+    "text2": "TG.Bit vous donne accès à tous les meilleurs jeux de casino en ligne, aux paris sportifs et bien plus encore, mais nous nous engageons également à cultiver un écosystème qui valorise la fidélité. \nEn témoignage de notre dévouement, nous redonnons en partageant une partie de nos revenus de casino via le rachat du jeton $TGB. \nJouez, gagnez et soyez récompensé !",
+    "text3": "Quelle est la durée de la prévente ?",
+    "text4": "La prévente sera ouverte jusqu’à ce que le hard cap soit atteint. \nLe plafond souple pour la prévente est de 1 million USD.",
+    "text5": "Pourquoi devrais-je acheter des $TGB ?",
+    "text6": "Alors que TG.Bit vous permettra de jouer avec de nombreuses crypto-monnaies de premier plan, seul $TGB vous donnera accès à des récompenses incroyables, à la fois en misant et en détenant simplement notre jeton. \nLe $TGB n'est pas requis pour jouer au casino, mais il peut être utilisé pour parier sur des jeux comme toutes les autres devises.",
+    "text7": "La prévente a-t-elle une période d’acquisition ?",
+    "text8": "Il n’y a pas de période d’acquisition pour $TGB. \nCependant, si vous misez vos jetons pendant la prévente, ils seront verrouillés jusqu'au jour du lancement, 10 jours. \nLe jalonnement des jetons commence immédiatement à rapporter des récompenses de mise et d'autres avantages futurs.",
+    "text9": "Quand le jeton sera-t-il lancé ?"
+  },
+  "economicToken": {
+    "text1": "Afin de parvenir à un cercle vertueux, le comportement de chaque acteur de l’écosystème est très important.\n\nDes incitations bien conçues sont tout aussi importantes",
+    "text10": "Alliance",
+    "text11": "Récompenses pour ceux qui contribuent au développement de TG.Bit",
+    "text12": "Commercialisation",
+    "text13": "Pour les collaborations et le marketing direct",
+    "text2": "Pool de liquidités",
+    "text3": "Pour créer la paire sur DEX",
+    "text4": "Récompenses de mise",
+    "text5": "Pour récompenser nos détenteurs dévoués",
+    "text6": "Prévente",
+    "text7": "Pour relancer l’écosystème $TGB",
+    "text8": "Récompenses des joueurs",
+    "text9": "Des récompenses pour chaque joueur"
+  },
+  "homeForm": {
+    "text1": "Prix ​​actuel",
+    "text10": "Acheter et miser",
+    "text11": "Je veux juste acheter sans miser",
+    "text12": "APY de jalonnement actuel",
+    "text13": "Acheter chez BSC",
+    "text14": "Acheter à l'ETH",
+    "text2": "Objectif final",
+    "text3": "Achetez maintenant avant que les prix n'augmentent dans :",
+    "text4": "portefeuille",
+    "text5": "tu payes",
+    "text6": "",
+    "text7": "MAXIMUM",
+    "text8": "$TGB que vous recevez",
+    "text9": "Connecter le portefeuille"
+  },
+  "howToBuy": {
+    "text1": "Pour acheter des jetons pendant la prévente, visitez le site officiel de TG.Bit.\n\nAprès la prévente, les jetons peuvent être obtenus directement sur le site officiel ou via des échanges décentralisés.",
+    "text10": "Saisissez le montant de tokens $TGB que vous souhaitez acheter.\n\nVeuillez noter qu'en plus du coût du token que vous comptez acheter, un minimum de 0,015 ETH est requis pour finaliser la transaction.\n\nSur Binance Smart Chain, cette exigence minimale est inférieure, mais s'applique toujours.\n\nLe montant minimum de jetons $TGB pouvant être achetés est fixé à 100 $TGB.",
+    "text11": "Étape 5 : finalisez votre achat",
+    "text12": "Une fois le montant saisi, vous serez invité à autoriser la transaction.\n\nEn cliquant sur « Approuver », votre transaction sera initiée et vérifiée sur la blockchain.\n\nLes délais d'exécution des transactions peuvent varier de quelques secondes à quelques minutes, en fonction de la congestion du réseau et de l'activité des contrats intelligents.\n\nVeuillez rester sur l'interface jusqu'à ce que l'achat soit entièrement exécuté.",
+    "text2": "Comment acheter des $TGB pendant la prévente",
+    "text3": "Étape 1 : Visitez le portail officiel",
+    "text4": "Visitez la page Web dédiée de TG.Bit pour trouver l’interface exclusive d’achat en prévente.\n\nVeuillez noter qu'il s'agit de la seule plateforme autorisée à obtenir des jetons $TGB en prévente.",
+    "text5": "Étape 2 : Choisissez le mode de paiement",
+    "text6": "Vous pouvez choisir d'acheter le jeton $TGB en prévente sur le réseau Ethereum en utilisant Ethereum (ETH) ou Tether (USDT).\n\nAlternativement, vous pouvez tirer parti de Binance Smart Chain et choisir BNB ou USDT.\n\nFaites votre choix et passez à l'étape suivante.",
+    "text7": "Étape 3 : Connectez votre portefeuille crypto",
+    "text8": "Si votre portefeuille crypto n'est pas encore synchronisé, vous verrez une invite vous demandant de vous connecter.\n\nEn règle générale, les portefeuilles sont configurés par défaut pour le réseau principal Ethereum ; \ncela fonctionne à votre avantage si vous négociez avec ETH.\n\nCependant, si vous choisissez Binance Smart Chain, vous devrez peut-être confirmer le changement de réseau.",
+    "text9": "Étape 4 : Spécifiez le montant de l'achat"
+  },
+  "licenseProof": {
+    "text1": "L’espace Web 3 est souvent considéré comme le Far West, rempli de désinformation et de fraude.\n\nChez TG.Bit, nous affirmons fièrement que nous sommes une entité de casino entièrement sous licence basée à Curaçao.\n\nAlors n'hésitez pas à jouer !",
+    "text2": "Vérifier la licence"
+  },
+  "noKyc": {
+    "text1": "Le jeu en ligne sans KYC présente de réels avantages.\n\nPendant des années, la seule façon de jouer en ligne était de communiquer des informations personnelles.\n\nChez TG.Bit, vous n’avez pas besoin de fournir d’informations personnelles.\n\nTout ce dont vous avez besoin est un compte Telegram, une crypto-monnaie et vous êtes prêt à jouer !\n\nCela ne prend que quelques petites étapes.",
+    "text2": "Ouvrez TG.Bit",
+    "text3": "Télécharger le télégramme",
+    "text4": "Étape 1",
+    "text5": "Si vous n'avez pas Telegram, veuillez créer un compte après avoir téléchargé l'application, ou si vous avez déjà Telegram, ouvrez-le via le lien",
+    "text6": "Étape 2",
+    "text7": "Vous pouvez choisir de connecter votre portefeuille crypto ou de transférer des fonds sur votre compte TG.Ber, vous avez la liberté de choix.\n\nUne fois que vous avez rechargé votre compte, vous êtes prêt à partir !",
+    "text8": "Étape 3",
+    "text9": "Choisissez un jeu et commencez à jouer !\n\nVous pouvez effectuer des retraits illimités à tout moment.\n\nVous pouvez profiter d'une expérience de jeu sans souci sur TG.Bit, 24h/24 et 7j/7, toute l'année !"
+  },
+  "operationWay": {
+    "text1": "TG.Bit n'est pas seulement un casino, c'est un écosystème qui offre des récompenses continues via $TGB !"
+  },
+  "pledgeCoin": {
+    "text1": "Les pièces $TGB achetées pendant le jeu continueront à générer des avantages inattendus pour vous, permettant à la gestion financière des jeux de hasard, des divertissements et des mises de se tenir sous le même angle et d'apporter des avantages infinis à vos fonds.",
+    "text2": "Gagnez un revenu passif",
+    "text3": "Lorsque vous misez vos $TGB, vous commencez immédiatement à gagner des récompenses quotidiennes. \nRegardez vos avoirs croître au fil du temps !",
+    "text4": "Accédez instantanément aux récompenses",
+    "text5": "Vous débloquerez immédiatement les récompenses du staking que vous pourrez utiliser dans TG.Bit, ou les conserver pour plus tard !",
+    "text6": "Partagez la richesse",
+    "text7": "Lorsque vous misez votre $ TGB, vous débloquez l'accès à des récompenses basées sur les revenus. \nVotre part du gâteau encore plus grosse !"
+  },
+  "pledgeDetail": {
+    "text1": "TG.Bit vous permet de miser et de débloquer vos jetons. \nChoisissez la fonction que vous souhaitez. \nSeuls les jetons mis en jeu rapportent de l'APY.",
+    "text10": "Récompenses totales récoltées ($ TGB)",
+    "text11": "Total des récompenses réclamables ($ TGB)",
+    "text12": "Recevoir",
+    "text13": "Miser",
+    "text14": "Misez vos jetons pour recevoir des récompenses passives basées sur l'APY indiqué.",
+    "text15": "Max.",
+    "text16": "Apprendre encore plus",
+    "text17": "Détacher",
+    "text18": "Détacher",
+    "text19": "Libérez vos jetons et échangez vos récompenses APY du jalonnement.",
+    "text2": "APY actuel",
+    "text3": "Total $ TGB mis en jeu",
+    "text4": "% du total de $ TGB mis en jeu",
+    "text5": "Récompenses totales payées ($ TGB)",
+    "text6": "Connecter le portefeuille",
+    "text7": "Votre jalonnement",
+    "text8": "Total $ TGB mis en jeu",
+    "text9": "% du total de $ TGB mis en jeu"
+  },
+  "preSale": {
+    "text1": "Vous ne pourrez jamais obtenir des $TGB à un meilleur prix que le prix actuel lors de notre prévente",
+    "text2": "Récompenses spéciales",
+    "text3": "Les acheteurs en prévente sont récompensés exclusivement lorsqu'ils jouent au casino",
+    "text4": "Meilleur prix possible",
+    "text5": "Il n'y aura jamais de meilleur moment pour acheter des $TGB que pendant la prévente.",
+    "text6": "Devenez un gros joueur",
+    "text7": "Investissez 5 000 USD en prévente $ TGB pour des récompenses NFT exclusives après le lancement.",
+    "text8": "Commencez à gagner aujourd'hui",
+    "text9": "Achetez des jetons de prévente, commencez immédiatement à miser pour des récompenses passives instantanées !"
+  },
+  "safeInstructions": {
+    "text1": "TG.Bit ne vous oblige pas à effectuer une vérification KYC pour jouer, ni même à connecter votre portefeuille.\n\nRechargez simplement votre compte et retirez de l'argent à tout moment.\n\nC'est si simple!",
+    "text2": "Aucun KYC requis",
+    "text3": "Pas besoin de créer un compte",
+    "text4": "Jouez sur votre smartphone",
+    "text5": "Tout est sur Telegram",
+    "text6": "Joue maintenant"
+  },
+  "topBar": {
+    "auditBtn": "Audit",
+    "economic": "Tokénomique",
+    "howBuy": "Comment acheter",
+    "index": "Maison",
+    "methods": "Comment ça fonctionne",
+    "pledgeBtn": "Jalonnement",
+    "qa": "FAQ",
+    "reward": "Récompenses de mise",
+    "welfare": "Avantages de la prévente"
+  },
+  "webGame": {
+    "text1": "Avec l'autorisation de jeu des principaux fabricants de jeux, nous avons tout ce à quoi vous voulez jouer !",
+    "text2": "Des centaines de jeux",
+    "text3": "Nous proposons tous les jeux auxquels vous pourriez vouloir jouer, des machines à sous aux jeux de table, en passant par le casino en direct et bien plus encore.\n\nTout ce que vous voulez, nous vous le fournissons !",
+    "text4": "jeux de hasard sportifs",
+    "text5": "Nous vous proposons plus de 30 sports différents sur lesquels parier, vous êtes donc sûr de trouver quelque chose qui vous plaira !\n\nChoisissez un jeu et placez votre pari maintenant !",
+    "text6": "Rejoignez notre diffusion en direct",
+    "text7": "Vous voulez une véritable expérience de casino dans la paume de votre main ?\n\nRejoignez des milliers d'autres joueurs jouant sur le casino !"
+  },
+  "whiteBook": {
+    "text1": "Si vous souhaitez en savoir plus sur les différences entre TG.Bit, lisez notre livre blanc.\n\nNous sommes bien plus qu'un simple casino en ligne !",
+    "text2": "Papier blanc"
+  },
+  "whyPopular": {
+    "text1": "Bien qu'il puisse y avoir de la concurrence sur le marché, ils ne peuvent pas égaler ce que TG.Bit a à offrir.\n\nNous avons tous les meilleurs jeux, événements en direct, paris sportifs et bien plus encore, il n'y a tout simplement aucune comparaison.\n\nCouplé aux généreuses récompenses que nous offrons aux détenteurs de $TGB, choisir TG.Bit est une sage décision.",
+    "text2": "Rejoignez-nous aujourd'hui",
+    "text3": "Rien qu’en 2023, les possibilités de jeu avec les crypto-monnaies ont triplé.\n\nSans KYC requis et avec une plateforme transparente et facile à utiliser, il n’est pas surprenant que les gens affluent vers des sites comme TG.Bit pour jouer en ligne.\n\nAlors pourquoi choisir TG.Bit ?",
+    "text4": "Joue maintenant",
+    "text5": "Jouez facilement à des jeux populaires sur la plateforme Telegram transparente de TG.Bit.\n\nGrâce à notre solide marketing, TG.Bit est rapidement devenu un nom connu.\n\nBénéficiez de notre investissement dans le jeu en ligne et de notre modèle rentable.\n\nVenez explorer l'avenir du jeu avec nous !"
+  }
+}

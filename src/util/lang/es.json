@@ -1,13 +1,34 @@
 {
   "actionView": {
-    "text1": "El Telegram más importante del mundo",
+    "text1": "El mejor Telegram del mundo",
     "text2": "CASINO",
-    "text3": "TG.Bit es su lugar exclusivo para apuestas criptográficas anónimas y en línea. \nCon licencia completa y 100 % seguro, ¡únete a nosotros hoy!",
+    "text3": "TG.Bit es su lugar exclusivo para apuestas criptográficas anónimas y en línea. \nCon licencia completa y 100% seguro, ¡únete a nosotros hoy!",
     "text4": "Únete a la comunidad",
     "text5": "Reproducir ahora",
     "text6": "Verificar licencia",
     "text7": "DEVOLUCIÓN DE DINERO",
     "text8": "Obtenga un reembolso del 25% en todas las pérdidas al apostar con tokens $TGB"
+  },
+  "blockTitle": {
+    "cc1": "Oportunidad de criptocasino",
+    "coin": "Tokenómica",
+    "ctl1": "NO HAY MEJOR MOMENTO QUE AHORA",
+    "ctl2": "El futuro esta aqui",
+    "howBuy1": "Cómo comprar tokens $TGB",
+    "lsp1": "tener licencia completa",
+    "nokyc1": "El poder de no requerir KYC",
+    "ow1": "Cómo funciona",
+    "plc1": "Recompensas de apuesta",
+    "preTxt1": "Beneficios de comprar $TGB en preventa",
+    "qa": "Preguntas frecuentes",
+    "safe1": "Fácil de jugar",
+    "wb": "Papel blanco",
+    "wg1": "Nuestros juegos",
+    "wp1": "¡TG.Bit lo tiene todo!",
+    "wp2": "¿Por qué Gamefi",
+    "wp4": "Lo que nos diferencia",
+    "zhiya": "Replanteo",
+    "zhiyazr": "Apuesta total"
   },
   "bottomBar": {
     "text1": "método de pago",
@@ -28,9 +49,9 @@
     "text3": "¿Cuánto dura la preventa?",
     "text4": "La preventa estará abierta hasta alcanzar el límite máximo. \nEl límite mínimo para la preventa es de 1 millón de dólares.",
     "text5": "¿Por qué debería comprar $TGB?",
-    "text6": "Si bien TG.Bit te permitirá jugar con muchas de las principales criptomonedas, solo $TGB te dará acceso a recompensas increíbles, tanto por apostar como por simplemente mantener nuestro token. \n$TGB no es necesario para jugar en el casino, pero se puede utilizar para apostar en juegos como con todas las demás monedas.",
+    "text6": "Si bien TG.Bit te permitirá jugar con muchas de las principales criptomonedas, solo $TGB te dará acceso a recompensas increíbles, tanto por apostar como por simplemente mantener nuestro token. \nNo se requiere $TGB para jugar en el casino, pero se puede usar para apostar en juegos como con todas las demás monedas.",
     "text7": "¿La preventa tiene un período de adquisición de derechos?",
-    "text8": "No hay período de adquisición de derechos para $TGB. \nSin embargo, si apuesta sus tokens durante la preventa, estarán bloqueados hasta el día del lanzamiento, 10 días después. \nAl apostar los tokens, inmediatamente comienza a ganar recompensas por apostar y otros beneficios futuros.",
+    "text8": "No hay período de adquisición de derechos para $TGB. \nSin embargo, si apuesta sus tokens durante la preventa, estarán bloqueados hasta el día del lanzamiento, 10 días después. \nAl apostar los tokens, comienza inmediatamente a ganar recompensas por apostar y otros beneficios futuros.",
     "text9": "¿Cuándo se lanzará el token?"
   },
   "economicToken": {
@@ -97,7 +118,7 @@
     "text1": "¡TG.Bit no es solo un casino, es un ecosistema que proporciona recompensas continuas a través de $TGB!"
   },
   "pledgeCoin": {
-    "text1": "Las monedas de $TGB compradas durante el juego seguirán generando beneficios inesperados para usted, permitiendo que los juegos de azar, el entretenimiento y la gestión financiera de las apuestas se mantengan en el mismo ángulo y aporten infinitos beneficios a sus fondos.",
+    "text1": "Las monedas de $TGB compradas durante el juego seguirán generando beneficios inesperados para usted, permitiendo que la gestión financiera de los juegos de azar, el entretenimiento y las apuestas se mantengan en el mismo ángulo y aporten infinitos beneficios a sus fondos.",
     "text2": "Obtenga ingresos pasivos",
     "text3": "Cuando apuestas tus $TGB, inmediatamente comienzas a ganar recompensas diarias. \n¡Observa cómo crecen tus participaciones con el tiempo!",
     "text4": "Accede a recompensas al instante",
@@ -175,26 +196,5 @@
     "text3": "Sólo en 2023, las opciones para apostar con criptomonedas se han triplicado.\n\nSin necesidad de KYC y con una plataforma perfecta y fácil de usar, no sorprende que la gente acuda en masa a sitios como TG.Bit para apostar en línea.\n\nEntonces, ¿por qué elegir TG.Bit?",
     "text4": "Reproducir ahora",
     "text5": "Juega fácilmente a juegos populares en la perfecta plataforma Telegram de TG.Bit.\n\nGracias a nuestro sólido marketing, TG.Bit se está convirtiendo rápidamente en un nombre familiar.\n\nBenefíciate de nuestra inversión en juego online y de nuestro modelo rentable.\n\n¡Ven a explorar el futuro de los juegos con nosotros!"
-  },
-  "blockTitle": {
-    "cc1": "Oportunidad de criptocasino",
-    "coin": "Tokenómica",
-    "ctl1": "NO HAY MEJOR MOMENTO QUE AHORA",
-    "ctl2": "El futuro esta aqui",
-    "howBuy1": "Cómo comprar tokens $TGB",
-    "lsp1": "tener licencia completa",
-    "nokyc1": "El poder de no requerir KYC",
-    "ow1": "¿Cómo funciona?",
-    "plc1": "Recompensas de apuesta",
-    "preTxt1": "Beneficios de comprar $TGB en preventa",
-    "qa": "Preguntas frecuentes",
-    "safe1": "Fácil de jugar",
-    "wb": "Papel blanco",
-    "wg1": "Nuestros juegos",
-    "wp1": "¡TG.Bit lo tiene todo!",
-    "wp2": "¿Por qué Gamefi",
-    "wp4": "Lo que nos diferencia",
-    "zhiya": "Replantear",
-    "zhiyazr": "Apuesta total"
   }
 }

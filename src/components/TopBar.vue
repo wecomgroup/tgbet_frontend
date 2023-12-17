@@ -1,72 +1,70 @@
 <template>
-  <div>
-    <div class="navbar" id="navbar">
-        <img alt="ibit logo" class="topLogo" src="../assets/logo.png">
-        <div class="navContainer">
-            <a @click="handleClick('home')">{{ $t('topBar.index') }}</a>
-            <a @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
-            <a @click="handleClick('operationContainer')">{{ $t('topBar.methods') }}</a>
-            <a @click="handleClick('economicToken')">{{ $t('topBar.economic') }}</a>
-            <a @click="handleClick('pledgeCoin')">{{ $t('topBar.reward') }}</a>
-            <a @click="goPcHowToBuy">{{ $t('topBar.howBuy') }}</a>
-            <a @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
-        </div>
-        <img alt="ibit menu" class="menuImg" src="../assets/menu.png">
-        <div class="menuImg" @click="handleShowMenu"></div>
-        <div class="actionContainer">
-            <div class="pledge" @click="goPcPledge">
-                {{ $t('topBar.pledgeBtn') }}
-            </div>
-            <div class="audit">
-                {{ $t('topBar.auditBtn') }}
-            </div>
-            <el-dropdown @command="handleChangeLang">
-                <div class="menuLink">
-                    <!-- src="require('../assets/lang/' + currentlang.key + '.png') -->
-                    <img class="zhImg" :src="currentlang.icon">
-                    <span class="langMenu">{{ currentlang.title }}</span>
-                </div>
-                <template #dropdown>
-                    <el-dropdown-menu>
-                        <!-- // :src="require('../assets/lang/' + item.key + '.png')" -->
-                        <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhMenuImg"
-                                :src="item.icon"><span class="langMenu">{{ item.title }}</span>
-                        </el-dropdown-item>
-                    </el-dropdown-menu>
-                </template>
-            </el-dropdown>
-        </div>
-        <el-dialog :style="{ 'background-color': '#000000CC', 'height': '100%' }" fullscreen v-model="innerVisible"
-            width="100%" :show-close="false">
-            <div class="mobileNavContainer">
+    <div>
+        <div class="navbar" id="navbar">
+            <img alt="ibit logo" class="topLogo" src="../assets/logo.png">
+            <div class="navContainer">
                 <a @click="handleClick('home')">{{ $t('topBar.index') }}</a>
                 <a @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
                 <a @click="handleClick('operationContainer')">{{ $t('topBar.methods') }}</a>
+                <a @click="handleClick('economicToken')">{{ $t('topBar.economic') }}</a>
                 <a @click="handleClick('pledgeCoin')">{{ $t('topBar.reward') }}</a>
-                <a @click="goMobileHowToBuy">{{ $t('topBar.howBuy') }}</a>
+                <a @click="goPcHowToBuy">{{ $t('topBar.howBuy') }}</a>
                 <a @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
-                <div class="pledge" @click="goMobilePledge">{{ $t('topBar.pledgeBtn') }}</div>
-                <div class="audit">{{ $t('topBar.auditBtn') }}</div>
-                <el-dropdown @command="handleChangeLang" :teleported=false size="medium">
+            </div>
+            <img alt="ibit menu" class="menuImg" src="../assets/menu.png">
+            <div class="menuImg" @click="handleShowMenu"></div>
+            <div class="actionContainer">
+                <div class="pledge" @click="goPcPledge">
+                    {{ $t('topBar.pledgeBtn') }}
+                </div>
+                <div class="audit">
+                    {{ $t('topBar.auditBtn') }}
+                </div>
+                <el-dropdown @command="handleChangeLang">
                     <div class="menuLink">
                         <img class="zhImg" :src="currentlang.icon">
                         <span class="langMenu">{{ currentlang.title }}</span>
                     </div>
                     <template #dropdown>
                         <el-dropdown-menu>
-                            <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img class="zhMenuImg"
-                                :src="item.icon"><span class="langMenu">{{ item.title }}</span>
+                            <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img
+                                    class="zhMenuImg" :src="item.icon"><span class="langMenu">{{ item.title }}</span>
                             </el-dropdown-item>
                         </el-dropdown-menu>
                     </template>
                 </el-dropdown>
-                <img @click="innerVisible = false" alt="close logo" style="width: 24px; height: 24px;"
-                    src="../assets/close.png">
             </div>
-        </el-dialog>
-    </div>
+            <el-dialog :style="{ 'background-color': '#000000CC', 'height': '100%' }" fullscreen v-model="innerVisible"
+                width="100%" :show-close="false">
+                <div class="mobileNavContainer">
+                    <a @click="handleClick('home')">{{ $t('topBar.index') }}</a>
+                    <a @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
+                    <a @click="handleClick('operationContainer')">{{ $t('topBar.methods') }}</a>
+                    <a @click="handleClick('pledgeCoin')">{{ $t('topBar.reward') }}</a>
+                    <a @click="goMobileHowToBuy">{{ $t('topBar.howBuy') }}</a>
+                    <a @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
+                    <div class="pledge" @click="goMobilePledge">{{ $t('topBar.pledgeBtn') }}</div>
+                    <div class="audit">{{ $t('topBar.auditBtn') }}</div>
+                    <el-dropdown @command="handleChangeLang" :teleported=false size="medium">
+                        <div class="menuLink">
+                            <img class="zhImg" :src="currentlang.icon">
+                            <span class="langMenu">{{ currentlang.title }}</span>
+                        </div>
+                        <template #dropdown>
+                            <el-dropdown-menu>
+                                <el-dropdown-item v-for="item in langList" :key="item.key" :command="item"><img
+                                        class="zhMenuImg" :src="item.icon"><span class="langMenu">{{ item.title }}</span>
+                                </el-dropdown-item>
+                            </el-dropdown-menu>
+                        </template>
+                    </el-dropdown>
+                    <img @click="innerVisible = false" alt="close logo" style="width: 24px; height: 24px;"
+                        src="../assets/close.png">
+                </div>
+            </el-dialog>
+        </div>
 
-  </div>
+    </div>
 </template>
 
 <script>
@@ -78,21 +76,55 @@ import arIcon from '@/assets/lang/ar.png'
 import esIcon from '@/assets/lang/es.png'
 import czIcon from '@/assets/lang/cz.png'
 import bgIcon from '@/assets/lang/bg.png'
+
+import jaIcon from '@/assets/lang/ja.png'
+import frIcon from '@/assets/lang/fr.png'
+import idIcon from '@/assets/lang/id.png'
+import itIcon from '@/assets/lang/it.png'
+import koIcon from '@/assets/lang/ko.png'
+import ruIcon from '@/assets/lang/ru.png'
+import thIcon from '@/assets/lang/th.png'
+import trIcon from '@/assets/lang/tr.png'
+import viIcon from '@/assets/lang/vi.png'
+import elIcon from '@/assets/lang/el.png'
+import huIcon from '@/assets/lang/hu.png'
+import plIcon from '@/assets/lang/pl.png'
+import ptIcon from '@/assets/lang/pt.png'
+import roIcon from '@/assets/lang/ro.png'
+import skIcon from '@/assets/lang/sk.png'
+import nlIcon from '@/assets/lang/nl.png'
+
 export default {
     name: 'TopBar',
     data() {
         return {
             innerVisible: false,
             isSticky: false,
-            currentlang: { title: '', key: '' ,icon:null},
+            currentlang: { title: '', key: '', icon: null },
             langList: [
-                { title: 'en', key: 'en',icon: enIcon},
-                { title: 'zh', key: 'zh' ,icon: zhIcon},
-                { title: 'es', key: 'es' ,icon: esIcon},
-                { title: 'ar', key: 'ar' ,icon: arIcon},
-                { title: 'de', key: 'de' ,icon: deIcon},
-                { title: 'bg', key: 'bg' ,icon: bgIcon},
-                { title: 'cz', key: 'cz' ,icon: czIcon},
+                { title: 'ar', key: 'ar', icon: arIcon },
+                { title: 'bg', key: 'bg', icon: bgIcon },
+                { title: 'zh', key: 'zh', icon: zhIcon },
+                { title: 'cz', key: 'cz', icon: czIcon },
+                { title: 'de', key: 'de', icon: deIcon },
+                { title: 'el', key: 'el', icon: elIcon },
+                { title: 'en', key: 'en', icon: enIcon },
+                { title: 'es', key: 'es', icon: esIcon },
+                { title: 'fr', key: 'fr', icon: frIcon },
+                { title: 'hu', key: 'hu', icon: huIcon },
+                { title: 'id', key: 'id', icon: idIcon },
+                { title: 'it', key: 'it', icon: itIcon },
+                { title: 'ja', key: 'ja', icon: jaIcon },
+                { title: 'ko', key: 'ko', icon: koIcon },
+                { title: 'nl', key: 'nl', icon: nlIcon },
+                { title: 'pl', key: 'pl', icon: plIcon },
+                { title: 'pt', key: 'pt', icon: ptIcon },
+                { title: 'ro', key: 'ro', icon: roIcon },
+                { title: 'ru', key: 'ru', icon: ruIcon },
+                { title: 'sk', key: 'sk', icon: skIcon },
+                { title: 'th', key: 'th', icon: thIcon },
+                { title: 'tr', key: 'tr', icon: trIcon },
+                { title: 'vi', key: 'vi', icon: viIcon }
             ]
         };
     },
@@ -181,19 +213,19 @@ export default {
 
 <style scoped>
 .navbar {
-  height: 104px;
-  background-color: #181A20;
-  color: #ffffff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100vw;
-  position: fixed;
-  top: 0;
-  z-index: 999;
-  overflow-x: auto;
-  padding-left: 20px;
-  box-sizing: border-box;
+    height: 104px;
+    background-color: #181A20;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    overflow-x: auto;
+    padding-left: 20px;
+    box-sizing: border-box;
 }
 
 .topLogo {
@@ -241,8 +273,8 @@ export default {
 .navContainer {
     display: flex;
     flex: 1;
-    justify-content: end;
-    align-items: start;
+    justify-content: flex-end;
+    align-items: flex-start;
     padding: 0px 20px;
 }
 
@@ -254,7 +286,7 @@ export default {
     font-weight: 600;
     font-size: clamp(14px, 16px, 18px);
     cursor: pointer;
-    white-space:nowrap;
+    white-space: nowrap;
 }
 
 .actionContainer {
@@ -300,6 +332,7 @@ export default {
     height: 34px;
     margin-left: -8px;
 }
+
 .zhImg {
     width: 34px;
     height: 34px;
@@ -394,11 +427,12 @@ export default {
 }
 </style>
 <style>
-.el-popper__arrow{
-  display: none;
+.el-popper__arrow {
+    display: none;
 }
-.el-dropdown__popper.el-popper{
-  border: none;
-  height: 200px;
+
+.el-dropdown__popper.el-popper {
+    border: none;
+    height: 200px;
 }
 </style>
