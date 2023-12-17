@@ -51,11 +51,6 @@ import play2 from '../assets/play2.png'
 import play3 from '../assets/play3.png'
 
 
-import whyPopular1 from '../assets/whyPopular1.png'
-import whyPopular2 from '../assets/whyPopular2.png'
-import whyPopular3 from '../assets/whyPopular3.png'
-
-
 import { urls,openUrl } from '@/util/const/urlConst';
 
 
