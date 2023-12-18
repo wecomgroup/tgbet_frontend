@@ -1,11 +1,19 @@
-p,h1,ul,li{margin:0;padding:0;list-style: none;outline: none;}
+p,
+h1,
+ul,
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    outline: none;
+}
 
 body {
     height: 100%;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
     font-variant: tabular-nums;
     color: white;
     font-feature-settings: "tnum";
@@ -27,7 +35,7 @@ html {
 *:before,
 *:after {
     box-sizing: inherit;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     /*font-family: Work Sans;*/
 }
 
@@ -48,6 +56,7 @@ div:focus {
     outline: none;
 }
 
+
 @font-face {
     font-family: Work Sans;
     src: url("../font/WorkSans.f8112219.ttf");
@@ -55,22 +64,43 @@ div:focus {
 
 
 @media (min-width: 2000px) {
-    .preSale, .cryptoNews, .operationContainer, .pledgeCoin, .economicToken, .safeContainer, .CoinChanceContainer, .coinTimesContainer,.whiteBookContainer, .weGameContainer, .whyPopularContainer, .noKyc, .licenseContainer, .commonProblemContainer, .howtoBuyTop, .howtobuyContainer .step, .container{
+
+    .preSale,
+    .cryptoNews,
+    .operationContainer,
+    .pledgeCoin,
+    .economicToken,
+    .safeContainer,
+    .CoinChanceContainer,
+    .coinTimesContainer,
+    .whiteBookContainer,
+    .weGameContainer,
+    .whyPopularContainer,
+    .noKyc,
+    .licenseContainer,
+    .commonProblemContainer,
+    .howtoBuyTop,
+    .howtobuyContainer .step,
+    .container {
         padding-left: 18% !important;
         padding-right: 18% !important;
     }
-   .home-wrapper{
-       padding-left: 5% !important;
-       padding-right: 8% !important;
-       box-sizing: border-box;
-   }
-   .whiteBookImg{
-       padding-right: 9%;
-   }
-   .navContainer{
-       justify-content: flex-end !important;
-   }
-   .navContainer a{
-       margin-right: 30px !important;
-   }
+
+    .home-wrapper {
+        padding-left: 5% !important;
+        padding-right: 8% !important;
+        box-sizing: border-box;
+    }
+
+    .whiteBookImg {
+        padding-right: 9%;
+    }
+
+    .navContainer {
+        justify-content: flex-end !important;
+    }
+
+    .navContainer a {
+        margin-right: 30px !important;
+    }
 }

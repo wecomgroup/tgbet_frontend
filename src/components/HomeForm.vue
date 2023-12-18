@@ -42,7 +42,9 @@
             <p class="logtips">{{ filterAddress(accountMsg.address) }}
             </p>
           </div>
-          <img class="logout" @click="disconnect1" src="../assets/logout.png" />
+          <div class="lououtContainer">
+            <img class="logout" @click="disconnect1" src="../assets/logout.png" />
+          </div>
         </div>
       </el-col>
     </el-row>
@@ -589,8 +591,6 @@ export default {
     //showTips
     const checkTips = () => {
       try {
-
-
         if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
           console.log(`< 100 tgbAmount: ${Number(tgbAmount.value)}`)
 
@@ -643,8 +643,6 @@ export default {
 
     const checkEnableBuy = () => {
       try {
-
-
         if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
           ElMessage.error(`$TGB购买数量需大于100`)
           return false
@@ -652,7 +650,6 @@ export default {
 
         let maxAmount = infoData.value.maxTokensToBuy
         if (Number(tgbAmount.value) > maxAmount) {
-
           ElMessage.error(`$TGB 最大购买数量：` + maxAmount)
           return false
         }
@@ -828,9 +825,9 @@ export default {
           }
         }
       } catch (err) {
-        console.log(`originErr: ${ JSON.stringify(err) }  `)
-        if(err.shortMessage) {
-          if(err.shortMessage == 'User rejected the request.'){
+        console.log(`originErr: ${JSON.stringify(err)}  `)
+        if (err.shortMessage) {
+          if (err.shortMessage == 'User rejected the request.') {
             walletTipMsg.value = err.shortMessage
           } else {
             walletTipMsg.value = 'An unknown RPC error occurred'
@@ -1053,6 +1050,11 @@ export default {
   cursor: pointer;
 }
 
+.connect-btn:hover {
+  background: #7b5f2a;
+  color: #FFF;
+}
+
 .stake-buy-btn {
   color: rgba(255, 255, 255, 0.6);
   margin-top: 15px;
@@ -1100,11 +1102,22 @@ export default {
   vertical-align: -5px;
 }
 
+.lououtContainer {
+  padding: 4px;
+  border-radius: 8px;
+  border: 1px solid #efd8aa;
+  margin-left: 30px;
+}
+
+.lououtContainer:hover {
+  background-color: #918a7d;
+}
+
+
+
 .logout {
   width: 25px;
   height: 25px;
-
-  margin-left: 10px;
 }
 
 @media screen and (max-width: 900px) {
