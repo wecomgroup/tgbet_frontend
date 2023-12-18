@@ -71,7 +71,7 @@
   },
   "homeForm": {
     "text1": "Prezzo attuale",
-    "text10": "Acquista e scommetti",
+    "text10": "Acquista e punta per {APY} APY",
     "text11": "Voglio solo comprare senza puntata",
     "text12": "APY di staking attuale",
     "text13": "Acquista su BSC",

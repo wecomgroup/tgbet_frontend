@@ -71,7 +71,7 @@
   },
   "homeForm": {
     "text1": "Aktuální cena",
-    "text10": "Koupit a vsadit",
+    "text10": "Kupte a vsaďte za {APY} APY",
     "text11": "Chci jen koupit bez sázky",
     "text12": "Aktuální sázky APY",
     "text13": "Koupit v BSC",

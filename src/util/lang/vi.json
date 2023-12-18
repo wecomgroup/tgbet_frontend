@@ -71,7 +71,7 @@
   },
   "homeForm": {
     "text1": "Giá hiện tại",
-    "text10": "Mua và đặt cược",
+    "text10": "Mua và đặt cược với giá {APY} APY",
     "text11": "Chỉ muốn mua mà không cần đặt cược",
     "text12": "APY đặt cược hiện tại",
     "text13": "Mua hàng tại BSC",

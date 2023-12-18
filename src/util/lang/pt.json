@@ -71,7 +71,7 @@
   },
   "homeForm": {
     "text1": "Preço atual",
-    "text10": "Compre e aposte",
+    "text10": "Compre e aposte por {APY} APY",
     "text11": "Só quero comprar sem apostar",
     "text12": "Atual Stake APY",
     "text13": "Compre na BSC",

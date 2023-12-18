@@ -48,13 +48,13 @@
         </div>
       </el-col>
     </el-row>
-    <el-row v-if="connect && myBalance && myBalance.tgbDeposits" style="margin-top: 20px; ">
+    <el-row v-if="connect && myBalance && (myBalance.tgbDeposits != '0')" style="margin-top: 20px; ">
       <el-col :span="12">
         <p class="logtips">$TGB <span style="opacity: 0.6;">purchased</span></p>
       </el-col>
       <el-col :span="12">
         <div class="wallect">
-          <p style="opacity: 0.6;">{{myBalance.tgbDeposits}}</p>
+          <p style="opacity: 0.6;">{{ myBalance.tgbDeposits }}</p>
         </div>
       </el-col>
     </el-row>
@@ -72,15 +72,17 @@
           <img src="../assets/usdt.png" class="icon" />USDT
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="12">
-        <p class="tips">
-          {{ filterCoinName() }} {{ $t('homeForm.text5') }} <label class="max-value">{{ $t('homeForm.text7') }}</label>
-        </p>
+      <el-col :xs="24" :sm="24" :lg="24">
+        <div class="tips" style="display: flex; align-items: center; justify-content:space-between;">
+          <div> {{ filterCoinName() }} {{ $t('homeForm.text5') }} </div>
+          <div class="max-value" @click="maxClick">{{ $t('homeForm.text7') }}</div>
+        </div>
         <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount" clearable></el-input>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="12">
+      <el-col :xs="24" :sm="24" :lg="24">
         <p class="tips">{{ $t('homeForm.text8') }}</p>
-        <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount" clearable></el-input>
+        <el-input placeholder="0" class="f-ipt" style="margin-top: 15px;" v-model="tgbAmount" @input="changeTGBAmount"
+          clearable></el-input>
       </el-col>
     </el-row>
     <el-row :xs="24" :sm="24" :lg="12" v-if="connect">
@@ -97,17 +99,19 @@
     </el-row>
     <el-row>
       <el-col :span="24">
-        <el-button v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
+        <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
           {{ $t('homeForm.text9') }}
-        </el-button>
-        <el-button v-if="connect" class="connect-btn" @click="buyToken">
-          {{ $t('homeForm.text10') }}
-        </el-button>
-        <div v-if="connect" class="stake-buy-btn" @click="buyTokenAndStaking">
-          {{ $t('homeForm.text11') }}
+        </div>
+        <button v-if="connect" class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
+          {{ $t('homeForm.text10', { APY: infoData.apy }) }}
+        </button>
+        <div v-if="connect" class="stake-buy-btn-container">
+          <button class="stake-buy-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
+            <p>{{ $t('homeForm.text11') }}</p>
+          </button>
         </div>
       </el-col>
-      <el-col :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}</el-col>
+      <el-col v-if="!connect" :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}</el-col>
     </el-row>
   </div>
 </template>
@@ -150,7 +154,7 @@ import {
 export default {
 
   setup: () => {
-
+    let fee = 0.015
     let tipMsg = ref()
     let normalMsg = ref()
     let walletTipMsg = ref()
@@ -619,7 +623,7 @@ export default {
         }
 
         let selectCoin = selectedCoin.value.name
-        let fee = 0.015
+
 
         if (selectCoin === 'ETH') {
           console.log(`coinAmount : ${Number(coinAmount.value)} my eth : ${Number(myBalance.value.ethBalance)}`)
@@ -645,6 +649,11 @@ export default {
             tipMsg.value = ''
           }
         }
+        let maxAmount = infoData.value.maxTokensToBuy
+
+        if (Number(tgbAmount.value) > maxAmount) {
+          tipMsg.value = `Maximum ${maxAmount.toLocaleString()} $TGC per transaction.`
+        }
 
         if (tipMsg.value) {
           normalMsg.value = ''
@@ -657,6 +666,38 @@ export default {
       } catch (error) {
         console.log(error)
       }
+    }
+
+    const maxClick = () => {
+      if (!myBalance) { return }
+
+      if (selectedCoin.value.name === 'ETH') {
+        if (!myBalance.value.ethBalance || myBalance.value.ethBalance == '0') {
+          changeCoinAmount(0)
+          return
+        }
+        let ethAmount = Number(myBalance.value.ethBalance) - fee
+        if(ethAmount <= 0) {
+            changeCoinAmount(0)
+            return
+        }
+        changeCoinAmount(ethAmount.toString())
+
+
+      } else if (selectedCoin.value.name === 'USDT') {
+        if (!myBalance.value.usdtBalance || myBalance.value.usdtBalance == '0') {
+          changeCoinAmount(0)
+          return
+        }
+        changeCoinAmount(myBalance.value.usdtBalance)
+      } else if (selectedCoin.value.name === 'USDC') {
+        if (!myBalance.value.usdcBalance || myBalance.value.usdcBalance == '0') {
+          changeCoinAmount(0)
+          return
+        }
+        changeCoinAmount(myBalance.value.usdcBalance)
+      }
+
     }
 
     const checkEnableBuy = () => {
@@ -690,6 +731,7 @@ export default {
     // 5 USDC-BUY
     // 6 USDC-BUY-STAKING
     const buyToken = () => {
+      walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
         return
@@ -706,7 +748,7 @@ export default {
 
     // user click buy and staking
     const buyTokenAndStaking = () => {
-
+      walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
         return
@@ -911,7 +953,8 @@ export default {
       checkNetwork,
       filterCoinName,
       fetchMyBalance,
-      checkTips
+      checkTips,
+      maxClick
     };
   },
 };
@@ -1002,7 +1045,7 @@ export default {
 .tips {
   font-size: 16px;
   font-weight: 600;
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .logtips {
@@ -1015,6 +1058,18 @@ export default {
   color: #c5ac79;
   text-align: right;
   float: right;
+}
+
+.max-value {
+  border: 1px solid #efd8aa;
+  border-radius: 2px;
+  padding: 2px;
+  /* background-color: #c5ac79; */
+}
+
+.max-value:hover {
+  background: linear-gradient(0deg, #2B2E39, #2B2E39),
+    linear-gradient(0deg, #E3C076, #E3C076);
 }
 
 .time-btn {
@@ -1069,22 +1124,62 @@ export default {
 }
 
 .connect-btn:hover {
-  background: #7b5f2a;
-  color: #FFF;
+  background-color: #FFD581;
+}
+
+.buy-and-stake-btn {
+  width: 100%;
+  height: 52px;
+  line-height: 52px;
+  border-radius: 8px;
+  border: 1px solid #efd8aa;
+  background: #c5ac79;
+  color: #181a20;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;
+}
+
+.buy-and-stake-btn:hover {
+  background-color: #FFD581;
+}
+
+.buy-and-stake-btn:disabled {
+  cursor: not-allowed;
+  /* pointer-events:none; */
+}
+
+
+.stake-buy-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .stake-buy-btn {
   color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
   margin-top: 15px;
+  background-color: transparent;
+  border-color: transparent;
+  /* background-color: ; */
   /* width: 100%; */
   line-height: 30px;
   text-align: center;
-  cursor: pointer;
   text-decoration: underline;
   text-underline-offset: 4px;
-  /* border-bottom-color: rgb(255, 255, 255);
-  border-bottom-style: solid;
-  border-bottom-width: 1px */
+
+}
+
+.stake-buy-btn:disabled {
+  cursor: not-allowed;
+
+}
+
+.stake-buy-btn:hover {
+  text-decoration: unset;
+  text-underline-offset: unset;
 }
 
 .other-buy {
@@ -1106,6 +1201,8 @@ export default {
   font-size: 16px;
   font-weight: 400;
   padding: 16px 0 24px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 .f-ipt {

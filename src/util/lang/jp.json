@@ -71,7 +71,7 @@
   },
   "homeForm": {
     "text1": "Current price",
-    "text10": "Buy and stake",
+    "text10": "Buy and Stake for {APY} APY",
     "text11": "Just want to buy without staking",
     "text12": "Current Staking APY",
     "text13": "Buy at BSC",

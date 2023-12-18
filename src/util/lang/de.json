@@ -71,7 +71,7 @@
   },
   "homeForm": {
     "text1": "Derzeitiger Preis",
-    "text10": "Kaufen und einsetzen",
+    "text10": "Kaufen und einsetzen für {APY} APY",
     "text11": "Ich möchte einfach ohne Einsatz kaufen",
     "text12": "Aktueller Einsatz-APY",
     "text13": "Kaufen Sie bei BSC",

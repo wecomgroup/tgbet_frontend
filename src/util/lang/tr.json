@@ -71,7 +71,7 @@
   },
   "homeForm": {
     "text1": "Mevcut fiyat",
-    "text10": "Satın al ve paylaş",
+    "text10": "{APY} APY karşılığında satın alın ve stake edin",
     "text11": "Sadece stake yapmadan satın almak istiyorum",
     "text12": "Güncel Staking APY",
     "text13": "BSC'den satın alın",
