@@ -1,5 +1,8 @@
 <template>
   <div class="form-wrapper">
+    <div class="buying-bg" v-if="connect && buying">
+      <div class="buying-text" >{{ $t('homeForm.text15') }}</div>
+    </div>
     <el-row>
       <el-col :span="16">
         <div class="grid-content">$ {{ infoData.saleAmountStr }}</div>
@@ -53,7 +56,7 @@
     </el-row>
     <el-row v-if="connect && myBalance && (myBalance.tgbDeposits != '0')" style="margin-top: 20px; ">
       <el-col :span="12">
-        <p class="logtips">$TGB <span style="opacity: 0.6;">purchased</span></p>
+        <p class="logtips">$TGB <span style="opacity: 0.6;">{{ $t('homeForm.text16') }}</span></p>
       </el-col>
       <el-col :span="12">
         <div class="wallect">
@@ -160,7 +163,10 @@ export default {
         Line
     },
   setup: () => {
+    const {$t}  = getCurrentInstance().proxy;
+
     let fee = 0.015
+    let buying = ref(false)
     let tipMsg = ref()
     let normalMsg = ref()
     let walletTipMsg = ref()
@@ -487,7 +493,7 @@ export default {
         const currentNetwork = getNetwork()
         console.log(`switchNet:${currentNetwork}`)
         if (!currentNetwork || !currentNetwork.chain) {
-          ElMessage.warning(`请先连接钱包`)
+          ElMessage.warning($t('tip.text1'))
           return false;
         }
         let currentNetId = currentNetwork.chain.id
@@ -520,6 +526,7 @@ export default {
 
     //钱包切换
     watchAccount((changedAccount) => {
+      console.log(`change account ${changedAccount}`)
       if (changedAccount.address != account.address) {
         accountMsg.value = changedAccount;
         connect.value = changedAccount.isConnected;
@@ -622,7 +629,7 @@ export default {
         if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
           console.log(`< 100 tgbAmount: ${Number(tgbAmount.value)}`)
 
-          tipMsg.value = `Please purchase at least 100 $TGB.`
+          tipMsg.value = $t('tip.text2')
           normalMsg.value = ''
           walletTipMsg.value = ''
           return
@@ -634,23 +641,23 @@ export default {
         if (selectCoin === 'ETH') {
           console.log(`coinAmount : ${Number(coinAmount.value)} my eth : ${Number(myBalance.value.ethBalance)}`)
           if (Number(myBalance.value.ethBalance) < (Number(coinAmount.value) + fee)) {
-            tipMsg.value = `You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and ETH for the token exchange.`
+            tipMsg.value = $t('tip.text3')
           } else {
             tipMsg.value = ''
           }
         } else if (selectCoin === 'USDT') {
           if (Number(myBalance.value.ethBalance) < fee) {
-            tipMsg.value = `You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and USDT for the token exchange.`
+            tipMsg.value = $t('tip.text4')
           } else if (Number(coinAmount.value) > Number(myBalance.value.usdtBalance)) {
-            tipMsg.value = 'You do not have enough USDT to pay for this transaction.\n Make sure you have 0.015 ETH for gas and USDT for the token exchange.'
+            tipMsg.value = $t('tip.text5')
           } else {
             tipMsg.value = ''
           }
         } else if (selectCoin === 'USDC') {
           if (Number(myBalance.value.ethBalance) < fee) {
-            tipMsg.value = `You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and USDC for the token exchange.`
+            tipMsg.value = $t('tip.text6')
           } else if (Number(coinAmount.value) > Number(myBalance.value.usdtBalance)) {
-            tipMsg.value = 'You do not have enough USDC to pay for this transaction.\n Make sure you have 0.015 ETH for gas and USDC for the token exchange.'
+            tipMsg.value = $t('tip.text7')
           } else {
             tipMsg.value = ''
           }
@@ -658,14 +665,15 @@ export default {
         let maxAmount = infoData.value.maxTokensToBuy
 
         if (Number(tgbAmount.value) > maxAmount) {
-          tipMsg.value = `Maximum ${maxAmount.toLocaleString()} $TGC per transaction.`
+          let max = maxAmount.toLocaleString()
+          tipMsg.value = $t('tip.text8',{ amount:max })
         }
 
         if (tipMsg.value) {
           normalMsg.value = ''
           walletTipMsg.value = ''
         } else {
-          normalMsg.value = `0.015 ETH is reserved for gas. The actual amount used will depend on the network.`
+          normalMsg.value = $t('tip.text9')
           walletTipMsg.value = ''
           tipMsg.value = ''
         }
@@ -675,6 +683,7 @@ export default {
     }
 
     const maxClick = () => {
+      if (!connect.value) { return }
       if (!myBalance) { return }
 
       if (selectedCoin.value.name === 'ETH') {
@@ -683,9 +692,9 @@ export default {
           return
         }
         let ethAmount = Number(myBalance.value.ethBalance) - fee
-        if(ethAmount <= 0) {
-            changeCoinAmount(0)
-            return
+        if (ethAmount <= 0) {
+          changeCoinAmount(0)
+          return
         }
         changeCoinAmount(ethAmount.toString())
 
@@ -709,13 +718,11 @@ export default {
     const checkEnableBuy = () => {
       try {
         if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
-          ElMessage.error(`$TGB购买数量需大于100`)
           return false
         }
 
         let maxAmount = infoData.value.maxTokensToBuy
         if (Number(tgbAmount.value) > maxAmount) {
-          ElMessage.error(`$TGB 最大购买数量：` + maxAmount)
           return false
         }
 
@@ -787,6 +794,8 @@ export default {
         if (!result) {
           return;
         }
+
+        buying.value = true
         const walletClient = await getMyWalletClient()
 
         const inviteCodeParam = getInviteCode();
@@ -824,8 +833,9 @@ export default {
           let allowanceData = await checkApprove(usdtContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
-            ElMessage.warning(`需要授权`)
+            ElMessage.warning($t('tip.text18'))
             await approveContract(usdtContract, proxyContract.address, account)
+            buying.value = false
             return
           }
           let usdtPayAmount = 0
@@ -855,8 +865,9 @@ export default {
           let allowanceData = await checkApprove(usdcContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
-            ElMessage.warning(`需要授权`)
+            ElMessage.warning($t('tip.text18'))
             await approveContract(usdcContract, proxyContract.address, account)
+            buying.value = false
             return
           }
           let usdcPayAmount = 0
@@ -883,15 +894,22 @@ export default {
         }
 
         if (hash) {
+          ElMessage.success($t('tip.text11'))
           let result = await waitTx(hash)
           if (result) {
+            ElMessage.success($t('tip.text12'))
             tgbAmount.value = ''
             coinAmount.value = ''
+            changeCoinAmount(0)
             homeInfo()
+          } else {
+            ElMessage.error($t('tip.text13'))
           }
         }
+        buying.value = false
       } catch (err) {
-        console.log(`originErr: ${JSON.stringify(err)}  `)
+        buying.value = false
+        console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
         if (err.shortMessage) {
           if (err.shortMessage == 'User rejected the request.') {
             walletTipMsg.value = err.shortMessage
@@ -925,6 +943,7 @@ export default {
     // const Line = Line;
 
     return {
+      buying,
       countdownTimer,
     
       indexTimer,
@@ -973,6 +992,29 @@ export default {
   color: #fff;
   font-size: 16px;
   font-weight: bold;
+}
+
+.form-wrapper {
+  position: relative;
+}
+
+.form-wrapper .buying-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.buying-text {
+  color: #c5ac79;
+  font-weight: 600;
+  font-family: "Work Sans";
 }
 
 .tip-message {

@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB obdržíte",
-    "text9": "Připojte peněženku"
+    "text9": "Připojte peněženku",
+    "text15": "Nákup...",
+    "text16": "zakoupeno"
   },
   "howToBuy": {
     "text1": "Chcete-li zakoupit tokeny během předprodeje, navštivte oficiální web TG.Bit.\n\nPo předprodeji lze tokeny získat přímo z oficiálních stránek nebo prostřednictvím decentralizovaných burz.",
@@ -196,5 +198,25 @@
     "text3": "Jen v roce 2023 se možnosti hazardních her s kryptoměnami ztrojnásobily.\n\nBez nutnosti KYC a bezproblémové a snadno použitelné platformy není žádným překvapením, že se lidé hrnou na weby jako TG.Bit, aby mohli hrát online.\n\nProč si tedy vybrat TG.Bit?",
     "text4": "hrát hned",
     "text5": "Snadno hrajte oblíbené hry na bezproblémové platformě Telegram společnosti TG.Bit.\n\nDíky našemu silnému marketingu se TG.Bit rychle stává pojmem.\n\nVyužijte naši investici do online hraní a náš ziskový model.\n\nPojďte s námi prozkoumat budoucnost hraní!"
+  },
+  "tip": {
+    "text1": "Připojte prosím peněženku",
+    "text10": "Nákupy $TGB byly pozastaveny",
+    "text11": "Transakce byla odeslána, trpělivě vyčkejte na dokončení transakce.",
+    "text12": "Transakce úspěšná",
+    "text13": "Transakce se pokazila",
+    "text2": "Nakupte prosím alespoň 100 $ TGB.",
+    "text3": "Nemáte dostatek ETH k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a ETH za výměnu tokenů.",
+    "text4": "Nemáte dostatek ETH k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDT za výměnu tokenů.",
+    "text5": "K zaplacení této transakce nemáte dostatek USDT.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDT za výměnu tokenů.",
+    "text6": "Nemáte dostatek ETH k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDC za výměnu tokenů.",
+    "text7": "Nemáte dostatek USDC k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDC za výměnu tokenů.",
+    "text8": "Maximální {amount} $TGC na transakci.",
+    "text9": "0,015 ETH je vyhrazeno pro plyn. \nSkutečné použité množství bude záviset na síti.",
+    "text14": "Počet odměn musí být větší než 100",
+    "text15": "Množství sázky musí být větší než 100",
+    "text16": "Vyřazené množství musí být větší než 100",
+    "text17": "Do uvolnění sázky zbývá {dny} dní",
+    "text18": "Chcete-li dokončit tuto transakci, musíte souhlasit s přístupem smlouvy k vašim oprávněním USDT nebo USDC"
   }
 }

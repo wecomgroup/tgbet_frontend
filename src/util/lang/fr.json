@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAXIMUM",
     "text8": "$TGB que vous recevez",
-    "text9": "Connecter le portefeuille"
+    "text9": "Connecter le portefeuille",
+    "text15": "Achat...",
+    "text16": "acheté"
   },
   "howToBuy": {
     "text1": "Pour acheter des jetons pendant la prévente, visitez le site officiel de TG.Bit.\n\nAprès la prévente, les jetons peuvent être obtenus directement sur le site officiel ou via des échanges décentralisés.",
@@ -196,5 +198,25 @@
     "text3": "Rien qu’en 2023, les possibilités de jeu avec les crypto-monnaies ont triplé.\n\nSans KYC requis et avec une plateforme transparente et facile à utiliser, il n’est pas surprenant que les gens affluent vers des sites comme TG.Bit pour jouer en ligne.\n\nAlors pourquoi choisir TG.Bit ?",
     "text4": "Joue maintenant",
     "text5": "Jouez facilement à des jeux populaires sur la plateforme Telegram transparente de TG.Bit.\n\nGrâce à notre solide marketing, TG.Bit est rapidement devenu un nom connu.\n\nBénéficiez de notre investissement dans le jeu en ligne et de notre modèle rentable.\n\nVenez explorer l'avenir du jeu avec nous !"
+  },
+  "tip": {
+    "text1": "Veuillez connecter le portefeuille",
+    "text10": "Les achats en $TGB ont été suspendus",
+    "text11": "La transaction a été envoyée, veuillez attendre patiemment que la transaction soit terminée.",
+    "text12": "Transaction réussie",
+    "text13": "La transaction a mal tourné",
+    "text2": "Veuillez acheter au moins 100 $ TGB.",
+    "text3": "Vous n'avez pas assez d'ETH pour payer cette transaction.\n \nAssurez-vous d'avoir 0,015 ETH pour le gaz et ETH pour l'échange de jetons.",
+    "text4": "Vous n'avez pas assez d'ETH pour payer cette transaction.\n \nAssurez-vous d'avoir 0,015 ETH pour le gaz et USDT pour l'échange de jetons.",
+    "text5": "Vous n'avez pas assez d'USDT pour payer cette transaction.\n \nAssurez-vous d'avoir 0,015 ETH pour le gaz et USDT pour l'échange de jetons.",
+    "text6": "Vous n'avez pas assez d'ETH pour payer cette transaction.\n \nAssurez-vous d'avoir 0,015 ETH pour le gaz et USDC pour l'échange de jetons.",
+    "text7": "Vous n'avez pas assez d'USDC pour payer cette transaction.\n \nAssurez-vous d'avoir 0,015 ETH pour le gaz et USDC pour l'échange de jetons.",
+    "text8": "Maximum : {montant} $TGC par transaction.",
+    "text9": "0,015 ETH est réservé au gaz. \nLe montant réel utilisé dépendra du réseau.",
+    "text14": "Le nombre de récompenses doit être supérieur à 100",
+    "text15": "La quantité de mise doit être supérieure à 100",
+    "text16": "La quantité non mise doit être supérieure à 100",
+    "text17": "Il reste {days} jours avant que la mise ne soit libérée.",
+    "text18": "Afin de finaliser cette transaction, vous devez accepter l'accès du contrat à vos autorisations USDT ou USDC."
   }
 }

@@ -138,6 +138,9 @@ export default {
             stakeInfo()
         })
 
+        const { $t } = getCurrentInstance().proxy;
+
+
         const {
             appContext: {
                 config: { globalProperties },
@@ -206,7 +209,7 @@ export default {
                 let stakeContract = getStakeContract()
                 let amount = myRewardAmount.value
                 if (!amount || amount < 100) {
-                    ElMessage.error(`获取奖励数量需大于100`)
+                    ElMessage.error($t('tip.text14'))
                     return
                 }
                 amount = Math.floor(amount).toFixed(0)
@@ -219,12 +222,18 @@ export default {
                 })
                 console.log('getMyStakeReward tx hash' + hash)
                 if (hash) {
+                    ElMessage.success($t('tip.text11'))
                     let result = await waitTx(hash)
                     if (result) {
+                        ElMessage.success($t('tip.text12'))
                         stakeInfo()
+                    } else {
+                        ElMessage.error($t('tip.text13'))
                     }
+                } else {
+                    ElMessage.error($t('tip.text13'))
                 }
-            } catch (error) {   
+            } catch (error) {
                 ElMessage.error(error)
             }
         }
@@ -232,10 +241,9 @@ export default {
 
         const stakeToken = async () => {
             try {
-
-
                 if (!stakeAmount.value || stakeAmount.value < 100) {
-                    ElMessage.error(`质押数量需大于100`)
+                    ElMessage.error($t('tip.text15'))
+
                     return
                 }
                 let stakeContract = getStakeContract()
@@ -246,7 +254,7 @@ export default {
                 let amount = parseEther((stakeAmount.value).toString())
 
                 if (BigInt(allowanceData) < amount) {
-                    ElMessage.error(`需要授权`)
+                    ElMessage.warning($t('tip.text18'))
                     await approveContract(tgbContract, stakeContract.address, account)
                     return
                 }
@@ -261,10 +269,16 @@ export default {
                 })
                 console.log('stakeToken tx hash' + hash)
                 if (hash) {
+                    ElMessage.success($t('tip.text11'))
                     let result = await waitTx(hash)
                     if (result) {
+                        ElMessage.success($t('tip.text12'))
                         stakeInfo()
+                    } else {
+                        ElMessage.error($t('tip.text13'))
                     }
+                } else {
+                    ElMessage.error($t('tip.text13'))
                 }
             } catch (error) {
                 ElMessage.error(error)
@@ -276,13 +290,13 @@ export default {
                 let diffDays = Math.floor((infoData.value.endTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
 
                 if (diffDays) {
-                    ElMessage.error(`距离解除质押还有 ${diffDays} 天`)
+                    ElMessage.error($t('tip.text17',{days:diffDays}))
                     return
                 }
                 let amount = parseEther(unStakeAmount.value)
 
                 if (!amount || amount < 100) {
-                    ElMessage.error(`解除质押数量需大于100`)
+                    ElMessage.error($t('tip.text16'))
                     return
                 }
 
@@ -300,10 +314,16 @@ export default {
                 })
                 console.log('unStakeToken tx hash' + hash)
                 if (hash) {
+                    ElMessage.success($t('tip.text11'))
                     let result = await waitTx(hash)
                     if (result) {
+                        ElMessage.success($t('tip.text12'))
                         stakeInfo()
+                    } else {
+                        ElMessage.error($t('tip.text13'))
                     }
+                } else {
+                    ElMessage.error($t('tip.text13'))
                 }
             } catch (error) {
                 ElMessage.error(error)

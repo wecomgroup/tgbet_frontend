@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$ TGB, ktoré dostanete",
-    "text9": "Pripojte peňaženku"
+    "text9": "Pripojte peňaženku",
+    "text15": "Nákup...",
+    "text16": "zakúpené"
   },
   "howToBuy": {
     "text1": "Ak chcete zakúpiť tokeny počas predpredaja, navštívte oficiálnu webovú stránku TG.Bit.\n\nPo predpredaji je možné tokeny získať priamo z oficiálnej webovej stránky alebo prostredníctvom decentralizovaných búrz.",
@@ -196,5 +198,25 @@
     "text3": "Len v roku 2023 sa možnosti hazardných hier s kryptomenami strojnásobili.\n\nBez nutnosti KYC a bezproblémovej a ľahko použiteľnej platformy nie je žiadnym prekvapením, že ľudia sa hrnú na stránky ako TG.Bit, aby mohli hrať online.\n\nPrečo si teda vybrať TG.Bit?",
     "text4": "Hrať teraz",
     "text5": "Jednoducho hrajte obľúbené hry na bezproblémovej platforme Telegram od TG.Bit.\n\nVďaka nášmu silnému marketingu sa TG.Bit rýchlo stáva známym.\n\nVyužite výhody našej investície do online hrania a nášho ziskového modelu.\n\nPoďte s nami preskúmať budúcnosť hrania!"
+  },
+  "tip": {
+    "text1": "Pripojte peňaženku",
+    "text10": "Nákupy $TGB boli pozastavené",
+    "text11": "Transakcia bola odoslaná, trpezlivo čakajte na dokončenie transakcie.",
+    "text12": "Transakcia úspešná",
+    "text13": "Transakcia sa pokazila",
+    "text2": "Kúpte si aspoň 100 $ TGB.",
+    "text3": "Nemáte dostatok ETH na zaplatenie tejto transakcie.\n \nUistite sa, že máte 0,015 ETH za plyn a ETH za výmenu tokenov.",
+    "text4": "Nemáte dostatok ETH na zaplatenie tejto transakcie.\n \nUistite sa, že máte 0,015 ETH za plyn a USDT za výmenu tokenov.",
+    "text5": "Nemáte dostatok USDT na zaplatenie tejto transakcie.\n \nUistite sa, že máte 0,015 ETH za plyn a USDT za výmenu tokenov.",
+    "text6": "Nemáte dostatok ETH na zaplatenie tejto transakcie.\n \nUistite sa, že máte 0,015 ETH za plyn a USDC za výmenu tokenov.",
+    "text7": "Nemáte dostatok USDC na zaplatenie tejto transakcie.\n \nUistite sa, že máte 0,015 ETH za plyn a USDC za výmenu tokenov.",
+    "text8": "Maximálne {amount} $TGC na transakciu.",
+    "text9": "0,015 ETH je vyhradených pre plyn. \nSkutočne použité množstvo bude závisieť od siete.",
+    "text14": "Počet odmien musí byť väčší ako 100",
+    "text15": "Množstvo vkladu musí byť väčšie ako 100",
+    "text16": "Množstvo zrušeného vkladu musí byť väčšie ako 100",
+    "text17": "Do uvoľnenia vkladu zostáva {dní} dní",
+    "text18": "Na dokončenie tejto transakcie musíte súhlasiť s prístupom zmluvy k vašim povoleniam USDT alebo USDC"
   }
 }

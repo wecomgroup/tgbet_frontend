@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MÁXIMO",
     "text8": "$TGB que recibes",
-    "text9": "Conectar billetera"
+    "text9": "Conectar billetera",
+    "text15": "Adquisitivo...",
+    "text16": "comprado"
   },
   "howToBuy": {
     "text1": "Para comprar tokens durante la preventa, visite el sitio web oficial de TG.Bit.\n\nDespués de la preventa, los tokens se pueden obtener directamente desde el sitio web oficial o mediante intercambios descentralizados.",
@@ -196,5 +198,25 @@
     "text3": "Sólo en 2023, las opciones para apostar con criptomonedas se han triplicado.\n\nSin necesidad de KYC y con una plataforma perfecta y fácil de usar, no sorprende que la gente acuda en masa a sitios como TG.Bit para apostar en línea.\n\nEntonces, ¿por qué elegir TG.Bit?",
     "text4": "Reproducir ahora",
     "text5": "Juega fácilmente a juegos populares en la perfecta plataforma Telegram de TG.Bit.\n\nGracias a nuestro sólido marketing, TG.Bit se está convirtiendo rápidamente en un nombre familiar.\n\nBenefíciate de nuestra inversión en juego online y de nuestro modelo rentable.\n\n¡Ven a explorar el futuro de los juegos con nosotros!"
+  },
+  "tip": {
+    "text1": "Por favor conecta tu billetera",
+    "text10": "Las compras de $TGB se han pausado",
+    "text11": "La transacción ha sido enviada, espere pacientemente hasta que se complete la transacción.",
+    "text12": "Transacción exitosa",
+    "text13": "La transacción salió mal",
+    "text2": "Por favor compre al menos 100 $TGB.",
+    "text3": "No tienes suficiente ETH para pagar esta transacción.\n \nAsegúrese de tener 0,015 ETH para gasolina y ETH para el intercambio de tokens.",
+    "text4": "No tienes suficiente ETH para pagar esta transacción.\n \nAsegúrese de tener 0,015 ETH para gasolina y USDT para el intercambio de tokens.",
+    "text5": "No tienes suficiente USDT para pagar esta transacción.\n \nAsegúrese de tener 0,015 ETH para gasolina y USDT para el intercambio de tokens.",
+    "text6": "No tienes suficiente ETH para pagar esta transacción.\n \nAsegúrese de tener 0,015 ETH para gasolina y USDC para el intercambio de tokens.",
+    "text7": "No tienes suficiente USDC para pagar esta transacción.\n \nAsegúrese de tener 0,015 ETH para gasolina y USDC para el intercambio de tokens.",
+    "text8": "Máximo {cantidad} $TGC por transacción.",
+    "text9": "0,015 ETH están reservados para gasolina. \nLa cantidad real utilizada dependerá de la red.",
+    "text14": "El número de recompensas debe ser superior a 100.",
+    "text15": "La cantidad de la apuesta debe ser superior a 100.",
+    "text16": "La cantidad no apostada debe ser mayor que 100",
+    "text17": "Quedan {days} días hasta que se libere la apuesta",
+    "text18": "Para completar esta transacción, debe aceptar el acceso del contrato a sus permisos USDT o USDC."
   }
 }

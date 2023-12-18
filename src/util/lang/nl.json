@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB die u ontvangt",
-    "text9": "Verbind portemonnee"
+    "text9": "Verbind portemonnee",
+    "text15": "Inkoop...",
+    "text16": "gekocht"
   },
   "howToBuy": {
     "text1": "Bezoek de officiële website van TG.Bit om tokens te kopen tijdens de voorverkoop.\n\nNa de voorverkoop kunnen tokens rechtstreeks via de officiële website of via gedecentraliseerde uitwisselingen worden verkregen.",
@@ -196,5 +198,25 @@
     "text3": "Alleen al in 2023 zijn de mogelijkheden om met cryptocurrencies te gokken verdrievoudigd.\n\nOmdat er geen KYC vereist is en er een naadloos, eenvoudig te gebruiken platform is, is het geen verrassing dat mensen massaal naar sites als TG.Bit komen om online te gokken.\n\nWaarom kiezen voor TG.Bit?",
     "text4": "Nu afspelen",
     "text5": "Speel eenvoudig populaire games op het naadloze Telegram-platform van TG.Bit.\n\nDankzij onze sterke marketing is TG.Bit snel een begrip aan het worden.\n\nProfiteer van onze investeringen in online gaming en ons winstgevende model.\n\nOntdek samen met ons de toekomst van gaming!"
+  },
+  "tip": {
+    "text1": "Sluit een wallect aan",
+    "text10": "$TGB-aankopen zijn gepauzeerd",
+    "text11": "De transactie is verzonden. Wacht geduldig tot de transactie is voltooid.",
+    "text12": "Transactie succesvol",
+    "text13": "Transactie is misgegaan",
+    "text2": "Koop minimaal 100 $TGB.",
+    "text3": "U heeft niet genoeg ETH om voor deze transactie te betalen.\n \nZorg ervoor dat je 0,015 ETH hebt voor gas en ETH voor de tokenuitwisseling.",
+    "text4": "U heeft niet genoeg ETH om voor deze transactie te betalen.\n \nZorg ervoor dat je 0,015 ETH hebt voor gas en USDT voor de tokenuitwisseling.",
+    "text5": "U heeft niet genoeg USDT om voor deze transactie te betalen.\n \nZorg ervoor dat je 0,015 ETH hebt voor gas en USDT voor de tokenuitwisseling.",
+    "text6": "U heeft niet genoeg ETH om voor deze transactie te betalen.\n \nZorg ervoor dat je 0,015 ETH hebt voor gas en USDC voor de tokenuitwisseling.",
+    "text7": "U heeft niet genoeg USDC om voor deze transactie te betalen.\n \nZorg ervoor dat je 0,015 ETH hebt voor gas en USDC voor de tokenuitwisseling.",
+    "text8": "Maximaal {bedrag} $TGC per transactie.",
+    "text9": "0,015 ETH is gereserveerd voor gas. \nHet daadwerkelijk gebruikte bedrag is afhankelijk van het netwerk.",
+    "text14": "Het aantal beloningen moet groter zijn dan 100",
+    "text15": "Het aantal inzetten moet groter zijn dan 100",
+    "text16": "Het niet-uitgezette aantal moet groter zijn dan 100",
+    "text17": "Er zijn nog {days} dagen over voordat de inzet wordt vrijgegeven",
+    "text18": "Om deze transactie te voltooien, moet u akkoord gaan met de toegang van het contract tot uw USDT- of USDC-machtigingen"
   }
 }
