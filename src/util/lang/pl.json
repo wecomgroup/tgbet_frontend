@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAKS",
     "text8": "Otrzymasz $TGB",
-    "text9": "Podłącz portfel"
+    "text9": "Podłącz portfel",
+    "text15": "Nabywczy...",
+    "text16": "zakupione"
   },
   "howToBuy": {
     "text1": "Aby kupić tokeny podczas przedsprzedaży, odwiedź oficjalną stronę TG.Bit.\n\nPo przedsprzedaży tokeny można uzyskać bezpośrednio z oficjalnej strony internetowej lub za pośrednictwem zdecentralizowanych giełd.",
@@ -196,5 +198,25 @@
     "text3": "Tylko w 2023 roku możliwości hazardu za pomocą kryptowalut wzrosły trzykrotnie.\n\nPonieważ nie jest wymagane KYC i istnieje płynna, łatwa w obsłudze platforma, nie jest zaskoczeniem, że ludzie gromadzą się w witrynach takich jak TG.Bit, aby grać online.\n\nDlaczego więc wybrać TG.Bit?",
     "text4": "Zagraj teraz",
     "text5": "Z łatwością graj w popularne gry na płynnej platformie Telegram TG.Bit.\n\nDzięki naszemu silnemu marketingowi marka TG.Bit szybko staje się powszechnie znana.\n\nSkorzystaj z naszych inwestycji w gry online i naszego dochodowego modelu.\n\nPrzyjdź i odkryj z nami przyszłość gamingu!"
+  },
+  "tip": {
+    "text1": "Proszę podłączyć Wallect",
+    "text10": "Zakupy za kwotę TGB zostały wstrzymane",
+    "text11": "Transakcja została wysłana, proszę cierpliwie czekać na jej sfinalizowanie.",
+    "text12": "Transakcja udana",
+    "text13": "Transakcja poszła nie tak",
+    "text2": "Kup co najmniej 100 $ TGB.",
+    "text3": "Nie masz wystarczającej ilości ETH, aby zapłacić za tę transakcję.\n \nUpewnij się, że masz 0,015 ETH na gaz i ETH na wymianę tokenów.",
+    "text4": "Nie masz wystarczającej ilości ETH, aby zapłacić za tę transakcję.\n \nUpewnij się, że masz 0,015 ETH na gaz i USDT na wymianę tokenów.",
+    "text5": "Nie masz wystarczającej ilości USDT, aby zapłacić za tę transakcję.\n \nUpewnij się, że masz 0,015 ETH na gaz i USDT na wymianę tokenów.",
+    "text6": "Nie masz wystarczającej ilości ETH, aby zapłacić za tę transakcję.\n \nUpewnij się, że masz 0,015 ETH na gaz i USDC na wymianę tokenów.",
+    "text7": "Nie masz wystarczającej ilości USDC, aby zapłacić za tę transakcję.\n \nUpewnij się, że masz 0,015 ETH na gaz i USDC na wymianę tokenów.",
+    "text8": "Maksymalnie {amount} $TGC na transakcję.",
+    "text9": "0,015 ETH jest zarezerwowane dla gazu. \nRzeczywista wykorzystana kwota będzie zależeć od sieci.",
+    "text14": "Liczba nagród musi być większa niż 100",
+    "text15": "Liczba stawek musi być większa niż 100",
+    "text16": "Ilość niestake musi być większa niż 100",
+    "text17": "Pozostało {day} dni do uwolnienia stawki",
+    "text18": "Aby sfinalizować tę transakcję, musisz wyrazić zgodę na dostęp umowy do Twoich uprawnień USDT lub USDC"
   }
 }

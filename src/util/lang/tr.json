@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAX",
     "text8": "Aldığınız $TGB",
-    "text9": "Cüzdanı bağlayın"
+    "text9": "Cüzdanı bağlayın",
+    "text15": "Satın alma...",
+    "text16": "satın alındı"
   },
   "howToBuy": {
     "text1": "Ön Satış sırasında token satın almak için TG.Bit'in resmi web sitesini ziyaret edin.\n\nÖn Satıştan sonra tokenlar doğrudan resmi web sitesinden veya merkezi olmayan borsalar aracılığıyla edinilebilir.",
@@ -196,5 +198,25 @@
     "text3": "Yalnızca 2023 yılında kripto para birimleriyle kumar oynama seçenekleri üç katına çıktı.\n\nKYC gerektirmeyen ve kesintisiz, kullanımı kolay bir platform olduğundan, insanların çevrimiçi kumar oynamak için TG.Bit gibi sitelere akın etmesi şaşırtıcı değil.\n\nPeki neden TG.Bit'i seçmelisiniz?",
     "text4": "Şimdi oyna",
     "text5": "TG.Bit'in kusursuz Telegram platformunda popüler oyunları kolayca oynayın.\n\nGüçlü pazarlamamız sayesinde TG.Bit hızla herkesin bildiği bir isim haline geliyor.\n\nÇevrimiçi oyunlara yaptığımız yatırımlardan ve kârlılık modelimizden yararlanın.\n\nGelip oyunun geleceğini bizimle keşfedin!"
+  },
+  "tip": {
+    "text1": "Lütfen cüzdanı bağlayın",
+    "text10": "$TGB alımları durduruldu",
+    "text11": "İşlem gönderildi, lütfen işlemin tamamlanmasını sabırla bekleyin.",
+    "text12": "İşlem başarılı",
+    "text13": "İşlem yanlış gitti",
+    "text2": "Lütfen en az 100 $TGB satın alın.",
+    "text3": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n \nGaz için 0,015 ETH'ye ve token değişimi için ETH'ye sahip olduğunuzdan emin olun.",
+    "text4": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n \nGas için 0,015 ETH'ye ve token değişimi için USDT'ye sahip olduğunuzdan emin olun.",
+    "text5": "Bu işlem için ödeme yapmaya yetecek kadar USDT'niz yok.\n \nGas için 0,015 ETH'ye ve token değişimi için USDT'ye sahip olduğunuzdan emin olun.",
+    "text6": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
+    "text7": "Bu işlem için ödeme yapmaya yetecek kadar USDC'niz yok.\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
+    "text8": "İşlem başına maksimum {amount} $TGC.",
+    "text9": "0,015 ETH gaza ayrılmıştır. \nKullanılan gerçek miktar ağa bağlı olacaktır.",
+    "text14": "Ödül sayısı 100'den fazla olmalıdır",
+    "text15": "Bahis miktarı 100'den büyük olmalıdır",
+    "text16": "Bahis miktarı 100'den büyük olmalıdır",
+    "text17": "Bahis tutarının serbest bırakılmasına {days} gün kaldı",
+    "text18": "Bu işlemi tamamlamak için sözleşmenin USDT veya USDC izinlerinize erişimini kabul etmeniz gerekir."
   }
 }

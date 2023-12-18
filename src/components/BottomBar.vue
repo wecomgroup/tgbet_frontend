@@ -31,7 +31,7 @@
             <p class="diverMobile">
             </p>
             <div class="copyright">
-                @ 2023 TG BET All Rights Reserved
+                @ 2023 TG BIT All Rights Reserved
             </div>
             <div class="other">
                 <span @click="personalDialogVisible = true">{{$t('bottomBar.text2')}}</span>

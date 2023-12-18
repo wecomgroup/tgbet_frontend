@@ -153,6 +153,7 @@ if(!localStorage.getItem('language')) {
 
 const i18n = createI18n({
     legacy: false,
+    globalInjection: true,
     locale: localStorage.getItem('language') || 'en',
     messages,
 })

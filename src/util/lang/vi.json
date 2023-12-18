@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "TỐI ĐA",
     "text8": "$TGB bạn nhận được",
-    "text9": "Kết nối ví"
+    "text9": "Kết nối ví",
+    "text15": "Thu mua...",
+    "text16": "đã mua"
   },
   "howToBuy": {
     "text1": "Để mua mã thông báo trong đợt Bán trước, hãy truy cập trang web chính thức của TG.Bit.\n\nSau đợt Bán trước, bạn có thể nhận được mã thông báo trực tiếp từ trang web chính thức hoặc thông qua các sàn giao dịch phi tập trung.",
@@ -196,5 +198,25 @@
     "text3": "Chỉ riêng trong năm 2023, các lựa chọn đánh bạc bằng tiền điện tử đã tăng gấp ba lần.\n\nKhông cần KYC và nền tảng liền mạch, dễ sử dụng, không có gì ngạc nhiên khi mọi người đổ xô đến các trang web như TG.Bit để đánh bạc trực tuyến.\n\nVậy tại sao lại chọn TG.Bit?",
     "text4": "Bắt đầu chơi",
     "text5": "Dễ dàng chơi các trò chơi phổ biến trên nền tảng Telegram liền mạch của TG.Bit.\n\nNhờ hoạt động tiếp thị mạnh mẽ của chúng tôi, TG.Bit đang nhanh chóng trở thành một cái tên quen thuộc.\n\nHưởng lợi từ khoản đầu tư vào trò chơi trực tuyến và mô hình sinh lời của chúng tôi.\n\nHãy cùng chúng tôi khám phá tương lai của trò chơi!"
+  },
+  "tip": {
+    "text1": "Vui lòng kết nối ví",
+    "text10": "Giao dịch mua $TGB đã bị tạm dừng",
+    "text11": "Giao dịch đã được gửi đi, vui lòng kiên nhẫn chờ đợi giao dịch được hoàn tất.",
+    "text12": "Giao dịch thành công",
+    "text13": "Giao dịch bị sai",
+    "text2": "Vui lòng mua ít nhất 100 $TGB.",
+    "text3": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và ETH để trao đổi mã thông báo.",
+    "text4": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDT để trao đổi mã thông báo.",
+    "text5": "Bạn không có đủ USDT để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDT để trao đổi mã thông báo.",
+    "text6": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
+    "text7": "Bạn không có đủ USDC để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
+    "text8": "Tối đa {amount} $TGC cho mỗi giao dịch.",
+    "text9": "0,015 ETH được dành riêng cho gas. \nSố tiền thực tế được sử dụng sẽ phụ thuộc vào mạng.",
+    "text14": "Số lượng phần thưởng phải lớn hơn 100",
+    "text15": "Số tiền đặt cược phải lớn hơn 100",
+    "text16": "Số lượng unstake phải lớn hơn 100",
+    "text17": "Còn {ngày} ngày nữa cho đến khi cổ phần được giải phóng",
+    "text18": "Để hoàn tất giao dịch này, bạn cần đồng ý cho phép hợp đồng truy cập vào các quyền USDT hoặc USDC của bạn"
   }
 }

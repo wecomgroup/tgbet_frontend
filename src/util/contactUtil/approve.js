@@ -30,25 +30,29 @@ const getPublicCient = () => {
 
 //waitForTransactionReceipt
 const waitTx = async (tx) => {
-  ElMessage.success(`交易已发出，请耐心等待交易完成`)
-  let publicClient = getPublicCient();
-  let receipt = await publicClient.waitForTransactionReceipt(
-    {
-      confirmations: 1,
-      hash: tx,
-      timeout: 60_000,
-      onReplaced: replacement => {
-        console.log(replacement)
+  try {
+    let publicClient = getPublicCient();
+    let receipt = await publicClient.waitForTransactionReceipt(
+      {
+        confirmations: 1,
+        hash: tx,
+        timeout: 60_000,
+        onReplaced: replacement => {
+          console.log(replacement)
+        }
       }
+    )
+    if (receipt && receipt.status == 'success') {
+      return true
+    } else {
+      return false
     }
-  )
-  if (receipt && receipt.status == 'success') {
-    ElMessage.success(`交易成功`)
-    return true
-  } else {
-    ElMessage.success(`交易出错了`)
-    return false
+  } catch (error) {
+    console.log(`tx error : ${error}`)
+     return false
   }
+  // ElMessage.success(this.$t('tip.text11'))
+ 
 }
 
 //检查授权额度  未授权 0 或者 授权额度小于支出数

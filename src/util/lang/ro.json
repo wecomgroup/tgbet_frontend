@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB primești",
-    "text9": "Conectați portofelul"
+    "text9": "Conectați portofelul",
+    "text15": "Cumpărare...",
+    "text16": "cumparat"
   },
   "howToBuy": {
     "text1": "Pentru a cumpăra jetoane în timpul prevânzării, vizitați site-ul oficial al TG.Bit.\n\nDupă pre-vânzare, jetoanele pot fi obținute direct de pe site-ul oficial sau prin schimburi descentralizate.",
@@ -196,5 +198,25 @@
     "text3": "Numai în 2023, opțiunile pentru jocurile de noroc cu criptomonede s-au triplat.\n\nNefiind nevoie de KYC și de o platformă simplă, ușor de utilizat, nu este surprinzător faptul că oamenii se îngrămădesc pe site-uri precum TG.Bit pentru a juca online.\n\nDeci, de ce să alegeți TG.Bit?",
     "text4": "Joaca acum",
     "text5": "Joacă cu ușurință jocuri populare pe platforma Telegram fără întreruperi a TG.Bit.\n\nDatorită marketingului nostru puternic, TG.Bit devine rapid un nume cunoscut.\n\nBeneficiați de investiția noastră în jocurile online și de modelul nostru profitabil.\n\nVino să explorezi viitorul jocurilor cu noi!"
+  },
+  "tip": {
+    "text1": "Vă rugăm să conectați wallect",
+    "text10": "Achizițiile în $TGB au fost întrerupte",
+    "text11": "Tranzacția a fost trimisă, vă rugăm să așteptați cu răbdare ca tranzacția să fie finalizată.",
+    "text12": "Tranzacție reușită",
+    "text13": "Tranzacția a mers prost",
+    "text2": "Vă rugăm să cumpărați cel puțin 100 USD TGB.",
+    "text3": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și ETH pentru schimbul de jetoane.",
+    "text4": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru benzină și USDT pentru schimbul de jetoane.",
+    "text5": "Nu aveți suficienți USDT pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru benzină și USDT pentru schimbul de jetoane.",
+    "text6": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
+    "text7": "Nu aveți suficienți USDC pentru a plăti această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
+    "text8": "Maximum {amount} USD TGC per tranzacție.",
+    "text9": "0,015 ETH este rezervat pentru gaz. \nCantitatea efectivă utilizată va depinde de rețea.",
+    "text14": "Numărul de recompense trebuie să fie mai mare de 100",
+    "text15": "Cantitatea mizei trebuie să fie mai mare de 100",
+    "text16": "Cantitatea de unstake trebuie să fie mai mare de 100",
+    "text17": "Au mai rămas {zile} zile până la eliberarea mizei",
+    "text18": "Pentru a finaliza această tranzacție, trebuie să fiți de acord cu accesul contractului la permisiunile dvs. USDT sau USDC"
   }
 }

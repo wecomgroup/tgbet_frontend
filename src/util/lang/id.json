@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAKS",
     "text8": "$TGB yang Anda terima",
-    "text9": "Hubungkan dompet"
+    "text9": "Hubungkan dompet",
+    "text15": "Membeli...",
+    "text16": "dibeli"
   },
   "howToBuy": {
     "text1": "Untuk membeli token selama Presale, kunjungi situs resmi TG.Bit.\n\nSetelah Presale, token dapat diperoleh langsung dari situs resmi atau melalui bursa terdesentralisasi.",
@@ -196,5 +198,25 @@
     "text3": "Pada tahun 2023 saja, opsi perjudian dengan mata uang kripto meningkat tiga kali lipat.\n\nTanpa perlu KYC dan platform yang mulus dan mudah digunakan, tidak mengherankan jika orang berbondong-bondong mengunjungi situs seperti TG.Bit untuk berjudi online.\n\nJadi mengapa memilih TG.Bit?",
     "text4": "Main sekarang",
     "text5": "Mainkan game populer dengan mudah di platform Telegram TG.Bit yang mulus.\n\nBerkat pemasaran kami yang kuat, TG.Bit dengan cepat menjadi terkenal.\n\nManfaatkan investasi kami dalam game online dan model kami yang menguntungkan.\n\nAyo jelajahi masa depan game bersama kami!"
+  },
+  "tip": {
+    "text1": "Silakan sambungkan dompet",
+    "text10": "Pembelian $TGB telah dijeda",
+    "text11": "Transaksi sudah terkirim, mohon bersabar menunggu transaksi selesai.",
+    "text12": "Transaksi berhasil",
+    "text13": "Transaksi salah",
+    "text2": "Silakan membeli setidaknya 100 $TGB.",
+    "text3": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan ETH untuk pertukaran token.",
+    "text4": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDT untuk pertukaran token.",
+    "text5": "Anda tidak memiliki cukup USDT untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDT untuk pertukaran token.",
+    "text6": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
+    "text7": "Anda tidak memiliki cukup USDC untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
+    "text8": "Maksimum {jumlah} $TGC per transaksi.",
+    "text9": "0,015 ETH dicadangkan untuk gas. \nJumlah sebenarnya yang digunakan akan bergantung pada jaringan.",
+    "text14": "Jumlah hadiah harus lebih besar dari 100",
+    "text15": "Jumlah taruhan harus lebih besar dari 100",
+    "text16": "Kuantitas unstake harus lebih besar dari 100",
+    "text17": "Ada {days} hari tersisa hingga pasak dilepas",
+    "text18": "Untuk menyelesaikan transaksi ini, Anda harus menyetujui akses kontrak ke izin USDT atau USDC Anda"
   }
 }

@@ -83,7 +83,9 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB kap",
-    "text9": "Csatlakoztassa a pénztárcát"
+    "text9": "Csatlakoztassa a pénztárcát",
+    "text15": "Vásárlás...",
+    "text16": "vásárolt"
   },
   "howToBuy": {
     "text1": "Az előértékesítés során tokenek vásárlásához látogasson el a TG.Bit hivatalos weboldalára.\n\nAz előértékesítést követően a tokeneket közvetlenül a hivatalos webhelyről vagy decentralizált cseréken keresztül lehet beszerezni.",
@@ -196,5 +198,25 @@
     "text3": "Csak 2023-ban háromszorosára nőtt a kriptovalutákkal való szerencsejáték lehetősége.\n\nMivel nincs szükség KYC-re és egy zökkenőmentes, könnyen használható platformra, nem meglepő, hogy az emberek a TG.Bithez hasonló oldalakra özönlenek online szerencsejátékra.\n\nTehát miért válassza a TG.Bit-et?",
     "text4": "Játssz most",
     "text5": "Könnyen játszhat népszerű játékokkal a TG.Bit zökkenőmentes Telegram platformján.\n\nErőteljes marketingünknek köszönhetően a TG.Bit gyorsan ismertté válik.\n\nHasználja ki az online játékokba való befektetésünket és nyereséges modellünket.\n\nGyere és fedezd fel velünk a játék jövőjét!"
+  },
+  "tip": {
+    "text1": "Kérjük, csatlakoztassa a wallect-et",
+    "text10": "A $TGB vásárlások szünetelnek",
+    "text11": "A tranzakció elküldve, kérjük, várjon türelmesen, amíg a tranzakció befejeződik.",
+    "text12": "Sikeres tranzakció",
+    "text13": "A tranzakció rosszul sikerült",
+    "text2": "Kérjük, vásároljon legalább 100 USD TGB-t.",
+    "text3": "Nincs elég ETH-ja ennek a tranzakciónak a kifizetéséhez.\n \nGyőződjön meg arról, hogy 0,015 ETH van a gázhoz és ETH a tokencseréhez.",
+    "text4": "Nincs elég ETH-ja ennek a tranzakciónak a kifizetéséhez.\n \nGyőződjön meg arról, hogy van 0,015 ETH a gázra és USDT a tokencserére.",
+    "text5": "Nincs elég USDT-je a tranzakció kifizetéséhez.\n \nGyőződjön meg arról, hogy van 0,015 ETH a gázra és USDT a tokencserére.",
+    "text6": "Nincs elég ETH-ja ennek a tranzakciónak a kifizetéséhez.\n \nGyőződjön meg arról, hogy 0,015 ETH van a gázhoz és USDC a tokencseréhez.",
+    "text7": "Nincs elég USDC-je a tranzakció kifizetéséhez.\n \nGyőződjön meg arról, hogy 0,015 ETH van a gázhoz és USDC a tokencseréhez.",
+    "text8": "Maximum {amount} USD TGC tranzakciónként.",
+    "text9": "0,015 ETH van fenntartva a gáz számára. \nA ténylegesen felhasznált mennyiség a hálózattól függ.",
+    "text14": "A jutalmak számának 100-nál nagyobbnak kell lennie",
+    "text15": "A tét mennyiségének 100-nál nagyobbnak kell lennie",
+    "text16": "A kihelyezett mennyiségnek 100-nál nagyobbnak kell lennie",
+    "text17": "{days} nap van hátra a tét felszabadításáig",
+    "text18": "A tranzakció végrehajtásához el kell fogadnia, hogy a szerződés hozzáférjen az USDT vagy USDC engedélyeihez"
   }
 }
