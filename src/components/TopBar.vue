@@ -3,13 +3,13 @@
         <div class="navbar" id="navbar">
             <img alt="ibit logo" class="topLogo" src="../assets/logo.png">
             <div class="navContainer">
-                <a @click="handleClick('home')">{{ $t('topBar.index') }}</a>
-                <a @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
-                <a @click="handleClick('operationContainer')">{{ $t('topBar.methods') }}</a>
-                <a @click="handleClick('economicToken')">{{ $t('topBar.economic') }}</a>
-                <a @click="handleClick('pledgeCoin')">{{ $t('topBar.reward') }}</a>
-                <a @click="goPcHowToBuy">{{ $t('topBar.howBuy') }}</a>
-                <a @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
+                <a class="menu-item" @click="handleClick('home')">{{ $t('topBar.index') }}</a>
+                <a class="menu-item" @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
+                <a class="menu-item" @click="handleClick('operationContainer')">{{ $t('topBar.methods') }}</a>
+                <a class="menu-item" @click="handleClick('economicToken')">{{ $t('topBar.economic') }}</a>
+                <a class="menu-item" @click="handleClick('pledgeCoin')">{{ $t('topBar.reward') }}</a>
+                <a class="menu-item" @click="goPcHowToBuy">{{ $t('topBar.howBuy') }}</a>
+                <a class="menu-item" @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
             </div>
             <img alt="ibit menu" class="menuImg" src="../assets/menu.png">
             <div class="menuImg" @click="handleShowMenu"></div>
@@ -227,6 +227,16 @@ export default {
     box-sizing: border-box;
 }
 
+.menu-item:hover {
+    color: #c5ac79;
+    transition: 0.5s;
+}
+
+.audit:hover {
+  background: linear-gradient(0deg, #2B2E39, #2B2E39),
+    linear-gradient(0deg, #E3C076, #E3C076);
+}
+
 .topLogo {
     width: 163px;
     height: auto;
@@ -253,9 +263,11 @@ export default {
 .menuLink {
     width: 100%;
     display: flex;
+    background-color: transparent;
     flex-direction: row;
     align-items: center;
 }
+
 
 .langMenu {
     margin-left: 15px;
@@ -304,6 +316,10 @@ export default {
     font-weight: 600;
     font-size: 14px;
     cursor: pointer;
+}
+
+.pledge:hover {
+    background-color: #FFD581;
 }
 
 .audit {
