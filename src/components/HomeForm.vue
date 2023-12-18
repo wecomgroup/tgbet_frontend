@@ -48,6 +48,16 @@
         </div>
       </el-col>
     </el-row>
+    <el-row v-if="connect && myBalance && myBalance.tgbDeposits" style="margin-top: 20px; ">
+      <el-col :span="12">
+        <p class="logtips">$TGB <span style="opacity: 0.6;">purchased</span></p>
+      </el-col>
+      <el-col :span="12">
+        <div class="wallect">
+          <p style="opacity: 0.6;">{{myBalance.tgbDeposits}}</p>
+        </div>
+      </el-col>
+    </el-row>
     <el-row :gutter="20" style="margin-top: 5px; ">
       <el-col :span="12">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
@@ -176,6 +186,8 @@ export default {
           args: [accountMsg.value.address]
         }
 
+        let proxyContract = getPreSaleContract()
+
         const balanceArr = await readContracts({
           contracts: [
             {
@@ -192,7 +204,12 @@ export default {
               // The USDC token
               address: usdcAddress,
               ...callBalanceOfConfig
-            }
+            },
+            {
+              ...proxyContract,
+              functionName: 'userDeposits',
+              args: [accountMsg.value.address]
+            },
           ],
         })
         let ethBalance = await fetchBalance({
@@ -204,6 +221,7 @@ export default {
           tgbBalance: formatUnits(balanceArr[0].result, '18'),
           usdtBalance: formatUnits(balanceArr[1].result, '6'),
           usdcBalance: formatUnits(balanceArr[2].result, '6'),
+          tgbDeposits: formatUnits(balanceArr[3].result, '18'),
         }
         myBalance.value = resultData
         console.log(`ethBalance:${myBalance.value.ethBalance} ,tgbBalance :${myBalance.value.tgbBalance}, usdtBalance :${myBalance.value.usdtBalance}, usdcBalance :${myBalance.value.usdcBalance}`)
