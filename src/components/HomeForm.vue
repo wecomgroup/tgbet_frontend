@@ -71,7 +71,18 @@
         <el-input placeholder="0" class="f-ipt" v-model="tgbAmount" @input="changeTGBAmount" clearable></el-input>
       </el-col>
     </el-row>
+    <el-row :xs="24" :sm="24" :lg="12" v-if="connect">
+      <div class="normal-message" v-if="normalMsg">
+        {{ normalMsg }}
+      </div>
+      <div class="tip-message" v-if="tipMsg">
+        {{ tipMsg }}
+      </div>
+      <div class="tip-message" v-if="walletTipMsg">
+        {{ walletTipMsg }}
+      </div>
 
+    </el-row>
     <el-row>
       <el-col :span="24">
         <el-button v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
@@ -111,6 +122,7 @@ import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
+
 import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
 import {
   getTgbContract,
@@ -127,6 +139,9 @@ export default {
 
   setup: () => {
 
+    let tipMsg = ref()
+    let normalMsg = ref()
+    let walletTipMsg = ref()
 
     const countdownTimer = ref()
     const indexTimer = ref()
@@ -370,6 +385,8 @@ export default {
       info.saleAmountStr = parseInt(info.saleAmount).toLocaleString()
       info.saleGoal = parseInt(info.saleGoal).toLocaleString()
       infoData.value = info
+
+      checkTips()
     }
 
 
@@ -499,8 +516,8 @@ export default {
     }
 
     let color = ref("#C5AC79");
-    let coinAmount = ref();
-    let tgbAmount = ref();
+    let coinAmount = ref(0);
+    let tgbAmount = ref(0);
     let selectedCoin = ref({});
     let inviteCode = ref()
 
@@ -510,8 +527,9 @@ export default {
       selectedCoin.value = coinInfo[value];
       console.log(selectedCoin.value)
 
-      coinAmount.value = ""
-      tgbAmount.value = ""
+      coinAmount.value = ''
+      tgbAmount.value = ''
+      checkTips()
     };
 
     const filterCoinName = () => {
@@ -549,6 +567,8 @@ export default {
       if (rateNum) {
         tgbAmount.value = parseInt(coinAmount.value * Number(rateNum ? rateNum : "0") / infoData.value.tokenPrice)
       }
+
+      checkTips()
     }
 
     const changeTGBAmount = (val) => {
@@ -562,27 +582,90 @@ export default {
       if (rateNum) {
         coinAmount.value = (tgbAmount.value * infoData.value.tokenPrice) / Number(rateNum ? rateNum : "0")
       }
+
+      checkTips()
+    }
+
+    //showTips
+    const checkTips = () => {
+      try {
+
+
+        if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
+          console.log(`< 100 tgbAmount: ${Number(tgbAmount.value)}`)
+
+          tipMsg.value = `Please purchase at least 100 $TGB.`
+          normalMsg.value = ''
+          walletTipMsg.value = ''
+          return
+        }
+
+        let selectCoin = selectedCoin.value.name
+        let fee = 0.015
+
+        if (selectCoin === 'ETH') {
+          console.log(`coinAmount : ${Number(coinAmount.value)} my eth : ${Number(myBalance.value.ethBalance)}`)
+          if (Number(myBalance.value.ethBalance) < (Number(coinAmount.value) + fee)) {
+            tipMsg.value = `You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and ETH for the token exchange.`
+          } else {
+            tipMsg.value = ''
+          }
+        } else if (selectCoin === 'USDT') {
+          if (Number(myBalance.value.ethBalance) < fee) {
+            tipMsg.value = `You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and USDT for the token exchange.`
+          } else if (Number(coinAmount.value) > Number(myBalance.value.usdtBalance)) {
+            tipMsg.value = 'You do not have enough USDT to pay for this transaction.\n Make sure you have 0.015 ETH for gas and USDT for the token exchange.'
+          } else {
+            tipMsg.value = ''
+          }
+        } else if (selectCoin === 'USDC') {
+          if (Number(myBalance.value.ethBalance) < fee) {
+            tipMsg.value = `You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and USDC for the token exchange.`
+          } else if (Number(coinAmount.value) > Number(myBalance.value.usdtBalance)) {
+            tipMsg.value = 'You do not have enough USDC to pay for this transaction.\n Make sure you have 0.015 ETH for gas and USDC for the token exchange.'
+          } else {
+            tipMsg.value = ''
+          }
+        }
+
+        if (tipMsg.value) {
+          normalMsg.value = ''
+          walletTipMsg.value = ''
+        } else {
+          normalMsg.value = `0.015 ETH is reserved for gas. The actual amount used will depend on the network.`
+          walletTipMsg.value = ''
+          tipMsg.value = ''
+        }
+      } catch (error) {
+        console.log(error)
+      }
     }
 
     const checkEnableBuy = () => {
+      try {
 
-      if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
-        ElMessage.error(`$TGB购买数量需大于100`)
+
+        if (!tgbAmount.value || (Number(tgbAmount.value) < 100)) {
+          ElMessage.error(`$TGB购买数量需大于100`)
+          return false
+        }
+
+        let maxAmount = infoData.value.maxTokensToBuy
+        if (Number(tgbAmount.value) > maxAmount) {
+
+          ElMessage.error(`$TGB 最大购买数量：` + maxAmount)
+          return false
+        }
+
+        if (infoData.value.paused) {
+          ElMessage.error(`$TGB购买已暂停`)
+          return false
+        }
+        return true
+      } catch (error) {
+        console.log(error)
         return false
       }
-
-      let maxAmount = infoData.value.maxTokensToBuy
-      if (Number(tgbAmount.value) > maxAmount) {
-
-        ElMessage.error(`$TGB 最大购买数量：` + maxAmount)
-        return false
-      }
-
-      if (infoData.value.paused) {
-        ElMessage.error(`$TGB购买已暂停`)
-        return false
-      }
-      return true
     }
     // user click buy
     // 1 ETH-BUY
@@ -745,10 +828,14 @@ export default {
           }
         }
       } catch (err) {
-        const metamaskError = err?.message?.split(".")[0] || "Unknown error";
-        const message = err?.message ? metamaskError : err;
-        console.log("钱包错误信息", err, message, metamaskError);
-        //   弹出这个信息
+        console.log(`originErr: ${ JSON.stringify(err) }  `)
+        if(err.shortMessage) {
+          if(err.shortMessage == 'User rejected the request.'){
+            walletTipMsg.value = err.shortMessage
+          } else {
+            walletTipMsg.value = 'An unknown RPC error occurred'
+          }
+        }
       }
     };
 
@@ -787,6 +874,9 @@ export default {
       selectedCoin,
       coinInfo,
       myBalance,
+      tipMsg,
+      normalMsg,
+      walletTipMsg,
       connectWithWalletConnect,
       chooseMoney,
       accountMsg,
@@ -805,7 +895,8 @@ export default {
       filterAddress,
       checkNetwork,
       filterCoinName,
-      fetchMyBalance
+      fetchMyBalance,
+      checkTips
     };
   },
 };
@@ -816,6 +907,26 @@ export default {
   color: #fff;
   font-size: 16px;
   font-weight: bold;
+}
+
+.tip-message {
+  padding-bottom: 20px;
+  color: #FF494A;
+  font-weight: 600;
+  font-family: "Work Sans";
+  opacity: 0.8;
+  font-size: clamp(14px, 1.1rem, 16px);
+  white-space: pre-line;
+}
+
+.normal-message {
+  padding-bottom: 20px;
+  color: #FFF;
+  font-weight: 600;
+  font-family: "Work Sans";
+  opacity: 0.8;
+  font-size: clamp(14px, 1.1rem, 16px);
+  white-space: pre-line;
 }
 
 .wallect {
