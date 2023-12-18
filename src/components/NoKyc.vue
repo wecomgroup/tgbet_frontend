@@ -1,6 +1,6 @@
 <template>
     <div class="noKyc" id="noKyc">
-        <div class="noKycLogo">{{ $t('blockTitle.nokyc1') }}</div>
+        <div class="noKycLogo">{{ $t('blockTitle.nokyc1') }} <Line /></div>
         <div class="desc">
             {{ $t('noKyc.text1') }}
         </div>
@@ -20,9 +20,11 @@
 <script>
 
 import { urls,openUrl } from '@/util/const/urlConst';
+import Line from "./Line.vue";
 
 export default {
     name: 'NoKyc',
+    components:{Line},
     data() {
         return {
             // steps: []

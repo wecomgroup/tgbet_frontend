@@ -32,6 +32,9 @@
       <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.second ? timeState.second : '00' }} S</span></el-col>
     </el-row>
+    <!-- 线条 -->
+    <Line class="pc" style="margin-top: 25px;"></Line>
+
     <el-row v-if="connect" style="margin-top: 30px; ">
       <el-col :span="12">
         <p class="logtips">{{ $t('homeForm.text4') }} </p>
@@ -116,6 +119,7 @@
   </div>
 </template>
 <script>
+import Line from "./Line.vue";
 
 import {
   erc20ABI,
@@ -135,7 +139,7 @@ import {
 
 import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
-import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
+import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 
@@ -152,7 +156,9 @@ import {
 } from '../util/const/const'
 
 export default {
-
+  components: {
+        Line
+    },
   setup: () => {
     let fee = 0.015
     let tipMsg = ref()
@@ -916,9 +922,11 @@ export default {
         globalProperties.$web3modal.open();
       }
     };
+    // const Line = Line;
 
     return {
       countdownTimer,
+    
       indexTimer,
       timeState,
       infoData,

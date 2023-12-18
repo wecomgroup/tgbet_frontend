@@ -3,6 +3,7 @@
         <div class="safeDesc">
             <div class="safeLogoImg">
                 {{ $t('blockTitle.safe1') }}
+                <Line class="pc" ></Line>
             </div>
             <div class="desc">{{ $t('safeInstructions.text1') }}</div>
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
@@ -26,12 +27,14 @@
 
 <script>
 import { urls,openUrl } from '@/util/const/urlConst';
+import Line from "./Line.vue";
 
 export default {
     name: 'SafeInstructions',
     data() {
         return {}
     },
+    components:{Line},
     setup: () => {
         return {
             urls,

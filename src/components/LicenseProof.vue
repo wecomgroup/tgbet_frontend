@@ -1,7 +1,7 @@
 <template>
     <div class="licenseContainer">
         <div class="licenseDesc">
-            <div class="licenseDescLogo">{{ $t('blockTitle.lsp1') }}</div>
+            <div class="licenseDescLogo">{{ $t('blockTitle.lsp1') }} <Line /></div>
             <img class="licenseDetailMobile" src="../assets/licenseLogo.png">
             <div class="desc">{{ $t('licenseProof.text1') }}</div>
             <div class="check" @click="openUrl(urls.licenseUrl)">{{ $t('licenseProof.text2') }}</div>
@@ -12,12 +12,14 @@
 
 <script>
 import { urls,openUrl } from '@/util/const/urlConst';
+import Line from "./Line.vue";
 
 export default {
     name: 'LicenseProof',
     data() {
         return {}
     },
+    components:{Line},
     setup: () => {
         return {
             urls,

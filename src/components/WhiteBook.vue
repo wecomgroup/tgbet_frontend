@@ -3,7 +3,8 @@
         <el-row style="width: 100%;display: flex;align-items:center;" :gutter="30">
             <el-col :xs="24" :sm="24" :lg="13">
                 <div class="whiteBookDesc">
-                    <div class="whiteBookLogo">{{ $t('blockTitle.wb') }}</div>
+                    <div class="whiteBookLogo">{{ $t('blockTitle.wb') }}  <Line class="pc"/></div>
+                  
 
                     <img class="whiteBookImgMobile" src="../assets/whiteBookImg.png">
 
@@ -20,11 +21,12 @@
 </template>
 
 <script>
-
+import Line from "./Line.vue"
 import { urls, openUrl } from '@/util/const/urlConst';
 
 export default {
     name: 'WhiteBook',
+    components:{Line},
     data() {
         return {}
     },
