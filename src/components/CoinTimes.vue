@@ -5,12 +5,13 @@
                 <div class="coinTimesDesc">
                     <div class="coinTimesDescLogo">
                         <span>{{ $t('blockTitle.ctl2') }}</span>
+                        <Line class="pc" />
+
                     </div>
                     <div class="coinChanceMobileImg">
-                       <span>{{ $t('blockTitle.ctl2') }}</span>
-                      
+                        <span>{{ $t('blockTitle.ctl2') }}</span>
+                        <Line class="pc" />
                     </div>
-                    <Line class="pc"/>
 
                     <div class="desc">
                         {{ $t('coinTimes.text1') }}
@@ -28,7 +29,7 @@
 import Line from "./Line.vue"
 export default {
     name: 'CoinTimes',
-    components:{Line},
+    components: { Line },
     data() {
         return {}
     },
@@ -61,8 +62,11 @@ export default {
 }
 
 .coinTimesDescLogo {
-    width: 638px;
-    height: 63px;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    /* width: 638px; */
+    /* height: 63px; */
     font-size: 40px;
     font-weight: bold;
 }
@@ -103,9 +107,10 @@ export default {
         height: auto;
         flex-direction: column;
     }
-  .coinTimesContainer .is-guttered{
-    padding: 0 !important;
-  }
+
+    .coinTimesContainer .is-guttered {
+        padding: 0 !important;
+    }
 
     .coinTimesDescLogo {
         display: none;
@@ -117,6 +122,9 @@ export default {
         height: auto;
         font-size: 24px;
         font-weight: bold;
+        width: fit-content;
+        width: -webkit-fit-content;
+        width: -moz-fit-content;
     }
 
     .coinChanceMobileImg span {

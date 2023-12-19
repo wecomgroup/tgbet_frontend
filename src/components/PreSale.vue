@@ -3,27 +3,18 @@
   <div class="preSale" id="preSale">
     <div class="preSaleTitleImg">
       {{ $t("blockTitle.preTxt1") }}
-     
+      <Line style="width: 100%;"></Line>
     </div>
-    <Line class="pc-1" style="width: 700px;"></Line>
-    <Line class="moblie-1" ></Line>
-    
+
     <div class="desc">{{ $t("preSale.text1") }}</div>
     <!-- 线条 -->
-   
+
 
     <el-row align="middle" :gutter="40">
-      <el-col
-        :xs="24"
-        :sm="24"
-        :md="6"
-        v-for="(item, index) in preSaleDescList"
-        :key="index"
-        style="
+      <el-col :xs="24" :sm="24" :md="6" v-for="(item, index) in preSaleDescList" :key="index" style="
           padding-bottom: 32767px !important;
           margin-bottom: -32767px !important;
-        "
-      >
+        ">
         <div class="descItem">
           <img class="preSaleImg" :src="item.src" />
           <div>
@@ -131,9 +122,12 @@ export default {
 
 .preSaleTitleImg {
   /* width: 472px; */
-  height: 63px;
+  /* height: 63px; */
   font-size: 40px;
   font-weight: bold;
+  width: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
 }
 
 .preSaleImg {

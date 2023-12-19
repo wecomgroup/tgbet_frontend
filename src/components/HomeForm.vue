@@ -107,7 +107,7 @@
         <button v-if="connect && !approve" class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
           {{ $t('homeForm.text10', { APY: infoData.apy }) }}
         </button>
-        <div class="approve" v-if="approve">
+        <div class="approve" v-if="connect && approve">
           <button class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
             {{$t('tip.text20')}}
           </button>
@@ -1204,7 +1204,6 @@ export default {
 .max-value {
   /* font-size: 13px; */
   border: 1px solid #efd8aa;
-  width: 44px;
   text-align: center;
   border-radius: 4px;
   padding: 2px;

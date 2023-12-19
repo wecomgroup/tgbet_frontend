@@ -3,7 +3,7 @@
         <div class="economicTokenLeft">
             <div class="economicTokenLogo">
                 {{ $t('blockTitle.coin') }}
-                <Line class="pc" style="width: 260px;"></Line>
+                <Line class="pc" style="width: 100%;"></Line>
             </div>
         </div>
         <el-row style="width: 100%;" :gutter="gutter">
@@ -204,6 +204,9 @@ export default {
 
 .economicTokenLogo {
     /* width: 305px; */
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     height: auto;
     font-size: 44px;
     font-weight: bold;

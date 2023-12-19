@@ -4,9 +4,8 @@
             <el-col :xs="24" :sm="24" :lg="13">
                 <div class="coinChanceLogo">
                     {{ $t('blockTitle.cc1') }}
-                   
+                    <Line style="width: 100%;"/>
                 </div>
-                <Line class="pc"/>
                 <div class="desc">{{ $t('coinChance.text1') }}</div>
                 <div class="desc">{{ $t('coinChance.text2') }}</div>
             </el-col>
@@ -42,7 +41,10 @@ export default {
 
 .coinChanceLogo {
     /* width: 385px; */
-    height: 63px;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    /* height: 63px; */
     font-size: 40px;
     font-weight: bold;
 }

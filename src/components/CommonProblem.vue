@@ -1,7 +1,9 @@
 <template>
     <div class="commonProblemContainer" id="commonProblemContainer">
-        <div class="commonProblemLogo">{{ $t("blockTitle.qa") }} <Line class="pc-1" style="width: 550px;"></Line>
-            <Line class="mobile-1"></Line></div>
+        <div class="commonProblemLogo">
+            {{ $t("blockTitle.qa") }}
+            <Line class="common-line"></Line>
+        </div>
         <el-collapse>
             <el-collapse-item v-for="item in commonProblems" :key="item.id" :name="item.id" title="1123">
                 <template v-slot:title>
@@ -22,7 +24,7 @@
 import Line from "./Line.vue"
 export default {
     name: 'CommonProblem',
-    components:{Line},
+    components: { Line },
     data() {
         return {
             // commonProblems: []
@@ -52,12 +54,19 @@ export default {
     flex-direction: column;
 }
 
+.common-line {
+    width: 100%;
+}
+
 .commonProblemLogo {
     /* width: 305px; */
     height: auto;
     margin: 40px 0 40px 0;
     font-size: 40px;
     font-weight: bold;
+    width: fit-content;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
 }
 
 /* .commonProblemLogo span {
@@ -116,8 +125,9 @@ export default {
     justify-content: center;
     align-items: center;
 }
-.custom-title div{
-  text-align: left;
+
+.custom-title div {
+    text-align: left;
 }
 
 .el-collapse-item:after {
@@ -180,15 +190,15 @@ export default {
     }
 
 
-  .custom-title{
-    align-items: normal;
-  }
+    .custom-title {
+        align-items: normal;
+    }
 
     .arrowImg {
         width: 16px;
         height: 9px;
         margin-right: 16px;
-      margin-top: 12px;
+        margin-top: 12px;
     }
 }
 </style>
