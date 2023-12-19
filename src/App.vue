@@ -133,7 +133,8 @@ export default {
 }
 
 body {
-  overflow-x: hidden
+  overflow-x: hidden;
+  background-color:#181A20
 }
 
 img {
