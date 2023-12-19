@@ -30,7 +30,10 @@
       <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.second ? timeState.second : '00' }} S</span></el-col>
     </el-row>
-    <el-row v-if="connect" style="margin-top: 25px; ">
+    <!-- 线条 -->
+    <Line class="pc" style="margin-top: 25px;"></Line>
+
+    <el-row v-if="connect" style="margin-top: 30px; ">
       <el-col :span="12">
         <p class="logtips">{{ $t('homeForm.text4') }} </p>
       </el-col>
@@ -106,10 +109,9 @@
         </button>
         <div class="approve" v-if="approve">
           <button class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
-            Approve
+            {{$t('tip.text20')}}
           </button>
-          <div class="approve-tip">In order to buy $TGC with USDT, you first need to authorize us to access the USDT in
-            your wallet.</div>
+          <div class="approve-tip">{{$t('tip.text19')}}</div>
         </div>
 
         <div v-if="connect && !approve" class="stake-buy-btn-container">
@@ -123,6 +125,7 @@
   </div>
 </template>
 <script>
+import Line from "./Line.vue";
 
 import {
   erc20ABI,
@@ -142,7 +145,7 @@ import {
 
 import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
-import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref } from "vue";
+import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 
@@ -159,7 +162,9 @@ import {
 } from '../util/const/const'
 
 export default {
-
+  components: {
+        Line
+    },
   setup: () => {
     const { $t } = getCurrentInstance().proxy;
 
@@ -920,7 +925,7 @@ export default {
           let allowanceData = await checkApprove(usdcContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
-            ElMessage.warning($t('tip.text18'))
+            // ElMessage.warning($t('tip.text18'))
            let approveTx = await approveContract(usdcContract, proxyContract.address, account)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
@@ -1008,11 +1013,13 @@ export default {
         globalProperties.$web3modal.open();
       }
     };
+    // const Line = Line;
 
     return {
       buying,
       approve, usdcApproved, usdtApproved,
       countdownTimer,
+    
       indexTimer,
       timeState,
       infoData,

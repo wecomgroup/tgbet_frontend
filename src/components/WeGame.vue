@@ -1,7 +1,8 @@
 <template>
     <div class="weGameContainer">
         <div class="weGameDesc">
-            <div class="weGameLogo">{{ $t('blockTitle.wg1') }}</div>
+            <div class="weGameLogo">{{ $t('blockTitle.wg1') }} <Line /></div>
+           
             <div class="desc">{{ $t('webGame.text1') }}</div>
             <div class="title">{{ $t('webGame.text2') }}</div>
             <div class="gameDesc">{{ $t('webGame.text3') }}</div>
@@ -28,8 +29,10 @@
 </template>
 
 <script>
+import Line from "./Line.vue"
 export default {
     name: 'WeGame',
+    components:{Line},
     data() {
         return {}
     },

@@ -217,6 +217,8 @@
     "text15": "Množstvo vkladu musí byť väčšie ako 100",
     "text16": "Množstvo zrušeného vkladu musí byť väčšie ako 100",
     "text17": "Do uvoľnenia vkladu zostáva {dní} dní",
-    "text18": "Na dokončenie tejto transakcie musíte súhlasiť s prístupom zmluvy k vašim povoleniam USDT alebo USDC"
+    "text18": "Na dokončenie tejto transakcie musíte súhlasiť s prístupom zmluvy k vašim povoleniam USDT alebo USDC",
+    "text19": "Ak si chcete kúpiť $ TGB cez USDT/USDC, musíte nás najskôr autorizovať na prístup k USDT/USDC vo vašej peňaženke.",
+    "text20": "schváliť"
   }
 }

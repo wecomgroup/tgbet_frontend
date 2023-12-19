@@ -217,6 +217,8 @@
     "text15": "Het aantal inzetten moet groter zijn dan 100",
     "text16": "Het niet-uitgezette aantal moet groter zijn dan 100",
     "text17": "Er zijn nog {days} dagen over voordat de inzet wordt vrijgegeven",
-    "text18": "Om deze transactie te voltooien, moet u akkoord gaan met de toegang van het contract tot uw USDT- of USDC-machtigingen"
+    "text18": "Om deze transactie te voltooien, moet u akkoord gaan met de toegang van het contract tot uw USDT- of USDC-machtigingen",
+    "text19": "Om $TGB met USDT/USDC te kopen, moet u ons eerst autoriseren voor toegang tot de USDT/USDC in uw portemonnee.",
+    "text20": "Goedkeuren"
   }
 }

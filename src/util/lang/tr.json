@@ -217,6 +217,8 @@
     "text15": "Bahis miktarı 100'den büyük olmalıdır",
     "text16": "Bahis miktarı 100'den büyük olmalıdır",
     "text17": "Bahis tutarının serbest bırakılmasına {days} gün kaldı",
-    "text18": "Bu işlemi tamamlamak için sözleşmenin USDT veya USDC izinlerinize erişimini kabul etmeniz gerekir."
+    "text18": "Bu işlemi tamamlamak için sözleşmenin USDT veya USDC izinlerinize erişimini kabul etmeniz gerekir.",
+    "text19": "USDT/USDC ile $TGB satın almak için öncelikle cüzdanınızdaki USDT/USDC'ye erişmemiz için bize yetki vermeniz gerekir.",
+    "text20": "Onaylamak"
   }
 }

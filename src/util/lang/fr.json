@@ -217,6 +217,8 @@
     "text15": "La quantité de mise doit être supérieure à 100",
     "text16": "La quantité non mise doit être supérieure à 100",
     "text17": "Il reste {days} jours avant que la mise ne soit libérée.",
-    "text18": "Afin de finaliser cette transaction, vous devez accepter l'accès du contrat à vos autorisations USDT ou USDC."
+    "text18": "Afin de finaliser cette transaction, vous devez accepter l'accès du contrat à vos autorisations USDT ou USDC.",
+    "text19": "Afin d'acheter des $TGB avec USDT/USDC, vous devez d'abord nous autoriser à accéder à l'USDT/USDC dans votre portefeuille.",
+    "text20": "Approuver"
   }
 }

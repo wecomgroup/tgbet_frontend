@@ -217,6 +217,8 @@
     "text15": "A quantidade de aposta deve ser superior a 100",
     "text16": "A quantidade de desempate deve ser maior que 100",
     "text17": "Faltam {days} dias para a liberação da aposta",
-    "text18": "Para concluir esta transação, você precisa concordar com o acesso do contrato às suas permissões USDT ou USDC"
+    "text18": "Para concluir esta transação, você precisa concordar com o acesso do contrato às suas permissões USDT ou USDC",
+    "text19": "Para comprar $TGB com USDT/USDC, primeiro você precisa nos autorizar a acessar o USDT/USDC em sua carteira.",
+    "text20": "Aprovar"
   }
 }

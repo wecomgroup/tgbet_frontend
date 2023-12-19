@@ -3,6 +3,7 @@
         <div class="economicTokenLeft">
             <div class="economicTokenLogo">
                 {{ $t('blockTitle.coin') }}
+                <Line class="pc" style="width: 260px;"></Line>
             </div>
         </div>
         <el-row style="width: 100%;" :gutter="gutter">
@@ -28,10 +29,11 @@
 </template>
 
 <script>
-
+import Line from "./Line.vue";
 export default {
 
     name: 'EconomicToken',
+    components:{Line},
     data() {
         return {
             // economicTokenList: [],

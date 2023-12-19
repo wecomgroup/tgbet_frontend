@@ -2,6 +2,7 @@
     <div class="pledgeCoin" id="pledgeCoin">
         <div class="pledgeCoinLogoImg">
             {{ $t('blockTitle.plc1') }}
+            <Line />
         </div>
         <div class="desc">
             {{ $t('pledgeCoin.text1') }}
@@ -20,10 +21,12 @@
 import pig from '../assets/pig.png'
 import gift from '../assets/gift.png'
 import copperCash from '../assets/copperCash.png'
+import Line from "./Line.vue"
 
 
 export default {
     name: 'PledgeCoin',
+    components:{Line},
     data() {
         return {
             // steps: []

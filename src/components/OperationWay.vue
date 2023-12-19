@@ -4,6 +4,7 @@
         <div class="operationDesc">
             <div class="operationLogoImg">
                 <span>{{ $t('blockTitle.ow1') }}</span>?
+                <Line class="pc"></Line>
             </div>
             <div class="desc">{{ $t('operationWay.text1') }}</div>
         </div>
@@ -12,8 +13,10 @@
 </template>
 
 <script>
+import Line from "./Line.vue"
 export default {
     name: 'OperationWay',
+    components:{Line},
     data() {
         return {}
     },

@@ -217,6 +217,8 @@
     "text15": "Liczba stawek musi być większa niż 100",
     "text16": "Ilość niestake musi być większa niż 100",
     "text17": "Pozostało {day} dni do uwolnienia stawki",
-    "text18": "Aby sfinalizować tę transakcję, musisz wyrazić zgodę na dostęp umowy do Twoich uprawnień USDT lub USDC"
+    "text18": "Aby sfinalizować tę transakcję, musisz wyrazić zgodę na dostęp umowy do Twoich uprawnień USDT lub USDC",
+    "text19": "Aby kupić $TGB za USDT/USDC, musisz najpierw upoważnić nas do dostępu do USDT/USDC w Twoim portfelu.",
+    "text20": "Zatwierdzić"
   }
 }

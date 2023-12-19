@@ -217,6 +217,8 @@
     "text15": "La cantidad de la apuesta debe ser superior a 100.",
     "text16": "La cantidad no apostada debe ser mayor que 100",
     "text17": "Quedan {days} días hasta que se libere la apuesta",
-    "text18": "Para completar esta transacción, debe aceptar el acceso del contrato a sus permisos USDT o USDC."
+    "text18": "Para completar esta transacción, debe aceptar el acceso del contrato a sus permisos USDT o USDC.",
+    "text19": "Para comprar $TGB con USDT/USDC, primero debe autorizarnos a acceder al USDT/USDC en su billetera.",
+    "text20": "Aprobar"
   }
 }

@@ -8,7 +8,10 @@
                     </div>
                     <div class="coinChanceMobileImg">
                        <span>{{ $t('blockTitle.ctl2') }}</span>
+                      
                     </div>
+                    <Line class="pc"/>
+
                     <div class="desc">
                         {{ $t('coinTimes.text1') }}
                     </div>
@@ -22,8 +25,10 @@
 </template>
 
 <script>
+import Line from "./Line.vue"
 export default {
     name: 'CoinTimes',
+    components:{Line},
     data() {
         return {}
     },

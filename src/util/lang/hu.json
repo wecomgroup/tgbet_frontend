@@ -217,6 +217,8 @@
     "text15": "A tét mennyiségének 100-nál nagyobbnak kell lennie",
     "text16": "A kihelyezett mennyiségnek 100-nál nagyobbnak kell lennie",
     "text17": "{days} nap van hátra a tét felszabadításáig",
-    "text18": "A tranzakció végrehajtásához el kell fogadnia, hogy a szerződés hozzáférjen az USDT vagy USDC engedélyeihez"
+    "text18": "A tranzakció végrehajtásához el kell fogadnia, hogy a szerződés hozzáférjen az USDT vagy USDC engedélyeihez",
+    "text19": "Ahhoz, hogy USDT/USDC-vel vásároljon $TGB-t, először engedélyeznie kell, hogy hozzáférjünk a pénztárcájában lévő USDT/USDC-hez.",
+    "text20": "Jóváhagy"
   }
 }

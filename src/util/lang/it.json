@@ -217,6 +217,8 @@
     "text15": "La quantità di puntata deve essere maggiore di 100",
     "text16": "La quantità di untake deve essere maggiore di 100",
     "text17": "Mancano {days} giorni al rilascio della puntata",
-    "text18": "Per completare questa transazione, devi accettare l'accesso del contratto alle tue autorizzazioni USDT o USDC"
+    "text18": "Per completare questa transazione, devi accettare l'accesso del contratto alle tue autorizzazioni USDT o USDC",
+    "text19": "Per acquistare $TGB con USDT/USDC, devi prima autorizzarci ad accedere a USDT/USDC nel tuo portafoglio.",
+    "text20": "Approvare"
   }
 }

@@ -217,6 +217,8 @@
     "text15": "Množství sázky musí být větší než 100",
     "text16": "Vyřazené množství musí být větší než 100",
     "text17": "Do uvolnění sázky zbývá {dny} dní",
-    "text18": "Chcete-li dokončit tuto transakci, musíte souhlasit s přístupem smlouvy k vašim oprávněním USDT nebo USDC"
+    "text18": "Chcete-li dokončit tuto transakci, musíte souhlasit s přístupem smlouvy k vašim oprávněním USDT nebo USDC",
+    "text19": "Chcete-li koupit $ TGB s USDT/USDC, musíte nás nejprve autorizovat pro přístup k USDT/USDC ve vaší peněžence.",
+    "text20": "Schvalovat"
   }
 }

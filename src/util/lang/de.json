@@ -217,6 +217,8 @@
     "text15": "Die Einsatzmenge muss größer als 100 sein",
     "text16": "Die Entnahmemenge muss größer als 100 sein",
     "text17": "Es verbleiben noch {days} Tage bis zur Freigabe des Einsatzes",
-    "text18": "Um diese Transaktion abzuschließen, müssen Sie dem Vertragszugriff auf Ihre USDT- oder USDC-Berechtigungen zustimmen"
+    "text18": "Um diese Transaktion abzuschließen, müssen Sie dem Vertragszugriff auf Ihre USDT- oder USDC-Berechtigungen zustimmen",
+    "text19": "Um $TGB mit USDT/USDC zu kaufen, müssen Sie uns zunächst den Zugriff auf den USDT/USDC in Ihrem Wallet autorisieren.",
+    "text20": "Genehmigen"
   }
 }

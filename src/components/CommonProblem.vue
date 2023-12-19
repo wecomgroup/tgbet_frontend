@@ -1,6 +1,7 @@
 <template>
     <div class="commonProblemContainer" id="commonProblemContainer">
-        <div class="commonProblemLogo">{{ $t("blockTitle.qa") }}</div>
+        <div class="commonProblemLogo">{{ $t("blockTitle.qa") }} <Line class="pc-1" style="width: 550px;"></Line>
+            <Line class="mobile-1"></Line></div>
         <el-collapse>
             <el-collapse-item v-for="item in commonProblems" :key="item.id" :name="item.id" title="1123">
                 <template v-slot:title>
@@ -18,8 +19,10 @@
 </template>
 
 <script>
+import Line from "./Line.vue"
 export default {
     name: 'CommonProblem',
+    components:{Line},
     data() {
         return {
             // commonProblems: []

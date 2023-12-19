@@ -4,14 +4,14 @@
             <el-carousel-item v-for="(item, index) in data" :key="item">
                 <div class="whyPopularDesc">
 <!--                    <img class="whyPopularLogo" style="" :src="item.topImg">-->
-                  <div class="whyPopularLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}！</div>
-                  <div class="whyPopularLogo" v-show="index === 1">{{$t('blockTitle.wp2')}}</div>
-                  <div class="whyPopularLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}</div>
+                  <div class="whyPopularLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}！ <Line  /></div>
+                  <div class="whyPopularLogo" v-show="index === 1">{{$t('blockTitle.wp2')}} <Line style="max-width: 600px;"/></div>
+                  <div class="whyPopularLogo" v-show="index === 2">{{$t('blockTitle.wp4')}} <Line /></div>
                     <div class="whyPopularDetailMobileContainer">
 <!--                        <img class="whyPopularMobileLogo" style="max-width: 375px;" :src="item.topImg">-->
-                      <div class="whyPopularMobileLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}</div>
-                      <div class="whyPopularMobileLogo" v-show="index === 1">{{$t('blockTitle.wp2')}}</div>
-                      <div class="whyPopularMobileLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}</div>
+                      <div class="whyPopularMobileLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}  </div>
+                      <div class="whyPopularMobileLogo" v-show="index === 1">{{$t('blockTitle.wp2')}} </div>
+                      <div class="whyPopularMobileLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}  </div>
                         <div style="position: relative">
                             <img class="whyPopularDetailMobile" :src="item.rightImg">
                             <div class="progress-bar">
@@ -49,6 +49,7 @@
 import play1 from '../assets/play1.png'
 import play2 from '../assets/play2.png'
 import play3 from '../assets/play3.png'
+import Line from "./Line.vue";
 
 
 import { urls,openUrl } from '@/util/const/urlConst';
@@ -56,6 +57,7 @@ import { urls,openUrl } from '@/util/const/urlConst';
 
 export default {
     name: 'WhyPopular',
+    components:{Line},
     methods: {
         handleCarouselChange(index) {
             this.currentIndex = index;

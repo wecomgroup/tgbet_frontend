@@ -217,6 +217,8 @@
     "text15": "Số tiền đặt cược phải lớn hơn 100",
     "text16": "Số lượng unstake phải lớn hơn 100",
     "text17": "Còn {ngày} ngày nữa cho đến khi cổ phần được giải phóng",
-    "text18": "Để hoàn tất giao dịch này, bạn cần đồng ý cho phép hợp đồng truy cập vào các quyền USDT hoặc USDC của bạn"
+    "text18": "Để hoàn tất giao dịch này, bạn cần đồng ý cho phép hợp đồng truy cập vào các quyền USDT hoặc USDC của bạn",
+    "text19": "Để mua $TGB bằng USDT/USDC, trước tiên bạn cần ủy quyền cho chúng tôi truy cập USDT/USDC trong ví của bạn.",
+    "text20": "Chấp thuận"
   }
 }

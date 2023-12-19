@@ -67,6 +67,17 @@ div:focus {
     src: url("../font/Belarius-Serif-Wide-Regular.ttf");
 }
 
+@media screen and (min-width:960px) {
+    .moblie-1 {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width:960px) {
+    .pc-1 {
+        display: none !important;
+    }
+}
 
 @media (min-width: 2000px) {
 

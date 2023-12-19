@@ -217,6 +217,8 @@
     "text15": "Jumlah taruhan harus lebih besar dari 100",
     "text16": "Kuantitas unstake harus lebih besar dari 100",
     "text17": "Ada {days} hari tersisa hingga pasak dilepas",
-    "text18": "Untuk menyelesaikan transaksi ini, Anda harus menyetujui akses kontrak ke izin USDT atau USDC Anda"
+    "text18": "Untuk menyelesaikan transaksi ini, Anda harus menyetujui akses kontrak ke izin USDT atau USDC Anda",
+    "text19": "Untuk membeli $TGB dengan USDT/USDC, Anda harus terlebih dahulu memberi otorisasi kepada kami untuk mengakses USDT/USDC di dompet Anda.",
+    "text20": "Menyetujui"
   }
 }
