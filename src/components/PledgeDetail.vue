@@ -49,6 +49,9 @@
                 <div class="bg" v-if="!connect">
                     <div class="btn" @click="connectWithWalletConnect">{{ $t('pledgeDetail.text6') }}</div>
                 </div>
+                <div class="bg2" v-if="connect && processing">
+                    <div class="btn">{{ $t('tip.text22') }}</div>
+                </div>
                 <div class="actionPledgeTitle">{{ $t('pledgeDetail.text7') }}</div>
                 <div class="minePledge">
                     <div class="minePledgeItem">
@@ -191,7 +194,7 @@ export default {
 
         //  ==================================================
 
-
+        let processing = ref(false)
         let infoData = ref({})
         let myRewardAmount = ref({})
         let stakeAmount = ref()
@@ -215,6 +218,7 @@ export default {
                 }
                 amount = Math.floor(amount).toFixed(0)
 
+                processing.value = true
                 let hash = await appWallectClient.writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
@@ -233,8 +237,10 @@ export default {
                 } else {
                     ElMessage.error($t('tip.text13'))
                 }
+                processing.value = false
                 stakeInfo()
             } catch (err) {
+                processing.value = false
                 console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
                 if (err.shortMessage) {
                     if (err.shortMessage == 'User rejected the request.') {
@@ -257,6 +263,8 @@ export default {
                 let stakeContract = getStakeContract()
                 let tgbContract = getTgbContract()
 
+                processing.value = true
+
                 let allowanceData = await checkApprove(tgbContract, accountMsg.value.address, stakeContract.address)
 
                 let amount = parseEther((stakeAmount.value).toString())
@@ -273,6 +281,7 @@ export default {
                             ElMessage.error($t('tip.text13'))
                         }
                     }
+                    processing.value = false
                     return
                 }
 
@@ -296,8 +305,10 @@ export default {
                 } else {
                     ElMessage.error($t('tip.text13'))
                 }
+                processing.value = false
                 stakeInfo()
             } catch (err) {
+                processing.value = false
                 console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
                 if (err.shortMessage) {
                     if (err.shortMessage == 'User rejected the request.') {
@@ -327,6 +338,7 @@ export default {
                 let stakeContract = getStakeContract()
 
                 amount = Math.floor(amount).toFixed(0)
+                processing.value = true
 
                 let hash = await appWallectClient.writeContract({
                     ...stakeContract,
@@ -347,8 +359,10 @@ export default {
                 } else {
                     ElMessage.error($t('tip.text13'))
                 }
+                processing.value = false
                 stakeInfo()
             } catch (err) {
+                processing.value = false
                 console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
                 if (err.shortMessage) {
                     if (err.shortMessage == 'User rejected the request.') {
@@ -515,6 +529,7 @@ export default {
             }
         }
         return {
+            processing,
             infoData,
             stakeAmount,
             unStakeAmount,
@@ -539,6 +554,24 @@ export default {
     position: relative;
 }
 
+
+.my-pledge .bg2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #C5AC79;
+    text-align: center;
+    line-height: 55px;
+    font-weight: bold;
+}
 .my-pledge .bg {
     position: absolute;
     width: 100%;
@@ -551,6 +584,8 @@ export default {
     align-items: center;
     justify-content: center;
 }
+
+
 
 .my-pledge .bg .btn {
     background-color: #C5AC79;

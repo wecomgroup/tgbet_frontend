@@ -20,15 +20,15 @@
     "text18":"In order to complete this transaction, you need to agree to the contract's access to your USDT or USDC permissions",
     "text19":"In order to buy $TGB with USDT/USDC, you first need to authorize us to access the USDT/USDC in your wallet.",
     "text20":"Approve",
-    "text21": "In order to stake $TGB, you first need to authorize us to access the $TGB in your wallet."
-
+    "text21": "In order to stake $TGB, you first need to authorize us to access the $TGB in your wallet.",
+    "text22":"Processing"
   },
   "blockTitle": {
     "qa": "Frequently Asked Questions",
     "zhiya": "Staking",
     "zhiyazr": "Total Staking",
     "howBuy1": "How To Buy $TGB Token",
-    "wp1": "TG.Bit has it all !",
+    "wp1": "TG.Bet has it all !",
     "wp2": "Why is Gamefi & Crypto gambling exploding?",
     "wp4": "What sets us apart",
     "ow1": "How it works",
@@ -65,18 +65,18 @@
     "text7": "Want a real casino experience in the palm of your hand? \nJoin thousands of other players playing on the casino floor!"
   },
   "whyPopular": {
-    "text1": "While there may be competition in the market, they cannot match what TG.Bit has to offer. \nWe have all the top games, live events, sports betting and more, there's simply no comparison. \nCoupled with the generous rewards we offer $TGB holders, choosing TG.Bit is a wise decision.",
+    "text1": "While there may be competition in the market, they cannot match what TG.Bet has to offer. \nWe have all the top games, live events, sports betting and more, there's simply no comparison. \nCoupled with the generous rewards we offer $TGB holders, choosing TG.Bet is a wise decision.",
     "text2": "Join us today",
-    "text3": "In 2023 alone, the options for gambling with cryptocurrencies have tripled. \nWith no KYC required and a seamless, easy-to-use platform, it’s no surprise that people are flocking to sites like TG.Bit to gamble online. \nSo, why choose TG.Bit?",
+    "text3": "In 2023 alone, the options for gambling with cryptocurrencies have tripled. \nWith no KYC required and a seamless, easy-to-use platform, it’s no surprise that people are flocking to sites like TG.Bet to gamble online. \nSo, why choose TG.Bet?",
     "text4": "Play now",
-    "text5": "Easily play popular games on TG.Bit’s seamless Telegram platform. \nThanks to our strong marketing, TG.Bit is quickly becoming a household name. \nBenefit from our investment in online gaming and our profitable model. \nCome explore the future of gaming with us!"
+    "text5": "Easily play popular games on TG.Bit’s seamless Telegram platform. \nThanks to our strong marketing, TG.Bet is quickly becoming a household name. \nBenefit from our investment in online gaming and our profitable model. \nCome explore the future of gaming with us!"
   },
   "whiteBook": {
-    "text1": "If you want to learn more about how TG.Bit is different, read our white paper. \nWe are more than just an online casino!",
+    "text1": "If you want to learn more about how TG.Bet is different, read our white paper. \nWe are more than just an online casino!",
     "text2": "Whitepaper"
   },
   "safeInstructions": {
-    "text1": "TG.Bit does not require you to perform any KYC verification to play, or even connect your wallet. \nSimply top up your account and withdraw money at any time. \nIt's that simple!",
+    "text1": "TG.Bet does not require you to perform any KYC verification to play, or even connect your wallet. \nSimply top up your account and withdraw money at any time. \nIt's that simple!",
     "text2": "No KYC required",
     "text3": "No need to set up an account",
     "text4": "Play on your smartphone",
@@ -95,7 +95,7 @@
     "text9": "Purchase presale tokens, start staking for instant passive rewards right away!"
   },
   "pledgeDetail": {
-    "text1": "TG.Bit lets you stake and unstake your tokens. Choose which function you would like. Only staked tokens earn APY.",
+    "text1": "TG.Bet lets you stake and unstake your tokens. Choose which function you would like. Only staked tokens earn APY.",
     "text2": "Current APY",
     "text3": "Total $TGB staked",
     "text4": "% of Total $TGB Staked",
@@ -120,26 +120,26 @@
     "text2": "Earn passive income",
     "text3": "When you stake your $TGB you immediately begin to earn daily rewards. Watch your holdings grow over time!",
     "text4": "Access rewards instantly",
-    "text5": "You will immediately unlock rewards from staking that you can use in TG.Bit, or save them for later!",
+    "text5": "You will immediately unlock rewards from staking that you can use in TG.Bet, or save them for later!",
     "text6": "Share the wealth",
     "text7": "When you stake your $TGB you unlock access to revenue based rewards. Your even bigger piece of the pie!"
   },
   "operationWay": {
-    "text1": "TG.Bit is not just a casino, it is an ecosystem that provides ongoing rewards through $TGB!"
+    "text1": "TG.Bet is not just a casino, it is an ecosystem that provides ongoing rewards through $TGB!"
   },
   "noKyc": {
-    "text1": "Online gambling without KYC has real advantages. \nFor years, the only way to gamble online was to hand over personal information. \nAt TG.Bit you do not need to provide personal information. \nAll you need is a Telegram account, some cryptocurrency, and you’re ready to play! \nIt only takes a few small steps.",
-    "text2": "Open TG.Bit",
+    "text1": "Online gambling without KYC has real advantages. \nFor years, the only way to gamble online was to hand over personal information. \nAt TG.Bet you do not need to provide personal information. \nAll you need is a Telegram account, some cryptocurrency, and you’re ready to play! \nIt only takes a few small steps.",
+    "text2": "Open TG.Bet",
     "text3": "Download Telegram",
     "text4": "Step 1",
     "text5": "If you don't have Telegram, please create an account after downloading the app, or if you already have Telegram, open it via the link",
     "text6": "Step 2",
     "text7": "You can choose to connect your crypto wallet or transfer funds to your TG.Ber account, you have the freedom of choice. \nOnce you top up your account, you're ready to go!",
     "text8": "Step 3",
-    "text9": "Choose a game and start playing! \nYou can make unlimited withdrawals at any time. \nYou can enjoy a worry-free gaming experience at TG.Bit, 24/7, all year round!"
+    "text9": "Choose a game and start playing! \nYou can make unlimited withdrawals at any time. \nYou can enjoy a worry-free gaming experience at TG.Bet, 24/7, all year round!"
   },
   "licenseProof": {
-    "text1": "The Web 3 space is often viewed as the Wild West, filled with misinformation and fraud. \nAt TG.Bit we proudly claim that we are a 100% fully licensed casino entity based in Curacao. \nSo please feel free to play!",
+    "text1": "The Web 3 space is often viewed as the Wild West, filled with misinformation and fraud. \nAt TG.Bet we proudly claim that we are a 100% fully licensed casino entity based in Curacao. \nSo please feel free to play!",
     "text2": "Verify license"
   },
   "howToBuy": {
@@ -185,28 +185,28 @@
     "text8": "Players Rewards",
     "text9": "Rewards for every player",
     "text10": "Alliance",
-    "text11": "Rewards for those who help grow TG.Bit",
+    "text11": "Rewards for those who help grow TG.Bet",
     "text12": "Marketing",
     "text13": "For collabs and direct marketing"
   },
   "commonProblem": {
-    "text1": "What makes TG.Bit different",
-    "text2": "TG.Bit give you access to all of the top online casino games, sport books and more, but we're also committed to cultivating an ecosystem that values loyalty. As a testament to our dedication, we're giving back by sharing a portion of our casino revenue through buy backs for the $TGB token. Play, earn, and be rewarded!",
+    "text1": "What makes TG.Bet different",
+    "text2": "TG.Bet give you access to all of the top online casino games, sport books and more, but we're also committed to cultivating an ecosystem that values loyalty. As a testament to our dedication, we're giving back by sharing a portion of our casino revenue through buy backs for the $TGB token. Play, earn, and be rewarded!",
     "text3": "How long is the presale?",
     "text4": "The presale will be open until the hard cap is reached. The soft cap for the presale is 1 million USD.",
     "text5": "Why should I buy $TGB?",
-    "text6": "While TG.Bit will let you play with many top cryptocurrencies, only $TGB will give you access to incredible rewards, both from staking and just holding our token. $TGB is not required for playing in the casino, but it can be used to wager on games like all other currencies.",
+    "text6": "While TG.Bet will let you play with many top cryptocurrencies, only $TGB will give you access to incredible rewards, both from staking and just holding our token. $TGB is not required for playing in the casino, but it can be used to wager on games like all other currencies.",
     "text7": "Does the presale have a vesting period?",
     "text8": "There is no vesting period for $TGB. However if you stake your tokens during the presale they will be locked until launch day + 10 days. Staking the tokens immediately begins earning staking rewards and other future benefits.",
     "text9": "When will the token launch?",
     "text10": "We will launch $TGB within days of the presale ending. We will keep everyone informed of launch day through our website and social media outlets."
   },
   "coinTimes": {
-    "text1": "The recent explosive popularity of crypto gambling seems to show no signs of slowing down. \nWe at TG.Bit understand that players around the world appreciate the flexibility of playing anytime, anywhere, remaining anonymous, and being able to place bets using cryptocurrencies. \nThe future has truly arrived!"
+    "text1": "The recent explosive popularity of crypto gambling seems to show no signs of slowing down. \nWe at TG.Bet understand that players around the world appreciate the flexibility of playing anytime, anywhere, remaining anonymous, and being able to place bets using cryptocurrencies. \nThe future has truly arrived!"
   },
   "coinChance": {
     "text1": "The crypto casino market has grown rapidly since 2017, with the latest data showing that the crypto casino market is now worth $250 million. \nThis represents just 0.1% of the total casino market, which is currently valued at $26.33 billion. \nBut research shows that crypto casinos are quickly taking market share from Web2 online casinos due to their ease of access, no need for KYC and the ability to avoid transactions showing up on bank statements.",
-    "text2": "Currently, 80% of online casino games are played on mobile devices, with the vast majority of crypto casinos being designed specifically for mobile devices. \nTG.Bit goes one step further and exclusively offers the Telegram platform, which currently has over 1 billion users and is expected to grow to 1.5 billion users in the next 3-5 years."
+    "text2": "Currently, 80% of online casino games are played on mobile devices, with the vast majority of crypto casinos being designed specifically for mobile devices. \nTG.Bet goes one step further and exclusively offers the Telegram platform, which currently has over 1 billion users and is expected to grow to 1.5 billion users in the next 3-5 years."
   },
   "bottomBar": {
     "text1": "payment method",
@@ -216,7 +216,7 @@
   "actionView": {
     "text1": "World's top Telegram",
     "text2": "CASINO",
-    "text3": "TG.Bit is your exclusive place for online, anonymous crypto gambling. Fully licensed and 100% safe, join us today!",
+    "text3": "TG.Bet is your exclusive place for online, anonymous crypto gambling. Fully licensed and 100% safe, join us today!",
     "text4": "Join Community",
     "text5": "Play now",
     "text6": "Verify license",

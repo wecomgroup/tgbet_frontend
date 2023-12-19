@@ -104,18 +104,18 @@
         <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
           {{ $t('homeForm.text9') }}
         </div>
-        <button v-if="connect && !approve" class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
+        <button v-if="connect && !approve" class="buy-and-stake-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
           {{ $t('homeForm.text10', { APY: infoData.apy }) }}
         </button>
         <div class="approve" v-if="connect && approve">
-          <button class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
+          <button class="buy-and-stake-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
             {{$t('tip.text20')}}
           </button>
           <div class="approve-tip">{{$t('tip.text19')}}</div>
         </div>
 
         <div v-if="connect && !approve" class="stake-buy-btn-container">
-          <button class="stake-buy-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
+          <button class="stake-buy-btn" @click="buyToken" :disabled="!normalMsg">
             <p>{{ $t('homeForm.text11') }}</p>
           </button>
         </div>
@@ -131,7 +131,6 @@ import {
   erc20ABI,
   getAccount,
   watchAccount,
-  signMessage,
   getNetwork,
   disconnect,
   sepolia,
@@ -142,7 +141,6 @@ import {
 import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
-import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
 import { appPublicClient,appWallectClient }  from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
@@ -175,7 +173,6 @@ export default {
     let usdcApproved = ref(false)
 
     const countdownTimer = ref()
-    const indexTimer = ref()
     let infoData = ref({})
     let leaveTime = ref(0)
     let timeState = reactive({
@@ -475,34 +472,13 @@ export default {
       }, 1000);
     }
 
-    const loopIndexInfo = () => {
-      clearInterval(indexTimer.value)
-      indexTimer.value = setInterval(() => {
-
-
-      }, 15000);
-    }
-
-    const requestIndexInfo = () => {
-      indexInfo().then(response => {
-        if (response.data && response.statusCode === 200) {
-
-        }
-      }).catch(() => { })
-    };
-
-    const clearTimer = () => {
-      clearInterval(countdownTimer.value)
-      clearInterval(indexTimer.value)
-    };
-
     onMounted(() => {
       startCountdownTimer()
       homeInfo()
     })
 
     onBeforeUnmount(() => {
-      clearTimer()
+      clearInterval(countdownTimer.value)
     })
 
     const {
@@ -773,7 +749,7 @@ export default {
         }
 
         if (infoData.value.paused) {
-          ElMessage.error(`$TGB购买已暂停`)
+          ElMessage.error($t('tip.text10'))
           return false
         }
         return true
@@ -782,14 +758,14 @@ export default {
         return false
       }
     }
-    // user click buy
+    // user click buy and staking
     // 1 ETH-BUY
     // 2 ETH-BUY-STAKING
     // 3 USDT-BUY
     // 4 USDT-BUY-STAKING
     // 5 USDC-BUY
     // 6 USDC-BUY-STAKING
-    const buyToken = () => {
+    const buyTokenAndStaking = () => {
       walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
@@ -805,8 +781,8 @@ export default {
       }
     }
 
-    // user click buy and staking
-    const buyTokenAndStaking = () => {
+    // user click only buy
+    const buyToken = () => {
       walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
@@ -996,27 +972,17 @@ export default {
       accountMsg.value = account1;
       connect.value = account1.isConnected;
     };
-    //  ================== 签名 ==============
-    const sign = async (message) => {
-      return await signMessage({
-        message: message,
-      });
-      // signature 签名结果
-    };
 
     const connectWithWalletConnect = () => {
       if (globalProperties.$web3modal) {
         globalProperties.$web3modal.open();
       }
     };
-    // const Line = Line;
 
     return {
       buying,
       approve, usdcApproved, usdtApproved,
-      countdownTimer,
-    
-      indexTimer,
+      countdownTimer,    
       timeState,
       infoData,
       leaveTime,
@@ -1035,10 +1001,7 @@ export default {
       chooseMoney,
       accountMsg,
       disconnect1,
-      sign,
       startCountdownTimer,
-      loopIndexInfo,
-      requestIndexInfo,
       changeCoinAmount,
       changeTGBAmount,
       rate,
