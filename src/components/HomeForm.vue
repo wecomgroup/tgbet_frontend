@@ -1,15 +1,10 @@
 <template>
   <div class="form-wrapper">
     <div class="buying-bg" v-if="connect && buying">
-      <div class="buying-text" >{{ $t('homeForm.text15') }}</div>
+      <div class="buying-text">{{ $t('homeForm.text15') }}</div>
     </div>
     <el-row>
-      <el-col :span="16">
-        <div class="grid-content">$ {{ infoData.saleAmountStr }}</div>
-      </el-col>
-      <el-col :span="8">
-        <img src="../assets/logo.png" class="logo" />
-      </el-col>
+      <div class="grid-content">$ {{ infoData.saleAmountStr }}</div>
     </el-row>
     <el-row>
       <el-col :span="12" class="current-col">
@@ -29,13 +24,13 @@
     <el-row style="margin-top: 10px;">
       <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
-    <el-row :gutter="10" style="margin-top: 10px;">
+    <el-row :gutter="10" style="margin-top: 15px;">
       <el-col :span="6"><span class="time-btn">{{ timeState.day ? timeState.day : '00' }} D</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.hour ? timeState.hour : '00' }} H</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.second ? timeState.second : '00' }} S</span></el-col>
     </el-row>
-    <el-row v-if="connect" style="margin-top: 30px; ">
+    <el-row v-if="connect" style="margin-top: 25px; ">
       <el-col :span="12">
         <p class="logtips">{{ $t('homeForm.text4') }} </p>
       </el-col>
@@ -51,17 +46,18 @@
         </div>
       </el-col>
     </el-row>
-    <el-row v-if="connect && myBalance && (myBalance.tgbDeposits != '0')" style="margin-top: 20px; ">
+    <el-row v-if="connect && myBalance && (myBalance.tgbDeposits) && (myBalance.tgbDeposits != '0')"
+      style="margin-top: 15px; ">
       <el-col :span="12">
-        <p class="logtips">$TGB <span style="opacity: 0.6;">{{ $t('homeForm.text16') }}</span></p>
+        <p class="logtips">$TGB <span style="opacity: 0.6; margin-left: 8px;">{{ $t('homeForm.text16') }}</span></p>
       </el-col>
       <el-col :span="12">
         <div class="wallect">
-          <p style="opacity: 0.6;">{{ myBalance.tgbDeposits }}</p>
+          <p style="opacity: 0.6;">{{ Number(myBalance.tgbDeposits).toLocaleString() }}</p>
         </div>
       </el-col>
     </el-row>
-    <el-row :gutter="20" style="margin-top: 5px; ">
+    <el-row :gutter="20">
       <el-col :span="12">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/eth.png" class="icon" />ETH
@@ -76,14 +72,14 @@
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="24">
-        <div class="tips" style="display: flex; align-items: center; justify-content:space-between;">
+        <div class="pay-tips" style="display: flex; align-items: center; justify-content:space-between;">
           <div> {{ filterCoinName() }} {{ $t('homeForm.text5') }} </div>
           <div class="max-value" @click="maxClick">{{ $t('homeForm.text7') }}</div>
         </div>
         <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount" clearable></el-input>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="24">
-        <p class="tips">{{ $t('homeForm.text8') }}</p>
+        <p class="pay-tips">{{ $t('homeForm.text8') }}</p>
         <el-input placeholder="0" class="f-ipt" style="margin-top: 15px;" v-model="tgbAmount" @input="changeTGBAmount"
           clearable></el-input>
       </el-col>
@@ -93,10 +89,10 @@
         {{ normalMsg }}
       </div>
       <div class="tip-message" v-if="tipMsg">
-        {{ tipMsg }}
+        <p>{{ tipMsg }}</p>
       </div>
       <div class="tip-message" v-if="walletTipMsg">
-        {{ walletTipMsg }}
+        <p>{{ walletTipMsg }}</p>
       </div>
 
     </el-row>
@@ -105,10 +101,18 @@
         <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
           {{ $t('homeForm.text9') }}
         </div>
-        <button v-if="connect" class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
+        <button v-if="connect && !approve" class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
           {{ $t('homeForm.text10', { APY: infoData.apy }) }}
         </button>
-        <div v-if="connect" class="stake-buy-btn-container">
+        <div class="approve" v-if="approve">
+          <button class="buy-and-stake-btn" @click="buyToken" :disabled="!normalMsg">
+            Approve
+          </button>
+          <div class="approve-tip">In order to buy $TGC with USDT, you first need to authorize us to access the USDT in
+            your wallet.</div>
+        </div>
+
+        <div v-if="connect && !approve" class="stake-buy-btn-container">
           <button class="stake-buy-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
             <p>{{ $t('homeForm.text11') }}</p>
           </button>
@@ -157,13 +161,16 @@ import {
 export default {
 
   setup: () => {
-    const {$t}  = getCurrentInstance().proxy;
+    const { $t } = getCurrentInstance().proxy;
 
     let fee = 0.015
     let buying = ref(false)
     let tipMsg = ref()
     let normalMsg = ref()
     let walletTipMsg = ref()
+    let approve = ref(false)
+    let usdtApproved = ref(false)
+    let usdcApproved = ref(false)
 
     const countdownTimer = ref()
     const indexTimer = ref()
@@ -180,7 +187,10 @@ export default {
       ethBalance: 0,
       tgbBalance: 0,
       usdtBalance: 0,
-      usdcBalance: 0
+      usdcBalance: 0,
+      tgbDeposits: 0,
+      usdtAllowance: 0,
+      usdcAllowance: 0
     })
 
     const fetchMyBalance = async () => {
@@ -189,7 +199,6 @@ export default {
           console.log(`Invalid address`)
           return
         }
-
         const callBalanceOfConfig = {
           abi: erc20ABI,
           functionName: 'balanceOf',
@@ -197,6 +206,8 @@ export default {
         }
 
         let proxyContract = getPreSaleContract()
+        let usdtContract = getUsdtContract()
+        let usdcContract = getUsdcContract()
 
         const balanceArr = await readContracts({
           contracts: [
@@ -220,6 +231,16 @@ export default {
               functionName: 'userDeposits',
               args: [accountMsg.value.address]
             },
+            {
+              ...usdtContract,
+              functionName: "allowance",
+              args: [accountMsg.value.address, proxyContract.address]
+            },
+            {
+              ...usdcContract,
+              functionName: "allowance",
+              args: [accountMsg.value.address, proxyContract.address]
+            },
           ],
         })
         let ethBalance = await fetchBalance({
@@ -232,10 +253,18 @@ export default {
           usdtBalance: formatUnits(balanceArr[1].result, '6'),
           usdcBalance: formatUnits(balanceArr[2].result, '6'),
           tgbDeposits: formatUnits(balanceArr[3].result, '18'),
+          usdtAllowance: balanceArr[4].result,
+          usdcAllowance: balanceArr[5].result
         }
         myBalance.value = resultData
-        console.log(`ethBalance:${myBalance.value.ethBalance} ,tgbBalance :${myBalance.value.tgbBalance}, usdtBalance :${myBalance.value.usdtBalance}, usdcBalance :${myBalance.value.usdcBalance}`)
-
+        console.log(
+          `ethBalance:${myBalance.value.ethBalance} ,
+          tgbBalance :${myBalance.value.tgbBalance}, 
+          usdtBalance :${myBalance.value.usdtBalance}, 
+          usdcBalance :${myBalance.value.usdcBalance},
+          tgbDeposits :${myBalance.value.tgbDeposits},
+          usdtAllowance :${myBalance.value.usdtAllowance},
+          usdcAllowance :${myBalance.value.usdcAllowance}`)
       } catch (error) {
         console.log(error)
       }
@@ -468,7 +497,6 @@ export default {
     onMounted(() => {
       startCountdownTimer()
       homeInfo()
-
     })
 
     onBeforeUnmount(() => {
@@ -503,7 +531,6 @@ export default {
           } else {
             return false
           }
-
         }
         return true
       } catch (error) {
@@ -626,6 +653,7 @@ export default {
           tipMsg.value = $t('tip.text2')
           normalMsg.value = ''
           walletTipMsg.value = ''
+          approve.value = false
           return
         }
 
@@ -660,7 +688,7 @@ export default {
 
         if (Number(tgbAmount.value) > maxAmount) {
           let max = maxAmount.toLocaleString()
-          tipMsg.value = $t('tip.text8',{ amount:max })
+          tipMsg.value = $t('tip.text8', { amount: max })
         }
 
         if (tipMsg.value) {
@@ -671,6 +699,28 @@ export default {
           walletTipMsg.value = ''
           tipMsg.value = ''
         }
+
+        if (selectCoin == 'USDT') {
+          //check usdt approve
+          if (myBalance.value.usdtAllowance < 100) {
+            usdtApproved.value = false
+            approve.value = true
+          } else {
+            usdtApproved.value = true
+            approve.value = false
+
+          }
+        } else if (selectCoin == 'USDC') {
+          //check usdc approve
+          if (myBalance.value.usdcAllowance < 100) {
+            usdcApproved.value = false
+            approve.value = true
+          } else {
+            usdcApproved.value = true
+            approve.value = false
+          }
+        }
+
       } catch (error) {
         console.log(error)
       }
@@ -821,14 +871,26 @@ export default {
 
         } else if (buyType === 3 || buyType === 4) {
 
-
           let needAllowAmount = parseEther(Math.floor(amount).toString())
 
           let allowanceData = await checkApprove(usdtContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
-            ElMessage.warning($t('tip.text18'))
-            await approveContract(usdtContract, proxyContract.address, account)
+            //ElMessage.warning($t('tip.text18'))
+           let approveTx = await approveContract(usdtContract, proxyContract.address, account)
+            if (approveTx) {
+              ElMessage.success($t('tip.text11'))
+              let result = await waitTx(approveTx)
+              if (result) {
+                ElMessage.success($t('tip.text12'))
+                tgbAmount.value = ''
+                coinAmount.value = ''
+                changeCoinAmount(0)
+                homeInfo()
+              } else {
+                ElMessage.error($t('tip.text13'))
+              }
+            }
             buying.value = false
             return
           }
@@ -853,14 +915,26 @@ export default {
         }
         else if (buyType === 5 || buyType === 6) {
 
-
           let needAllowAmount = parseEther(Math.floor(amount).toString())
 
           let allowanceData = await checkApprove(usdcContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
             ElMessage.warning($t('tip.text18'))
-            await approveContract(usdcContract, proxyContract.address, account)
+           let approveTx = await approveContract(usdcContract, proxyContract.address, account)
+            if (approveTx) {
+              ElMessage.success($t('tip.text11'))
+              let result = await waitTx(approveTx)
+              if (result) {
+                ElMessage.success($t('tip.text12'))
+                tgbAmount.value = ''
+                coinAmount.value = ''
+                changeCoinAmount(0)
+                homeInfo()
+              } else {
+                ElMessage.error($t('tip.text13'))
+              }
+            }
             buying.value = false
             return
           }
@@ -937,6 +1011,7 @@ export default {
 
     return {
       buying,
+      approve, usdcApproved, usdtApproved,
       countdownTimer,
       indexTimer,
       timeState,
@@ -986,6 +1061,16 @@ export default {
   font-weight: bold;
 }
 
+.approve {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.approve-tip {
+  margin-top: 15px;
+}
+
 .form-wrapper {
   position: relative;
 }
@@ -1017,6 +1102,7 @@ export default {
   opacity: 0.8;
   font-size: clamp(14px, 1.1rem, 16px);
   white-space: pre-line;
+  line-height: 22px
 }
 
 .normal-message {
@@ -1056,12 +1142,12 @@ export default {
 }
 
 .grid-content {
+  margin: 10px 0px 10px;
   color: #c5ac79;
   text-align: left;
-  font-size: 58px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
+  font-weight: 600;
+  font-family: sans-serif;
+  font-size: clamp(40px, 4vw, 57px);
   /* letter-spacing: 2.32px; */
 }
 
@@ -1090,22 +1176,33 @@ export default {
   margin-top: 12px;
 }
 
+.pay-tips {
+  font-size: 16px;
+  font-weight: 600;
+}
+
 .logtips {
   font-size: 16px;
   font-weight: 600;
-  line-height: 25px;
+  line-height: 15px;
 }
 
 .tips>.max-value {
   color: #c5ac79;
   text-align: right;
   float: right;
+
 }
 
 .max-value {
+  /* font-size: 13px; */
   border: 1px solid #efd8aa;
-  border-radius: 2px;
+  width: 44px;
+  text-align: center;
+  border-radius: 4px;
   padding: 2px;
+  font-size: 13px;
+  font-weight: 500;
   /* background-color: #c5ac79; */
 }
 
@@ -1189,6 +1286,7 @@ export default {
 
 .buy-and-stake-btn:disabled {
   cursor: not-allowed;
+  opacity: 0.7;
   /* pointer-events:none; */
 }
 
@@ -1260,10 +1358,10 @@ export default {
 }
 
 .lououtContainer {
-  padding: 4px;
-  border-radius: 8px;
-  border: 1px solid #efd8aa;
-  margin-left: 30px;
+  /* padding: 4px; */
+  /* border-radius: 8px; */
+  /* border: 1px solid #efd8aa; */
+  margin-left: 20px;
 }
 
 .lououtContainer:hover {
@@ -1290,11 +1388,7 @@ export default {
   }
 
   .form-wrapper {
-    padding: 40px 20px 24px;
-  }
-
-  .grid-content {
-    font-size: 32px;
+    padding: 15px 20px 24px;
   }
 
   .logo {
