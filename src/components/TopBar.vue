@@ -370,7 +370,6 @@ export default {
 
 .mobileNavContainer a {
     color: #FFF;
-    font-family: Inter;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;

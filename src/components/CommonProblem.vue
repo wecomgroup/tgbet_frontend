@@ -81,10 +81,8 @@ export default {
 }
 
 .content {
-    /* font-family: Inter; */
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 32px;
+    font-size: clamp(16px, 1.25vw, 22px);
+    line-height: 30px;
     letter-spacing: 4%;
     text-align: left;
 }

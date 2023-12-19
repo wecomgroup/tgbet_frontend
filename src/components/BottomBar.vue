@@ -61,10 +61,10 @@
         <DialogPersonal/>
       </el-dialog>
       <div class="four-logo">
+        <a href="https://t.co/g2Xm298LUi" target="_blank"><img src="../assets/telegram-icon.webp"/></a>
+        <a href="https://twitter.com/TGCasino_" target="_blank"><img src="../assets/twitter-icon.webp"/></a>
         <a href="https://github.com/Assure-DeFi/KYC-Certificates/blob/main/TG.Casino%20KYC%20Certificate.png" target="_blank"><img src="../assets/adLogo.webp"/></a>
         <a href="https://licensing.gaming-curacao.com/validator/?lh=3c0894e9ea1e7e5174f8eee97afad603" target="_blank"><img src="../assets/gamingcuracao-sm.webp"/></a>
-        <a href="https://t.co/g2Xm298LUi" target="_blank"><img src="../assets/twitter-icon.webp"/></a>
-        <a href="https://twitter.com/TGCasino_" target="_blank"><img src="../assets/telegram-icon.webp"/></a>
       </div>
     </div>
 </template>
@@ -150,8 +150,19 @@ export default {
     margin-right: 30px;
     font-weight: 600;
     font-size: 16px;
+
 }
 
+
+.navContainer a:hover {
+    color: #c5ac79;
+    transition: 0.5s;
+}
+
+.other span:hover {
+    color: #c5ac79;
+    transition: 0.5s;
+}
 .diver {
     height: 1px;
     background-color: #30323A;

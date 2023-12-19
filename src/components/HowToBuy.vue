@@ -70,7 +70,6 @@ export default {
 
 .stepTitle {
     color: #FFF;
-    font-family: Inter;
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
@@ -218,7 +217,6 @@ export default {
 
     .stepTopTitle {
         color: #FFF;
-        font-family: Inter;
         font-size: 24px;
         font-style: normal;
         font-weight: 700;

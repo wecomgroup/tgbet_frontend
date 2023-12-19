@@ -920,7 +920,6 @@ export default {
 
     .actionPledgeDesc {
         color: #FFF;
-        font-family: Inter;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
@@ -951,7 +950,6 @@ export default {
 
     .maxVal {
         color: #C5AC79;
-        font-family: Inter;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
@@ -963,7 +961,6 @@ export default {
 
     .receive {
         color: #C5AC79;
-        font-family: Inter;
         font-size: 14px;
         font-style: normal;
         font-weight: 600;

@@ -1,14 +1,12 @@
 <template>
     <div class="whyPopularContainer">
-        <el-carousel @change="handleCarouselChange">
-            <el-carousel-item v-for="(item, index) in data" :key="item">
+        <el-carousel @change="handleCarouselChange" :interval="5000">
+            <el-carousel-item v-for="(item, index) in data" :key="item" >
                 <div class="whyPopularDesc">
-<!--                    <img class="whyPopularLogo" style="" :src="item.topImg">-->
                   <div class="whyPopularLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}！ <Line  /></div>
                   <div class="whyPopularLogo" v-show="index === 1">{{$t('blockTitle.wp2')}} <Line style="max-width: 600px;"/></div>
                   <div class="whyPopularLogo" v-show="index === 2">{{$t('blockTitle.wp4')}} <Line /></div>
                     <div class="whyPopularDetailMobileContainer">
-<!--                        <img class="whyPopularMobileLogo" style="max-width: 375px;" :src="item.topImg">-->
                       <div class="whyPopularMobileLogo" v-show="index === 0">{{$t('blockTitle.wp1')}}  </div>
                       <div class="whyPopularMobileLogo" v-show="index === 1">{{$t('blockTitle.wp2')}} </div>
                       <div class="whyPopularMobileLogo" v-show="index === 2">{{$t('blockTitle.wp4')}}  </div>
@@ -110,7 +108,7 @@ export default {
 
 .whyPopularContainer :deep() .el-carousel__container {
     display: flex;
-    height: 500px;
+    height: 550px;
 }
 
 .whyPopularContainer :deep() .el-carousel--horizontal {
@@ -148,12 +146,13 @@ export default {
     padding: 14px 52px;
     border-radius: 8px;
     background-color: #C5AC79;
+    white-space: nowrap;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #181A20;
-    font-weight: 600;
-    font-size: 20px;
+    font-weight: 400;
+    font-size: 16px;
     cursor: pointer;
     border: 1px solid #EFD8AA;
 }

@@ -167,7 +167,6 @@ export default {
 
     .desc {
         color: rgba(255, 255, 255, 0.60);
-        font-family: Inter;
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
