@@ -305,9 +305,11 @@ export default {
 }
 
 .pledge {
-    width: 104px;
+    /* width: 104px; */
+    min-width: 104px;
+    /* padding: 0px 5px; */
     height: 44px;
-    border-radius: 24px;
+    border-radius: 10px;
     background-color: #C5AC79;
     display: flex;
     align-items: center;
@@ -323,7 +325,9 @@ export default {
 }
 
 .audit {
-    width: 76px;
+    min-width: 76px;
+    padding: 5px 10px;
+    white-space:nowrap;
     height: 44px;
     font-weight: 600;
     font-size: 14px;
