@@ -1263,7 +1263,7 @@ export default {
   border: 1px solid #efd8aa;
   background: #c5ac79;
   color: #181a20;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
@@ -1281,7 +1281,7 @@ export default {
   border: 1px solid #efd8aa;
   background: #c5ac79;
   color: #181a20;
-  font-size: 20px;
+  font-size: 14px;
   font-weight: bold;
   text-align: center;
   cursor: pointer;
