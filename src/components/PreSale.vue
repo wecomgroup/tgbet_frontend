@@ -6,7 +6,7 @@
      
     </div>
     <Line class="pc-1" style="width: 700px;"></Line>
-    <Line class="mobile-1" ></Line>
+    <Line class="moblie-1" ></Line>
     
     <div class="desc">{{ $t("preSale.text1") }}</div>
     <!-- 线条 -->
