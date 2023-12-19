@@ -115,7 +115,9 @@ import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { getCurrentInstance, onMounted, ref } from "vue";
 import { ElMessage } from 'element-plus'
 
-import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
+import { appPublicClient,appWallectClient }  from "@/util/contactUtil/client";
+import { checkApprove, approveContract } from "@/util/contactUtil/approve";
+import { waitTx } from "@/util/contactUtil/transfaction";
 
 import { getStakeContract, getTgbContract, getPreSaleContract } from '@/util/const/const'
 import {
@@ -123,7 +125,6 @@ import {
     fetchBalance,
     getAccount,
     watchAccount,
-    multicall,
 } from "@wagmi/core";
 
 export default {
@@ -201,7 +202,7 @@ export default {
         }
 
         const maxMyUnStakeBalance = () => {
-            unStakeAmount.value = infoData.value.myBalance
+            unStakeAmount.value = infoData.value.myStakeAmount
         }
 
         const getMyStakeReward = async () => {
@@ -213,9 +214,8 @@ export default {
                     return
                 }
                 amount = Math.floor(amount).toFixed(0)
-                const walletClient = await getMyWalletClient()
 
-                let hash = await walletClient.writeContract({
+                let hash = await appWallectClient.writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
                     account
@@ -226,15 +226,23 @@ export default {
                     let result = await waitTx(hash)
                     if (result) {
                         ElMessage.success($t('tip.text12'))
-                        stakeInfo()
+                       
                     } else {
                         ElMessage.error($t('tip.text13'))
                     }
                 } else {
                     ElMessage.error($t('tip.text13'))
                 }
-            } catch (error) {
-                ElMessage.error(error)
+                stakeInfo()
+            } catch (err) {
+                console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
+                if (err.shortMessage) {
+                    if (err.shortMessage == 'User rejected the request.') {
+                        ElMessage.error(err.shortMessage)
+                    } else {
+                        ElMessage.error(`An unknown RPC error occurred`)
+                    }
+                }
             }
         }
 
@@ -254,14 +262,22 @@ export default {
                 let amount = parseEther((stakeAmount.value).toString())
 
                 if (BigInt(allowanceData) < amount) {
-                    ElMessage.warning($t('tip.text18'))
-                    await approveContract(tgbContract, stakeContract.address, account)
+                    ElMessage.warning($t('tip.text21'))
+                   let approveTx = await approveContract(tgbContract, stakeContract.address, account)
+                    if (approveTx) {
+                        ElMessage.success($t('tip.text11'))
+                        let result = await waitTx(approveTx)
+                        if (result) {
+                            ElMessage.success($t('tip.text12'))
+                        } else {
+                            ElMessage.error($t('tip.text13'))
+                        }
+                    }
                     return
                 }
 
-                const walletClient = await getMyWalletClient()
 
-                let hash = await walletClient.writeContract({
+                let hash = await appWallectClient.writeContract({
                     ...stakeContract,
                     functionName: "deposit",
                     args: [amount],
@@ -273,15 +289,23 @@ export default {
                     let result = await waitTx(hash)
                     if (result) {
                         ElMessage.success($t('tip.text12'))
-                        stakeInfo()
+                        
                     } else {
                         ElMessage.error($t('tip.text13'))
                     }
                 } else {
                     ElMessage.error($t('tip.text13'))
                 }
-            } catch (error) {
-                ElMessage.error(error)
+                stakeInfo()
+            } catch (err) {
+                console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
+                if (err.shortMessage) {
+                    if (err.shortMessage == 'User rejected the request.') {
+                        ElMessage.error(err.shortMessage)
+                    } else {
+                        ElMessage.error(`An unknown RPC error occurred`)
+                    }
+                }
             }
         }
 
@@ -290,7 +314,7 @@ export default {
                 let diffDays = Math.floor((infoData.value.endTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
 
                 if (diffDays) {
-                    ElMessage.error($t('tip.text17',{days:diffDays}))
+                    ElMessage.error($t('tip.text17', { days: diffDays }))
                     return
                 }
                 let amount = parseEther(unStakeAmount.value)
@@ -304,9 +328,7 @@ export default {
 
                 amount = Math.floor(amount).toFixed(0)
 
-                const walletClient = await getMyWalletClient()
-
-                let hash = await walletClient.writeContract({
+                let hash = await appWallectClient.writeContract({
                     ...stakeContract,
                     functionName: "withdraw",
                     args: [amount],
@@ -318,15 +340,23 @@ export default {
                     let result = await waitTx(hash)
                     if (result) {
                         ElMessage.success($t('tip.text12'))
-                        stakeInfo()
+                        
                     } else {
                         ElMessage.error($t('tip.text13'))
                     }
                 } else {
                     ElMessage.error($t('tip.text13'))
                 }
-            } catch (error) {
-                ElMessage.error(error)
+                stakeInfo()
+            } catch (err) {
+                console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
+                if (err.shortMessage) {
+                    if (err.shortMessage == 'User rejected the request.') {
+                        ElMessage.error(err.shortMessage)
+                    } else {
+                        ElMessage.error(`An unknown RPC error occurred`)
+                    }
+                }
             }
         }
 
@@ -342,7 +372,7 @@ export default {
                 }
                 let stakeContract = getStakeContract()
                 let preSaleContract = getPreSaleContract()
-                const data = await multicall({
+                const data = await appPublicClient.multicall({
                     contracts: [
                         {
                             ...stakeContract,
@@ -479,9 +509,9 @@ export default {
                     totalStake: parseInt(totalStake).toLocaleString()
                 }
                 infoData.value = info
-                console.log(resultData)
+                console.log(info)
             } catch (error) {
-                ElMessage.error(error)
+                console.log(`stakeInfo error${error}`)
             }
         }
         return {

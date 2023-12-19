@@ -130,17 +130,13 @@ import Line from "./Line.vue";
 import {
   erc20ABI,
   getAccount,
-  fetchBalance,
   watchAccount,
   signMessage,
   getNetwork,
-  multicall,
   disconnect,
-  readContract,
   sepolia,
   mainnet,
   switchNetwork,
-  readContracts
 } from "@wagmi/core";
 
 import { ElMessage } from 'element-plus'
@@ -148,8 +144,9 @@ import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 import { indexInfo, indexTimeline, mineBalance } from '../service/api'
 
-
-import { checkApprove, approveContract, getMyWalletClient, waitTx } from "@/util/contactUtil/approve";
+import { appPublicClient,appWallectClient }  from "@/util/contactUtil/client";
+import { checkApprove, approveContract } from "@/util/contactUtil/approve";
+import { waitTx } from "@/util/contactUtil/transfaction";
 import {
   getTgbContract,
   getPreSaleContract,
@@ -214,7 +211,7 @@ export default {
         let usdtContract = getUsdtContract()
         let usdcContract = getUsdcContract()
 
-        const balanceArr = await readContracts({
+        const balanceArr = await appPublicClient.multicall({
           contracts: [
             {
               // The TGB token
@@ -248,12 +245,12 @@ export default {
             },
           ],
         })
-        let ethBalance = await fetchBalance({
+        let ethBalance = await appPublicClient.getBalance({
           address: accountMsg.value.address,
         })
 
         let resultData = {
-          ethBalance: formatEther(ethBalance.value),
+          ethBalance: formatEther(ethBalance),
           tgbBalance: formatUnits(balanceArr[0].result, '18'),
           usdtBalance: formatUnits(balanceArr[1].result, '6'),
           usdcBalance: formatUnits(balanceArr[2].result, '6'),
@@ -289,7 +286,7 @@ export default {
       let proxyContract = getPreSaleContract()
       let stakeContract = getStakeContract()
 
-      const data = await multicall({
+      const data = await appPublicClient.multicall({
         contracts: [
           {
             ...proxyContract,
@@ -393,7 +390,7 @@ export default {
         endTime: resultData.endTime,
       }
 
-      let tgbBalance = await fetchBalance({
+      let tgbBalance = await appPublicClient.getBalance({
         address: stakeContract.address,
         token: resultData.saleToken,
       })
@@ -415,7 +412,7 @@ export default {
       let totalStake = formatUnits(resultData.tokensStaked, "18")
 
       //当前质押池剩余TGB总量
-      let totalBalance = formatUnits(tgbBalance.value, "18")
+      let totalBalance = formatUnits(tgbBalance, "18")
       console.log(`$tgb totalBalance ${totalBalance}`)
       let endTime = Number(resultData.endTime)
       console.log(`endTime: ${endTime}`)
@@ -845,7 +842,6 @@ export default {
         }
 
         buying.value = true
-        const walletClient = await getMyWalletClient()
 
         const inviteCodeParam = getInviteCode();
 
@@ -855,7 +851,7 @@ export default {
         let usdtContract = getUsdtContract()
 
         if (buyType === 1 || buyType === 2) {
-          let ethPayAmount = await readContract({
+          let ethPayAmount = await appPublicClient.readContract({
             ...proxyContract,
             functionName: 'ethBuyHelper',
             args: [amount]
@@ -865,7 +861,7 @@ export default {
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
-          hash = await walletClient.writeContract({
+          hash = await appWallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(amount), inviteCodeParam],
@@ -900,7 +896,7 @@ export default {
             return
           }
           let usdtPayAmount = 0
-          usdtPayAmount = await readContract({
+          usdtPayAmount = await appPublicClient.readContract({
             ...proxyContract,
             functionName: 'usdtBuyHelper',
             args: [amount]
@@ -909,7 +905,7 @@ export default {
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
-          hash = await walletClient.writeContract({
+          hash = await appWallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
@@ -944,7 +940,7 @@ export default {
             return
           }
           let usdcPayAmount = 0
-          usdcPayAmount = await readContract({
+          usdcPayAmount = await appPublicClient.readContract({
             ...proxyContract,
             functionName: 'usdcBuyHelper',
             args: [amount]
@@ -953,7 +949,7 @@ export default {
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
           let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
-          hash = await walletClient.writeContract({
+          hash = await appWallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],

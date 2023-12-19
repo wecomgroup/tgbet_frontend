@@ -19,7 +19,9 @@
     "text17":"There are {days} days left until the stake is released ",
     "text18":"In order to complete this transaction, you need to agree to the contract's access to your USDT or USDC permissions",
     "text19":"In order to buy $TGB with USDT/USDC, you first need to authorize us to access the USDT/USDC in your wallet.",
-    "text20":"Approve"
+    "text20":"Approve",
+    "text21": "In order to stake $TGB, you first need to authorize us to access the $TGB in your wallet."
+
   },
   "blockTitle": {
     "qa": "Frequently Asked Questions",
