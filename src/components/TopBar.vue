@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="navbar" id="navbar">
-            <img alt="ibit logo" class="topLogo" src="../assets/logo.png">
+            <img alt="logo" class="topLogo" src="../assets/logo.png">
             <div class="navContainer">
                 <a class="menu-item" @click="handleClick('home')">{{ $t('topBar.index') }}</a>
                 <a class="menu-item" @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
@@ -11,7 +11,7 @@
                 <a class="menu-item" @click="goPcHowToBuy">{{ $t('topBar.howBuy') }}</a>
                 <a class="menu-item" @click="handleClick('commonProblemContainer')">{{ $t('topBar.qa') }}</a>
             </div>
-            <img alt="ibit menu" class="menuImg" src="../assets/menu.png">
+            <img alt="menu" class="menuImg" src="../assets/menu.png">
             <div class="menuImg" @click="handleShowMenu"></div>
             <div class="actionContainer">
                 <div class="pledge" @click="goPcPledge">

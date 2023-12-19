@@ -69,22 +69,22 @@
     "text2": "Join us today",
     "text3": "In 2023 alone, the options for gambling with cryptocurrencies have tripled. \nWith no KYC required and a seamless, easy-to-use platform, it’s no surprise that people are flocking to sites like TG.Bet to gamble online. \nSo, why choose TG.Bet?",
     "text4": "Play now",
-    "text5": "Easily play popular games on TG.Bit’s seamless Telegram platform. \nThanks to our strong marketing, TG.Bet is quickly becoming a household name. \nBenefit from our investment in online gaming and our profitable model. \nCome explore the future of gaming with us!"
+    "text5": "Easily play popular games on TG.Bet’s seamless Telegram platform. \nThanks to our strong marketing, TG.Bet is quickly becoming a household name. \nBenefit from our investment in online gaming and our profitable model. \nCome explore the future of gaming with us!"
   },
   "whiteBook": {
     "text1": "If you want to learn more about how TG.Bet is different, read our white paper. \nWe are more than just an online casino!",
     "text2": "Whitepaper"
   },
   "safeInstructions": {
-    "text1": "TG.Bet does not require you to perform any KYC verification to play, or even connect your wallet. \nSimply top up your account and withdraw money at any time. \nIt's that simple!",
-    "text2": "No KYC required",
-    "text3": "No need to set up an account",
+    "text1": "TG.Bet is easy to get started, simply open TG.Bet in Telegram, fund your account with any major cryptocurrency and start playing!",
+    "text2": "Open and Play",
+    "text3": "No Account Setup",
     "text4": "Play on your smartphone",
-    "text5": "Everything is on Telegram",
+    "text5": "All on Telegram",
     "text6": "Play now"
   },
   "preSale": {
-    "text1": "You will never be able to get $TGB at a better price than the current price during our presale",
+    "text1": "There will never be another opportunity to get $TGB for a better price than during our presale. Here are some of the benefits!",
     "text2": "Special rewards",
     "text3": "Presale buyers are rewarded exclusively when they play in the casino",
     "text4": "Best possible price",
@@ -125,7 +125,7 @@
     "text7": "When you stake your $TGB you unlock access to revenue based rewards. Your even bigger piece of the pie!"
   },
   "operationWay": {
-    "text1": "TG.Bet is not just a casino, it is an ecosystem that provides ongoing rewards through $TGB!"
+    "text1": "TG.Bet is more than just a casino, it is a ecosystem that gives back to its players through constant rewards by leveraging $TGB."
   },
   "noKyc": {
     "text1": "Online gambling without KYC has real advantages. \nFor years, the only way to gamble online was to hand over personal information. \nAt TG.Bet you do not need to provide personal information. \nAll you need is a Telegram account, some cryptocurrency, and you’re ready to play! \nIt only takes a few small steps.",
@@ -143,10 +143,10 @@
     "text2": "Verify license"
   },
   "howToBuy": {
-    "text1": "To purchase tokens during the Presale, visit TG.Bit’s official website. \nAfter the Presale, tokens can be obtained directly from the official website or through decentralized exchanges.",
+    "text1": "To purchase tokens during the Presale, visit TG.Bet’s official website. \nAfter the Presale, tokens can be obtained directly from the official website or through decentralized exchanges.",
     "text2": "How to buy $TGB during the presale",
     "text3": "Step 1: Visit the official portal",
-    "text4": "Visit TG.Bit’s dedicated webpage to find the exclusive Presale purchase interface. \nPlease note that this is the only authorized platform to obtain Presale $TGB tokens.",
+    "text4": "Visit TG.Bet’s dedicated webpage to find the exclusive Presale purchase interface. \nPlease note that this is the only authorized platform to obtain Presale $TGB tokens.",
     "text5": "Step 2: Choose payment method",
     "text6": "You can choose to purchase the Presale $TGB token on the Ethereum network using Ethereum (ETH) or Tether (USDT). \nAlternatively, you can leverage Binance Smart Chain and choose BNB or USDT. \nMake your choice and proceed to the next step.",
     "text7": "Step 3: Connect your crypto wallet",
@@ -214,13 +214,13 @@
     "text3": "Terms"
   },
   "actionView": {
-    "text1": "World's top Telegram",
+    "text1": "World's #1 Telegram",
     "text2": "CASINO",
-    "text3": "TG.Bet is your exclusive place for online, anonymous crypto gambling. Fully licensed and 100% safe, join us today!",
+    "text3": "TG.Bet is your exclusive place for online crypto gambling. Fully licensed and 100% safe, join us today!",
     "text4": "Join Community",
     "text5": "Play now",
     "text6": "Verify license",
     "text7": "CASH BACK",
-    "text8": "Get 25% cashback on all losses when betting with $TGB tokens"
+    "text8": "On all losses when betting $TGB Token"
   }
 }

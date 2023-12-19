@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "Nejlepší telegram na světě",
+    "text1": "světový",
     "text2": "KASINO",
-    "text3": "TG.Bet je vaše exkluzivní místo pro online, anonymní krypto hazardní hry. \nPlně licencovaný a 100% bezpečný, připojte se k nám ještě dnes!",
+    "text3": "TG.Bet je vaše exkluzivní místo pro online krypto hazardní hry. \nPlně licencovaný a 100% bezpečný, připojte se k nám ještě dnes!",
     "text4": "Připojte se ke komunitě",
     "text5": "hrát hned",
     "text6": "Ověřte licenci",
     "text7": "CASH BACK",
-    "text8": "Získejte 25% cashback ze všech ztrát při sázení s tokeny $TGB"
+    "text8": "Na všechny ztráty při sázení $TGB Token"
   },
   "blockTitle": {
     "cc1": "Příležitost v krypto kasinu",
@@ -40,10 +40,10 @@
     "text2": "V současné době se 80 % online kasinových her hraje na mobilních zařízeních, přičemž drtivá většina krypto kasin je navržena speciálně pro mobilní zařízení.\n\nTG.Bet jde ještě o krok dále a exkluzivně nabízí platformu Telegram, která má aktuálně přes 1 miliardu uživatelů a očekává se, že v příštích 3-5 letech vzroste na 1,5 miliardy uživatelů."
   },
   "coinTimes": {
-    "text1": "Zdá se, že nedávná explozivní popularita krypto hazardu nevykazuje žádné známky zpomalení.\n\nMy v TG.Bet chápeme, že hráči po celém světě oceňují flexibilitu hraní kdykoli a kdekoli, zůstávají anonymní a mohou sázet pomocí kryptoměn.\n\nBudoucnost skutečně dorazila!"
+    "text1": "Zdá se, že nedávná explozivní popularita krypto hazardu nevykazuje žádné známky zpomalení.\n\nMy v TG.Bet chápeme, že hráči po celém světě oceňují flexibilitu hraní kdykoli a kdekoli, zachování anonymity a možnost sázet pomocí kryptoměn.\n\nBudoucnost skutečně dorazila!"
   },
   "commonProblem": {
-    "text1": "Čím se TG.Bet liší",
+    "text1": "Čím se TG.Bet liší?",
     "text10": "$TGB spustíme do dnů po ukončení předprodeje. \nO dni spuštění budeme všechny informovat prostřednictvím našich webových stránek a sociálních sítí.",
     "text2": "TG.Bet vám poskytuje přístup ke všem nejlepším online kasinovým hrám, sportovním sázkám a dalším, ale také jsme odhodláni kultivovat ekosystém, který si váží loajality. \nJako důkaz našeho odhodlání se vracíme tím, že sdílíme část našich příjmů kasina prostřednictvím zpětných odkupů za token $ TGB. \nHrajte, vydělávejte a buďte odměněni!",
     "text3": "Jak dlouhý je předprodej?",
@@ -57,7 +57,7 @@
   "economicToken": {
     "text1": "Pro dosažení ctnostného cyklu je velmi důležité chování každého účastníka ekosystému.\n\nNeméně důležité jsou dobře navržené pobídky",
     "text10": "Aliance",
-    "text11": "Odměny pro ty, kteří pomáhají růst TG.Bet",
+    "text11": "Odměny pro ty, kteří pomáhají rozvíjet TG.Bet",
     "text12": "Marketing",
     "text13": "Pro spolupráci a přímý marketing",
     "text2": "Pool likvidity",
@@ -76,6 +76,8 @@
     "text12": "Aktuální sázky APY",
     "text13": "Koupit v BSC",
     "text14": "Koupit na ETH",
+    "text15": "Nákup...",
+    "text16": "zakoupeno",
     "text2": "Konečný cíl",
     "text3": "Kupte nyní, než se cena zvýší v:",
     "text4": "peněženka",
@@ -83,18 +85,16 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB obdržíte",
-    "text9": "Připojte peněženku",
-    "text15": "Nákup...",
-    "text16": "zakoupeno"
+    "text9": "Připojte peněženku"
   },
   "howToBuy": {
     "text1": "Chcete-li zakoupit tokeny během předprodeje, navštivte oficiální web TG.Bet.\n\nPo předprodeji lze tokeny získat přímo z oficiálních stránek nebo prostřednictvím decentralizovaných burz.",
-    "text10": "Zadejte množství tokenů $ TGB, které chcete zakoupit.\n\nVezměte prosím na vědomí, že kromě ceny tokenu, který si hodláte zakoupit, je k dokončení transakce zapotřebí minimálně 0,015 ETH.\n\nNa Binance Smart Chain je tento minimální požadavek nižší, ale stále platí.\n\nMinimální množství tokenů $ TGB, které lze zakoupit, je nastaveno na 100 $ TGB.",
+    "text10": "Zadejte množství tokenů $ TGB, které si přejete zakoupit.\n\nVezměte prosím na vědomí, že kromě ceny tokenu, který si hodláte zakoupit, je k dokončení transakce zapotřebí minimálně 0,015 ETH.\n\nNa Binance Smart Chain je tento minimální požadavek nižší, ale stále platí.\n\nMinimální množství tokenů $ TGB, které lze zakoupit, je nastaveno na 100 $ TGB.",
     "text11": "Krok 5: Dokončete nákup",
     "text12": "Jakmile zadáte částku, budete vyzváni k autorizaci transakce.\n\nKliknutím na „Schválit“ bude vaše transakce zahájena a ověřena na blockchainu.\n\nDoba dokončení transakce se může lišit od sekund po minuty v závislosti na přetížení sítě a aktivitě inteligentní smlouvy.\n\nZůstaňte na rozhraní, dokud nebude nákup plně proveden.",
     "text2": "Jak koupit $TGB během předprodeje",
     "text3": "Krok 1: Navštivte oficiální portál",
-    "text4": "Navštivte vyhrazenou webovou stránku společnosti TG.Bet, kde najdete exkluzivní rozhraní pro nákup v předprodeji.\n\nUpozorňujeme, že toto je jediná autorizovaná platforma pro získání předprodejních tokenů $TGB.",
+    "text4": "Navštivte vyhrazenou webovou stránku TG.Bet, kde najdete exkluzivní rozhraní pro nákup v předprodeji.\n\nUpozorňujeme, že toto je jediná autorizovaná platforma pro získání předprodejních tokenů $TGB.",
     "text5": "Krok 2: Vyberte způsob platby",
     "text6": "Token $TGB v předprodeji si můžete zakoupit v síti Ethereum pomocí Etherea (ETH) nebo Tetheru (USDT).\n\nPřípadně můžete využít Binance Smart Chain a vybrat si BNB nebo USDT.\n\nVyberte si a přejděte k dalšímu kroku.",
     "text7": "Krok 3: Připojte svou kryptopeněženku",
@@ -102,7 +102,7 @@
     "text9": "Krok 4: Zadejte částku nákupu"
   },
   "licenseProof": {
-    "text1": "Prostor Web 3 je často vnímán jako Divoký západ, plný dezinformací a podvodů.\n\nV TG.Bet hrdě prohlašujeme, že jsme 100% plně licencovaný kasino subjekt se sídlem v Curacau.\n\nTakže neváhejte a hrajte!",
+    "text1": "Prostor Web 3 je často vnímán jako Divoký západ plný dezinformací a podvodů.\n\nV TG.Bet hrdě prohlašujeme, že jsme 100% plně licencovaný kasino subjekt se sídlem v Curacau.\n\nTakže neváhejte a hrajte!",
     "text2": "Ověřte licenci"
   },
   "noKyc": {
@@ -114,22 +114,22 @@
     "text6": "Krok 2",
     "text7": "Můžete si vybrat připojení své kryptopeněženky nebo převod prostředků na svůj účet TG.Ber, máte svobodu volby.\n\nJakmile doplníte svůj účet, můžete začít!",
     "text8": "Krok 3",
-    "text9": "Vyberte si hru a začněte hrát!\n\nKdykoli můžete provádět neomezené výběry.\n\nNa TG.Bet si můžete užívat bezstarostný herní zážitek 24 hodin denně, 7 dní v týdnu, po celý rok!"
+    "text9": "Vyberte si hru a začněte hrát!\n\nKdykoli můžete provádět neomezené výběry.\n\nU TG.Bet si můžete užívat bezstarostný herní zážitek, 24 hodin denně, 7 dní v týdnu, po celý rok!"
   },
   "operationWay": {
-    "text1": "TG.Bet není jen kasino, je to ekosystém, který poskytuje průběžné odměny prostřednictvím $TGB!"
+    "text1": "TG.Bet je víc než jen kasino, je to ekosystém, který svým hráčům vrací peníze prostřednictvím neustálých odměn za využití $ TGB."
   },
   "pledgeCoin": {
     "text1": "Mince $ TGB zakoupené během hry pro vás budou i nadále generovat neočekávané výhody, což umožní, aby hazardní hry, zábava a finanční správa sázek stály pod stejným úhlem a přinášely vašim fondům nekonečné výhody.",
     "text2": "Vydělávejte pasivní příjem",
     "text3": "Když vsadíte své $TGB, okamžitě začnete získávat denní odměny. \nSledujte, jak se váš majetek postupem času rozrůstá!",
     "text4": "Získejte okamžitý přístup k odměnám",
-    "text5": "Okamžitě se vám odemknou odměny ze stakingu, které můžete použít v TG.Bet, nebo si je uložte na později!",
+    "text5": "Okamžitě odemknete odměny ze sázek, které můžete použít v TG.Bet, nebo si je uložte na později!",
     "text6": "Podělte se o bohatství",
     "text7": "Když vsadíte své TGB $, odemknete přístup k odměnám založeným na tržbách. \nVáš ještě větší kousek koláče!"
   },
   "pledgeDetail": {
-    "text1": "TG.Bet vám umožňuje vkládat a odkládat své tokeny. \nVyberte funkci, kterou chcete. \nPouze vsazené tokeny získávají APY.",
+    "text1": "TG.Bet vám umožňuje vsadit a vyjmout své žetony. \nVyberte funkci, kterou chcete. \nPouze vsazené tokeny získávají APY.",
     "text10": "Celková sklizeň odměn ($ TGB)",
     "text11": "Celkové nárokovatelné odměny ($ TGB)",
     "text12": "Dostávat",
@@ -150,7 +150,7 @@
     "text9": "% z celkové sázky $TGB"
   },
   "preSale": {
-    "text1": "Během našeho předprodeje nikdy nebudete moci získat $ TGB za lepší cenu, než je aktuální cena",
+    "text1": "Už nikdy nebude příležitost získat $TGB za lepší cenu než během našeho předprodeje. \nZde jsou některé z výhod!",
     "text2": "Speciální odměny",
     "text3": "Kupující v předprodeji jsou odměňováni výhradně tehdy, když hrají v kasinu",
     "text4": "Nejlepší možná cena",
@@ -161,12 +161,36 @@
     "text9": "Kupte si předprodejní žetony a začněte ihned sázet za okamžité pasivní odměny!"
   },
   "safeInstructions": {
-    "text1": "TG.Bet nevyžaduje, abyste prováděli jakékoli ověření KYC, abyste mohli hrát, nebo dokonce připojit vaši peněženku.\n\nJednoduše dobijte svůj účet a kdykoli si vyberte peníze.\n\nJe to tak jednoduché!",
-    "text2": "Není vyžadován žádný KYC",
-    "text3": "Není třeba zakládat účet",
+    "text1": "TG.Bet je snadné začít, jednoduše otevřete TG.Bet v telegramu, zafinancujte svůj účet jakoukoli hlavní kryptoměnou a začněte hrát!",
+    "text2": "Otevřít a hrát",
+    "text3": "Žádné nastavení účtu",
     "text4": "Hrajte na svém smartphonu",
-    "text5": "Vše je na telegramu",
+    "text5": "Vše na telegramu",
     "text6": "hrát hned"
+  },
+  "tip": {
+    "text1": "Připojte prosím peněženku",
+    "text10": "Nákupy $TGB byly pozastaveny",
+    "text11": "Transakce byla odeslána, trpělivě vyčkejte na dokončení transakce.",
+    "text12": "Transakce úspěšná",
+    "text13": "Transakce se pokazila",
+    "text14": "Počet odměn musí být větší než 100",
+    "text15": "Množství sázky musí být větší než 100",
+    "text16": "Vyřazené množství musí být větší než 100",
+    "text17": "Do uvolnění sázky zbývá {dny} dní",
+    "text18": "Chcete-li dokončit tuto transakci, musíte souhlasit s přístupem smlouvy k vašim oprávněním USDT nebo USDC",
+    "text19": "Chcete-li koupit $ TGB s USDT/USDC, musíte nás nejprve autorizovat pro přístup k USDT/USDC ve vaší peněžence.",
+    "text2": "Nakupte prosím alespoň 100 $ TGB.",
+    "text20": "Schvalovat",
+    "text21": "Abyste mohli vsadit $TGB, musíte nám nejprve povolit přístup k $TGB ve vaší peněžence.",
+    "text22": "zpracovává se",
+    "text3": "Nemáte dostatek ETH k zaplacení této transakce.\n\n \nUjistěte se, že máte 0,015 ETH za plyn a ETH za výměnu tokenů.",
+    "text4": "Nemáte dostatek ETH k zaplacení této transakce.\n\n \nUjistěte se, že máte 0,015 ETH za plyn a USDT za výměnu tokenů.",
+    "text5": "K zaplacení této transakce nemáte dostatek USDT.\n\n \nUjistěte se, že máte 0,015 ETH za plyn a USDT za výměnu tokenů.",
+    "text6": "Nemáte dostatek ETH k zaplacení této transakce.\n\n \nUjistěte se, že máte 0,015 ETH za plyn a USDC za výměnu tokenů.",
+    "text7": "Nemáte dostatek USDC k zaplacení této transakce.\n\n \nUjistěte se, že máte 0,015 ETH za plyn a USDC za výměnu tokenů.",
+    "text8": "Maximální {amount} $ TGB za transakci.",
+    "text9": "0,015 ETH je vyhrazeno pro plyn. \nSkutečné použité množství bude záviset na síti."
   },
   "topBar": {
     "auditBtn": "Audit",
@@ -193,33 +217,10 @@
     "text2": "Bílý papír"
   },
   "whyPopular": {
-    "text1": "I když na trhu může existovat konkurence, nemohou se rovnat tomu, co TG.Bet nabízí.\n\nMáme všechny nejlepší hry, živé události, sportovní sázení a další, prostě nelze srovnávat.\n\nVe spojení se štědrými odměnami, které nabízíme držitelům $ TGB, je volba TG.Bet moudrým rozhodnutím.",
+    "text1": "I když na trhu může existovat konkurence, nemohou se rovnat tomu, co TG.Bet nabízí.\n\nMáme všechny nejlepší hry, živé události, sportovní sázení a další, prostě nelze srovnávat.\n\nVe spojení se štědrými odměnami, které nabízíme držitelům $TGB, je volba TG.Bet moudrým rozhodnutím.",
     "text2": "Přidejte se k nám ještě dnes",
-    "text3": "Jen v roce 2023 se možnosti hazardních her s kryptoměnami ztrojnásobily.\n\nBez nutnosti KYC a bezproblémové a snadno použitelné platformy není žádným překvapením, že se lidé hrnou na weby jako TG.Bet, aby mohli hrát online.\n\nProč si tedy vybrat TG.Bet?",
+    "text3": "Jen v roce 2023 se možnosti hazardních her s kryptoměnami ztrojnásobily.\n\nBez nutnosti KYC a bezproblémové a snadno použitelné platformy není žádným překvapením, že se lidé hrnou na weby, jako je TG.Bet, aby mohli hrát online.\n\nProč si tedy vybrat TG.Bet?",
     "text4": "hrát hned",
     "text5": "Snadno hrajte oblíbené hry na bezproblémové platformě Telegram společnosti TG.Bet.\n\nDíky našemu silnému marketingu se TG.Bet rychle stává pojmem.\n\nVyužijte naši investici do online hraní a náš ziskový model.\n\nPojďte s námi prozkoumat budoucnost hraní!"
-  },
-  "tip": {
-    "text1": "Připojte prosím peněženku",
-    "text10": "Nákupy $TGB byly pozastaveny",
-    "text11": "Transakce byla odeslána, trpělivě vyčkejte na dokončení transakce.",
-    "text12": "Transakce úspěšná",
-    "text13": "Transakce se pokazila",
-    "text2": "Nakupte prosím alespoň 100 $ TGB.",
-    "text3": "Nemáte dostatek ETH k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a ETH za výměnu tokenů.",
-    "text4": "Nemáte dostatek ETH k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDT za výměnu tokenů.",
-    "text5": "K zaplacení této transakce nemáte dostatek USDT.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDT za výměnu tokenů.",
-    "text6": "Nemáte dostatek ETH k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDC za výměnu tokenů.",
-    "text7": "Nemáte dostatek USDC k zaplacení této transakce.\n \nUjistěte se, že máte 0,015 ETH za plyn a USDC za výměnu tokenů.",
-    "text8": "Maximální {amount} $TGC na transakci.",
-    "text9": "0,015 ETH je vyhrazeno pro plyn. \nSkutečné použité množství bude záviset na síti.",
-    "text14": "Počet odměn musí být větší než 100",
-    "text15": "Množství sázky musí být větší než 100",
-    "text16": "Vyřazené množství musí být větší než 100",
-    "text17": "Do uvolnění sázky zbývá {dny} dní",
-    "text18": "Chcete-li dokončit tuto transakci, musíte souhlasit s přístupem smlouvy k vašim oprávněním USDT nebo USDC",
-    "text19": "Chcete-li koupit $ TGB s USDT/USDC, musíte nás nejprve autorizovat pro přístup k USDT/USDC ve vaší peněžence.",
-    "text20": "Schvalovat",
-    "text21": "Abyste mohli vsadit $TGB, musíte nám nejprve povolit přístup k $TGB ve vaší peněžence."
   }
 }

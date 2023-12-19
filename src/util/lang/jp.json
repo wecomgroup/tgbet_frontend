@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "World's top Telegram",
+    "text1": "World's",
     "text2": "CASINO",
-    "text3": "TG.Bet is your exclusive place for online, anonymous crypto gambling. Fully licensed and 100% safe, join us today!",
+    "text3": "TG.Bet is your exclusive place for online crypto gambling. Fully licensed and 100% safe, join us today!",
     "text4": "Join Community",
     "text5": "Play now",
     "text6": "Verify license",
     "text7": "CASH BACK",
-    "text8": "Get 25% cashback on all losses when betting with $TGB tokens"
+    "text8": "On all losses when betting $TGB Token"
   },
   "blockTitle": {
     "cc1": "Crypto Casino Opportunity",
@@ -76,6 +76,8 @@
     "text12": "Current Staking APY",
     "text13": "Buy at BSC",
     "text14": "Buy at ETH",
+    "text15": "Purchasing...",
+    "text16": "purchased",
     "text2": "Final goal",
     "text3": "Buy now before price increases in:",
     "text4": "wallet",
@@ -83,9 +85,7 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB you receive",
-    "text9": "Connect wallet",
-    "text15": "Purchasing...",
-    "text16": "purchased"
+    "text9": "Connect wallet"
   },
   "howToBuy": {
     "text1": "To purchase tokens during the Presale, visit TG.Bet’s official website. \nAfter the Presale, tokens can be obtained directly from the official website or through decentralized exchanges.",
@@ -117,7 +117,7 @@
     "text9": "Choose a game and start playing! \nYou can make unlimited withdrawals at any time. \nYou can enjoy a worry-free gaming experience at TG.Bet, 24/7, all year round!"
   },
   "operationWay": {
-    "text1": "TG.Bet is not just a casino, it is an ecosystem that provides ongoing rewards through $TGB!"
+    "text1": "TG.Bet is more than just a casino, it is a ecosystem that gives back to its players through constant rewards by leveraging $TGB."
   },
   "pledgeCoin": {
     "text1": "The $TGB coins purchased during the game will continue to generate unexpected benefits for you, allowing gambling, entertainment and staking financial management to stand at the same angle and bring endless benefits to your funds.",
@@ -150,7 +150,7 @@
     "text9": "% of Total $TGB Staked"
   },
   "preSale": {
-    "text1": "You will never be able to get $TGB at a better price than the current price during our presale",
+    "text1": "There will never be another opportunity to get $TGB for a better price than during our presale. Here are some of the benefits!",
     "text2": "Special rewards",
     "text3": "Presale buyers are rewarded exclusively when they play in the casino",
     "text4": "Best possible price",
@@ -161,12 +161,36 @@
     "text9": "Purchase presale tokens, start staking for instant passive rewards right away!"
   },
   "safeInstructions": {
-    "text1": "TG.Bet does not require you to perform any KYC verification to play, or even connect your wallet. \nSimply top up your account and withdraw money at any time. \nIt's that simple!",
-    "text2": "No KYC required",
-    "text3": "No need to set up an account",
+    "text1": "TG.Bet is easy to get started, simply open TG.Bet in Telegram, fund your account with any major cryptocurrency and start playing!",
+    "text2": "Open and Play",
+    "text3": "No Account Setup",
     "text4": "Play on your smartphone",
-    "text5": "Everything is on Telegram",
+    "text5": "All on Telegram",
     "text6": "Play now"
+  },
+  "tip": {
+    "text1": "Please connect wallect",
+    "text10": "$TGB purchases have been paused",
+    "text11": "The transaction has been sent, please wait patiently for the transaction to be completed.",
+    "text12": "Transaction successful",
+    "text13": "Transaction gone wrong",
+    "text14": "The number of rewards must be greater than 100",
+    "text15": "The stake quantity must be greater than 100",
+    "text16": "The unstake quantity must be greater than 100",
+    "text17": "There are {days} days left until the stake is released",
+    "text18": "In order to complete this transaction, you need to agree to the contract's access to your USDT or USDC permissions",
+    "text19": "In order to buy $TGB with USDT/USDC, you first need to authorize us to access the USDT/USDC in your wallet.",
+    "text2": "Please purchase at least 100 $TGB.",
+    "text20": "Approve",
+    "text21": "In order to stake $TGB, you first need to authorize us to access the $TGB in your wallet.",
+    "text22": "Processing",
+    "text3": "You do not have enough ETH to pay for this transaction. \n\n Make sure you have 0.015 ETH for gas and ETH for the token exchange.",
+    "text4": "You do not have enough ETH to pay for this transaction. \n\n Make sure you have 0.015 ETH for gas and USDT for the token exchange.",
+    "text5": "You do not have enough USDT to pay for this transaction.\n\n Make sure you have 0.015 ETH for gas and USDT for the token exchange.",
+    "text6": "You do not have enough ETH to pay for this transaction. \n\n Make sure you have 0.015 ETH for gas and USDC for the token exchange.",
+    "text7": "You do not have enough USDC to pay for this transaction.\n\n Make sure you have 0.015 ETH for gas and USDC for the token exchange.",
+    "text8": "Maximum {amount} $TGB per transaction.",
+    "text9": "0.015 ETH is reserved for gas. The actual amount used will depend on the network."
   },
   "topBar": {
     "auditBtn": "Audit",
@@ -198,29 +222,5 @@
     "text3": "In 2023 alone, the options for gambling with cryptocurrencies have tripled. \nWith no KYC required and a seamless, easy-to-use platform, it’s no surprise that people are flocking to sites like TG.Bet to gamble online. \nSo, why choose TG.Bet?",
     "text4": "Play now",
     "text5": "Easily play popular games on TG.Bet’s seamless Telegram platform. \nThanks to our strong marketing, TG.Bet is quickly becoming a household name. \nBenefit from our investment in online gaming and our profitable model. \nCome explore the future of gaming with us!"
-  },
-  "tip": {
-    "text1": "Please connect wallect",
-    "text10": "$TGB purchases have been paused",
-    "text11": "The transaction has been sent, please wait patiently for the transaction to be completed.",
-    "text12": "Transaction successful",
-    "text13": "Transaction gone wrong",
-    "text2": "Please purchase at least 100 $TGB.",
-    "text3": "You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and ETH for the token exchange.",
-    "text4": "You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and USDT for the token exchange.",
-    "text5": "You do not have enough USDT to pay for this transaction.\n Make sure you have 0.015 ETH for gas and USDT for the token exchange.",
-    "text6": "You do not have enough ETH to pay for this transaction. \n Make sure you have 0.015 ETH for gas and USDC for the token exchange.",
-    "text7": "You do not have enough USDC to pay for this transaction.\n Make sure you have 0.015 ETH for gas and USDC for the token exchange.",
-    "text8": "Maximum {amount} $TGC per transaction.",
-    "text9": "0.015 ETH is reserved for gas. The actual amount used will depend on the network.",
-    "text14": "The number of rewards must be greater than 100",
-    "text15": "The stake quantity must be greater than 100",
-    "text16": "The unstake quantity must be greater than 100",
-    "text17": "There are {days} days left until the stake is released",
-    "text18": "In order to complete this transaction, you need to agree to the contract's access to your USDT or USDC permissions",
-    "text19": "In order to buy $TGB with USDT/USDC, you first need to authorize us to access the USDT/USDC in your wallet.",
-    "text20": "Approve",
-    "text21": "In order to stake $TGB, you first need to authorize us to access the $TGB in your wallet.",
-    "text22": "Processing"
   }
 }

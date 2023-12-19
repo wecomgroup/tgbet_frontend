@@ -2,7 +2,7 @@
 <template>
     <div class="bottombar">
         <div class="showNav">
-            <img alt="project logo" style="width: 136px; height: auto;" src="../assets/bottomLogo.png">
+            <img alt="project logo" style="width: 136px; height: auto;" src="../assets/logo.png">
             <p class="navContainer">
                 <a @click="handleClick('home')">{{ $t('topBar.index') }}</a>
                 <a @click="handleClick('preSale')">{{ $t('topBar.welfare') }}</a>
@@ -14,7 +14,7 @@
             </p>
         </div>
         <div class="showMobileLogo">
-            <img alt="project logo" style="width: 90px; height: auto;" src="../assets/bottomLogo.png">
+            <img alt="project logo" style="width: 90px; height: auto;" src="../assets/logo.png">
         </div>
         <p class="diver">
         </p>

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 
-const appPath = 'https://pwa.tg.bet/'
+const appPath = ''
 
 
 const service = axios.create({

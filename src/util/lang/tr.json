@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "Dünyanın en iyi Telegramı",
+    "text1": "Dünyanın",
     "text2": "kumarhane",
-    "text3": "TG.Bet, çevrimiçi, anonim kripto kumarı için özel yerinizdir. \nTamamen lisanslı ve %100 güvenli, bugün bize katılın!",
+    "text3": "TG.Bet, çevrimiçi kripto kumarı için özel yerinizdir. \nTamamen lisanslı ve %100 güvenli, bugün bize katılın!",
     "text4": "Topluluğa Katılın",
     "text5": "Şimdi oyna",
     "text6": "Lisansı doğrulayın",
     "text7": "NAKİT PARA",
-    "text8": "$TGB tokenleri ile bahis yaparken tüm kayıplarda %25 para iadesi alın"
+    "text8": "$TGB Token bahislerinde tüm kayıplarda"
   },
   "blockTitle": {
     "cc1": "Kripto Casino Fırsatı",
@@ -40,7 +40,7 @@
     "text2": "Şu anda çevrimiçi kumarhane oyunlarının %80'i mobil cihazlarda oynanıyor ve kripto kumarhanelerin büyük çoğunluğu mobil cihazlar için özel olarak tasarlanıyor.\n\nTG.Bet bir adım daha ileri giderek şu anda 1 milyardan fazla kullanıcıya sahip olan ve önümüzdeki 3-5 yıl içinde 1,5 milyar kullanıcıya ulaşması beklenen Telegram platformunu özel olarak sunuyor."
   },
   "coinTimes": {
-    "text1": "Kripto kumarının son zamanlardaki patlayıcı popülaritesi herhangi bir yavaşlama belirtisi göstermiyor gibi görünüyor.\n\nTG.Bet olarak biz, dünyanın dört bir yanındaki oyuncuların her zaman, her yerde oynamanın, anonim kalmanın ve kripto para birimleri kullanarak bahis oynayabilmenin esnekliğini takdir ettiğinin bilincindeyiz.\n\nGelecek gerçekten geldi!"
+    "text1": "Kripto kumarının son zamanlardaki patlayıcı popülaritesi herhangi bir yavaşlama belirtisi göstermiyor gibi görünüyor.\n\nTG.Bet olarak biz, dünyanın dört bir yanındaki oyuncuların her zaman, her yerde oynamanın, anonim kalmanın ve kripto para birimleri kullanarak bahis yapabilmenin esnekliğini takdir ettiğinin bilincindeyiz.\n\nGelecek gerçekten geldi!"
   },
   "commonProblem": {
     "text1": "TG.Bet'i farklı kılan şey nedir?",
@@ -76,20 +76,20 @@
     "text12": "Güncel Staking APY",
     "text13": "BSC'den satın alın",
     "text14": "ETH'den satın alın",
+    "text15": "Satın alma...",
+    "text16": "satın alındı",
     "text2": "Nihai hedef",
     "text3": "Fiyat artışlarından önce hemen satın alın:",
     "text4": "cüzdan",
     "text5": "öde",
     "text6": "",
-    "text7": "MAX",
+    "text7": "MAKS",
     "text8": "Aldığınız $TGB",
-    "text9": "Cüzdanı bağlayın",
-    "text15": "Satın alma...",
-    "text16": "satın alındı"
+    "text9": "Cüzdanı bağlayın"
   },
   "howToBuy": {
     "text1": "Ön Satış sırasında token satın almak için TG.Bet'in resmi web sitesini ziyaret edin.\n\nÖn Satıştan sonra tokenlar doğrudan resmi web sitesinden veya merkezi olmayan borsalar aracılığıyla edinilebilir.",
-    "text10": "Satın almak istediğiniz $TGB token miktarını girin.\n\nSatın almayı düşündüğünüz tokenın maliyetine ek olarak, işlemi tamamlamak için minimum 0,015 ETH'nin gerekli olduğunu lütfen unutmayın.\n\nBinance Smart Chain'de bu minimum gereksinim daha düşüktür ancak yine de geçerlidir.\n\nSatın alınabilecek minimum $TGB token miktarı 100 $TGB olarak ayarlandı.",
+    "text10": "Satın almak istediğiniz $TGB token miktarını girin.\n\nSatın almayı düşündüğünüz tokenın maliyetine ek olarak, işlemin tamamlanması için minimum 0,015 ETH'nin gerekli olduğunu lütfen unutmayın.\n\nBinance Smart Chain'de bu minimum gereksinim daha düşüktür ancak yine de geçerlidir.\n\nSatın alınabilecek minimum $TGB token miktarı 100 $TGB olarak ayarlandı.",
     "text11": "5. Adım: Satın alma işleminizi tamamlayın",
     "text12": "Tutarı girdikten sonra işlemi onaylamanız istenecektir.\n\n\"Onayla\"ya tıkladığınızda işleminiz blockchain üzerinde başlatılacak ve doğrulanacaktır.\n\nİşlemin tamamlanma süreleri, ağ tıkanıklığına ve akıllı sözleşme etkinliğine bağlı olarak saniyelerden dakikalara kadar değişebilir.\n\nLütfen satın alma işlemi tamamlanana kadar arayüzde kalın.",
     "text2": "Ön satış sırasında $TGB nasıl satın alınır?",
@@ -102,7 +102,7 @@
     "text9": "4. Adım: Satın alma tutarını belirtin"
   },
   "licenseProof": {
-    "text1": "Web 3 alanı genellikle yanlış bilgi ve sahtekarlıkla dolu Vahşi Batı olarak görülüyor.\n\nTG.Bet olarak, Curacao merkezli %100 tam lisanslı bir casino kuruluşu olduğumuzu gururla iddia ediyoruz.\n\nBu yüzden lütfen oynamaktan çekinmeyin!",
+    "text1": "Web 3 alanı genellikle yanlış bilgi ve sahtekarlıkla dolu Vahşi Batı olarak görülüyor.\n\nTG.Bet olarak Curacao merkezli %100 tam lisanslı bir casino kuruluşu olduğumuzu gururla iddia ediyoruz.\n\nBu yüzden lütfen oynamaktan çekinmeyin!",
     "text2": "Lisansı doğrulayın"
   },
   "noKyc": {
@@ -117,19 +117,19 @@
     "text9": "Bir oyun seçin ve oynamaya başlayın!\n\nDilediğiniz zaman sınırsız para çekme işlemi gerçekleştirebilirsiniz.\n\nTG.Bet'te tüm yıl boyunca 7/24 sorunsuz bir oyun deneyiminin keyfini çıkarabilirsiniz!"
   },
   "operationWay": {
-    "text1": "TG.Bet sadece bir kumarhane değil, $TGB aracılığıyla sürekli ödüller sağlayan bir ekosistemdir!"
+    "text1": "TG.Bet bir kumarhaneden daha fazlasıdır; $TGB'yi kullanarak oyuncularına sürekli ödüller sağlayan bir ekosistemdir."
   },
   "pledgeCoin": {
     "text1": "Oyun sırasında satın alınan $TGB jetonları sizin için beklenmedik faydalar sağlamaya devam edecek, kumar, eğlence ve stake finansal yönetiminin aynı açıda durmasına ve fonlarınıza sonsuz faydalar getirmesine olanak tanıyacak.",
     "text2": "Pasif gelir elde edin",
     "text3": "$TGB'nizi stake ettiğinizde hemen günlük ödüller kazanmaya başlarsınız. \nVarlıklarınızın zamanla büyümesini izleyin!",
     "text4": "Ödüllere anında erişin",
-    "text5": "TG.Bet'te kullanabileceğiniz stake ödüllerinin kilidini anında açabilecek veya daha sonra kullanmak üzere kaydedebileceksiniz!",
+    "text5": "TG.Bet'te kullanabileceğiniz stake ödüllerinin kilidini hemen açacaksınız veya daha sonra kullanmak üzere saklayabilirsiniz!",
     "text6": "Zenginliği paylaşmak",
     "text7": "$TGB'nizi stake ettiğinizde, gelire dayalı ödüllere erişimin kilidini açarsınız. \nPastadan daha da büyük bir payınız var!"
   },
   "pledgeDetail": {
-    "text1": "TG.Bet, tokenlarınızı stake etmenize ve stakelerinizi geri almanıza olanak sağlar. \nHangi işlevi istediğinizi seçin. \nYalnızca stake edilen tokenlar APY kazanır.",
+    "text1": "TG.Bet, jetonlarınızı stake etmenize ve stakelerinizi geri almanıza olanak sağlar. \nHangi işlevi istediğinizi seçin. \nYalnızca stake edilen tokenlar APY kazanır.",
     "text10": "Toplanan Toplam Ödüller (TGB $)",
     "text11": "Talep Edilebilecek Toplam Ödüller (TGB $)",
     "text12": "Almak",
@@ -150,7 +150,7 @@
     "text9": "Bahis Edilen Toplam $TGB'nin %'si"
   },
   "preSale": {
-    "text1": "Ön satışımız sırasında asla mevcut fiyattan daha iyi bir fiyata $TGB alamayacaksınız",
+    "text1": "Ön satışımız sırasında olduğundan daha iyi bir fiyata $TGB alma fırsatı asla olmayacak. \nİşte faydalarından bazıları!",
     "text2": "Özel ödüller",
     "text3": "Ön satış alıcıları yalnızca kumarhanede oynadıklarında ödüllendirilir",
     "text4": "Mümkün olan en iyi fiyat",
@@ -161,12 +161,36 @@
     "text9": "Satış öncesi tokenları satın alın, anında pasif ödüller için stake etmeye hemen başlayın!"
   },
   "safeInstructions": {
-    "text1": "TG.Bet, oynamak için herhangi bir KYC doğrulaması yapmanızı, hatta cüzdanınızı bağlamanızı gerektirmez.\n\nİstediğiniz zaman hesabınıza yükleme yapın ve para çekin.\n\nBu kadar basit!",
-    "text2": "KYC'ye gerek yok",
-    "text3": "Hesap oluşturmanıza gerek yok",
+    "text1": "TG.Bet'i başlatmak kolaydır, sadece Telegram'da TG.Bet'i açın, hesabınıza herhangi bir büyük kripto para birimiyle para yatırın ve oynamaya başlayın!",
+    "text2": "Aç ve Oyna",
+    "text3": "Hesap Kurulumu Yok",
     "text4": "Akıllı telefonunuzda oynayın",
-    "text5": "Herşey Telegram'da",
+    "text5": "Hepsi Telegram'da",
     "text6": "Şimdi oyna"
+  },
+  "tip": {
+    "text1": "Lütfen cüzdanı bağlayın",
+    "text10": "$TGB alımları durduruldu",
+    "text11": "İşlem gönderildi, lütfen işlemin tamamlanmasını sabırla bekleyin.",
+    "text12": "İşlem başarılı",
+    "text13": "İşlem yanlış gitti",
+    "text14": "Ödül sayısı 100'den fazla olmalıdır",
+    "text15": "Bahis miktarı 100'den büyük olmalıdır",
+    "text16": "Bahis miktarı 100'den büyük olmalıdır",
+    "text17": "Bahis tutarının serbest bırakılmasına {days} gün kaldı",
+    "text18": "Bu işlemi tamamlamak için sözleşmenin USDT veya USDC izinlerinize erişimini kabul etmeniz gerekir.",
+    "text19": "USDT/USDC ile $TGB satın almak için öncelikle cüzdanınızdaki USDT/USDC'ye erişmemiz için bize yetki vermeniz gerekir.",
+    "text2": "Lütfen en az 100 $TGB satın alın.",
+    "text20": "Onaylamak",
+    "text21": "$TGB stake etmek için öncelikle cüzdanınızdaki $TGB'ye erişmemiz için bize yetki vermeniz gerekir.",
+    "text22": "İşleme",
+    "text3": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n\n \nGaz için 0,015 ETH'ye ve token değişimi için ETH'ye sahip olduğunuzdan emin olun.",
+    "text4": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n\n \nGas için 0,015 ETH'ye ve token değişimi için USDT'ye sahip olduğunuzdan emin olun.",
+    "text5": "Bu işlem için ödeme yapmaya yetecek kadar USDT'niz yok.\n\n \nGas için 0,015 ETH'ye ve token değişimi için USDT'ye sahip olduğunuzdan emin olun.",
+    "text6": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
+    "text7": "Bu işlem için ödeme yapmaya yetecek kadar USDC'niz yok.\n\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
+    "text8": "İşlem başına maksimum {amount} $TGB.",
+    "text9": "0,015 ETH gaza ayrılmıştır. \nKullanılan gerçek miktar ağa bağlı olacaktır."
   },
   "topBar": {
     "auditBtn": "Denetim",
@@ -183,7 +207,7 @@
     "text1": "Büyük oyun üreticilerinin oyun yetkilendirmesi sayesinde oynamak istediğiniz her şeye sahibiz!",
     "text2": "Yüzlerce oyun",
     "text3": "Slotlardan masa oyunlarına, canlı casinodan oynamak isteyebileceğiniz her oyuna sahibiz.\n\nSiz ne istiyorsanız onu sağlıyoruz!",
-    "text4": "spor kumar",
+    "text4": "spor kumarı",
     "text5": "Bahis oynayabileceğiniz 30'dan fazla farklı spor sunuyoruz, bu nedenle hoşunuza giden bir spor bulacağınızdan emin olabilirsiniz!\n\nŞimdi bir oyun seçin ve bahisinizi yapın!",
     "text6": "Canlı yayınımıza katılın",
     "text7": "Avucunuzun içinde gerçek bir casino deneyimi ister misiniz?\n\nKumarhane katında oynayan diğer binlerce oyuncuya katılın!"
@@ -195,32 +219,8 @@
   "whyPopular": {
     "text1": "Piyasada rekabet olsa da TG.Bet'in sunduklarıyla eşleşemezler.\n\nEn iyi oyunların, canlı etkinliklerin, spor bahislerinin ve daha fazlasının tümüne sahibiz; hiçbir karşılaştırma yok.\n\n$TGB sahiplerine sunduğumuz cömert ödüllerle birlikte TG.Bet'i seçmek akıllıca bir karardır.",
     "text2": "Bugün bize katıl",
-    "text3": "Yalnızca 2023 yılında kripto para birimleriyle kumar oynama seçenekleri üç katına çıktı.\n\nKYC gerektirmeyen ve kesintisiz, kullanımı kolay bir platform olduğundan, insanların çevrimiçi kumar oynamak için TG.Bet gibi sitelere akın etmesi şaşırtıcı değil.\n\nPeki neden TG.Bet'i seçmelisiniz?",
+    "text3": "Yalnızca 2023 yılında kripto para birimleriyle kumar oynama seçenekleri üç katına çıktı.\n\nKYC gerektirmeyen ve kusursuz, kullanımı kolay bir platform olduğundan, insanların çevrimiçi kumar oynamak için TG.Bet gibi sitelere akın etmesi şaşırtıcı değil.\n\nPeki neden TG.Bet'i seçmelisiniz?",
     "text4": "Şimdi oyna",
-    "text5": "TG.Bet'in kusursuz Telegram platformunda popüler oyunları kolayca oynayın.\n\nGüçlü pazarlamamız sayesinde TG.Bet hızla herkesin bildiği bir isim haline geliyor.\n\nÇevrimiçi oyunlara yaptığımız yatırımlardan ve kârlılık modelimizden yararlanın.\n\nGelip oyunun geleceğini bizimle keşfedin!"
-  },
-  "tip": {
-    "text1": "Lütfen cüzdanı bağlayın",
-    "text10": "$TGB alımları durduruldu",
-    "text11": "İşlem gönderildi, lütfen işlemin tamamlanmasını sabırla bekleyin.",
-    "text12": "İşlem başarılı",
-    "text13": "İşlem yanlış gitti",
-    "text2": "Lütfen en az 100 $TGB satın alın.",
-    "text3": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n \nGaz için 0,015 ETH'ye ve token değişimi için ETH'ye sahip olduğunuzdan emin olun.",
-    "text4": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n \nGas için 0,015 ETH'ye ve token değişimi için USDT'ye sahip olduğunuzdan emin olun.",
-    "text5": "Bu işlem için ödeme yapmaya yetecek kadar USDT'niz yok.\n \nGas için 0,015 ETH'ye ve token değişimi için USDT'ye sahip olduğunuzdan emin olun.",
-    "text6": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
-    "text7": "Bu işlem için ödeme yapmaya yetecek kadar USDC'niz yok.\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
-    "text8": "İşlem başına maksimum {amount} $TGC.",
-    "text9": "0,015 ETH gaza ayrılmıştır. \nKullanılan gerçek miktar ağa bağlı olacaktır.",
-    "text14": "Ödül sayısı 100'den fazla olmalıdır",
-    "text15": "Bahis miktarı 100'den büyük olmalıdır",
-    "text16": "Bahis miktarı 100'den büyük olmalıdır",
-    "text17": "Bahis tutarının serbest bırakılmasına {days} gün kaldı",
-    "text18": "Bu işlemi tamamlamak için sözleşmenin USDT veya USDC izinlerinize erişimini kabul etmeniz gerekir.",
-    "text19": "USDT/USDC ile $TGB satın almak için öncelikle cüzdanınızdaki USDT/USDC'ye erişmemiz için bize yetki vermeniz gerekir.",
-    "text20": "Onaylamak",
-    "text21": "$TGB stake etmek için öncelikle cüzdanınızdaki $TGB'ye erişmemiz için bize yetki vermeniz gerekir.",
-    "text22": "İşleme"
+    "text5": "TG.Bet'in kesintisiz Telegram platformunda popüler oyunları kolayca oynayın.\n\nGüçlü pazarlamamız sayesinde TG.Bet hızla herkesin tanıdığı bir isim haline geliyor.\n\nÇevrimiçi oyunlara yaptığımız yatırımlardan ve kârlılık modelimizden yararlanın.\n\nGelip oyunun geleceğini bizimle keşfedin!"
   }
 }

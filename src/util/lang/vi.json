@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "Telegram hàng đầu thế giới",
+    "text1": "thế giới",
     "text2": "Sòng bạc",
-    "text3": "TG.Bet là nơi độc quyền dành cho bạn để đánh bạc bằng tiền điện tử trực tuyến, ẩn danh. \nĐược cấp phép đầy đủ và an toàn 100%, hãy tham gia với chúng tôi ngay hôm nay!",
+    "text3": "TG.Bet là nơi độc quyền dành cho cờ bạc tiền điện tử trực tuyến của bạn. \nĐược cấp phép đầy đủ và an toàn 100%, hãy tham gia với chúng tôi ngay hôm nay!",
     "text4": "Tham gia cộng đồng",
     "text5": "Bắt đầu chơi",
     "text6": "Xác minh giấy phép",
     "text7": "HOÀN LẠI TIỀN",
-    "text8": "Nhận 25% hoàn tiền cho tất cả các khoản thua khi đặt cược bằng token $TGB"
+    "text8": "Về tất cả các khoản thua khi đặt cược $TGB Token"
   },
   "blockTitle": {
     "cc1": "Cơ hội sòng bạc tiền điện tử",
@@ -37,10 +37,10 @@
   },
   "coinChance": {
     "text1": "Thị trường sòng bạc tiền điện tử đã phát triển nhanh chóng kể từ năm 2017, với dữ liệu mới nhất cho thấy thị trường sòng bạc tiền điện tử hiện trị giá 250 triệu USD.\n\nCon số này chỉ chiếm 0,1% tổng thị trường sòng bạc, hiện có giá trị 26,33 tỷ USD.\n\nNhưng nghiên cứu cho thấy các sòng bạc tiền điện tử đang nhanh chóng chiếm thị phần từ các sòng bạc trực tuyến Web2 do tính dễ truy cập, không cần KYC và khả năng tránh các giao dịch hiển thị trên bảng sao kê ngân hàng.",
-    "text2": "Hiện tại, 80% trò chơi sòng bạc trực tuyến được chơi trên thiết bị di động, với phần lớn các sòng bạc tiền điện tử được thiết kế dành riêng cho thiết bị di động.\n\nTG.Bet tiến thêm một bước nữa và cung cấp độc quyền nền tảng Telegram, hiện có hơn 1 tỷ người dùng và dự kiến ​​sẽ tăng lên 1,5 tỷ người dùng trong 3-5 năm tới."
+    "text2": "Hiện tại, 80% trò chơi sòng bạc trực tuyến được chơi trên thiết bị di động, với phần lớn các sòng bạc tiền điện tử được thiết kế dành riêng cho thiết bị di động.\n\nTG.Bet tiến thêm một bước nữa và độc quyền cung cấp nền tảng Telegram, hiện có hơn 1 tỷ người dùng và dự kiến ​​sẽ tăng lên 1,5 tỷ người dùng trong 3-5 năm tới."
   },
   "coinTimes": {
-    "text1": "Sự phổ biến bùng nổ gần đây của cờ bạc tiền điện tử dường như không có dấu hiệu chậm lại.\n\nChúng tôi tại TG.Bet hiểu rằng người chơi trên toàn thế giới đánh giá cao tính linh hoạt của việc chơi mọi lúc, mọi nơi, ẩn danh và có thể đặt cược bằng cách sử dụng tiền điện tử.\n\nTương lai đã thực sự đến!"
+    "text1": "Sự phổ biến bùng nổ gần đây của cờ bạc tiền điện tử dường như không có dấu hiệu chậm lại.\n\nChúng tôi tại TG.Bet hiểu rằng người chơi trên toàn thế giới đánh giá cao tính linh hoạt của việc chơi mọi lúc, mọi nơi, ẩn danh và có thể đặt cược bằng tiền điện tử.\n\nTương lai đã thực sự đến!"
   },
   "commonProblem": {
     "text1": "Điều gì làm cho TG.Bet trở nên khác biệt",
@@ -49,7 +49,7 @@
     "text3": "Thời gian bán trước là bao lâu?",
     "text4": "Việc bán trước sẽ được mở cho đến khi đạt đến giới hạn cứng. \nSoftcap cho đợt bán trước là 1 triệu USD.",
     "text5": "Tại sao tôi nên mua $TGB?",
-    "text6": "Mặc dù TG.Bet sẽ cho phép bạn chơi với nhiều loại tiền điện tử hàng đầu, nhưng chỉ $TGB mới cấp cho bạn quyền truy cập vào các phần thưởng đáng kinh ngạc, cả từ việc đặt cược và chỉ giữ mã thông báo của chúng tôi. \nKhông cần phải có $TGB để chơi trong sòng bạc nhưng nó có thể được sử dụng để đặt cược vào các trò chơi giống như tất cả các loại tiền tệ khác.",
+    "text6": "Mặc dù TG.Bet sẽ cho phép bạn chơi với nhiều loại tiền điện tử hàng đầu, nhưng chỉ $TGB mới cung cấp cho bạn quyền truy cập vào các phần thưởng đáng kinh ngạc, cả từ việc đặt cược và chỉ giữ mã thông báo của chúng tôi. \nKhông cần phải có $TGB để chơi trong sòng bạc, nhưng nó có thể được sử dụng để đặt cược vào các trò chơi giống như tất cả các loại tiền tệ khác.",
     "text7": "Việc bán trước có thời gian trao quyền không?",
     "text8": "Không có thời gian trao quyền cho $TGB. \nTuy nhiên, nếu bạn đặt cược mã thông báo của mình trong đợt bán trước, chúng sẽ bị khóa cho đến ngày ra mắt 10 ngày. \nViệc đặt cược mã thông báo ngay lập tức bắt đầu kiếm được phần thưởng đặt cược và các lợi ích khác trong tương lai.",
     "text9": "Khi nào mã thông báo sẽ ra mắt?"
@@ -67,7 +67,7 @@
     "text6": "Bán trước",
     "text7": "Để bắt đầu hệ sinh thái $TGB",
     "text8": "Phần thưởng người chơi",
-    "text9": "Phần thưởng cho mọi người chơi"
+    "text9": "Phần thưởng cho mỗi người chơi"
   },
   "homeForm": {
     "text1": "Giá hiện tại",
@@ -76,6 +76,8 @@
     "text12": "APY đặt cược hiện tại",
     "text13": "Mua hàng tại BSC",
     "text14": "Mua tại ETH",
+    "text15": "Thu mua...",
+    "text16": "đã mua",
     "text2": "Mục tiêu cuối cùng",
     "text3": "Mua ngay trước khi tăng giá vào:",
     "text4": "cái ví",
@@ -83,12 +85,10 @@
     "text6": "",
     "text7": "TỐI ĐA",
     "text8": "$TGB bạn nhận được",
-    "text9": "Kết nối ví",
-    "text15": "Thu mua...",
-    "text16": "đã mua"
+    "text9": "Kết nối ví"
   },
   "howToBuy": {
-    "text1": "Để mua mã thông báo trong đợt Bán trước, hãy truy cập trang web chính thức của TG.Bet.\n\nSau đợt Bán trước, bạn có thể nhận được mã thông báo trực tiếp từ trang web chính thức hoặc thông qua các sàn giao dịch phi tập trung.",
+    "text1": "Để mua token trong đợt Bán trước, hãy truy cập trang web chính thức của TG.Bet.\n\nSau đợt Bán trước, bạn có thể nhận được mã thông báo trực tiếp từ trang web chính thức hoặc thông qua các sàn giao dịch phi tập trung.",
     "text10": "Nhập số lượng token $TGB bạn muốn mua.\n\nXin lưu ý rằng ngoài chi phí của mã thông báo bạn định mua, cần có tối thiểu 0,015 ETH để hoàn tất giao dịch.\n\nTrên Binance Smart Chain, yêu cầu tối thiểu này thấp hơn nhưng vẫn được áp dụng.\n\nSố lượng token $TGB tối thiểu có thể mua được được đặt thành 100 $TGB.",
     "text11": "Bước 5: Hoàn tất việc mua hàng của bạn",
     "text12": "Khi bạn đã nhập số tiền, bạn sẽ được nhắc ủy quyền giao dịch.\n\nBằng cách nhấp vào \"Chấp thuận\", giao dịch của bạn sẽ được bắt đầu và xác minh trên blockchain.\n\nThời gian hoàn thành giao dịch có thể thay đổi từ vài giây đến vài phút, tùy thuộc vào tình trạng tắc nghẽn mạng và hoạt động hợp đồng thông minh.\n\nVui lòng ở lại giao diện cho đến khi giao dịch mua được thực hiện đầy đủ.",
@@ -117,7 +117,7 @@
     "text9": "Chọn một trò chơi và bắt đầu chơi!\n\nBạn có thể thực hiện rút tiền không giới hạn bất cứ lúc nào.\n\nBạn có thể tận hưởng trải nghiệm chơi game thoải mái tại TG.Bet, 24/7, quanh năm!"
   },
   "operationWay": {
-    "text1": "TG.Bet không chỉ là một sòng bạc, nó còn là một hệ sinh thái cung cấp phần thưởng liên tục thông qua $TGB!"
+    "text1": "TG.Bet không chỉ là một sòng bạc mà còn là một hệ sinh thái mang lại lợi ích cho người chơi thông qua các phần thưởng liên tục bằng cách tận dụng $TGB."
   },
   "pledgeCoin": {
     "text1": "Đồng $TGB được mua trong trò chơi sẽ tiếp tục mang lại lợi ích bất ngờ cho bạn, cho phép quản lý tài chính cờ bạc, giải trí và đặt cược ở cùng một góc độ và mang lại lợi ích vô tận cho số tiền của bạn.",
@@ -129,7 +129,7 @@
     "text7": "Khi bạn đặt cược $TGB của mình, bạn sẽ có quyền truy cập vào các phần thưởng dựa trên doanh thu. \nMiếng bánh thậm chí còn lớn hơn của bạn!"
   },
   "pledgeDetail": {
-    "text1": "TG.Bet cho phép bạn đặt cược và hủy đặt cược mã thông báo của mình. \nChọn chức năng bạn muốn. \nChỉ các token đã đặt cọc mới kiếm được APY.",
+    "text1": "TG.Bet cho phép bạn đặt cược và hủy đặt cọc mã thông báo của mình. \nChọn chức năng bạn muốn. \nChỉ các token đã đặt cọc mới kiếm được APY.",
     "text10": "Tổng số phần thưởng thu được ($TGB)",
     "text11": "Tổng số phần thưởng có thể nhận được ($TGB)",
     "text12": "Nhận được",
@@ -150,7 +150,7 @@
     "text9": "% trên tổng số $TGB được đặt cược"
   },
   "preSale": {
-    "text1": "Bạn sẽ không bao giờ có thể nhận được $TGB ở mức giá tốt hơn giá hiện tại trong đợt bán trước của chúng tôi",
+    "text1": "Sẽ không bao giờ có cơ hội khác để nhận được $TGB với mức giá tốt hơn trong đợt bán trước của chúng tôi. \nDưới đây là một số lợi ích!",
     "text2": "Phần thưởng đặc biệt",
     "text3": "Người mua bán trước được thưởng độc quyền khi họ chơi trong sòng bạc",
     "text4": "Giá tốt nhất có thể",
@@ -161,12 +161,36 @@
     "text9": "Mua mã thông báo bán trước, bắt đầu đặt cược để nhận phần thưởng thụ động ngay lập tức!"
   },
   "safeInstructions": {
-    "text1": "TG.Bet không yêu cầu bạn thực hiện bất kỳ xác minh KYC nào để chơi hoặc thậm chí kết nối ví của bạn.\n\nĐơn giản chỉ cần nạp tiền vào tài khoản của bạn và rút tiền bất cứ lúc nào.\n\nNó đơn giản mà!",
-    "text2": "Không cần KYC",
+    "text1": "TG.Bet rất dễ dàng để bắt đầu, chỉ cần mở TG.Bet trong Telegram, nạp tiền vào tài khoản của bạn bằng bất kỳ loại tiền điện tử chính nào và bắt đầu chơi!",
+    "text2": "Mở và chơi",
     "text3": "Không cần thiết lập tài khoản",
     "text4": "Chơi trên điện thoại thông minh của bạn",
-    "text5": "Mọi thứ đều có trên Telegram",
+    "text5": "Tất cả trên Telegram",
     "text6": "Bắt đầu chơi"
+  },
+  "tip": {
+    "text1": "Vui lòng kết nối ví",
+    "text10": "Giao dịch mua $TGB đã bị tạm dừng",
+    "text11": "Giao dịch đã được gửi đi, vui lòng kiên nhẫn chờ đợi giao dịch được hoàn tất.",
+    "text12": "Giao dịch thành công",
+    "text13": "Giao dịch bị sai",
+    "text14": "Số lượng phần thưởng phải lớn hơn 100",
+    "text15": "Số tiền đặt cược phải lớn hơn 100",
+    "text16": "Số lượng unstake phải lớn hơn 100",
+    "text17": "Còn {ngày} ngày nữa cho đến khi cổ phần được giải phóng",
+    "text18": "Để hoàn tất giao dịch này, bạn cần đồng ý cho phép hợp đồng truy cập vào các quyền USDT hoặc USDC của bạn",
+    "text19": "Để mua $TGB bằng USDT/USDC, trước tiên bạn cần ủy quyền cho chúng tôi truy cập USDT/USDC trong ví của bạn.",
+    "text2": "Vui lòng mua ít nhất 100 $TGB.",
+    "text20": "Chấp thuận",
+    "text21": "Để đặt cọc $TGB, trước tiên bạn cần ủy quyền cho chúng tôi truy cập vào $TGB trong ví của bạn.",
+    "text22": "Xử lý",
+    "text3": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và ETH để trao đổi mã thông báo.",
+    "text4": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDT để trao đổi mã thông báo.",
+    "text5": "Bạn không có đủ USDT để thanh toán cho giao dịch này.\n\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDT để trao đổi mã thông báo.",
+    "text6": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
+    "text7": "Bạn không có đủ USDC để thanh toán cho giao dịch này.\n\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
+    "text8": "Tối đa {amount} $TGB cho mỗi giao dịch.",
+    "text9": "0,015 ETH được dành riêng cho gas. \nSố tiền thực tế được sử dụng sẽ phụ thuộc vào mạng."
   },
   "topBar": {
     "auditBtn": "Kiểm toán",
@@ -195,32 +219,8 @@
   "whyPopular": {
     "text1": "Mặc dù có thể có sự cạnh tranh trên thị trường nhưng chúng không thể sánh được với những gì TG.Bet cung cấp.\n\nChúng tôi có tất cả các trò chơi hàng đầu, sự kiện trực tiếp, cá cược thể thao và hơn thế nữa, đơn giản là không có gì có thể so sánh được.\n\nCùng với những phần thưởng hào phóng mà chúng tôi dành cho những người nắm giữ $TGB, việc chọn TG.Bet là một quyết định sáng suốt.",
     "text2": "Tham gia với chúng tôi ngay hôm nay",
-    "text3": "Chỉ riêng trong năm 2023, các lựa chọn đánh bạc bằng tiền điện tử đã tăng gấp ba lần.\n\nKhông cần KYC và nền tảng liền mạch, dễ sử dụng, không có gì ngạc nhiên khi mọi người đổ xô đến các trang web như TG.Bet để đánh bạc trực tuyến.\n\nVậy tại sao lại chọn TG.Bet?",
+    "text3": "Chỉ riêng trong năm 2023, các lựa chọn đánh bạc bằng tiền điện tử đã tăng gấp ba lần.\n\nKhông yêu cầu KYC và nền tảng liền mạch, dễ sử dụng, không có gì ngạc nhiên khi mọi người đổ xô đến các trang web như TG.Bet để đánh bạc trực tuyến.\n\nVậy tại sao lại chọn TG.Bet?",
     "text4": "Bắt đầu chơi",
     "text5": "Dễ dàng chơi các trò chơi phổ biến trên nền tảng Telegram liền mạch của TG.Bet.\n\nNhờ hoạt động tiếp thị mạnh mẽ của chúng tôi, TG.Bet đang nhanh chóng trở thành một cái tên quen thuộc.\n\nHưởng lợi từ khoản đầu tư vào trò chơi trực tuyến và mô hình sinh lời của chúng tôi.\n\nHãy cùng chúng tôi khám phá tương lai của trò chơi!"
-  },
-  "tip": {
-    "text1": "Vui lòng kết nối ví",
-    "text10": "Giao dịch mua $TGB đã bị tạm dừng",
-    "text11": "Giao dịch đã được gửi đi, vui lòng kiên nhẫn chờ đợi giao dịch được hoàn tất.",
-    "text12": "Giao dịch thành công",
-    "text13": "Giao dịch bị sai",
-    "text2": "Vui lòng mua ít nhất 100 $TGB.",
-    "text3": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và ETH để trao đổi mã thông báo.",
-    "text4": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDT để trao đổi mã thông báo.",
-    "text5": "Bạn không có đủ USDT để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDT để trao đổi mã thông báo.",
-    "text6": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
-    "text7": "Bạn không có đủ USDC để thanh toán cho giao dịch này.\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
-    "text8": "Tối đa {amount} $TGC cho mỗi giao dịch.",
-    "text9": "0,015 ETH được dành riêng cho gas. \nSố tiền thực tế được sử dụng sẽ phụ thuộc vào mạng.",
-    "text14": "Số lượng phần thưởng phải lớn hơn 100",
-    "text15": "Số tiền đặt cược phải lớn hơn 100",
-    "text16": "Số lượng unstake phải lớn hơn 100",
-    "text17": "Còn {ngày} ngày nữa cho đến khi cổ phần được giải phóng",
-    "text18": "Để hoàn tất giao dịch này, bạn cần đồng ý cho phép hợp đồng truy cập vào các quyền USDT hoặc USDC của bạn",
-    "text19": "Để mua $TGB bằng USDT/USDC, trước tiên bạn cần ủy quyền cho chúng tôi truy cập USDT/USDC trong ví của bạn.",
-    "text20": "Chấp thuận",
-    "text21": "Để đặt cọc $TGB, trước tiên bạn cần ủy quyền cho chúng tôi truy cập vào $TGB trong ví của bạn.",
-    "text22": "Xử lý"
   }
 }

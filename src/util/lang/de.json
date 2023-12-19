@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "Das beste Telegramm der Welt",
+    "text1": "Weltweit",
     "text2": "KASINO",
-    "text3": "TG.Bet ist Ihr exklusiver Ort für anonymes Online-Krypto-Glücksspiel. \nVoll lizenziert und 100 % sicher, kommen Sie noch heute zu uns!",
+    "text3": "TG.Bet ist Ihr exklusiver Ort für Online-Krypto-Glücksspiele. \nVoll lizenziert und 100 % sicher, kommen Sie noch heute zu uns!",
     "text4": "Treten Sie der Community bei",
     "text5": "Jetzt spielen",
     "text6": "Lizenz überprüfen",
     "text7": "BARGELD ZURÜCK",
-    "text8": "Erhalten Sie 25 % Cashback auf alle Verluste, wenn Sie mit $TGB-Tokens wetten"
+    "text8": "Auf alle Verluste beim Wetten von $TGB Token"
   },
   "blockTitle": {
     "cc1": "Krypto-Casino-Gelegenheit",
@@ -43,13 +43,13 @@
     "text1": "Die jüngste explosive Popularität des Krypto-Glücksspiels scheint keine Anzeichen einer Verlangsamung zu zeigen.\n\nWir bei TG.Bet verstehen, dass Spieler auf der ganzen Welt die Flexibilität schätzen, jederzeit und überall zu spielen, anonym zu bleiben und Wetten mithilfe von Kryptowährungen platzieren zu können.\n\nDie Zukunft ist wirklich da!"
   },
   "commonProblem": {
-    "text1": "Was macht TG.Bet anders?",
+    "text1": "Was TG.Bet anders macht",
     "text10": "Wir werden $TGB innerhalb weniger Tage nach Ende des Vorverkaufs einführen. \nWir werden alle über unsere Website und die sozialen Medien über den Starttag auf dem Laufenden halten.",
     "text2": "TG.Bet bietet Ihnen Zugriff auf alle Top-Online-Casinospiele, Sportwetten und mehr, aber wir sind auch bestrebt, ein Ökosystem zu pflegen, das Loyalität schätzt. \nAls Beweis für unser Engagement geben wir etwas zurück, indem wir einen Teil unserer Casino-Einnahmen durch Rückkäufe des $TGB-Tokens teilen. \nSpielen, verdienen und belohnt werden!",
     "text3": "Wie lange dauert der Vorverkauf?",
     "text4": "Der Vorverkauf ist geöffnet, bis die feste Obergrenze erreicht ist. \nDer Soft Cap für den Vorverkauf beträgt 1 Million USD.",
     "text5": "Warum sollte ich $TGB kaufen?",
-    "text6": "Während Sie mit TG.Bet mit vielen Top-Kryptowährungen spielen können, erhalten Sie nur mit $TGB Zugriff auf unglaubliche Belohnungen, sowohl durch das Staken als auch durch das bloße Halten unseres Tokens. \n$TGB ist für das Spielen im Casino nicht erforderlich, kann aber wie alle anderen Währungen zum Wetten auf Spiele verwendet werden.",
+    "text6": "Während Sie bei TG.Bet mit vielen Top-Kryptowährungen spielen können, erhalten Sie nur mit $TGB Zugang zu unglaublichen Belohnungen, sowohl durch das Einsetzen als auch durch das bloße Halten unseres Tokens. \n$TGB ist für das Spielen im Casino nicht erforderlich, kann aber wie alle anderen Währungen zum Wetten auf Spiele verwendet werden.",
     "text7": "Hat der Vorverkauf eine Sperrfrist?",
     "text8": "Für $TGB gibt es keine Sperrfrist. \nWenn Sie Ihre Token jedoch während des Vorverkaufs einsetzen, werden sie bis zum Starttag 10 Tage lang gesperrt. \nDas Abstecken der Token beginnt sofort mit dem Verdienen von Absteckprämien und anderen zukünftigen Vorteilen.",
     "text9": "Wann wird der Token eingeführt?"
@@ -57,7 +57,7 @@
   "economicToken": {
     "text1": "Um einen positiven Kreislauf zu erreichen, ist das Verhalten jedes einzelnen Teilnehmers im Ökosystem sehr wichtig.\n\nEbenso wichtig sind gut gestaltete Anreize",
     "text10": "Allianz",
-    "text11": "Belohnungen für diejenigen, die beim Wachstum von TG.Bet helfen",
+    "text11": "Belohnungen für diejenigen, die zum Wachstum von TG.Bet beitragen",
     "text12": "Marketing",
     "text13": "Für Kollaborationen und Direktmarketing",
     "text2": "Liquiditätspool",
@@ -76,6 +76,8 @@
     "text12": "Aktueller Einsatz-APY",
     "text13": "Kaufen Sie bei BSC",
     "text14": "Kaufen Sie an der ETH",
+    "text15": "Einkauf...",
+    "text16": "gekauft",
     "text2": "Endgültiges Ziel",
     "text3": "Kaufen Sie jetzt vor Preiserhöhungen in:",
     "text4": "Geldbörse",
@@ -83,9 +85,7 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB erhalten Sie",
-    "text9": "Wallet verbinden",
-    "text15": "Einkauf...",
-    "text16": "gekauft"
+    "text9": "Wallet verbinden"
   },
   "howToBuy": {
     "text1": "Um während des Vorverkaufs Token zu kaufen, besuchen Sie die offizielle Website von TG.Bet.\n\nNach dem Vorverkauf können Token direkt auf der offiziellen Website oder über dezentrale Börsen bezogen werden.",
@@ -102,7 +102,7 @@
     "text9": "Schritt 4: Kaufbetrag angeben"
   },
   "licenseProof": {
-    "text1": "Der Web-3-Bereich wird oft als der Wilde Westen angesehen, voller Fehlinformationen und Betrug.\n\nBei TG.Bet können wir mit Stolz behaupten, dass wir ein zu 100 % voll lizenziertes Casino-Unternehmen mit Sitz in Curacao sind.\n\nSpielen Sie also gerne mit!",
+    "text1": "Der Web-3-Bereich wird oft als der Wilde Westen angesehen, voller Fehlinformationen und Betrug.\n\nBei TG.Bet behaupten wir stolz, dass wir ein zu 100 % voll lizenziertes Casino-Unternehmen mit Sitz in Curacao sind.\n\nSpielen Sie also gerne mit!",
     "text2": "Lizenz überprüfen"
   },
   "noKyc": {
@@ -117,19 +117,19 @@
     "text9": "Wählen Sie ein Spiel und beginnen Sie zu spielen!\n\nSie können jederzeit unbegrenzt Abhebungen vornehmen.\n\nBei TG.Bet können Sie rund um die Uhr und das ganze Jahr über ein sorgenfreies Spielerlebnis genießen!"
   },
   "operationWay": {
-    "text1": "TG.Bet ist nicht nur ein Casino, es ist ein Ökosystem, das durch $TGB fortlaufende Belohnungen bietet!"
+    "text1": "TG.Bet ist mehr als nur ein Casino, es ist ein Ökosystem, das seinen Spielern durch ständige Belohnungen durch den Einsatz von $TGB etwas zurückgibt."
   },
   "pledgeCoin": {
     "text1": "Die während des Spiels gekauften $TGB-Münzen werden Ihnen weiterhin unerwartete Vorteile bringen, sodass Glücksspiel, Unterhaltung und Einsatzfinanzmanagement im gleichen Winkel stehen und Ihrem Geld endlose Vorteile bringen.",
     "text2": "Verdienen Sie passives Einkommen",
     "text3": "Wenn Sie Ihre $TGB einsetzen, beginnen Sie sofort, tägliche Belohnungen zu verdienen. \nBeobachten Sie, wie Ihr Bestand mit der Zeit wächst!",
     "text4": "Greifen Sie sofort auf Prämien zu",
-    "text5": "Sie werden sofort Belohnungen aus dem Einsatz freischalten, die Sie in TG.Bet verwenden oder für später speichern können!",
+    "text5": "Sie werden sofort Prämien aus dem Einsatz freischalten, die Sie in TG.Bet verwenden oder für später speichern können!",
     "text6": "Den Wohlstand teilen",
     "text7": "Wenn Sie Ihre $TGB einsetzen, erhalten Sie Zugriff auf umsatzbasierte Prämien. \nIhr noch größeres Stück vom Kuchen!"
   },
   "pledgeDetail": {
-    "text1": "Mit TG.Bet können Sie Ihre Token einsetzen und entfernen. \nWählen Sie die gewünschte Funktion aus. \nNur eingesetzte Token verdienen APY.",
+    "text1": "Mit TG.Bet können Sie Ihre Token einsetzen und wieder aufheben. \nWählen Sie die gewünschte Funktion aus. \nNur eingesetzte Token verdienen APY.",
     "text10": "Gesamte geerntete Belohnungen ($TGB)",
     "text11": "Gesamte beanspruchbare Prämien ($TGB)",
     "text12": "Erhalten",
@@ -150,7 +150,7 @@
     "text9": "% des gesamten eingesetzten $TGB"
   },
   "preSale": {
-    "text1": "Sie werden $TGB nie zu einem besseren Preis als dem aktuellen Preis während unseres Vorverkaufs erhalten können",
+    "text1": "Es wird nie eine andere Gelegenheit geben, $TGB zu einem besseren Preis zu erhalten als während unseres Vorverkaufs. \nHier sind einige der Vorteile!",
     "text2": "Besondere Belohnungen",
     "text3": "Vorverkaufskäufer werden ausschließlich beim Spielen im Casino belohnt",
     "text4": "Bestmöglicher Preis",
@@ -161,12 +161,36 @@
     "text9": "Kaufen Sie Vorverkaufs-Tokens und beginnen Sie sofort mit dem Einsatz, um sofortige passive Belohnungen zu erhalten!"
   },
   "safeInstructions": {
-    "text1": "Bei TG.Bet müssen Sie zum Spielen keine KYC-Verifizierung durchführen oder Ihr Wallet anschließen.\n\nLaden Sie einfach Ihr Konto auf und heben Sie jederzeit Geld ab.\n\nSo einfach ist das!",
-    "text2": "Kein KYC erforderlich",
-    "text3": "Es ist nicht erforderlich, ein Konto einzurichten",
+    "text1": "Der Einstieg bei TG.Bet ist ganz einfach: Öffnen Sie einfach TG.Bet in Telegram, laden Sie Ihr Konto mit einer beliebigen gängigen Kryptowährung auf und beginnen Sie zu spielen!",
+    "text2": "Öffnen und spielen",
+    "text3": "Keine Kontoeinrichtung",
     "text4": "Spielen Sie auf Ihrem Smartphone",
-    "text5": "Alles ist auf Telegram",
+    "text5": "Alles auf Telegram",
     "text6": "Jetzt spielen"
+  },
+  "tip": {
+    "text1": "Bitte Wallect anschließen",
+    "text10": "Käufe im Wert von TGB wurden pausiert",
+    "text11": "Die Transaktion wurde gesendet. Bitte warten Sie geduldig, bis die Transaktion abgeschlossen ist.",
+    "text12": "Transaktion Erfolgreich",
+    "text13": "Die Transaktion ist fehlgeschlagen",
+    "text14": "Die Anzahl der Belohnungen muss größer als 100 sein",
+    "text15": "Die Einsatzmenge muss größer als 100 sein",
+    "text16": "Die Entnahmemenge muss größer als 100 sein",
+    "text17": "Es verbleiben noch {days} Tage bis zur Freigabe des Einsatzes",
+    "text18": "Um diese Transaktion abzuschließen, müssen Sie dem Vertragszugriff auf Ihre USDT- oder USDC-Berechtigungen zustimmen",
+    "text19": "Um $TGB mit USDT/USDC zu kaufen, müssen Sie uns zunächst den Zugriff auf den USDT/USDC in Ihrem Wallet autorisieren.",
+    "text2": "Bitte kaufen Sie mindestens 100 $TGB.",
+    "text20": "Genehmigen",
+    "text21": "Um $TGB einzusetzen, müssen Sie uns zunächst den Zugriff auf die $TGB in Ihrem Wallet genehmigen.",
+    "text22": "wird bearbeitet",
+    "text3": "Sie haben nicht genug ETH, um diese Transaktion zu bezahlen.\n\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und ETH für den Token-Austausch haben.",
+    "text4": "Sie haben nicht genug ETH, um diese Transaktion zu bezahlen.\n\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDT für den Token-Austausch haben.",
+    "text5": "Sie haben nicht genügend USDT, um diese Transaktion zu bezahlen.\n\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDT für den Token-Austausch haben.",
+    "text6": "Sie haben nicht genug ETH, um diese Transaktion zu bezahlen.\n\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDC für den Token-Austausch haben.",
+    "text7": "Sie haben nicht genügend USDC, um diese Transaktion zu bezahlen.\n\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDC für den Token-Austausch haben.",
+    "text8": "Maximal {Betrag} $TGB pro Transaktion.",
+    "text9": "0,015 ETH sind für Gas reserviert. \nDie tatsächlich verwendete Menge hängt vom Netzwerk ab."
   },
   "topBar": {
     "auditBtn": "Prüfung",
@@ -189,38 +213,14 @@
     "text7": "Möchten Sie ein echtes Casino-Erlebnis in Ihrer Handfläche haben?\n\nSchließen Sie sich Tausenden anderen Spielern an, die im Casino spielen!"
   },
   "whiteBook": {
-    "text1": "Wenn Sie mehr darüber erfahren möchten, was TG.Bet anders macht, lesen Sie unser Whitepaper.\n\nWir sind mehr als nur ein Online-Casino!",
+    "text1": "Wenn Sie mehr über die Besonderheiten von TG.Bet erfahren möchten, lesen Sie unser Whitepaper.\n\nWir sind mehr als nur ein Online-Casino!",
     "text2": "Weißes Papier"
   },
   "whyPopular": {
-    "text1": "Obwohl es auf dem Markt möglicherweise Konkurrenz gibt, können sie nicht mit dem Angebot von TG.Bet mithalten.\n\nWir haben alle Top-Spiele, Live-Events, Sportwetten und mehr, es gibt einfach keinen Vergleich.\n\nIn Verbindung mit den großzügigen Prämien, die wir Inhabern von $TGB bieten, ist die Wahl von TG.Bet eine kluge Entscheidung.",
+    "text1": "Obwohl es auf dem Markt möglicherweise Konkurrenz gibt, können sie nicht mit dem Angebot von TG.Bet mithalten.\n\nWir haben alle Top-Spiele, Live-Events, Sportwetten und mehr, es gibt einfach keinen Vergleich.\n\nIn Verbindung mit den großzügigen Prämien, die wir $TGB-Inhabern bieten, ist die Wahl von TG.Bet eine kluge Entscheidung.",
     "text2": "Trete uns heute bei",
     "text3": "Allein im Jahr 2023 haben sich die Möglichkeiten zum Glücksspiel mit Kryptowährungen verdreifacht.\n\nDa kein KYC erforderlich ist und eine nahtlose, benutzerfreundliche Plattform vorhanden ist, ist es keine Überraschung, dass Menschen auf Websites wie TG.Bet strömen, um online zu spielen.\n\nWarum also TG.Bet wählen?",
     "text4": "Jetzt spielen",
-    "text5": "Spielen Sie beliebte Spiele ganz einfach auf der nahtlosen Telegram-Plattform von TG.Bet.\n\nDank unseres starken Marketings wird TG.Bet schnell zu einem bekannten Namen.\n\nProfitieren Sie von unserer Investition in Online-Gaming und unserem profitablen Modell.\n\nEntdecken Sie mit uns die Zukunft des Gamings!"
-  },
-  "tip": {
-    "text1": "Bitte Wallect anschließen",
-    "text10": "Käufe im Wert von TGB wurden pausiert",
-    "text11": "Die Transaktion wurde gesendet. Bitte warten Sie geduldig, bis die Transaktion abgeschlossen ist.",
-    "text12": "Transaktion Erfolgreich",
-    "text13": "Die Transaktion ist fehlgeschlagen",
-    "text2": "Bitte kaufen Sie mindestens 100 $TGB.",
-    "text3": "Sie haben nicht genug ETH, um diese Transaktion zu bezahlen.\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und ETH für den Token-Austausch haben.",
-    "text4": "Sie haben nicht genug ETH, um diese Transaktion zu bezahlen.\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDT für den Token-Austausch haben.",
-    "text5": "Sie haben nicht genügend USDT, um diese Transaktion zu bezahlen.\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDT für den Token-Austausch haben.",
-    "text6": "Sie haben nicht genug ETH, um diese Transaktion zu bezahlen.\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDC für den Token-Austausch haben.",
-    "text7": "Sie haben nicht genügend USDC, um diese Transaktion zu bezahlen.\n \nStellen Sie sicher, dass Sie 0,015 ETH für Gas und USDC für den Token-Austausch haben.",
-    "text8": "Maximal {Betrag} $TGC pro Transaktion.",
-    "text9": "0,015 ETH sind für Gas reserviert. \nDie tatsächlich verwendete Menge hängt vom Netzwerk ab.",
-    "text14": "Die Anzahl der Belohnungen muss größer als 100 sein",
-    "text15": "Die Einsatzmenge muss größer als 100 sein",
-    "text16": "Die Entnahmemenge muss größer als 100 sein",
-    "text17": "Es verbleiben noch {days} Tage bis zur Freigabe des Einsatzes",
-    "text18": "Um diese Transaktion abzuschließen, müssen Sie dem Vertragszugriff auf Ihre USDT- oder USDC-Berechtigungen zustimmen",
-    "text19": "Um $TGB mit USDT/USDC zu kaufen, müssen Sie uns zunächst den Zugriff auf den USDT/USDC in Ihrem Wallet autorisieren.",
-    "text20": "Genehmigen",
-    "text21": "Um $TGB einzusetzen, müssen Sie uns zunächst den Zugriff auf die $TGB in Ihrem Wallet genehmigen.",
-    "text22": "wird bearbeitet"
+    "text5": "Spielen Sie ganz einfach beliebte Spiele auf der nahtlosen Telegram-Plattform von TG.Bet.\n\nDank unseres starken Marketings wird TG.Bet schnell zu einem bekannten Namen.\n\nProfitieren Sie von unserer Investition in Online-Gaming und unserem profitablen Modell.\n\nEntdecken Sie mit uns die Zukunft des Gamings!"
   }
 }

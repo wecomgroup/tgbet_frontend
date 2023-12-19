@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "Telegram top dunia",
+    "text1": "Dunia",
     "text2": "KASINO",
-    "text3": "TG.Bet adalah tempat eksklusif Anda untuk perjudian kripto online anonim. \nBerlisensi penuh dan 100% aman, bergabunglah dengan kami hari ini!",
+    "text3": "TG.Bet adalah tempat eksklusif Anda untuk perjudian kripto online. \nBerlisensi penuh dan 100% aman, bergabunglah dengan kami hari ini!",
     "text4": "Bergabunglah dengan Komunitas",
     "text5": "Main sekarang",
     "text6": "Verifikasi lisensi",
     "text7": "UANG KEMBALI",
-    "text8": "Dapatkan uang kembali 25% untuk semua kerugian saat bertaruh dengan token $TGB"
+    "text8": "Tentang semua kerugian saat bertaruh $TGB Token"
   },
   "blockTitle": {
     "cc1": "Peluang Kasino Kripto",
@@ -45,7 +45,7 @@
   "commonProblem": {
     "text1": "Apa yang membuat TG.Bet berbeda",
     "text10": "Kami akan meluncurkan $TGB dalam beberapa hari setelah prapenjualan berakhir. \nKami akan terus memberi tahu semua orang tentang hari peluncuran melalui situs web dan media sosial kami.",
-    "text2": "TG.Bet memberi Anda akses ke semua permainan kasino online teratas, buku olahraga, dan banyak lagi, namun kami juga berkomitmen untuk mengembangkan ekosistem yang menghargai loyalitas. \nSebagai bukti dedikasi kami, kami memberi kembali dengan membagikan sebagian pendapatan kasino kami melalui pembelian kembali token $TGB. \nMainkan, dapatkan, dan dapatkan hadiah!",
+    "text2": "TG.Bet memberi Anda akses ke semua permainan kasino online teratas, buku olahraga, dan banyak lagi, namun kami juga berkomitmen untuk mengembangkan ekosistem yang menghargai kesetiaan. \nSebagai bukti dedikasi kami, kami memberi kembali dengan membagikan sebagian pendapatan kasino kami melalui pembelian kembali token $TGB. \nMainkan, dapatkan, dan dapatkan hadiah!",
     "text3": "Berapa lama presalenya?",
     "text4": "Presale akan dibuka hingga hard cap tercapai. \nBatas lunak untuk prapenjualan adalah 1 juta USD.",
     "text5": "Mengapa saya harus membeli $TGB?",
@@ -76,6 +76,8 @@
     "text12": "Staking APY Saat Ini",
     "text13": "Beli di BSC",
     "text14": "Beli di ETH",
+    "text15": "Membeli...",
+    "text16": "dibeli",
     "text2": "Tujuan akhir",
     "text3": "Beli sekarang sebelum harga naik di:",
     "text4": "dompet",
@@ -83,9 +85,7 @@
     "text6": "",
     "text7": "MAKS",
     "text8": "$TGB yang Anda terima",
-    "text9": "Hubungkan dompet",
-    "text15": "Membeli...",
-    "text16": "dibeli"
+    "text9": "Hubungkan dompet"
   },
   "howToBuy": {
     "text1": "Untuk membeli token selama Presale, kunjungi situs resmi TG.Bet.\n\nSetelah Presale, token dapat diperoleh langsung dari situs resmi atau melalui bursa terdesentralisasi.",
@@ -117,10 +117,10 @@
     "text9": "Pilih permainan dan mulailah bermain!\n\nAnda dapat melakukan penarikan tanpa batas kapan saja.\n\nAnda dapat menikmati pengalaman bermain game tanpa rasa khawatir di TG.Bet, 24/7, sepanjang tahun!"
   },
   "operationWay": {
-    "text1": "TG.Bet bukan hanya kasino, ini adalah ekosistem yang memberikan hadiah berkelanjutan melalui $TGB!"
+    "text1": "TG.Bet lebih dari sekedar kasino, ini adalah ekosistem yang memberikan kembali kepada para pemainnya melalui hadiah terus-menerus dengan memanfaatkan $TGB."
   },
   "pledgeCoin": {
-    "text1": "Koin $TGB yang dibeli selama permainan akan terus menghasilkan manfaat tak terduga bagi Anda, memungkinkan perjudian, hiburan, dan manajemen keuangan taruhan berada pada sudut yang sama dan membawa manfaat tanpa akhir bagi dana Anda.",
+    "text1": "Koin $TGB yang dibeli selama permainan akan terus menghasilkan manfaat tak terduga bagi Anda, memungkinkan perjudian, hiburan, dan pengelolaan keuangan taruhan berada pada sudut yang sama dan memberikan manfaat tanpa akhir pada dana Anda.",
     "text2": "Dapatkan penghasilan pasif",
     "text3": "Saat Anda mempertaruhkan $TGB, Anda segera mulai mendapatkan hadiah harian. \nSaksikan kepemilikan Anda tumbuh seiring waktu!",
     "text4": "Akses hadiah secara instan",
@@ -129,7 +129,7 @@
     "text7": "Saat Anda mempertaruhkan $TGB, Anda membuka akses ke hadiah berbasis pendapatan. \nBagian kue Anda yang lebih besar!"
   },
   "pledgeDetail": {
-    "text1": "TG.Bet memungkinkan Anda mempertaruhkan dan melepaskan token Anda. \nPilih fungsi mana yang Anda inginkan. \nHanya token yang dipertaruhkan yang mendapatkan APY.",
+    "text1": "TG.Bet memungkinkan Anda mempertaruhkan dan membatalkan taruhan token Anda. \nPilih fungsi mana yang Anda inginkan. \nHanya token yang dipertaruhkan yang mendapatkan APY.",
     "text10": "Total Hadiah yang Dipanen ($TGB)",
     "text11": "Total Hadiah yang Dapat Diklaim ($TGB)",
     "text12": "Menerima",
@@ -150,7 +150,7 @@
     "text9": "% dari Total $TGB yang Dipertaruhkan"
   },
   "preSale": {
-    "text1": "Anda tidak akan pernah bisa mendapatkan $TGB dengan harga yang lebih baik dari harga saat ini selama prapenjualan kami",
+    "text1": "Tidak akan pernah ada kesempatan lain untuk mendapatkan $TGB dengan harga lebih baik daripada saat prapenjualan kami. \nInilah beberapa manfaatnya!",
     "text2": "Hadiah khusus",
     "text3": "Pembeli pra-penjualan diberi imbalan secara eksklusif saat mereka bermain di kasino",
     "text4": "Harga terbaik",
@@ -161,12 +161,36 @@
     "text9": "Beli token pra-penjualan, mulailah mempertaruhkan hadiah pasif instan segera!"
   },
   "safeInstructions": {
-    "text1": "TG.Bet tidak mengharuskan Anda melakukan verifikasi KYC apa pun untuk bermain, atau bahkan menghubungkan dompet Anda.\n\nCukup isi ulang akun Anda dan tarik uang kapan saja.\n\nSesederhana itu!",
-    "text2": "Tidak diperlukan KYC",
-    "text3": "Tidak perlu membuat akun",
+    "text1": "TG.Bet mudah untuk memulai, cukup buka TG.Bet di Telegram, danai akun Anda dengan mata uang kripto utama apa pun, dan mulailah bermain!",
+    "text2": "Buka dan Mainkan",
+    "text3": "Tidak Ada Pengaturan Akun",
     "text4": "Mainkan di ponsel cerdas Anda",
-    "text5": "Semuanya ada di Telegram",
+    "text5": "Semua di Telegram",
     "text6": "Main sekarang"
+  },
+  "tip": {
+    "text1": "Silakan sambungkan dompet",
+    "text10": "Pembelian $TGB telah dijeda",
+    "text11": "Transaksi sudah terkirim, mohon bersabar menunggu transaksi selesai.",
+    "text12": "Transaksi berhasil",
+    "text13": "Transaksi salah",
+    "text14": "Jumlah hadiah harus lebih besar dari 100",
+    "text15": "Jumlah taruhan harus lebih besar dari 100",
+    "text16": "Kuantitas unstake harus lebih besar dari 100",
+    "text17": "Ada {days} hari tersisa hingga pasak dilepas",
+    "text18": "Untuk menyelesaikan transaksi ini, Anda harus menyetujui akses kontrak ke izin USDT atau USDC Anda",
+    "text19": "Untuk membeli $TGB dengan USDT/USDC, Anda harus terlebih dahulu memberi otorisasi kepada kami untuk mengakses USDT/USDC di dompet Anda.",
+    "text2": "Silakan membeli setidaknya 100 $TGB.",
+    "text20": "Menyetujui",
+    "text21": "Untuk mempertaruhkan $TGB, Anda harus terlebih dahulu memberi otorisasi kepada kami untuk mengakses $TGB di dompet Anda.",
+    "text22": "Pengolahan",
+    "text3": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan ETH untuk pertukaran token.",
+    "text4": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDT untuk pertukaran token.",
+    "text5": "Anda tidak memiliki cukup USDT untuk membayar transaksi ini.\n\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDT untuk pertukaran token.",
+    "text6": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
+    "text7": "Anda tidak memiliki cukup USDC untuk membayar transaksi ini.\n\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
+    "text8": "Maksimum {jumlah} $TGB per transaksi.",
+    "text9": "0,015 ETH dicadangkan untuk gas. \nJumlah sebenarnya yang digunakan akan bergantung pada jaringan."
   },
   "topBar": {
     "auditBtn": "Audit",
@@ -198,29 +222,5 @@
     "text3": "Pada tahun 2023 saja, opsi perjudian dengan mata uang kripto meningkat tiga kali lipat.\n\nTanpa perlu KYC dan platform yang mulus dan mudah digunakan, tidak mengherankan jika orang berbondong-bondong mengunjungi situs seperti TG.Bet untuk berjudi online.\n\nJadi mengapa memilih TG.Bet?",
     "text4": "Main sekarang",
     "text5": "Mainkan game populer dengan mudah di platform Telegram TG.Bet yang mulus.\n\nBerkat pemasaran kami yang kuat, TG.Bet dengan cepat menjadi terkenal.\n\nManfaatkan investasi kami dalam game online dan model kami yang menguntungkan.\n\nAyo jelajahi masa depan game bersama kami!"
-  },
-  "tip": {
-    "text1": "Silakan sambungkan dompet",
-    "text10": "Pembelian $TGB telah dijeda",
-    "text11": "Transaksi sudah terkirim, mohon bersabar menunggu transaksi selesai.",
-    "text12": "Transaksi berhasil",
-    "text13": "Transaksi salah",
-    "text2": "Silakan membeli setidaknya 100 $TGB.",
-    "text3": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan ETH untuk pertukaran token.",
-    "text4": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDT untuk pertukaran token.",
-    "text5": "Anda tidak memiliki cukup USDT untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDT untuk pertukaran token.",
-    "text6": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
-    "text7": "Anda tidak memiliki cukup USDC untuk membayar transaksi ini.\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
-    "text8": "Maksimum {jumlah} $TGC per transaksi.",
-    "text9": "0,015 ETH dicadangkan untuk gas. \nJumlah sebenarnya yang digunakan akan bergantung pada jaringan.",
-    "text14": "Jumlah hadiah harus lebih besar dari 100",
-    "text15": "Jumlah taruhan harus lebih besar dari 100",
-    "text16": "Kuantitas unstake harus lebih besar dari 100",
-    "text17": "Ada {days} hari tersisa hingga pasak dilepas",
-    "text18": "Untuk menyelesaikan transaksi ini, Anda harus menyetujui akses kontrak ke izin USDT atau USDC Anda",
-    "text19": "Untuk membeli $TGB dengan USDT/USDC, Anda harus terlebih dahulu memberi otorisasi kepada kami untuk mengakses USDT/USDC di dompet Anda.",
-    "text20": "Menyetujui",
-    "text21": "Untuk mempertaruhkan $TGB, Anda harus terlebih dahulu memberi otorisasi kepada kami untuk mengakses $TGB di dompet Anda.",
-    "text22": "Pengolahan"
   }
 }

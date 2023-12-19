@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "Telegramă de top din lume",
+    "text1": "Al lumii",
     "text2": "CAZINOU",
-    "text3": "TG.Bet este locul tău exclusiv pentru jocuri de noroc online anonime. \nLicențiat complet și 100% sigur, alăturați-vă nouă astăzi!",
+    "text3": "TG.Bet este locul tău exclusiv pentru jocuri de noroc cripto online. \nLicențiat complet și 100% sigur, alăturați-vă nouă astăzi!",
     "text4": "Alăturați-vă comunității",
     "text5": "Joaca acum",
     "text6": "Verificați licența",
     "text7": "CASH BACK",
-    "text8": "Obțineți 25% cashback la toate pierderile atunci când pariați cu jetoane $TGB"
+    "text8": "La toate pierderile când pariezi $TGB Token"
   },
   "blockTitle": {
     "cc1": "Oportunitate de Crypto Casino",
@@ -24,7 +24,7 @@
     "safe1": "Ușor de jucat",
     "wb": "Hartie alba",
     "wg1": "Jocurile noastre",
-    "wp1": "TG.Bet le are pe toate!",
+    "wp1": "TG.Bet are totul!",
     "wp2": "De ce este Gamefi",
     "wp4": "Ceea ce ne deosebește",
     "zhiya": "Miza",
@@ -45,9 +45,9 @@
   "commonProblem": {
     "text1": "Ce face TG.Bet diferit",
     "text10": "Vom lansa $TGB în câteva zile de la încheierea prevânzării. \nVom ține toată lumea informată cu privire la ziua lansării prin intermediul site-ului nostru web și al rețelelor de socializare.",
-    "text2": "TG.Bet vă oferă acces la toate cele mai bune jocuri de cazinou online, cărți sportive și multe altele, dar ne angajăm și să cultivăm un ecosistem care prețuiește loialitatea. \nCa o dovadă a dăruirii noastre, dăm înapoi prin împărțirea unei părți din veniturile din cazinou prin răscumpărări pentru tokenul $TGB. \nJoacă, câștigă și fii răsplătit!",
+    "text2": "TG.Bet vă oferă acces la toate cele mai bune jocuri de cazinou online, cărți sportive și multe altele, dar ne angajăm și să cultivăm un ecosistem care prețuiește loialitatea. \nCa o dovadă a dăruirii noastre, dăm înapoi prin împărțirea unei părți din veniturile din cazinou prin răscumpărări pentru tokenul $TGB. \nJoacă, câștigă și fii recompensat!",
     "text3": "Cât durează prevânzarea?",
-    "text4": "Prevânzarea va fi deschisă până la atingerea limitei. \nLimita soft pentru prevânzare este de 1 milion USD.",
+    "text4": "Prevânzarea va fi deschisă până la atingerea limitei. \nLimita minimă pentru prevânzare este de 1 milion USD.",
     "text5": "De ce ar trebui să cumpăr $TGB?",
     "text6": "În timp ce TG.Bet vă va permite să jucați cu multe criptomonede de top, doar $TGB vă va oferi acces la recompense incredibile, atât din miza, cât și doar prin deținerea jetonului nostru. \n$TGB nu este necesar pentru a juca în cazinou, dar poate fi folosit pentru a paria pe jocuri ca toate celelalte monede.",
     "text7": "Prevânzarea are o perioadă de maturizare?",
@@ -76,6 +76,8 @@
     "text12": "Miza curentă APY",
     "text13": "Cumpărați de la BSC",
     "text14": "Cumpărați de la ETH",
+    "text15": "Cumpărare...",
+    "text16": "cumparat",
     "text2": "Scopul final",
     "text3": "Cumpărați acum înainte de creșterea prețului în:",
     "text4": "portofel",
@@ -83,13 +85,11 @@
     "text6": "",
     "text7": "MAX",
     "text8": "$TGB primești",
-    "text9": "Conectați portofelul",
-    "text15": "Cumpărare...",
-    "text16": "cumparat"
+    "text9": "Conectați portofelul"
   },
   "howToBuy": {
     "text1": "Pentru a cumpăra jetoane în timpul prevânzării, vizitați site-ul oficial al TG.Bet.\n\nDupă pre-vânzare, jetoanele pot fi obținute direct de pe site-ul oficial sau prin schimburi descentralizate.",
-    "text10": "Introduceți cantitatea de jetoane $TGB pe care doriți să o cumpărați.\n\nVă rugăm să rețineți că, pe lângă costul jetonului pe care intenționați să-l cumpărați, este necesar un minim de 0,015 ETH pentru a finaliza tranzacția.\n\nPe Binance Smart Chain, această cerință minimă este mai mică, dar încă se aplică.\n\nSuma minimă de jetoane $TGB care poate fi achiziționată este setată la 100 $TGB.",
+    "text10": "Introduceți cantitatea de jetoane $TGB pe care doriți să o cumpărați.\n\nVă rugăm să rețineți că, pe lângă costul jetonului pe care intenționați să-l cumpărați, este necesar un minim de 0,015 ETH pentru a finaliza tranzacția.\n\nPe Binance Smart Chain, această cerință minimă este mai mică, dar încă se aplică.\n\nSuma minimă de jetoane TGB USD care pot fi achiziționate este setată la 100 USD TGB.",
     "text11": "Pasul 5: Finalizați achiziția",
     "text12": "După ce ați introdus suma, vi se va solicita să autorizați tranzacția.\n\nFăcând clic pe „Aprobare”, tranzacția ta va fi inițiată și verificată pe blockchain.\n\nTimpul de finalizare a tranzacțiilor poate varia de la secunde la minute, în funcție de congestionarea rețelei și de activitatea contractului inteligent.\n\nVă rugăm să rămâneți pe interfață până când achiziția este executată complet.",
     "text2": "Cum să cumpărați $TGB în timpul prevânzării",
@@ -98,7 +98,7 @@
     "text5": "Pasul 2: Alegeți metoda de plată",
     "text6": "Puteți alege să achiziționați jetonul TGB în avans în rețeaua Ethereum folosind Ethereum (ETH) sau Tether (USDT).\n\nAlternativ, puteți folosi Binance Smart Chain și alegeți BNB sau USDT.\n\nFaceți alegerea și treceți la pasul următor.",
     "text7": "Pasul 3: Conectați-vă portofelul cripto",
-    "text8": "Dacă portofelul dvs. cripto nu s-a sincronizat încă, veți vedea o solicitare care vă va cere să vă conectați.\n\nDe obicei, portofelele sunt configurate pentru rețeaua principală Ethereum în mod implicit; \nacest lucru funcționează în avantajul dumneavoastră dacă tranzacționați cu ETH.\n\nCu toate acestea, dacă alegeți Binance Smart Chain, poate fi necesar să confirmați comutatorul de rețea.",
+    "text8": "Dacă portofelul dvs. cripto nu s-a sincronizat încă, veți vedea o solicitare care vă va cere să vă conectați.\n\nDe obicei, portofelele sunt configurate pentru rețeaua principală Ethereum în mod implicit; \nacest lucru funcționează în avantajul dumneavoastră dacă tranzacționați cu ETH.\n\nCu toate acestea, dacă alegeți Binance Smart Chain, poate fi necesar să confirmați comutarea de rețea.",
     "text9": "Pasul 4: specificați suma achiziției"
   },
   "licenseProof": {
@@ -117,14 +117,14 @@
     "text9": "Alegeți un joc și începeți să jucați!\n\nPuteți face oricând retrageri nelimitate.\n\nVă puteți bucura de o experiență de joc fără griji la TG.Bet, 24/7, pe tot parcursul anului!"
   },
   "operationWay": {
-    "text1": "TG.Bet nu este doar un cazinou, este un ecosistem care oferă recompense continue prin $TGB!"
+    "text1": "TG.Bet este mai mult decât un cazinou, este un ecosistem care redă jucătorilor săi prin recompense constante prin valorificarea $TGB."
   },
   "pledgeCoin": {
     "text1": "Monedele $TGB achiziționate în timpul jocului vor continua să genereze beneficii neașteptate pentru dvs., permițând jocurilor de noroc, divertismentului și gestionării financiare a mizei să stea în același unghi și să aducă beneficii nesfârșite fondurilor dvs.",
     "text2": "Câștigați venituri pasive",
     "text3": "Când mizați TGB-ul dvs., începeți imediat să câștigați recompense zilnice. \nUrmăriți-vă participațiile crescând în timp!",
     "text4": "Accesați recompense instantaneu",
-    "text5": "Veți debloca imediat recompense de la miza pe care le puteți utiliza în TG.Bet sau le veți salva pentru mai târziu!",
+    "text5": "Veți debloca imediat recompense din miza pe care le puteți folosi în TG.Bet sau le veți salva pentru mai târziu!",
     "text6": "Împărțiți bogăția",
     "text7": "Când mizați TGB-ul dvs., deblocați accesul la recompense bazate pe venituri. \nBucata ta și mai mare din plăcintă!"
   },
@@ -139,7 +139,7 @@
     "text16": "Află mai multe",
     "text17": "Dezlegați",
     "text18": "Dezlegați",
-    "text19": "Anulați-vă jetoanele și răscumpărați recompensele APY din miza.",
+    "text19": "Anulați-vă jetoanele și răscumpărați recompensele APY de la mizare.",
     "text2": "APY actual",
     "text3": "Total $TGB mizați",
     "text4": "% din totalul $TGB mizați",
@@ -150,23 +150,47 @@
     "text9": "% din totalul $TGB mizați"
   },
   "preSale": {
-    "text1": "Nu veți putea niciodată să obțineți $TGB la un preț mai bun decât prețul actual în timpul prevânzării noastre",
+    "text1": "Nu va mai exista niciodată o altă oportunitate de a obține $TGB la un preț mai bun decât în ​​timpul prevânzării noastre. \nIată câteva dintre beneficii!",
     "text2": "Recompense speciale",
     "text3": "Cumpărătorii de prevânzare sunt recompensați exclusiv atunci când joacă în cazinou",
     "text4": "Cel mai bun preț posibil",
-    "text5": "Nu va exista niciodată un moment mai bun pentru a cumpăra TGB USD decât în ​​timpul prevânzării.",
+    "text5": "Nu va exista niciodată un moment mai bun pentru a cumpăra $TGB decât în ​​timpul prevânzării.",
     "text6": "Deveniți un high roller",
     "text7": "Investește 5.000 USD în prevânzare TGB pentru recompense NFT exclusive după lansare.",
     "text8": "Începeți să câștigați astăzi",
     "text9": "Cumpărați jetoane de prevânzare, începeți imediat să mizați pentru recompense pasive instantanee!"
   },
   "safeInstructions": {
-    "text1": "TG.Bet nu necesită să efectuați nicio verificare KYC pentru a juca și nici măcar să vă conectați portofelul.\n\nPur și simplu reîncărcați contul și retrageți bani în orice moment.\n\nEste atat de simplu!",
-    "text2": "Nu este necesar KYC",
-    "text3": "Nu este nevoie să configurați un cont",
+    "text1": "TG.Bet este ușor de început, pur și simplu deschideți TG.Bet în Telegram, finanțați-vă contul cu orice criptomonedă importantă și începeți să jucați!",
+    "text2": "Deschideți și jucați",
+    "text3": "Fără configurare de cont",
     "text4": "Joacă pe smartphone-ul tău",
-    "text5": "Totul este pe Telegram",
+    "text5": "Toate pe Telegram",
     "text6": "Joaca acum"
+  },
+  "tip": {
+    "text1": "Vă rugăm să conectați wallect",
+    "text10": "Achizițiile în $TGB au fost întrerupte",
+    "text11": "Tranzacția a fost trimisă, vă rugăm să așteptați cu răbdare ca tranzacția să fie finalizată.",
+    "text12": "Tranzacție reușită",
+    "text13": "Tranzacția a mers prost",
+    "text14": "Numărul de recompense trebuie să fie mai mare de 100",
+    "text15": "Cantitatea mizei trebuie să fie mai mare de 100",
+    "text16": "Cantitatea de unstake trebuie să fie mai mare de 100",
+    "text17": "Au mai rămas {zile} zile până la eliberarea mizei",
+    "text18": "Pentru a finaliza această tranzacție, trebuie să fiți de acord cu accesul contractului la permisiunile dvs. USDT sau USDC",
+    "text19": "Pentru a cumpăra $TGB cu USDT/USDC, mai întâi trebuie să ne autorizați să accesăm USDT/USDC în portofel.",
+    "text2": "Vă rugăm să cumpărați cel puțin 100 USD TGB.",
+    "text20": "Aproba",
+    "text21": "Pentru a miza $TGB, mai întâi trebuie să ne autorizați să accesăm $TGB din portofel.",
+    "text22": "Prelucrare",
+    "text3": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și ETH pentru schimbul de jetoane.",
+    "text4": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n\n \nAsigurați-vă că aveți 0,015 ETH pentru benzină și USDT pentru schimbul de jetoane.",
+    "text5": "Nu aveți suficienți USDT pentru a plăti pentru această tranzacție.\n\n \nAsigurați-vă că aveți 0,015 ETH pentru benzină și USDT pentru schimbul de jetoane.",
+    "text6": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
+    "text7": "Nu aveți suficienți USDC pentru a plăti această tranzacție.\n\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
+    "text8": "Maximum {amount} $TGB per tranzacție.",
+    "text9": "0,015 ETH este rezervat pentru gaz. \nCantitatea efectivă utilizată va depinde de rețea."
   },
   "topBar": {
     "auditBtn": "Audit",
@@ -197,30 +221,6 @@
     "text2": "Alăturați-vă nouă astăzi",
     "text3": "Numai în 2023, opțiunile pentru jocurile de noroc cu criptomonede s-au triplat.\n\nNefiind nevoie de KYC și de o platformă simplă, ușor de utilizat, nu este surprinzător faptul că oamenii se îngrămădesc pe site-uri precum TG.Bet pentru a juca online.\n\nDeci, de ce să alegeți TG.Bet?",
     "text4": "Joaca acum",
-    "text5": "Joacă cu ușurință jocuri populare pe platforma Telegram fără întreruperi a TG.Bet.\n\nDatorită marketingului nostru puternic, TG.Bet devine rapid un nume cunoscut.\n\nBeneficiați de investiția noastră în jocurile online și de modelul nostru profitabil.\n\nVino să explorezi viitorul jocurilor cu noi!"
-  },
-  "tip": {
-    "text1": "Vă rugăm să conectați wallect",
-    "text10": "Achizițiile în $TGB au fost întrerupte",
-    "text11": "Tranzacția a fost trimisă, vă rugăm să așteptați cu răbdare ca tranzacția să fie finalizată.",
-    "text12": "Tranzacție reușită",
-    "text13": "Tranzacția a mers prost",
-    "text2": "Vă rugăm să cumpărați cel puțin 100 USD TGB.",
-    "text3": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și ETH pentru schimbul de jetoane.",
-    "text4": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru benzină și USDT pentru schimbul de jetoane.",
-    "text5": "Nu aveți suficienți USDT pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru benzină și USDT pentru schimbul de jetoane.",
-    "text6": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
-    "text7": "Nu aveți suficienți USDC pentru a plăti această tranzacție.\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
-    "text8": "Maximum {amount} USD TGC per tranzacție.",
-    "text9": "0,015 ETH este rezervat pentru gaz. \nCantitatea efectivă utilizată va depinde de rețea.",
-    "text14": "Numărul de recompense trebuie să fie mai mare de 100",
-    "text15": "Cantitatea mizei trebuie să fie mai mare de 100",
-    "text16": "Cantitatea de unstake trebuie să fie mai mare de 100",
-    "text17": "Au mai rămas {zile} zile până la eliberarea mizei",
-    "text18": "Pentru a finaliza această tranzacție, trebuie să fiți de acord cu accesul contractului la permisiunile dvs. USDT sau USDC",
-    "text19": "Pentru a cumpăra $TGB cu USDT/USDC, mai întâi trebuie să ne autorizați să accesăm USDT/USDC în portofel.",
-    "text20": "Aproba",
-    "text21": "Pentru a miza $TGB, mai întâi trebuie să ne autorizați să accesăm $TGB din portofel.",
-    "text22": "Prelucrare"
+    "text5": "Joacă cu ușurință jocuri populare pe platforma fără întreruperi Telegram a TG.Bet.\n\nDatorită marketingului nostru puternic, TG.Bet devine rapid un nume cunoscut.\n\nBeneficiați de investiția noastră în jocurile online și de modelul nostru profitabil.\n\nVino să explorezi viitorul jocurilor cu noi!"
   }
 }

@@ -1,13 +1,13 @@
 {
   "actionView": {
-    "text1": "O melhor telegrama do mundo",
+    "text1": "Os mundos",
     "text2": "CASSINO",
-    "text3": "TG.Bet é o seu lugar exclusivo para jogos de azar criptográficos anônimos e on-line. \nTotalmente licenciado e 100% seguro, junte-se a nós hoje!",
+    "text3": "TG.Bet é o seu lugar exclusivo para jogos de criptografia online. \nTotalmente licenciado e 100% seguro, junte-se a nós hoje!",
     "text4": "Junte-se à comunidade",
     "text5": "Jogue agora",
     "text6": "Verifique a licença",
     "text7": "DINHEIRO DE VOLTA",
-    "text8": "Obtenha 25% de reembolso em todas as perdas ao apostar com tokens $TGB"
+    "text8": "Em todas as perdas ao apostar $TGB Token"
   },
   "blockTitle": {
     "cc1": "Oportunidade de Crypto Casino",
@@ -76,6 +76,8 @@
     "text12": "Atual Stake APY",
     "text13": "Compre na BSC",
     "text14": "Compre na ETH",
+    "text15": "Comprando...",
+    "text16": "comprado",
     "text2": "Objetivo final",
     "text3": "Compre agora antes que os preços aumentem em:",
     "text4": "carteira",
@@ -83,9 +85,7 @@
     "text6": "",
     "text7": "MÁX.",
     "text8": "$TGB você recebe",
-    "text9": "Conectar carteira",
-    "text15": "Comprando...",
-    "text16": "comprado"
+    "text9": "Conectar carteira"
   },
   "howToBuy": {
     "text1": "Para adquirir tokens durante a pré-venda, visite o site oficial do TG.Bet.\n\nApós a pré-venda, os tokens podem ser obtidos diretamente no site oficial ou por meio de exchanges descentralizadas.",
@@ -117,7 +117,7 @@
     "text9": "Escolha um jogo e comece a jogar!\n\nVocê pode fazer saques ilimitados a qualquer momento.\n\nVocê pode desfrutar de uma experiência de jogo sem preocupações no TG.Bet, 24 horas por dia, 7 dias por semana, durante todo o ano!"
   },
   "operationWay": {
-    "text1": "TG.Bet não é apenas um cassino, é um ecossistema que oferece recompensas contínuas por meio de $TGB!"
+    "text1": "O TG.Bet é mais do que apenas um cassino, é um ecossistema que retribui aos seus jogadores por meio de recompensas constantes, aproveitando o $TGB."
   },
   "pledgeCoin": {
     "text1": "As moedas $TGB compradas durante o jogo continuarão a gerar benefícios inesperados para você, permitindo que jogos de azar, entretenimento e gestão financeira de apostas fiquem no mesmo ângulo e tragam benefícios infinitos aos seus fundos.",
@@ -150,7 +150,7 @@
     "text9": "% do total de $TGB apostados"
   },
   "preSale": {
-    "text1": "Você nunca conseguirá obter $ TGB por um preço melhor do que o preço atual durante nossa pré-venda",
+    "text1": "Nunca haverá outra oportunidade de obter $TGB por um preço melhor do que durante a nossa pré-venda. \nAqui estão alguns dos benefícios!",
     "text2": "Recompensas especiais",
     "text3": "Os compradores da pré-venda são recompensados ​​exclusivamente quando jogam no cassino",
     "text4": "Melhor preço possível",
@@ -161,12 +161,36 @@
     "text9": "Compre tokens de pré-venda e comece a apostar para obter recompensas passivas instantâneas imediatamente!"
   },
   "safeInstructions": {
-    "text1": "O TG.Bet não exige que você execute nenhuma verificação KYC para jogar, nem mesmo conecte sua carteira.\n\nBasta recarregar sua conta e sacar dinheiro a qualquer momento.\n\nÉ simples assim!",
-    "text2": "Não é necessário KYC",
-    "text3": "Não há necessidade de configurar uma conta",
+    "text1": "TG.Bet é fácil de começar, basta abrir o TG.Bet no Telegram, depositar em sua conta com qualquer criptomoeda importante e começar a jogar!",
+    "text2": "Abra e jogue",
+    "text3": "Nenhuma configuração de conta",
     "text4": "Jogue no seu smartphone",
-    "text5": "Tudo está no Telegram",
+    "text5": "Tudo no Telegram",
     "text6": "Jogue agora"
+  },
+  "tip": {
+    "text1": "Conecte a carteira",
+    "text10": "As compras de $TGB foram pausadas",
+    "text11": "A transação foi enviada, aguarde pacientemente até que a transação seja concluída.",
+    "text12": "Transação bem-sucedida",
+    "text13": "Transação deu errado",
+    "text14": "O número de recompensas deve ser superior a 100",
+    "text15": "A quantidade de aposta deve ser superior a 100",
+    "text16": "A quantidade de desempate deve ser maior que 100",
+    "text17": "Faltam {days} dias para a liberação da aposta",
+    "text18": "Para concluir esta transação, você precisa concordar com o acesso do contrato às suas permissões USDT ou USDC",
+    "text19": "Para comprar $TGB com USDT/USDC, primeiro você precisa nos autorizar a acessar o USDT/USDC em sua carteira.",
+    "text2": "Por favor compre pelo menos 100 $TGB.",
+    "text20": "Aprovar",
+    "text21": "Para apostar $TGB, primeiro você precisa nos autorizar a acessar o $TGB em sua carteira.",
+    "text22": "Em processamento",
+    "text3": "Você não tem ETH suficiente para pagar esta transação.\n\n \nCertifique-se de ter 0,015 ETH para gás e ETH para troca de tokens.",
+    "text4": "Você não tem ETH suficiente para pagar esta transação.\n\n \nCertifique-se de ter 0,015 ETH para gás e USDT para troca de tokens.",
+    "text5": "Você não tem USDT suficiente para pagar esta transação.\n\n \nCertifique-se de ter 0,015 ETH para gás e USDT para troca de tokens.",
+    "text6": "Você não tem ETH suficiente para pagar esta transação.\n\n \nCertifique-se de ter 0,015 ETH para gás e USDC para troca de tokens.",
+    "text7": "Você não tem USDC suficientes para pagar esta transação.\n\n \nCertifique-se de ter 0,015 ETH para gás e USDC para troca de tokens.",
+    "text8": "Máximo de {amount} $TGB por transação.",
+    "text9": "0,015 ETH são reservados para gás. \nA quantidade real utilizada dependerá da rede."
   },
   "topBar": {
     "auditBtn": "Auditoria",
@@ -197,30 +221,6 @@
     "text2": "Junte-se a nós hoje",
     "text3": "Só em 2023, as opções de jogos de azar com criptomoedas triplicaram.\n\nSem a necessidade de KYC e com uma plataforma integrada e fácil de usar, não é surpresa que as pessoas estejam migrando para sites como o TG.Bet para jogar online.\n\nEntão, por que escolher o TG.Bet?",
     "text4": "Jogue agora",
-    "text5": "Jogue facilmente jogos populares na plataforma Telegram integrada da TG.Bet.\n\nGraças ao nosso forte marketing, o TG.Bet está rapidamente se tornando um nome familiar.\n\nBeneficie do nosso investimento em jogos online e do nosso modelo rentável.\n\nVenha explorar o futuro dos jogos conosco!"
-  },
-  "tip": {
-    "text1": "Conecte a carteira",
-    "text10": "As compras de $TGB foram pausadas",
-    "text11": "A transação foi enviada, aguarde pacientemente até que a transação seja concluída.",
-    "text12": "Transação bem-sucedida",
-    "text13": "Transação deu errado",
-    "text2": "Por favor compre pelo menos 100 $TGB.",
-    "text3": "Você não tem ETH suficiente para pagar esta transação.\n \nCertifique-se de ter 0,015 ETH para gás e ETH para troca de tokens.",
-    "text4": "Você não tem ETH suficiente para pagar esta transação.\n \nCertifique-se de ter 0,015 ETH para gás e USDT para troca de tokens.",
-    "text5": "Você não tem USDT suficiente para pagar esta transação.\n \nCertifique-se de ter 0,015 ETH para gás e USDT para troca de tokens.",
-    "text6": "Você não tem ETH suficiente para pagar esta transação.\n \nCertifique-se de ter 0,015 ETH para gás e USDC para troca de tokens.",
-    "text7": "Você não tem USDC suficientes para pagar esta transação.\n \nCertifique-se de ter 0,015 ETH para gás e USDC para troca de tokens.",
-    "text8": "Máximo de {amount} $TGC por transação.",
-    "text9": "0,015 ETH são reservados para gás. \nA quantidade real utilizada dependerá da rede.",
-    "text14": "O número de recompensas deve ser superior a 100",
-    "text15": "A quantidade de aposta deve ser superior a 100",
-    "text16": "A quantidade de desempate deve ser maior que 100",
-    "text17": "Faltam {days} dias para a liberação da aposta",
-    "text18": "Para concluir esta transação, você precisa concordar com o acesso do contrato às suas permissões USDT ou USDC",
-    "text19": "Para comprar $TGB com USDT/USDC, primeiro você precisa nos autorizar a acessar o USDT/USDC em sua carteira.",
-    "text20": "Aprovar",
-    "text21": "Para apostar $TGB, primeiro você precisa nos autorizar a acessar o $TGB em sua carteira.",
-    "text22": "Em processamento"
+    "text5": "Jogue facilmente jogos populares na plataforma Telegram da TG.Bet.\n\nGraças ao nosso forte marketing, a TG.Bet está rapidamente se tornando um nome familiar.\n\nBeneficie do nosso investimento em jogos online e do nosso modelo rentável.\n\nVenha explorar o futuro dos jogos conosco!"
   }
 }
