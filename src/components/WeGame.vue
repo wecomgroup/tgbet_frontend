@@ -21,9 +21,9 @@
             <img class="gamePng" src="../assets/pushgame.png">
             <img class="gamePng" src="../assets/nba.png">
             <img class="gamePng" src="../assets/ufc.png">
-            <img class="gamePng" src="../assets/championsleague.png">
+            <!-- <img class="gamePng" src="../assets/championsleague.png">
             <img class="gamePng" src="../assets/bang.png">
-            <img class="gamePng" src="../assets/nfl.png">
+            <img class="gamePng" src="../assets/nfl.png"> -->
         </div>
     </div>
 </template>
@@ -45,7 +45,7 @@ export default {
     background-color: #2E3442;
     color: #ffffff;
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
 }
 
@@ -63,7 +63,7 @@ export default {
 .desc {
     width: 600px;
     margin-top: 30px;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
     text-align: left;
     color: #FFFFFF99;
     font-size: 20px;
@@ -86,9 +86,9 @@ export default {
     max-width: 480px;
     display: flex;
     justify-content: space-around;
+
     align-items: center;
     flex-wrap: wrap;
-    max-width: 480px;
 }
 
 .gamePng {

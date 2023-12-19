@@ -36,7 +36,7 @@ export default {
     color: #ffffff;
     display: flex;
     flex-direction: column;
-  padding-right: 80px;
+    padding-right: 80px;
 }
 
 .title {
@@ -73,8 +73,8 @@ export default {
 }
 
 .cashbackTitle {
-    margin-top: 8px;
-    font-size: 88px;
+    margin-top: 10px;
+    font-size: 57px;
     color: #EFD8AA;
 }
 
@@ -87,8 +87,23 @@ export default {
     text-align: center;
     font-size: 22px;
     font-weight: 600;
-    padding: 27px 10% 32px;
+    padding: 20px 10% 25px;
 }
+
+.play:hover {
+  background-color: #FFD581;
+}
+
+.join:hover {
+  background: linear-gradient(0deg, #2B2E39, #2B2E39),
+    linear-gradient(0deg, #E3C076, #E3C076);
+}
+
+.check:hover {
+  background: linear-gradient(0deg, #2B2E39, #2B2E39),
+    linear-gradient(0deg, #E3C076, #E3C076);
+}
+
 
 .join {
     width: 100%;
@@ -198,7 +213,7 @@ export default {
 }
 
 .checkLogo {
-    width: 20px;
+    width: 25px;
     height: auto;
     margin-right: 8px;
 }
@@ -207,7 +222,7 @@ export default {
     .actionView {
         margin-bottom: 20px;
         margin-right: 8px;
-      padding-right: 0;
+        padding-right: 0;
     }
 
 
@@ -229,12 +244,13 @@ export default {
     }
 
     .cashbackSubTitle {
+        margin-top: 10px;
         font-size: 24px;
     }
 
     .cashbackTitle {
-        margin-top: 10px;
-        font-size: 68px;
+        margin-top: 20px;
+        font-size: 40px;
     }
 
     .play,
