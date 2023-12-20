@@ -19,6 +19,9 @@ const Countlykeys = {
     //申请解除质押
     unstake_click: 'unstake_click',
 
+     //领取质押奖励
+    stakeReward_click: 'stakeReward_click',
+
     //审计
     audit_click: 'audit_click',
 

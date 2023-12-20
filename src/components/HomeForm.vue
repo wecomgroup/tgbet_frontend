@@ -1032,6 +1032,8 @@ export default {
       fetchMyBalance,
       checkTips,
       maxClick,
+      addEvent,
+      updateUserDetail,
       Countlykeys
     };
   },

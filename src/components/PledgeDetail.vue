@@ -113,12 +113,15 @@
 </template>
   
 <script>
+import { Countlykeys } from "@/util/const/countlyKey";
+import { addEvent, updateUserDetail } from "@/util/helper/countlyUtil"
+
 import PledgeDetailArea from './PledgeDetailArea.vue'
 import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { getCurrentInstance, onMounted, ref } from "vue";
 import { ElMessage } from 'element-plus'
 
-import { appPublicClient,appWallectClient }  from "@/util/contactUtil/client";
+import { appPublicClient, appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 
@@ -210,6 +213,7 @@ export default {
 
         const getMyStakeReward = async () => {
             try {
+                addEvent(Countlykeys.stakeReward_click)
                 let stakeContract = getStakeContract()
                 let amount = myRewardAmount.value
                 if (!amount || amount < 100) {
@@ -230,7 +234,7 @@ export default {
                     let result = await waitTx(hash)
                     if (result) {
                         ElMessage.success($t('tip.text12'))
-                       
+
                     } else {
                         ElMessage.error($t('tip.text13'))
                     }
@@ -255,6 +259,7 @@ export default {
 
         const stakeToken = async () => {
             try {
+                addEvent(Countlykeys.stake_click)
                 if (!stakeAmount.value || stakeAmount.value < 100) {
                     ElMessage.error($t('tip.text15'))
 
@@ -271,7 +276,7 @@ export default {
 
                 if (BigInt(allowanceData) < amount) {
                     ElMessage.warning($t('tip.text21'))
-                   let approveTx = await approveContract(tgbContract, stakeContract.address, account)
+                    let approveTx = await approveContract(tgbContract, stakeContract.address, account)
                     if (approveTx) {
                         ElMessage.success($t('tip.text11'))
                         let result = await waitTx(approveTx)
@@ -298,7 +303,7 @@ export default {
                     let result = await waitTx(hash)
                     if (result) {
                         ElMessage.success($t('tip.text12'))
-                        
+
                     } else {
                         ElMessage.error($t('tip.text13'))
                     }
@@ -322,6 +327,7 @@ export default {
 
         const unStakeToken = async () => {
             try {
+                addEvent(Countlykeys.unstake_click)
                 let diffDays = Math.floor((infoData.value.endTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
 
                 if (diffDays) {
@@ -352,7 +358,7 @@ export default {
                     let result = await waitTx(hash)
                     if (result) {
                         ElMessage.success($t('tip.text12'))
-                        
+
                     } else {
                         ElMessage.error($t('tip.text13'))
                     }
@@ -544,6 +550,9 @@ export default {
             getMyStakeReward,
             stakeToken,
             unStakeToken,
+            addEvent,
+            updateUserDetail,
+            Countlykeys
         }
     }
 }
@@ -572,6 +581,7 @@ export default {
     line-height: 55px;
     font-weight: bold;
 }
+
 .my-pledge .bg {
     position: absolute;
     width: 100%;
