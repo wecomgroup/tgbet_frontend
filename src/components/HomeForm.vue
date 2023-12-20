@@ -109,9 +109,9 @@
         </button>
         <div class="approve" v-if="connect && approve">
           <button class="buy-and-stake-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
-            {{$t('tip.text20')}}
+            {{ $t('tip.text20') }}
           </button>
-          <div class="approve-tip">{{$t('tip.text19')}}</div>
+          <div class="approve-tip">{{ $t('tip.text19') }}</div>
         </div>
 
         <div v-if="connect && !approve" class="stake-buy-btn-container">
@@ -138,11 +138,12 @@ import {
   switchNetwork,
 } from "@wagmi/core";
 
+import Cookies from 'js-cookie'
 import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appPublicClient,appWallectClient }  from "@/util/contactUtil/client";
+import { appPublicClient, appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 import {
@@ -158,10 +159,10 @@ import {
 
 export default {
   components: {
-        Line
-    },
+    Line
+  },
   setup: () => {
-    const { $t } = getCurrentInstance().proxy;
+    const { $t ,$Countly} = getCurrentInstance().proxy;
 
     let fee = 0.015
     let buying = ref(false)
@@ -766,6 +767,13 @@ export default {
     // 5 USDC-BUY
     // 6 USDC-BUY-STAKING
     const buyTokenAndStaking = () => {
+      let invite_code = Cookies.get('tgbet.invite_code') || '0';
+      $Countly.q.push(['add_event', {
+        "key": "发起购买并质押",
+        "segmentation": {
+          "invite_code":  invite_code
+        }
+      }])
       walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
@@ -854,7 +862,7 @@ export default {
 
           if (BigInt(allowanceData) < needAllowAmount) {
             //ElMessage.warning($t('tip.text18'))
-           let approveTx = await approveContract(usdtContract, proxyContract.address, account)
+            let approveTx = await approveContract(usdtContract, proxyContract.address, account)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
               let result = await waitTx(approveTx)
@@ -898,7 +906,7 @@ export default {
 
           if (BigInt(allowanceData) < needAllowAmount) {
             // ElMessage.warning($t('tip.text18'))
-           let approveTx = await approveContract(usdcContract, proxyContract.address, account)
+            let approveTx = await approveContract(usdcContract, proxyContract.address, account)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
               let result = await waitTx(approveTx)
@@ -982,7 +990,7 @@ export default {
     return {
       buying,
       approve, usdcApproved, usdtApproved,
-      countdownTimer,    
+      countdownTimer,
       timeState,
       infoData,
       leaveTime,

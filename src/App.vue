@@ -80,12 +80,30 @@ export default {
       showHowToBuy: false,
     };
   },
+  created() {
+    console.log(`Countly start`)
+    // console.log(`Countly init result: [${this.$Countly === Countly}]`);
+    //> true
+    try {
+      // Track sessions automatically (recommended)
+      this.$Countly.q.push(['track_sessions']);
+
+      // Track web page views automatically (recommended)
+      this.$Countly.q.push(['track_pageview']);
+
+      this.$Countly.q.push(['track_errors']);
+
+    } catch (error) {
+      console.log(`Countly init fail`)
+    }
+  },
+
   mounted() {
     const flag = sessionStorage.getItem('pageName');
     if (flag === 'showPledgeDetail') {
       this.showPledgeDetail = true
       this.showHowToBuy = false
-    } else if ( flag === 'showHowToBuy') {
+    } else if (flag === 'showHowToBuy') {
       this.showPledgeDetail = false
       this.showHowToBuy = true
     } else {
@@ -112,7 +130,6 @@ export default {
 
 
 <style>
-
 * {
   margin: 0;
   padding: 0;
@@ -134,7 +151,7 @@ export default {
 
 body {
   overflow-x: hidden;
-  background-color:#181A20
+  background-color: #181A20
 }
 
 img {
