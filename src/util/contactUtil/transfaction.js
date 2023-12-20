@@ -6,7 +6,7 @@ import { appPublicClient,appWallectClient } from './client'
 //waitForTransactionReceipt
 const waitTx = async (tx) => {
     try {
-      let receipt = await appPublicClient.waitForTransactionReceipt(
+      let receipt = await appPublicClient().waitForTransactionReceipt(
         {
           confirmations: 1,
           hash: tx,

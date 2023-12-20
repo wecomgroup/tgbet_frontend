@@ -223,7 +223,7 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
 
                 processing.value = true
-                let hash = await appWallectClient.writeContract({
+                let hash = await appWallectClient().writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
                     account
@@ -291,7 +291,7 @@ export default {
                 }
 
 
-                let hash = await appWallectClient.writeContract({
+                let hash = await appWallectClient().writeContract({
                     ...stakeContract,
                     functionName: "deposit",
                     args: [amount],
@@ -346,7 +346,7 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
                 processing.value = true
 
-                let hash = await appWallectClient.writeContract({
+                let hash = await appWallectClient().writeContract({
                     ...stakeContract,
                     functionName: "withdraw",
                     args: [amount],
@@ -392,7 +392,7 @@ export default {
                 }
                 let stakeContract = getStakeContract()
                 let preSaleContract = getPreSaleContract()
-                const data = await appPublicClient.multicall({
+                const data = await appPublicClient().multicall({
                     contracts: [
                         {
                             ...stakeContract,
