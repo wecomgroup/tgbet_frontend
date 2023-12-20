@@ -5,8 +5,8 @@
             {{ $t('noKyc.text1') }}
         </div>
         <div class="btnContainer">
-            <div class="open" @click="openUrl(urls.tgbTgUrl)">{{ $t('noKyc.text2') }} </div>
-            <div class="downLoad" @click="openUrl(urls.tgDownloadUrl)">{{ $t('noKyc.text3') }}</div>
+            <div class="open" @click="openUrl(urls.tgbTgUrl,Countlykeys.tg_click)">{{ $t('noKyc.text2') }} </div>
+            <div class="downLoad" @click="openUrl(urls.tgDownloadUrl,Countlykeys.tgDownload_click)">{{ $t('noKyc.text3') }}</div>
         </div>
         <div class="step">
             <div v-for="(step, index) in steps" :key="index" class="stepItem">
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-
+import { Countlykeys } from '@/util/const/countlyKey';
 import { urls,openUrl } from '@/util/const/urlConst';
 import Line from "./Line.vue";
 
@@ -40,6 +40,7 @@ export default {
     setup: () => {
         return {
             urls,
+            Countlykeys,
             openUrl
         }
     }

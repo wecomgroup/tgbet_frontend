@@ -4,13 +4,14 @@
             <div class="licenseDescLogo">{{ $t('blockTitle.lsp1') }} <Line /></div>
             <img class="licenseDetailMobile" src="../assets/licenseLogo.png">
             <div class="desc">{{ $t('licenseProof.text1') }}</div>
-            <div class="check" @click="openUrl(urls.licenseUrl)">{{ $t('licenseProof.text2') }}</div>
+            <div class="check" @click="openUrl(urls.licenseUrl,Countlykeys.license_click)">{{ $t('licenseProof.text2') }}</div>
         </div>
         <img class="licenseDetail" src="../assets/licenseLogo.png">
     </div>
 </template>
 
 <script>
+import { Countlykeys } from '@/util/const/countlyKey';
 import { urls,openUrl } from '@/util/const/urlConst';
 import Line from "./Line.vue";
 
@@ -23,6 +24,7 @@ export default {
     setup: () => {
         return {
             urls,
+            Countlykeys,
             openUrl
         }
     }

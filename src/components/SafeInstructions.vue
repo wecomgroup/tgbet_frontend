@@ -18,7 +18,7 @@
             <div class="safeItem"><img style="width: 18px; height: 24px;" src="../assets/safeItem.png">
                 <p class="safeTitle">{{ $t('safeInstructions.text5') }}</p>
             </div>
-            <div class="play" @click="openUrl(urls.gameTgUrl)">{{ $t('safeInstructions.text6') }}</div>
+            <div class="play" @click="openUrl(urls.gameTgUrl,Countlykeys.gameTg_click)">{{ $t('safeInstructions.text6') }}</div>
             <img class="webImage" src="../assets/webImage.png">
         </div>
         <img class="webImg" style="height: 499px;margin-right: -58px;" src="../assets/safeLogo.png">
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+import { Countlykeys } from '@/util/const/countlyKey';
 import { urls,openUrl } from '@/util/const/urlConst';
 import Line from "./Line.vue";
 
@@ -37,7 +38,7 @@ export default {
     components:{Line},
     setup: () => {
         return {
-            urls,
+            urls,Countlykeys,
             openUrl
         }
     }

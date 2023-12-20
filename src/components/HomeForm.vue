@@ -139,6 +139,8 @@ import {
 } from "@wagmi/core";
 
 import Cookies from 'js-cookie'
+import { Countlykeys } from "@/util/const/countlyKey";
+import { addEvent, updateUserDetail } from "@/util/helper/countlyUtil"
 import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
@@ -156,6 +158,8 @@ import {
   usdcAddress,
   tgbAddress,
 } from '../util/const/const'
+
+
 
 export default {
   components: {
@@ -506,6 +510,7 @@ export default {
           //更新界面
           if (network == sepolia.id) {
             accountMsg.value = getAccount();
+            connect.value = accountMsg.value.isConnected;
             return true
           } else {
             return false
@@ -541,6 +546,7 @@ export default {
         connect.value = account1.isConnected;
         if (connect.value) {
           homeInfo()
+          updateUserDetail(accountMsg.value.address)
         }
       });
     }
@@ -767,13 +773,9 @@ export default {
     // 5 USDC-BUY
     // 6 USDC-BUY-STAKING
     const buyTokenAndStaking = () => {
-      let invite_code = Cookies.get('tgbet.invite_code') || '0';
-      $Countly.q.push(['add_event', {
-        "key": "发起购买并质押",
-        "segmentation": {
-          "invite_code":  invite_code
-        }
-      }])
+
+      addEvent(Countlykeys.buyAndStake_click)
+
       walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
@@ -791,6 +793,9 @@ export default {
 
     // user click only buy
     const buyToken = () => {
+
+      addEvent(Countlykeys.buy_click)
+
       walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
@@ -975,6 +980,8 @@ export default {
 
     // ================== 退出 ===========
     const disconnect1 = () => {
+      addEvent(Countlykeys.disconnect_click)
+
       disconnect();
       const account1 = getAccount();
       accountMsg.value = account1;
@@ -982,6 +989,8 @@ export default {
     };
 
     const connectWithWalletConnect = () => {
+      addEvent(Countlykeys.connect_click)
+
       if (globalProperties.$web3modal) {
         globalProperties.$web3modal.open();
       }
@@ -1022,7 +1031,8 @@ export default {
       filterCoinName,
       fetchMyBalance,
       checkTips,
-      maxClick
+      maxClick,
+      Countlykeys
     };
   },
 };

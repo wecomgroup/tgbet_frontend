@@ -18,15 +18,19 @@
         </div>
         <p class="diver">
         </p>
-        <p class="payforTypeTitle">{{$t('bottomBar.text1')}}</p>
+        <p class="payforTypeTitle">{{ $t('bottomBar.text1') }}</p>
         <div class="displayItem">
             <div class="payforType">
-                <img alt="payForA" src="../assets/payForA.png">
+                <img @click="openUrl(urls.tgbTgUrl, Countlykeys.tg_click)" src="../assets/telegram-icon.webp" />
+                <img @click="openUrl(urls.tgbTgUrl, Countlykeys.twitter_click)" src="../assets/twitter-icon.webp">
+                <img @click="openUrl(urls.tgbTgUrl, Countlykeys.gameTg_click)" src="../assets/adLogo.webp" />
+                <img @click="openUrl(urls.tgbTgUrl, Countlykeys.license_click)" src="../assets/gamingcuracao-sm.webp" />
+                <!-- <img alt="payForA" src="../assets/payForA.png"> -->
                 <img alt="payForB" src="../assets/payForB.png">
                 <img alt="payForE" src="../assets/payForE.png">
-                <img alt="payForO" src="../assets/payForO.png">
+                <!-- <img alt="payForO" src="../assets/payForO.png">
                 <img alt="payForP" src="../assets/payForP.png">
-                <img alt="payForU" src="../assets/payForU.png">
+                <img alt="payForU" src="../assets/payForU.png"> -->
             </div>
             <p class="diverMobile">
             </p>
@@ -34,38 +38,27 @@
                 @ 2023 TG BET All Rights Reserved
             </div>
             <div class="other">
-                <span @click="personalDialogVisible = true">{{$t('bottomBar.text2')}}</span>
-                <span @click="termDialogVisible = true">{{$t('bottomBar.text3')}}</span>
-                <span @click="centerDialogVisible=true">Cookie</span>
+                <span @click="personalDialogVisible = true">{{ $t('bottomBar.text2') }}</span>
+                <span @click="termDialogVisible = true">{{ $t('bottomBar.text3') }}</span>
+                <span @click="centerDialogVisible = true">Cookie</span>
             </div>
         </div>
-      <el-dialog
-          v-model="centerDialogVisible"
-          title="Cookies"
-          width="520px"
-      >
-        <DialogCookie/>
-      </el-dialog>
-      <el-dialog
-          v-model="termDialogVisible"
-          title="Terms Of Service"
-          width="520px"
-      >
-        <DialogTerm/>
-      </el-dialog>
-      <el-dialog
-          v-model="personalDialogVisible"
-          title="Privacy Policy"
-          width="520px"
-      >
-        <DialogPersonal/>
-      </el-dialog>
-      <div class="four-logo">
-        <a href="https://t.co/g2Xm298LUi" target="_blank"><img src="../assets/telegram-icon.webp"/></a>
-        <a href="https://twitter.com/TGCasino_" target="_blank"><img src="../assets/twitter-icon.webp"/></a>
-        <a href="https://github.com/Assure-DeFi/KYC-Certificates/blob/main/TG.Casino%20KYC%20Certificate.png" target="_blank"><img src="../assets/adLogo.webp"/></a>
-        <a href="https://licensing.gaming-curacao.com/validator/?lh=3c0894e9ea1e7e5174f8eee97afad603" target="_blank"><img src="../assets/gamingcuracao-sm.webp"/></a>
-      </div>
+        <el-dialog v-model="centerDialogVisible" title="Cookies" width="520px">
+            <DialogCookie />
+        </el-dialog>
+        <el-dialog v-model="termDialogVisible" title="Terms Of Service" width="520px">
+            <DialogTerm />
+        </el-dialog>
+        <el-dialog v-model="personalDialogVisible" title="Privacy Policy" width="520px">
+            <DialogPersonal />
+        </el-dialog>
+        <!-- <div class="four-logo">
+            <img @click="openUrl(urls.tgbTgUrl, Countlykeys.tg_click)" src="../assets/telegram-icon.webp" />
+            <img @click="openUrl(urls.tgbTgUrl, Countlykeys.twitter_click)" src="../assets/twitter-icon.webp">
+            <img @click="openUrl(urls.tgbTgUrl, Countlykeys.gameTg_click)" src="../assets/adLogo.webp" />
+            <img @click="openUrl(urls.tgbTgUrl, Countlykeys.license_click)" src="../assets/gamingcuracao-sm.webp" />
+
+        </div> -->
     </div>
 </template>
 
@@ -73,19 +66,30 @@
 import DialogCookie from './DialogCookie.vue'
 import DialogTerm from './DialogTerm.vue'
 import DialogPersonal from './DialogPersonal.vue'
+import { Countlykeys } from '@/util/const/countlyKey';
+import { urls, openUrl } from '@/util/const/urlConst';
+
+
 export default {
     name: 'BottomBar',
     data() {
         return {
-          centerDialogVisible: false,
-          termDialogVisible: false,
-          personalDialogVisible: false
+            centerDialogVisible: false,
+            termDialogVisible: false,
+            personalDialogVisible: false
         };
     },
-  components: {
-    DialogCookie,
-    DialogTerm,
-    DialogPersonal
+    setup: () => {
+        return {
+            urls,
+            Countlykeys,
+            openUrl
+        }
+    },
+    components: {
+        DialogCookie,
+        DialogTerm,
+        DialogPersonal
     },
     methods: {
         goPcHowToBuy() {
@@ -163,6 +167,7 @@ export default {
     color: #c5ac79;
     transition: 0.5s;
 }
+
 .diver {
     height: 1px;
     background-color: #30323A;
@@ -170,6 +175,12 @@ export default {
 }
 
 .payforType img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.four-logo img {
     width: 40px;
     height: 40px;
     margin-right: 10px;
@@ -214,19 +225,22 @@ export default {
 .diverMobile {
     display: none;
 }
-.four-logo{
-  display: none;
+
+.four-logo {
+    display: none;
 }
 
 @media screen and (max-width: 900px) {
-  .four-logo{
-    display: flex;
-    justify-content: center;
-  }
-  .four-logo a img{
-    height: 35px;
-    margin: 17px 17px  17px 0;
-  }
+    .four-logo {
+        display: flex;
+        justify-content: center;
+    }
+
+    .four-logo a img {
+        height: 35px;
+        margin: 17px 17px 17px 0;
+    }
+
     .bottombar {
         height: auto;
         padding: 40px 24px;
@@ -285,13 +299,14 @@ export default {
 </style>
 <style>
 @media screen and (max-width: 900px) {
-  .el-dialog{
-    max-width: calc(100vw - 16px);
-  }
+    .el-dialog {
+        max-width: calc(100vw - 16px);
+    }
 }
-.el-dialog__header{
-  font-weight: bold;
-  border-bottom: 1px solid rgba(0,0,0,.06);
-  margin-right: 0;
+
+.el-dialog__header {
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, .06);
+    margin-right: 0;
 }
 </style>

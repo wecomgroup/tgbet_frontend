@@ -25,7 +25,7 @@
                         </div>
                     </div>
                     <div class="desc">{{ item.desc }}</div>
-                    <div class="play" @click="openUrl(urls.gameTgUrl)">{{ item.btnText }}</div>
+                    <div class="play" @click="openUrl(urls.gameTgUrl,Countlykeys.gameTg_click)">{{ item.btnText }}</div>
                 </div>
                 <div style="position: relative;" class="whyPopularDetailContainer">
                     <img class="whyPopularDetail" :src="item.rightImg">
@@ -49,7 +49,7 @@ import play2 from '../assets/play2.png'
 import play3 from '../assets/play3.png'
 import Line from "./Line.vue";
 
-
+import { Countlykeys } from '@/util/const/countlyKey';
 import { urls,openUrl } from '@/util/const/urlConst';
 
 
@@ -64,6 +64,7 @@ export default {
     setup: () => {
         return {
             urls,
+            Countlykeys,
             openUrl
         }
     },

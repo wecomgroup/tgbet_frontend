@@ -3,12 +3,12 @@
         <p class="title">{{ $t('actionView.text1') }}</p>
         <p class="subTitle">{{ $t('actionView.text2') }}</p>
         <p class="desc">{{ $t('actionView.text3') }}</p>
-        <div class="join" @click="openUrl(urls.tgbTgUrl)"> <img class="joinLogo" alt="join logo" src="../assets/join.png">
+        <div class="join" @click="openUrl(urls.tgbTgUrl,Countlykeys.tg_click)"> <img class="joinLogo" alt="join logo" src="../assets/join.png">
             {{ $t('actionView.text4') }}
         </div>
-        <div class="play" @click="openUrl(urls.gameTgUrl)"> <img class="playLogo" alt="play logo" src="../assets/playLogo.png"> {{ $t('actionView.text5') }}
+        <div class="play" @click="openUrl(urls.gameTgUrl,Countlykeys.gameTg_click)"> <img class="playLogo" alt="play logo" src="../assets/playLogo.png"> {{ $t('actionView.text5') }}
         </div>
-        <div class="check" @click="openUrl(urls.licenseUrl)"><img class="checkLogo" alt="play logo" src="../assets/checkLogo.png"> {{ $t('actionView.text6') }}
+        <div class="check" @click="openUrl(urls.licenseUrl,Countlykeys.license_click)"><img class="checkLogo" alt="play logo" src="../assets/checkLogo.png"> {{ $t('actionView.text6') }}
         </div>
         <div class="cashback">
             <p class="cashbackTitle">25%</p>
@@ -19,12 +19,14 @@
 </template>
 <script>
 
+import { Countlykeys } from '@/util/const/countlyKey';
 import { urls,openUrl } from '@/util/const/urlConst';
 export default {
 
     setup: () => {
         return {
             urls,
+            Countlykeys,
             openUrl
         }
     }

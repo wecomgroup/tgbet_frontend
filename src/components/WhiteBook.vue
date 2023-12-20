@@ -10,7 +10,7 @@
 
                     <div class="desc">{{ $t('whiteBook.text1') }}</div>
 
-                    <div class="read" @click="openUrl(urls.whitePaperUrl)">{{ $t('whiteBook.text2') }}</div>
+                    <div class="read" @click="openUrl(urls.whitePaperUrl,Countlykeys.whitePaper_click)">{{ $t('whiteBook.text2') }}</div>
                 </div>
             </el-col>
             <el-col :lg="11" align="middle">
@@ -22,6 +22,7 @@
 
 <script>
 import Line from "./Line.vue"
+import { Countlykeys } from '@/util/const/countlyKey';
 import { urls, openUrl } from '@/util/const/urlConst';
 
 export default {
@@ -32,7 +33,7 @@ export default {
     },
     setup: () => {
         return {
-            urls,
+            urls,Countlykeys,
             openUrl
         }
     }
