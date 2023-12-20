@@ -1,16 +1,7 @@
 import { createWalletClient, createPublicClient, custom, http } from 'viem'
 import { mainnet, sepolia } from 'viem/chains'
 
-const getAppChain = () => {
-  if (process.env.VUE_APP_ENV === 'production') {
-    return mainnet
-  } else {
-    return sepolia
-  }
-}
-
-const appChain = getAppChain()
-
+const appChain = ['production'].includes(process.env.VUE_APP_ENV) ? mainnet : sepolia
 
 const appPublicClient = createPublicClient({
   chain: appChain,
@@ -25,4 +16,4 @@ const appWallectClient = createWalletClient({
 
 
 
-export { appChain,getAppChain, appPublicClient, appWallectClient }
+export { appChain, appPublicClient, appWallectClient }

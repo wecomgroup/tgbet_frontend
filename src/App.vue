@@ -85,6 +85,8 @@ export default {
     // console.log(`Countly init result: [${this.$Countly === Countly}]`);
     //> true
     try {
+      document.body.removeChild(document.getElementById('Loading'))
+
       // Track sessions automatically (recommended)
       this.$Countly.q.push(['track_sessions']);
 
