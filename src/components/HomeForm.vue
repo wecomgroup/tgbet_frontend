@@ -133,8 +133,6 @@ import {
   watchAccount,
   getNetwork,
   disconnect,
-  sepolia,
-  mainnet,
   switchNetwork,
 } from "@wagmi/core";
 
@@ -145,7 +143,7 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appPublicClient, appWallectClient } from "@/util/contactUtil/client";
+import { appPublicClient, appWallectClient,appChain } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 import {
@@ -503,12 +501,12 @@ export default {
         }
         let currentNetId = currentNetwork.chain.id
 
-        if (currentNetId != sepolia.id) {
+        if (currentNetId != appChain.id) {
           const network = await switchNetwork({
-            chainId: sepolia.id,
+            chainId: appChain.id,
           })
           //更新界面
-          if (network == sepolia.id) {
+          if (network == appChain.id) {
             accountMsg.value = getAccount();
             connect.value = accountMsg.value.isConnected;
             return true
