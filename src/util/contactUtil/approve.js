@@ -1,6 +1,6 @@
 
-import { appPublicClient,appWallectClient } from './client'
-
+import { appPublicClient } from './client'
+import { writeContract } from '@wagmi/core'
 import { MAX_ALLOWANCE } from '@/util/const/const'
 
 
@@ -14,13 +14,13 @@ const checkApprove = async (contrat, userAddress, spenderAddress) => {
 }
 
 //授权
-const approveContract = async (contrat, spenderAddress, address) => {
+const approveContract = async (contrat, spenderAddress,account) => {
 
-  let hash = await appWallectClient().writeContract({
+  let hash = await writeContract({
     ...contrat,
     functionName: "approve",
     args: [spenderAddress, MAX_ALLOWANCE],
-    account: address
+    account
   })
   console.log('approve tx hash' + hash)
   return hash

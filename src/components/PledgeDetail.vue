@@ -121,7 +121,7 @@ import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { getCurrentInstance, onMounted, ref } from "vue";
 import { ElMessage } from 'element-plus'
 
-import { appPublicClient, appWallectClient } from "@/util/contactUtil/client";
+import { appPublicClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 
@@ -131,6 +131,7 @@ import {
     fetchBalance,
     getAccount,
     watchAccount,
+    writeContract
 } from "@wagmi/core";
 
 export default {
@@ -163,9 +164,9 @@ export default {
         //钱包切换
         watchAccount((changedAccount) => {
             if (changedAccount.address != account.address) {
+                account = changedAccount
                 accountMsg.value = changedAccount;
                 connect.value = changedAccount.isConnected;
-
                 if (connect.value) {
                     stakeInfo()
                 }
@@ -177,6 +178,7 @@ export default {
                 console.log("进入钱包状态", res);
                 const account1 = getAccount();
                 accountMsg.value = account1;
+                account = account1
                 connect.value = account1.isConnected;
             });
         }
@@ -223,10 +225,10 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
 
                 processing.value = true
-                let hash = await appWallectClient().writeContract({
+                let hash = await writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
-                    account: accountMsg.value.address
+                    account
                 })
                 console.log('getMyStakeReward tx hash' + hash)
                 if (hash) {
@@ -276,7 +278,7 @@ export default {
 
                 if (BigInt(allowanceData) < amount) {
                     ElMessage.warning($t('tip.text21'))
-                    let approveTx = await approveContract(tgbContract, stakeContract.address, accountMsg.value.address)
+                    let approveTx = await approveContract(tgbContract, stakeContract.address, account)
                     if (approveTx) {
                         ElMessage.success($t('tip.text11'))
                         let result = await waitTx(approveTx)
@@ -291,7 +293,7 @@ export default {
                 }
 
 
-                let hash = await appWallectClient().writeContract({
+                let hash = await writeContract({
                     ...stakeContract,
                     functionName: "deposit",
                     args: [amount],
@@ -346,11 +348,11 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
                 processing.value = true
 
-                let hash = await appWallectClient().writeContract({
+                let hash = await writeContract({
                     ...stakeContract,
                     functionName: "withdraw",
                     args: [amount],
-                    account: accountMsg.value.address
+                    account
                 })
                 console.log('unStakeToken tx hash' + hash)
                 if (hash) {

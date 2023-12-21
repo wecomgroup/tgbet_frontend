@@ -1,21 +1,26 @@
 import { createWalletClient, createPublicClient, custom, http } from 'viem'
 import { mainnet, sepolia } from 'viem/chains'
 
+import { getWalletClient } from '@wagmi/core'
+
 const appChain = ['production'].includes(process.env.VUE_APP_ENV) ? mainnet : sepolia
 
+console.log(`current chain: ${appChain.name} id: ${appChain.id}`)
 
 const appPublicClient = () => {
-  return createPublicClient({
+  const client = createPublicClient({
     chain: appChain,
     transport: http()
   })
+
+  return client
 }
 
-const appWallectClient = () => {
-  return createWalletClient({
-    chain: appChain,
-    transport: custom(window.ethereum)
-  })
-}
+// const appWallectClient = async() => {
+//   const walletClient = await getWalletClient({
+//     chainId: appChain.id,
+//   })
+//   return walletClient
+// }
 
-export { appChain, appPublicClient, appWallectClient }
+export { appChain, appPublicClient }

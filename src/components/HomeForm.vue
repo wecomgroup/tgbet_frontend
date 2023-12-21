@@ -134,6 +134,7 @@ import {
   getNetwork,
   disconnect,
   switchNetwork,
+  writeContract
 } from "@wagmi/core";
 
 import Cookies from 'js-cookie'
@@ -143,7 +144,7 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appChain,appPublicClient, appWallectClient } from "@/util/contactUtil/client";
+import { appChain,appPublicClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 import {
@@ -531,6 +532,7 @@ export default {
     watchAccount((changedAccount) => {
       console.log(`change account ${changedAccount}`)
       if (changedAccount.address != account.address) {
+        // account = changedAccount
         accountMsg.value = changedAccount;
         connect.value = changedAccount.isConnected;
       }
@@ -540,6 +542,7 @@ export default {
       globalProperties.$web3modal.subscribeState((res) => {
         console.log("进入钱包状态", res);
         const account1 = getAccount();
+        // account = account1
         accountMsg.value = account1;
         connect.value = account1.isConnected;
         if (connect.value) {
@@ -848,14 +851,18 @@ export default {
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
-          hash = await appWallectClient().writeContract({
+          
+          console.log(`account address: ${account.address}`)
+
+          let tx = await writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(amount), inviteCodeParam],
             value: parseEther(ethPayAmount.toString()),
-            account: accountMsg.value.address
+            account
           })
-          console.log('ETH PAY ==> ' + hash)
+          hash = tx.hash
+          console.log('ETH PAY ==> ' + tx.hash)
 
         } else if (buyType === 3 || buyType === 4) {
 
@@ -864,8 +871,8 @@ export default {
           let allowanceData = await checkApprove(usdtContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
-            //ElMessage.warning($t('tip.text18'))
-            let approveTx = await approveContract(usdtContract, proxyContract.address, accountMsg.value.address)
+
+            let approveTx = await approveContract(usdtContract, proxyContract.address, account)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
               let result = await waitTx(approveTx)
@@ -892,11 +899,11 @@ export default {
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
-          hash = await appWallectClient.writeContract({
+          hash = await writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
-            account: accountMsg.value.address
+            account
           })
           console.log('USDT PAY HASH==> ' + hash)
 
@@ -909,7 +916,7 @@ export default {
 
           if (BigInt(allowanceData) < needAllowAmount) {
             // ElMessage.warning($t('tip.text18'))
-            let approveTx = await approveContract(usdcContract, proxyContract.address, accountMsg.value.address)
+            let approveTx = await approveContract(usdcContract, proxyContract.address, account)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
               let result = await waitTx(approveTx)
@@ -936,11 +943,11 @@ export default {
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
           let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
-          hash = await appWallectClient().writeContract({
+          hash = await writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
-            account: accountMsg.value.address
+            account
           })
 
           console.log('USDTC PAY HASH==> ' + hash)
@@ -981,6 +988,7 @@ export default {
       addEvent(Countlykeys.disconnect_click)
 
       disconnect();
+      
       const account1 = getAccount();
       accountMsg.value = account1;
       connect.value = account1.isConnected;

@@ -1,7 +1,7 @@
 
 import { readContract } from 'viem' 
 
-import { appPublicClient,appWallectClient } from './client'
+import { appPublicClient } from './client'
 
 //waitForTransactionReceipt
 const waitTx = async (tx) => {
