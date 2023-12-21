@@ -15,12 +15,10 @@ const appPublicClient = () => {
 
   return client
 }
+const appWallectClient = async () => {
+  return await getWalletClient({
+    chainId: appChain.id,
+  });
+}
 
-// const appWallectClient = async() => {
-//   const walletClient = await getWalletClient({
-//     chainId: appChain.id,
-//   })
-//   return walletClient
-// }
-
-export { appChain, appPublicClient }
+export { appChain, appPublicClient,appWallectClient }

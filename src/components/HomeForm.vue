@@ -128,7 +128,6 @@ import {
   getNetwork,
   disconnect,
   switchNetwork,
-  writeContract
 } from "@wagmi/core";
 
 import Cookies from 'js-cookie'
@@ -138,7 +137,7 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appChain, appPublicClient } from "@/util/contactUtil/client";
+import { appChain, appPublicClient,appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 import {
@@ -834,6 +833,8 @@ export default {
         let usdcContract = getUsdcContract()
         let usdtContract = getUsdtContract()
 
+        let wallectClient = await appWallectClient()
+
         if (buyType === 1 || buyType === 2) {
           let ethPayAmount = await appPublicClient().readContract({
             ...proxyContract,
@@ -847,16 +848,14 @@ export default {
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
 
           console.log(`account address: ${account.address}`)
-
-          let tx = await writeContract({
+          hash = await wallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(amount), inviteCodeParam],
             value: parseEther(ethPayAmount.toString()),
             account
           })
-          hash = tx.hash
-          console.log('ETH PAY ==> ' + tx.hash)
+          console.log('ETH PAY ==> ' + hash)
 
         } else if (buyType === 3 || buyType === 4) {
 
@@ -893,7 +892,7 @@ export default {
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
-          hash = await writeContract({
+          hash = await wallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
@@ -937,7 +936,7 @@ export default {
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
           let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
-          hash = await writeContract({
+          hash = await wallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],

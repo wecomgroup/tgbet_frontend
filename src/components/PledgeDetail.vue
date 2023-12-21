@@ -121,7 +121,7 @@ import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { getCurrentInstance, onMounted, ref } from "vue";
 import { ElMessage } from 'element-plus'
 
-import { appPublicClient } from "@/util/contactUtil/client";
+import { appPublicClient,appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 
@@ -131,7 +131,6 @@ import {
     fetchBalance,
     getAccount,
     watchAccount,
-    writeContract
 } from "@wagmi/core";
 
 export default {
@@ -225,7 +224,8 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
 
                 processing.value = true
-                let hash = await writeContract({
+                let wallectClient = appWallectClient()
+                let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
                     account
@@ -292,8 +292,9 @@ export default {
                     return
                 }
 
+                let wallectClient = appWallectClient()
 
-                let hash = await writeContract({
+                let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "deposit",
                     args: [amount],
@@ -348,7 +349,9 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
                 processing.value = true
 
-                let hash = await writeContract({
+                let wallectClient = appWallectClient()
+
+                let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "withdraw",
                     args: [amount],
