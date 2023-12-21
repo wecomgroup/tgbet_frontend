@@ -56,9 +56,9 @@
   },
   "economicToken": {
     "text1": "Pro dosažení ctnostného cyklu je velmi důležité chování každého účastníka ekosystému.\n\nNeméně důležité jsou dobře navržené pobídky",
-    "text10": "Aliance",
+    "text10": "Kooperativní agent",
     "text11": "Odměny pro ty, kteří pomáhají rozvíjet TG.Bet",
-    "text12": "Marketing",
+    "text12": "Institucionální investoři",
     "text13": "Pro spolupráci a přímý marketing",
     "text2": "Pool likvidity",
     "text3": "Chcete-li vytvořit pár na DEX",
@@ -67,7 +67,11 @@
     "text6": "Předprodej",
     "text7": "Chcete-li nastartovat ekosystém $TGB",
     "text8": "Odměny hráčů",
-    "text9": "Odměny pro každého hráče"
+    "text9": "Odměny pro každého hráče",
+    "text15": "Pro spolupráci a přímý marketing",
+    "text17": "Pro spolupráci a přímý marketing",
+    "text14": "Společenská pokladna",
+    "text16": "Marketing"
   },
   "homeForm": {
     "text1": "Aktuální cena",
