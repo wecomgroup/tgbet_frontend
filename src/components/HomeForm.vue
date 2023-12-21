@@ -34,29 +34,23 @@
     <Line class="pc" style="margin-top: 25px;"></Line>
 
     <el-row v-if="connect" style="margin-top: 30px; ">
-      <el-col :span="12">
-        <p class="logtips">{{ $t('homeForm.text4') }} </p>
-      </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :lg="24">
         <div class="wallect">
-          <div>
-            <p class="logtips">{{ filterAddress(accountMsg.address) }}
-            </p>
-          </div>
+          <div class="logtips">{{ $t('homeForm.text4') }} </div>
           <div class="lououtContainer">
+            <p class="logtips" style="margin-right: 15px;">{{ filterAddress(accountMsg.address) }}</p>
             <img class="logout" @click="disconnect1" src="../assets/logout.png" />
           </div>
         </div>
       </el-col>
+
     </el-row>
     <el-row v-if="connect && myBalance && (myBalance.tgbDeposits) && (myBalance.tgbDeposits != '0')"
       style="margin-top: 15px; ">
-      <el-col :span="12">
-        <p class="logtips">$TGB <span style="opacity: 0.6; margin-left: 8px;">{{ $t('homeForm.text16') }}</span></p>
-      </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :lg="24">
         <div class="wallect">
-          <p style="opacity: 0.6;">{{ Number(myBalance.tgbDeposits).toLocaleString() }}</p>
+          <div class="logtips">$TGB <span style="opacity: 0.6; margin-left: 8px;">{{ $t('homeForm.text16') }}</span></div>
+          <div style="opacity: 0.6;">{{ Number(myBalance.tgbDeposits).toLocaleString() }}</div>
         </div>
       </el-col>
     </el-row>
@@ -144,7 +138,7 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appChain,appPublicClient } from "@/util/contactUtil/client";
+import { appChain, appPublicClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 import {
@@ -165,7 +159,7 @@ export default {
     Line
   },
   setup: () => {
-    const { $t ,$Countly} = getCurrentInstance().proxy;
+    const { $t, $Countly } = getCurrentInstance().proxy;
 
     let fee = 0.015
     let buying = ref(false)
@@ -851,7 +845,7 @@ export default {
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
-          
+
           console.log(`account address: ${account.address}`)
 
           let tx = await writeContract({
@@ -988,7 +982,7 @@ export default {
       addEvent(Countlykeys.disconnect_click)
 
       disconnect();
-      
+
       const account1 = getAccount();
       accountMsg.value = account1;
       connect.value = account1.isConnected;
@@ -1111,7 +1105,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .form-wrapper {
@@ -1176,7 +1170,7 @@ export default {
 .logtips {
   font-size: 16px;
   font-weight: 600;
-  line-height: 15px;
+  /* line-height: 15px; */
 }
 
 .tips>.max-value {
@@ -1353,9 +1347,13 @@ export default {
   /* border-radius: 8px; */
   /* border: 1px solid #efd8aa; */
   margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.lououtContainer:hover {
+.logout:hover {
   background-color: #918a7d;
 }
 
