@@ -1,12 +1,11 @@
 
-import { appPublicClient,appWallectClient } from './client'
-
+import { appPublicClient ,appWallectClient} from './client'
 import { MAX_ALLOWANCE } from '@/util/const/const'
 
 
 //检查授权额度  未授权 0 或者 授权额度小于支出数
 const checkApprove = async (contrat, userAddress, spenderAddress) => {
-  return await appPublicClient.readContract({
+  return await appPublicClient().readContract({
     ...contrat,
     functionName: "allowance",
     args: [userAddress, spenderAddress]
@@ -14,9 +13,10 @@ const checkApprove = async (contrat, userAddress, spenderAddress) => {
 }
 
 //授权
-const approveContract = async (contrat, spenderAddress, account) => {
+const approveContract = async (contrat, spenderAddress,account) => {
 
-  let hash = await appWallectClient.writeContract({
+  let walletClient = await appWallectClient()
+  let hash = await walletClient.writeContract({
     ...contrat,
     functionName: "approve",
     args: [spenderAddress, MAX_ALLOWANCE],

@@ -121,7 +121,7 @@ import { formatUnits, parseUnits, parseEther, formatEther } from 'viem'
 import { getCurrentInstance, onMounted, ref } from "vue";
 import { ElMessage } from 'element-plus'
 
-import { appPublicClient, appWallectClient } from "@/util/contactUtil/client";
+import { appPublicClient,appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 
@@ -163,9 +163,9 @@ export default {
         //钱包切换
         watchAccount((changedAccount) => {
             if (changedAccount.address != account.address) {
+                account = changedAccount
                 accountMsg.value = changedAccount;
                 connect.value = changedAccount.isConnected;
-
                 if (connect.value) {
                     stakeInfo()
                 }
@@ -177,6 +177,7 @@ export default {
                 console.log("进入钱包状态", res);
                 const account1 = getAccount();
                 accountMsg.value = account1;
+                account = account1
                 connect.value = account1.isConnected;
             });
         }
@@ -223,7 +224,8 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
 
                 processing.value = true
-                let hash = await appWallectClient.writeContract({
+                let wallectClient = appWallectClient()
+                let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
                     account
@@ -290,12 +292,13 @@ export default {
                     return
                 }
 
+                let wallectClient = appWallectClient()
 
-                let hash = await appWallectClient.writeContract({
+                let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "deposit",
                     args: [amount],
-                    account
+                    account: accountMsg.value.address
                 })
                 console.log('stakeToken tx hash' + hash)
                 if (hash) {
@@ -346,7 +349,9 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
                 processing.value = true
 
-                let hash = await appWallectClient.writeContract({
+                let wallectClient = appWallectClient()
+
+                let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "withdraw",
                     args: [amount],
@@ -392,7 +397,7 @@ export default {
                 }
                 let stakeContract = getStakeContract()
                 let preSaleContract = getPreSaleContract()
-                const data = await appPublicClient.multicall({
+                const data = await appPublicClient().multicall({
                     contracts: [
                         {
                             ...stakeContract,

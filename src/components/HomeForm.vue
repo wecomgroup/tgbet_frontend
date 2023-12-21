@@ -34,29 +34,23 @@
     <Line class="pc" style="margin-top: 25px;"></Line>
 
     <el-row v-if="connect" style="margin-top: 30px; ">
-      <el-col :span="12">
-        <p class="logtips">{{ $t('homeForm.text4') }} </p>
-      </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :lg="24">
         <div class="wallect">
-          <div>
-            <p class="logtips">{{ filterAddress(accountMsg.address) }}
-            </p>
-          </div>
+          <div class="logtips">{{ $t('homeForm.text4') }} </div>
           <div class="lououtContainer">
+            <p class="logtips" style="margin-right: 15px;">{{ filterAddress(accountMsg.address) }}</p>
             <img class="logout" @click="disconnect1" src="../assets/logout.png" />
           </div>
         </div>
       </el-col>
+
     </el-row>
     <el-row v-if="connect && myBalance && (myBalance.tgbDeposits) && (myBalance.tgbDeposits != '0')"
       style="margin-top: 15px; ">
-      <el-col :span="12">
-        <p class="logtips">$TGB <span style="opacity: 0.6; margin-left: 8px;">{{ $t('homeForm.text16') }}</span></p>
-      </el-col>
-      <el-col :span="12">
+      <el-col :xs="24" :sm="24" :lg="24">
         <div class="wallect">
-          <p style="opacity: 0.6;">{{ Number(myBalance.tgbDeposits).toLocaleString() }}</p>
+          <div class="logtips">$TGB <span style="opacity: 0.6; margin-left: 8px;">{{ $t('homeForm.text16') }}</span></div>
+          <div style="opacity: 0.6;">{{ Number(myBalance.tgbDeposits).toLocaleString() }}</div>
         </div>
       </el-col>
     </el-row>
@@ -143,7 +137,7 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appPublicClient, appWallectClient,appChain } from "@/util/contactUtil/client";
+import { appChain, appPublicClient,appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
 import {
@@ -164,7 +158,7 @@ export default {
     Line
   },
   setup: () => {
-    const { $t ,$Countly} = getCurrentInstance().proxy;
+    const { $t, $Countly } = getCurrentInstance().proxy;
 
     let fee = 0.015
     let buying = ref(false)
@@ -211,7 +205,7 @@ export default {
         let usdtContract = getUsdtContract()
         let usdcContract = getUsdcContract()
 
-        const balanceArr = await appPublicClient.multicall({
+        const balanceArr = await appPublicClient().multicall({
           contracts: [
             {
               // The TGB token
@@ -245,7 +239,7 @@ export default {
             },
           ],
         })
-        let ethBalance = await appPublicClient.getBalance({
+        let ethBalance = await appPublicClient().getBalance({
           address: accountMsg.value.address,
         })
 
@@ -286,7 +280,7 @@ export default {
       let proxyContract = getPreSaleContract()
       let stakeContract = getStakeContract()
 
-      const data = await appPublicClient.multicall({
+      const data = await appPublicClient().multicall({
         contracts: [
           {
             ...proxyContract,
@@ -390,7 +384,7 @@ export default {
         endTime: resultData.endTime,
       }
 
-      let tgbBalance = await appPublicClient.getBalance({
+      let tgbBalance = await appPublicClient().getBalance({
         address: stakeContract.address,
         token: resultData.saleToken,
       })
@@ -531,6 +525,7 @@ export default {
     watchAccount((changedAccount) => {
       console.log(`change account ${changedAccount}`)
       if (changedAccount.address != account.address) {
+        // account = changedAccount
         accountMsg.value = changedAccount;
         connect.value = changedAccount.isConnected;
       }
@@ -540,6 +535,7 @@ export default {
       globalProperties.$web3modal.subscribeState((res) => {
         console.log("进入钱包状态", res);
         const account1 = getAccount();
+        // account = account1
         accountMsg.value = account1;
         connect.value = account1.isConnected;
         if (connect.value) {
@@ -837,8 +833,10 @@ export default {
         let usdcContract = getUsdcContract()
         let usdtContract = getUsdtContract()
 
+        let wallectClient = await appWallectClient()
+
         if (buyType === 1 || buyType === 2) {
-          let ethPayAmount = await appPublicClient.readContract({
+          let ethPayAmount = await appPublicClient().readContract({
             ...proxyContract,
             functionName: 'ethBuyHelper',
             args: [amount]
@@ -848,7 +846,9 @@ export default {
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
-          hash = await appWallectClient.writeContract({
+
+          console.log(`account address: ${account.address}`)
+          hash = await wallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(amount), inviteCodeParam],
@@ -864,7 +864,7 @@ export default {
           let allowanceData = await checkApprove(usdtContract, accountMsg.value.address, proxyContract.address)
 
           if (BigInt(allowanceData) < needAllowAmount) {
-            //ElMessage.warning($t('tip.text18'))
+
             let approveTx = await approveContract(usdtContract, proxyContract.address, account)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
@@ -883,7 +883,7 @@ export default {
             return
           }
           let usdtPayAmount = 0
-          usdtPayAmount = await appPublicClient.readContract({
+          usdtPayAmount = await appPublicClient().readContract({
             ...proxyContract,
             functionName: 'usdtBuyHelper',
             args: [amount]
@@ -892,7 +892,7 @@ export default {
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
-          hash = await appWallectClient.writeContract({
+          hash = await wallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
@@ -927,7 +927,7 @@ export default {
             return
           }
           let usdcPayAmount = 0
-          usdcPayAmount = await appPublicClient.readContract({
+          usdcPayAmount = await appPublicClient().readContract({
             ...proxyContract,
             functionName: 'usdcBuyHelper',
             args: [amount]
@@ -936,7 +936,7 @@ export default {
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
           let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
-          hash = await appWallectClient.writeContract({
+          hash = await wallectClient.writeContract({
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
@@ -965,7 +965,7 @@ export default {
         buying.value = false
       } catch (err) {
         buying.value = false
-        console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
+        console.log(`originErr: err ${err} json err:  `)
         if (err.shortMessage) {
           if (err.shortMessage == 'User rejected the request.') {
             walletTipMsg.value = err.shortMessage
@@ -981,6 +981,7 @@ export default {
       addEvent(Countlykeys.disconnect_click)
 
       disconnect();
+
       const account1 = getAccount();
       accountMsg.value = account1;
       connect.value = account1.isConnected;
@@ -1066,7 +1067,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.8);
   top: 0;
   left: 0;
-  z-index: 999;
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1103,7 +1104,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .form-wrapper {
@@ -1168,7 +1169,7 @@ export default {
 .logtips {
   font-size: 16px;
   font-weight: 600;
-  line-height: 15px;
+  /* line-height: 15px; */
 }
 
 .tips>.max-value {
@@ -1345,9 +1346,13 @@ export default {
   /* border-radius: 8px; */
   /* border: 1px solid #efd8aa; */
   margin-left: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
 }
 
-.lououtContainer:hover {
+.logout:hover {
   background-color: #918a7d;
 }
 

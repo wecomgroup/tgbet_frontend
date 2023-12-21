@@ -81,7 +81,7 @@ export default {
 }
 
 .content {
-    font-size: clamp(16px, 1.25vw, 22px);
+    font-size: 14px;
     line-height: 30px;
     letter-spacing: 4%;
     text-align: left;

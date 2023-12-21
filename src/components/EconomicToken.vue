@@ -21,7 +21,8 @@
                     </div>
                 </div>
             </el-col>
-            <el-col :lg="12" align="middle">
+            <el-col :lg="12" align="middle" style="display: flex; align-items: center;">
+
                 <img class="economicTokenDetailImg" src="../assets/Group.png" />
             </el-col>
         </el-row>
@@ -33,7 +34,7 @@ import Line from "./Line.vue";
 export default {
 
     name: 'EconomicToken',
-    components:{Line},
+    components: { Line },
     data() {
         return {
             // economicTokenList: [],
@@ -42,12 +43,15 @@ export default {
     },
     computed: {
         economicTokenList() {
-            return [{ title: this.$t('economicToken.text2'), percentage: '20%', desc: this.$t('economicToken.text3'), color: '#64CF3C' },
-            { title: this.$t('economicToken.text4'), percentage: '20%', desc: this.$t('economicToken.text5'), color: '#FFFFFF99' },
-            { title: this.$t('economicToken.text6'), percentage: '40%', desc: this.$t('economicToken.text7'), color: '#C5AC79' },
-            { title: this.$t('economicToken.text8'), percentage: '10%', desc: this.$t('economicToken.text9'), color: '#F47F30' },
-            { title: this.$t('economicToken.text10'), percentage: '5%', desc: this.$t('economicToken.text11'), color: '#CF3C7A' },
-            { title: this.$t('economicToken.text12'), percentage: '5%', desc: this.$t('economicToken.text13'), color: '#3CA3CF' },
+            return [
+                { title: this.$t('economicToken.text6'), percentage: '40%', desc: this.$t('economicToken.text7'), color: '#C5AC79' },
+                { title: this.$t('economicToken.text4'), percentage: '20%', desc: this.$t('economicToken.text5'), color: '#FFFFFF99' },
+                { title: this.$t('economicToken.text2'), percentage: '10%', desc: this.$t('economicToken.text3'), color: '#64CF3C' },
+                { title: this.$t('economicToken.text8'), percentage: '10%', desc: this.$t('economicToken.text9'), color: '#F47F30' },
+                { title: this.$t('economicToken.text10'), percentage: '5%', desc: this.$t('economicToken.text11'), color: '#CF3C7A' },
+                { title: this.$t('economicToken.text12'), percentage: '5%', desc: this.$t('economicToken.text13'), color: '#3CA3CF' },
+                { title: this.$t('economicToken.text14'), percentage: '5%', desc: this.$t('economicToken.text15'), color: '#BACF3C' },
+                { title: this.$t('economicToken.text16'), percentage: '5%', desc: this.$t('economicToken.text17'), color: '#8E3CCF' },
             ]
         }
     },
@@ -213,7 +217,8 @@ export default {
 }
 
 .economicTokenDetailImg {
-    width: 686px;
+    width: 720px;
+    /* width: 1; */
 }
 
 
