@@ -972,7 +972,7 @@ export default {
         buying.value = false
       } catch (err) {
         buying.value = false
-        console.log(`originErr: err ${err} json err:${JSON.stringify(err)}  `)
+        console.log(`originErr: err ${err} json err:  `)
         if (err.shortMessage) {
           if (err.shortMessage == 'User rejected the request.') {
             walletTipMsg.value = err.shortMessage
