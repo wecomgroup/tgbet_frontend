@@ -14,13 +14,13 @@ const checkApprove = async (contrat, userAddress, spenderAddress) => {
 }
 
 //授权
-const approveContract = async (contrat, spenderAddress, account) => {
+const approveContract = async (contrat, spenderAddress, address) => {
 
   let hash = await appWallectClient().writeContract({
     ...contrat,
     functionName: "approve",
     args: [spenderAddress, MAX_ALLOWANCE],
-    account
+    account: address
   })
   console.log('approve tx hash' + hash)
   return hash

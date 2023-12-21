@@ -226,7 +226,7 @@ export default {
                 let hash = await appWallectClient().writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
-                    account
+                    account: accountMsg.value.address
                 })
                 console.log('getMyStakeReward tx hash' + hash)
                 if (hash) {
@@ -276,7 +276,7 @@ export default {
 
                 if (BigInt(allowanceData) < amount) {
                     ElMessage.warning($t('tip.text21'))
-                    let approveTx = await approveContract(tgbContract, stakeContract.address, account)
+                    let approveTx = await approveContract(tgbContract, stakeContract.address, accountMsg.value.address)
                     if (approveTx) {
                         ElMessage.success($t('tip.text11'))
                         let result = await waitTx(approveTx)
@@ -295,7 +295,7 @@ export default {
                     ...stakeContract,
                     functionName: "deposit",
                     args: [amount],
-                    account
+                    account: accountMsg.value.address
                 })
                 console.log('stakeToken tx hash' + hash)
                 if (hash) {
@@ -350,7 +350,7 @@ export default {
                     ...stakeContract,
                     functionName: "withdraw",
                     args: [amount],
-                    account
+                    account: accountMsg.value.address
                 })
                 console.log('unStakeToken tx hash' + hash)
                 if (hash) {

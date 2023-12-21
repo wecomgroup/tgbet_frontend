@@ -853,7 +853,7 @@ export default {
             functionName: functionName,
             args: [BigInt(amount), inviteCodeParam],
             value: parseEther(ethPayAmount.toString()),
-            account
+            account: accountMsg.value.address
           })
           console.log('ETH PAY ==> ' + hash)
 
@@ -865,7 +865,7 @@ export default {
 
           if (BigInt(allowanceData) < needAllowAmount) {
             //ElMessage.warning($t('tip.text18'))
-            let approveTx = await approveContract(usdtContract, proxyContract.address, account)
+            let approveTx = await approveContract(usdtContract, proxyContract.address, accountMsg.value.address)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
               let result = await waitTx(approveTx)
@@ -896,7 +896,7 @@ export default {
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
-            account
+            account: accountMsg.value.address
           })
           console.log('USDT PAY HASH==> ' + hash)
 
@@ -909,7 +909,7 @@ export default {
 
           if (BigInt(allowanceData) < needAllowAmount) {
             // ElMessage.warning($t('tip.text18'))
-            let approveTx = await approveContract(usdcContract, proxyContract.address, account)
+            let approveTx = await approveContract(usdcContract, proxyContract.address, accountMsg.value.address)
             if (approveTx) {
               ElMessage.success($t('tip.text11'))
               let result = await waitTx(approveTx)
@@ -940,7 +940,7 @@ export default {
             ...proxyContract,
             functionName: functionName,
             args: [BigInt(parseInt(amount)), inviteCodeParam],
-            account
+            account: accountMsg.value.address
           })
 
           console.log('USDTC PAY HASH==> ' + hash)
