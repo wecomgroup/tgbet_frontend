@@ -157,7 +157,7 @@ export default {
     }
 
     .weGameDesc {
-        margin-bottom: 40px;
+        margin-bottom: 10px;
     }
 
 }

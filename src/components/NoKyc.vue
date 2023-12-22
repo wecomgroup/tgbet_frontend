@@ -161,6 +161,9 @@ export default {
 }
 
 @media screen and (max-width: 900px) {
+    .btnContainer {
+        margin-top: 5px;
+    }
     .noKyc {
         height: auto;
         padding: 40px 24px
@@ -196,6 +199,7 @@ export default {
         flex-direction: column;
         height: auto;
         padding: 0;
+        margin-top: 10px;
       display: block;
     }
     .stepItem{

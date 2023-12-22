@@ -133,7 +133,7 @@ export default {
     justify-content: center;
     color: #181A20;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     border: 1px solid #EFD8AA;
     margin-bottom: 16px;
@@ -241,12 +241,14 @@ export default {
         font-size: 14px;
         font-style: normal;
         font-weight: 600;
-        line-height: 24px;
+        margin-top: 0px;
+        line-height: 16px;
         letter-spacing: 0.56px;
+        padding-top: 10px;
     }
 
     .cashbackSubTitle {
-        margin-top: 10px;
+        margin-top: 0px;
         font-size: 24px;
     }
 

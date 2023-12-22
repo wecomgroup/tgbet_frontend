@@ -8,7 +8,9 @@
             </div>
             <div class="desc">{{ $t('operationWay.text1') }}</div>
         </div>
-        <img class="operationDescImg" src="../assets/operationWayDetail.png">
+        <img class="operationDescImg moblie-1"  src="../assets/operationWayDetail.png">
+        <img class="operationDescImg pc-1"  src="../assets/operationWayDetai-pc.png">
+
     </div>
 </template>
 
