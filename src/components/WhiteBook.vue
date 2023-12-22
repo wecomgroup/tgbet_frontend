@@ -116,7 +116,7 @@ export default {
         width: 100%;
         font-size: 14px;
         letter-spacing: 0.56px;
-        margin-top: 40px;
+        margin-top: 20px;
         margin-bottom: 24px;
     }
 
@@ -134,7 +134,7 @@ export default {
 
     .whiteBookImgMobile {
         display: block;
-        width: 300px;
+        width: 220px;
         height: auto;
         margin: 0 auto;
     }

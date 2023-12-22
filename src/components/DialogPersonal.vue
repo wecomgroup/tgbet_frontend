@@ -2,7 +2,7 @@
   <div class="modal-body">
     <div><strong>1. Introduction</strong>
       <div>We respect your privacy and are committed to protecting your personal data. This Privacy Notice will inform
-        you how we look after your personal data when you visit this website, register for a TG.Casino Account, or if
+        you how we look after your personal data when you visit this website, register for a TG.Bet Account, or if
         you provide personal data by any other means (for example, over the phone). It also covers our collection of
         personal data from third parties and publicly available sources such as social media platforms, data
         aggregators, and credit reference agencies. It sets out your privacy rights and how the law protects them.
@@ -29,7 +29,7 @@
         operated by MIBS B.V. , a company registered in the Commercial Register of Curaçao with number 162031 and
         address Zuikertuintjeweg Z/N (Zuikertuin Tower), Willemstad, Curacao
       </div>
-      <div>MIBS B.V. (referred to as "TG.Casino", "we", "us" or "our" in this Privacy Notice) is a controller in respect
+      <div>MIBS B.V. (referred to as "TG.Bet", "we", "us" or "our" in this Privacy Notice) is a controller in respect
         of your personal data because we determine the purposes for which, and the way in which, your personal data is
         processed. We take our duties as data controller seriously and take full responsibility for your personal data.
       </div>
@@ -37,7 +37,7 @@
         Privacy Notice.
       </div>
       <div>If you have any questions about this Privacy Notice, including any requests to exercise your rights in
-        relation to personal data, you should contact our data privacy manager by email: contact@TG.Casino.com.
+        relation to personal data, you should contact our data privacy manager by email: contact@TG.Bet.com.
       </div>
       <div>You have the right to make complaints at any time to the relevant data protection and privacy regulator. We
         would, however, appreciate the chance to deal with your concerns before you approach the regulator, so we kindly
@@ -60,7 +60,7 @@
       <div>Personal data, or personal information means any information about an individual from which that person can
         be identified. It does not include data where the identity has been removed (anonymous data).
       </div>
-      <div>We collect personal information which you provide directly to us, such as when you register for a TG.Casino
+      <div>We collect personal information which you provide directly to us, such as when you register for a TG.Bet
         Account or when you contact customer services. We also collect information from publicly available sources or
         third parties such as social media platforms and data aggregators.
       </div>
@@ -77,7 +77,7 @@
         email address and telephone numbers.
       </div>
       <div><strong>Financial Data</strong> includes bank account and payment card details.</div>
-      <div><strong>Transaction Data</strong> includes details about deposits and withdrawals from your TG.Casino Account
+      <div><strong>Transaction Data</strong> includes details about deposits and withdrawals from your TG.Bet Account
         and other details of services (e.g. casino games) that you have used on the Website.
       </div>
       <div><strong>Technical Data</strong> includes internet protocol (IP) address, login data, browser type and
@@ -124,7 +124,7 @@
         <li>advertising networks; and</li>
         <li>search information providers.</li>
         <li>providers of technical and payment services, such as payments solutions providers (PSPs) that facilitate
-          deposits and withdrawals from TG.Casino Accounts.
+          deposits and withdrawals from TG.Bet Accounts.
         </li>
         <li>data brokers or aggregators.</li>
       </ul>
@@ -144,7 +144,7 @@
         </thead>
         <tbody>
         <tr>
-          <td style="border: 1px solid rgb(0, 0, 0); padding: 5px;">When you register for a TG.Casino Account</td>
+          <td style="border: 1px solid rgb(0, 0, 0); padding: 5px;">When you register for a TG.Bet Account</td>
           <td style="border: 1px solid rgb(0, 0, 0); padding: 5px;">
             <div>Contact Data</div>
             <div>Identity Data</div>
@@ -163,7 +163,7 @@
         </tr>
         <tr>
           <td style="border: 1px solid rgb(0, 0, 0); padding: 5px;"> When we communicate with you about the management
-            of your TG.Casino Account
+            of your TG.Bet Account
           </td>
           <td style="border: 1px solid rgb(0, 0, 0); padding: 5px;">
             <div>Contact Data</div>
@@ -251,11 +251,11 @@
       </table>
       <strong>10. Marketing</strong>
       <div>You will receive marketing communications from us if either:</div>
-      <div><i>(i)</i> you have a TG.Casino Account and have not opted out of receiving such marketing communications at
+      <div><i>(i)</i> you have a TG.Bet Account and have not opted out of receiving such marketing communications at
         the time we first collected your personal data or at any time since: or
       </div>
-      <div><i>(ii)</i> If you are not a TG.Casino Account holder but have requested information from us or used
-        TG.Casino services through the Website and you have opted in to receiving that marketing.
+      <div><i>(ii)</i> If you are not a TG.Bet Account holder but have requested information from us or used
+        TG.Bet services through the Website and you have opted in to receiving that marketing.
       </div>
       <div>You can ask us or third parties to stop sending you marketing messages at any time by contacting us or
         adjusting the marketing settings on the Website.
@@ -274,14 +274,14 @@
       <div>External third parties</div>
       <ul>
         <li>IT service and system administration providers.</li>
-        <li>Third parties that license key software to TG.Casino without which TG.Casino would not be able to provide
+        <li>Third parties that license key software to TG.Bet without which TG.Bet would not be able to provide
           services to you; for example, providers of casino games.
         </li>
-        <li>Payment solutions providers to facilitate deposits and withdrawals from TG.Casino Accounts.</li>
+        <li>Payment solutions providers to facilitate deposits and withdrawals from TG.Bet Accounts.</li>
         <li>Identity verification providers to prevent fraud.</li>
         <li>Third parties that facilitate the sending of marketing communications to you on our behalf.</li>
         <li>Professional advisers including lawyers, bankers, auditors and insurers that provide consultancy, banking,
-          legal, insurance and accounting services to TG.Casino.
+          legal, insurance and accounting services to TG.Bet.
         </li>
         <li>Tax authorities, regulators, government agencies and other authorities that require reporting of processing
           activities in certain circumstances.

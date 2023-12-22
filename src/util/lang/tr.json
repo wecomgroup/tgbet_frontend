@@ -194,7 +194,11 @@
     "text6": "Bu işlem için ödeme yapmaya yetecek kadar ETH'niz yok.\n\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
     "text7": "Bu işlem için ödeme yapmaya yetecek kadar USDC'niz yok.\n\n \nGaz için 0,015 ETH'ye ve token değişimi için USDC'ye sahip olduğunuzdan emin olun.",
     "text8": "İşlem başına maksimum {amount} $TGB.",
-    "text9": "0,015 ETH gaza ayrılmıştır. \nKullanılan gerçek miktar ağa bağlı olacaktır."
+    "text9": "0,015 ETH gaza ayrılmıştır. \nKullanılan gerçek miktar ağa bağlı olacaktır.",
+    "text23": "$TGB Token Adresi",
+    "text24": "Kopyala",
+    "text25": "Başarıyla kopyalandı",
+    "text26": "Bu tarayıcı kopyalamayı desteklemiyor, lütfen manuel olarak kopyalayın'"
   },
   "topBar": {
     "auditBtn": "Denetim",

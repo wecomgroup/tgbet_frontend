@@ -13,6 +13,7 @@
     "@wagmi/core": "^1.4.7",
     "@web3modal/wagmi": "^3.0.2",
     "axios": "^0.19.2",
+    "clipboard": "^2.0.11",
     "core-js": "^3.8.3",
     "countly-sdk-web": "^21.11.4",
     "echarts": "^5.4.3",

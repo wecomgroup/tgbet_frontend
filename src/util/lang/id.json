@@ -194,7 +194,11 @@
     "text6": "Anda tidak memiliki cukup ETH untuk membayar transaksi ini.\n\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
     "text7": "Anda tidak memiliki cukup USDC untuk membayar transaksi ini.\n\n \nPastikan Anda memiliki 0,015 ETH untuk gas dan USDC untuk pertukaran token.",
     "text8": "Maksimum {jumlah} $TGB per transaksi.",
-    "text9": "0,015 ETH dicadangkan untuk gas. \nJumlah sebenarnya yang digunakan akan bergantung pada jaringan."
+    "text9": "0,015 ETH dicadangkan untuk gas. \nJumlah sebenarnya yang digunakan akan bergantung pada jaringan.",
+    "text23": "Alamat Token $TGB",
+    "text24": "Menyalin",
+    "text25": "Berhasil disalin",
+    "text26": "Browser ini tidak mendukung penyalinan, silakan salin secara manual'"
   },
   "topBar": {
     "auditBtn": "Audit",

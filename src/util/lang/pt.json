@@ -194,7 +194,11 @@
     "text6": "Você não tem ETH suficiente para pagar esta transação.\n\n \nCertifique-se de ter 0,015 ETH para gás e USDC para troca de tokens.",
     "text7": "Você não tem USDC suficientes para pagar esta transação.\n\n \nCertifique-se de ter 0,015 ETH para gás e USDC para troca de tokens.",
     "text8": "Máximo de {amount} $TGB por transação.",
-    "text9": "0,015 ETH são reservados para gás. \nA quantidade real utilizada dependerá da rede."
+    "text9": "0,015 ETH são reservados para gás. \nA quantidade real utilizada dependerá da rede.",
+    "text23": "Endereço de token $TGB",
+    "text24": "cópia de",
+    "text25": "Copiado com sucesso",
+    "text26": "Este navegador não suporta cópia, copie manualmente'"
   },
   "topBar": {
     "auditBtn": "Auditoria",

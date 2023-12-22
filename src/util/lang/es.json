@@ -194,7 +194,11 @@
     "text6": "No tienes suficiente ETH para pagar esta transacción.\n\n \nAsegúrese de tener 0,015 ETH para gasolina y USDC para el intercambio de tokens.",
     "text7": "No tienes suficiente USDC para pagar esta transacción.\n\n \nAsegúrese de tener 0,015 ETH para gasolina y USDC para el intercambio de tokens.",
     "text8": "Máximo {cantidad} $TGB por transacción.",
-    "text9": "0,015 ETH están reservados para gasolina. \nLa cantidad real utilizada dependerá de la red."
+    "text9": "0,015 ETH están reservados para gasolina. \nLa cantidad real utilizada dependerá de la red.",
+    "text23": "Dirección del token $TGB",
+    "text24": "Copiar",
+    "text25": "Copiado exitosamente",
+    "text26": "Este navegador no admite la copia, copie manualmente'"
   },
   "topBar": {
     "auditBtn": "Auditoría",

@@ -1,7 +1,7 @@
 <template>
   <div class="modal-body">
     <div><strong>1. Introduction</strong>
-      <div>Welcome to TG.Casino's Cookie Policy. This policy provides detailed information about how and when we use
+      <div>Welcome to TG.Bet's Cookie Policy. This policy provides detailed information about how and when we use
         cookies on our website. By continuing to browse our site, you consent to the use of these cookies in accordance
         with this policy. As our website is based in Curaçao, our cookie practices are designed to comply with the
         relevant regulations applicable within the jurisdiction.
@@ -40,9 +40,9 @@
         substantial changes, we will notify you by posting a prominent announcement on our website.
       </div>
       <strong>7. Contact Us</strong>
-      <div>If you have questions or concerns about this Cookie Policy, please contact us at contact@TG.Casino or at:
+      <div>If you have questions or concerns about this Cookie Policy, please contact us at contact@TG.Bet or at:
       </div>
-      <i>TG.Casino, MIBS NV, Zuikertuintjeweg Z/N, (Zuikertuin Tower), Curaçao</i></div>
+      <i>TG.Bet, MIBS NV, Zuikertuintjeweg Z/N, (Zuikertuin Tower), Curaçao</i></div>
   </div>
 </template>
 <script setup>
