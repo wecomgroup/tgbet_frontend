@@ -194,7 +194,11 @@
     "text6": "Vous n'avez pas assez d'ETH pour payer cette transaction.\n\n \nAssurez-vous d'avoir 0,015 ETH pour le gaz et USDC pour l'échange de jetons.",
     "text7": "Vous n'avez pas assez d'USDC pour payer cette transaction.\n\n \nAssurez-vous d'avoir 0,015 ETH pour le gaz et USDC pour l'échange de jetons.",
     "text8": "Montant maximal de {montant} $TGB par transaction.",
-    "text9": "0,015 ETH est réservé au gaz. \nLe montant réel utilisé dépendra du réseau."
+    "text9": "0,015 ETH est réservé au gaz. \nLe montant réel utilisé dépendra du réseau.",
+    "text23": "Adresse du jeton $TGB",
+    "text24": "Copie",
+    "text25": "Copié avec succès",
+    "text26": "Ce navigateur ne prend pas en charge la copie, veuillez copier manuellement'"
   },
   "topBar": {
     "auditBtn": "Audit",

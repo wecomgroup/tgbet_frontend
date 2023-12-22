@@ -21,7 +21,11 @@
     "text19": "In order to buy $TGB with USDT/USDC, you first need to authorize us to access the USDT/USDC in your wallet.",
     "text20": "Approve",
     "text21": "In order to stake $TGB, you first need to authorize us to access the $TGB in your wallet.",
-    "text22": "Processing"
+    "text22": "Processing",
+    "text23": "$TGB Token Address",
+    "text24": "Copy",
+    "text25": "Copied successfully",
+    "text26": "This browser does not support copying, please copy manually'"
   },
   "blockTitle": {
     "qa": "Frequently Asked Questions",

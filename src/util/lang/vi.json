@@ -194,7 +194,11 @@
     "text6": "Bạn không có đủ ETH để thanh toán cho giao dịch này.\n\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
     "text7": "Bạn không có đủ USDC để thanh toán cho giao dịch này.\n\n \nĐảm bảo bạn có 0,015 ETH để lấy gas và USDC để trao đổi mã thông báo.",
     "text8": "Tối đa {amount} $TGB cho mỗi giao dịch.",
-    "text9": "0,015 ETH được dành riêng cho gas. \nSố tiền thực tế được sử dụng sẽ phụ thuộc vào mạng."
+    "text9": "0,015 ETH được dành riêng cho gas. \nSố tiền thực tế được sử dụng sẽ phụ thuộc vào mạng.",
+    "text23": "Địa chỉ mã thông báo $TGB",
+    "text24": "Sao chép",
+    "text25": "Đã sao chép thành công",
+    "text26": "Trình duyệt này không hỗ trợ sao chép, vui lòng sao chép thủ công'"
   },
   "topBar": {
     "auditBtn": "Kiểm toán",

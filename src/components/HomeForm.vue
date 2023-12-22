@@ -21,10 +21,10 @@
         <el-progress :text-inside="true" :stroke-width="28" :percentage="infoData.saleProress" :color="color" />
       </el-col>
     </el-row>
-    <el-row style="margin-top: 10px;">
+    <el-row>
       <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
-    <el-row :gutter="10" style="margin-top: 15px;">
+    <el-row :gutter="10" style="margin-top: 12px;">
       <el-col :span="6"><span class="time-btn">{{ timeState.day ? timeState.day : '00' }} D</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.hour ? timeState.hour : '00' }} H</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
@@ -33,7 +33,7 @@
     <!-- 线条 -->
     <Line class="pc" style="margin-top: 25px;"></Line>
 
-    <el-row v-if="connect" style="margin-top: 30px; ">
+    <el-row v-if="connect" style="margin-top: 15px; ">
       <el-col :xs="24" :sm="24" :lg="24">
         <div class="wallect">
           <div class="logtips">{{ $t('homeForm.text4') }} </div>
@@ -54,21 +54,23 @@
         </div>
       </el-col>
     </el-row>
-    <el-row :gutter="20">
-      <el-col :span="12">
+    <el-row :gutter="20" style="margin-top: 8px;">
+      <el-col :sm="8" :xs="8">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
           <img src="../assets/eth.png" class="icon" />ETH
         </div>
+      </el-col>
+      <el-col :sm="8" :xs="8">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
           <img src="../assets/usdc.png" class="icon" />USDC
         </div>
       </el-col>
-      <el-col :span="12">
+      <el-col :sm="8" :xs="8">
         <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
           <img src="../assets/usdt.png" class="icon" />USDT
         </div>
       </el-col>
-      <el-col :xs="24" :sm="24" :lg="24">
+      <el-col :xs="24" :sm="24" :lg="24" style="margin-top: 8px;">
         <div class="pay-tips" style="display: flex; align-items: center; justify-content:space-between;">
           <div> {{ filterCoinName() }} {{ $t('homeForm.text5') }} </div>
           <div class="max-value" @click="maxClick">{{ $t('homeForm.text7') }}</div>
@@ -115,7 +117,18 @@
         </div>
       </el-col>
       <el-col v-if="!connect" :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}</el-col>
+      <el-col :span="24" style="margin-top: 12px;">
+        <button class="buy-and-stake-btn" @click="showDialog">
+          {{ $t('tip.text23') }}
+        </button>
+      </el-col>
     </el-row>
+    <el-dialog v-model="dialogVisible" :title=" $t('tip.text23') + ' (ERC20)'" width="520px">
+      <div style="margin-bottom: 20px"> {{ infoData.tgbAddress }}</div>
+      <button class="buy-and-stake-btn copy" :data-clipboard-text="infoData.tgbAddress" @click="copy">
+        {{ $t('tip.text24') }}
+      </button>
+    </el-dialog>
   </div>
 </template>
 <script>
@@ -150,8 +163,7 @@ import {
   usdcAddress,
   tgbAddress,
 } from '../util/const/const'
-
-
+import Clipboard from 'clipboard'
 
 export default {
   components: {
@@ -178,6 +190,7 @@ export default {
       minute: '00',
       second: '00',
     })
+    let dialogVisible = ref(false)
 
     const myBalance = ref({
       ethBalance: 0,
@@ -255,8 +268,8 @@ export default {
         myBalance.value = resultData
         console.log(
           `ethBalance:${myBalance.value.ethBalance} ,
-          tgbBalance :${myBalance.value.tgbBalance}, 
-          usdtBalance :${myBalance.value.usdtBalance}, 
+          tgbBalance :${myBalance.value.tgbBalance},
+          usdtBalance :${myBalance.value.usdtBalance},
           usdcBalance :${myBalance.value.usdcBalance},
           tgbDeposits :${myBalance.value.tgbDeposits},
           usdtAllowance :${myBalance.value.usdtAllowance},
@@ -439,6 +452,8 @@ export default {
 
       info.saleAmountStr = parseInt(info.saleAmount).toLocaleString()
       info.saleGoal = parseInt(info.saleGoal).toLocaleString()
+
+      info.tgbAddress = tgbAddress
       infoData.value = info
 
       checkTips()
@@ -528,6 +543,7 @@ export default {
         // account = changedAccount
         accountMsg.value = changedAccount;
         connect.value = changedAccount.isConnected;
+        account = changedAccount
       }
     });
 
@@ -538,6 +554,7 @@ export default {
         // account = account1
         accountMsg.value = account1;
         connect.value = account1.isConnected;
+        account = account1;
         if (connect.value) {
           homeInfo()
           updateUserDetail(accountMsg.value.address)
@@ -985,6 +1002,7 @@ export default {
       const account1 = getAccount();
       accountMsg.value = account1;
       connect.value = account1.isConnected;
+      account = account1
     };
 
     const connectWithWalletConnect = () => {
@@ -994,8 +1012,26 @@ export default {
         globalProperties.$web3modal.open();
       }
     };
-
+    const showDialog = () => {
+      dialogVisible.value = true
+    }
+    const copy = () => {
+      let clipboard = new Clipboard('.copy')
+      clipboard.on('success', (e) => {
+        ElMessage.success($t('tip.text25'))
+        dialogVisible.value = false
+        // 释放内存
+        clipboard.destroy()
+      })
+      clipboard.on('error', (e) => {
+        // 不支持复制
+        ElMessage.success($t('tip.text26'))
+        // 释放内存
+        clipboard.destroy()
+      })
+    }
     return {
+      copy,
       buying,
       approve, usdcApproved, usdtApproved,
       countdownTimer,
@@ -1033,7 +1069,9 @@ export default {
       maxClick,
       addEvent,
       updateUserDetail,
-      Countlykeys
+      Countlykeys,
+      dialogVisible,
+      showDialog
     };
   },
 };
@@ -1112,7 +1150,7 @@ export default {
   border: 1px solid #30323a;
   background: #181a20;
   box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.25) inset;
-  padding: 40px 40px 24px;
+  padding: 10px 40px 24px;
 }
 
 .address {
@@ -1127,7 +1165,7 @@ export default {
 }
 
 .grid-content {
-  margin: 10px 0px 10px;
+  /* margin: 5px 0px 0px; */
   color: #c5ac79;
   text-align: left;
   font-weight: 600;
@@ -1201,11 +1239,11 @@ export default {
   background: #30323a;
   color: #fff;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   font-style: normal;
   /* font-weight: 400; */
-  line-height: 40px;
-  height: 40px;
+  line-height: 30px;
+  height: 30px;
   width: 100%;
   display: block;
   cursor: pointer;
@@ -1213,15 +1251,15 @@ export default {
 
 .eth-btn {
   width: 100%;
-  height: 52px;
-  line-height: 52px;
+  height: 35px;
+  line-height: 35px;
   border-radius: 8px;
   border: 1px solid #434755;
   background: #30323a;
   color: #fff;
-  font-size: 20px;
+  font-size: 16px;
   text-align: center;
-  margin: 24px 0;
+  margin: 10px 0;
   cursor: pointer;
 }
 
@@ -1324,14 +1362,14 @@ export default {
   text-align: center;
   font-size: 16px;
   font-weight: 400;
-  padding: 16px 0 24px;
+  padding: 16px 0 8px;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
 
 .f-ipt {
   margin-top: 10px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .icon {
@@ -1364,6 +1402,9 @@ export default {
 }
 
 @media screen and (max-width: 900px) {
+  .icon{
+    display: none;
+  }
   .tips {
     font-size: 16px;
     font-weight: 600;
@@ -1371,8 +1412,8 @@ export default {
   }
 
   .f-ipt {
-    margin-top: 12px;
-    margin-bottom: 24px;
+    margin-top: 5px !important;
+    margin-bottom: 20px;
   }
 
   .form-wrapper {

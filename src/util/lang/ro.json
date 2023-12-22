@@ -194,7 +194,11 @@
     "text6": "Nu aveți suficient ETH pentru a plăti pentru această tranzacție.\n\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
     "text7": "Nu aveți suficienți USDC pentru a plăti această tranzacție.\n\n \nAsigurați-vă că aveți 0,015 ETH pentru gaz și USDC pentru schimbul de jetoane.",
     "text8": "Maximum {amount} $TGB per tranzacție.",
-    "text9": "0,015 ETH este rezervat pentru gaz. \nCantitatea efectivă utilizată va depinde de rețea."
+    "text9": "0,015 ETH este rezervat pentru gaz. \nCantitatea efectivă utilizată va depinde de rețea.",
+    "text23": "$TGB Token Adresă",
+    "text24": "Copie",
+    "text25": "Copiat cu succes",
+    "text26": "Acest browser nu acceptă copierea, vă rugăm să copiați manual'"
   },
   "topBar": {
     "auditBtn": "Audit",

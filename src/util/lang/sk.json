@@ -194,7 +194,11 @@
     "text6": "Nemáte dostatok ETH na zaplatenie tejto transakcie.\n\n \nUistite sa, že máte 0,015 ETH za plyn a USDC za výmenu tokenov.",
     "text7": "Nemáte dostatok USDC na zaplatenie tejto transakcie.\n\n \nUistite sa, že máte 0,015 ETH za plyn a USDC za výmenu tokenov.",
     "text8": "Maximálne {amount} $ TGB na transakciu.",
-    "text9": "0,015 ETH je vyhradených pre plyn. \nSkutočne použité množstvo bude závisieť od siete."
+    "text9": "0,015 ETH je vyhradených pre plyn. \nSkutočne použité množstvo bude závisieť od siete.",
+    "text23": "Adresa tokenu $TGB",
+    "text24": "Kopírovať",
+    "text25": "Úspešne skopírované",
+    "text26": "Tento prehliadač nepodporuje kopírovanie, skopírujte ho ručne'"
   },
   "topBar": {
     "auditBtn": "Audit",

@@ -194,7 +194,11 @@
     "text6": "Nie masz wystarczającej ilości ETH, aby zapłacić za tę transakcję.\n\n \nUpewnij się, że masz 0,015 ETH na gaz i USDC na wymianę tokenów.",
     "text7": "Nie masz wystarczającej ilości USDC, aby zapłacić za tę transakcję.\n\n \nUpewnij się, że masz 0,015 ETH na gaz i USDC na wymianę tokenów.",
     "text8": "Maksymalnie {amount} $ TGB na transakcję.",
-    "text9": "0,015 ETH jest zarezerwowane dla gazu. \nRzeczywista wykorzystana kwota będzie zależeć od sieci."
+    "text9": "0,015 ETH jest zarezerwowane dla gazu. \nRzeczywista wykorzystana kwota będzie zależeć od sieci.",
+    "text23": "Adres tokena $TGB",
+    "text24": "Kopiuj",
+    "text25": "Skopiowano pomyślnie",
+    "text26": "Ta przeglądarka nie obsługuje kopiowania, skopiuj ręcznie'"
   },
   "topBar": {
     "auditBtn": "Rewizja",

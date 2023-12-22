@@ -225,6 +225,10 @@
     "text19": "Ahhoz, hogy USDT/USDC-vel vásároljon $TGB-t, először engedélyeznie kell, hogy hozzáférjünk a pénztárcájában lévő USDT/USDC-hez.",
     "text20": "Jóváhagy",
     "text21": "Ahhoz, hogy megtegye a $TGB-t, először engedélyeznie kell, hogy hozzáférjünk a pénztárcájában lévő $TGB-hez.",
-    "text22": "Feldolgozás"
+    "text22": "Feldolgozás",
+    "text23": "$TGB token cím",
+    "text24": "Másolat",
+    "text25": "Sikeres másolás",
+    "text26": "Ez a böngésző nem támogatja a másolást, kérjük, másolja manuálisan\""
   }
 }

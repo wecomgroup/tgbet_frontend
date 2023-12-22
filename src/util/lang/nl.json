@@ -194,7 +194,11 @@
     "text6": "U heeft niet genoeg ETH om voor deze transactie te betalen.\n\n \nZorg ervoor dat je 0,015 ETH hebt voor gas en USDC voor de tokenuitwisseling.",
     "text7": "U heeft niet genoeg USDC om voor deze transactie te betalen.\n\n \nZorg ervoor dat je 0,015 ETH hebt voor gas en USDC voor de tokenuitwisseling.",
     "text8": "Maximaal {bedrag} $TGB per transactie.",
-    "text9": "0,015 ETH is gereserveerd voor gas. \nHet daadwerkelijk gebruikte bedrag is afhankelijk van het netwerk."
+    "text9": "0,015 ETH is gereserveerd voor gas. \nHet daadwerkelijk gebruikte bedrag is afhankelijk van het netwerk.",
+    "text23": "$TGB-tokenadres",
+    "text24": "Kopiëren",
+    "text25": "Gekopieerd",
+    "text26": "Deze browser ondersteunt geen kopiëren, kopieer handmatig'"
   },
   "topBar": {
     "auditBtn": "Controle",

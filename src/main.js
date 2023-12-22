@@ -11,7 +11,8 @@ import VueCountly from 'vue-countly';
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/vue'
 import { appChain } from './util/contactUtil/client'
 import Vconsole from 'vconsole'
-import { mainnet, sepolia } from 'viem/chains'
+import { createConfig, mainnet, sepolia } from '@wagmi/core'
+import { appPublicClient } from './util/contactUtil/client'
 
 const app = createApp(App)
 
@@ -23,11 +24,6 @@ try {
         app_version: "1.0.0"
     });
 
-    const is_production = ['production'].includes(process.env.VUE_APP_ENV)
-    if (!is_production) {
-        const vConsole = new Vconsole();
-    }
-
 
     // inviteCode
     let invite_code = Cookies.get('tgbet.invite_code');
@@ -36,13 +32,22 @@ try {
         localStorage.setItem("inviteCode", invite_code)
     }
 
-    // web3modal
+    const is_production = ['production'].includes(process.env.VUE_APP_ENV)
+    if (!is_production) {
+        const vConsole = new Vconsole();
+    }
 
+    // web3modal
     const chains = [appChain]
+    const config = createConfig({
+        autoConnect: true,
+        appPublicClient
+    })
     const wagmiConfig = defaultWagmiConfig({ chains, projectId });
 
     var web3modal = createWeb3Modal({ defaultChain: appChain, wagmiConfig, projectId, chains });
     web3modal.setThemeMode('dark');
+   
     app.config.globalProperties.$web3modal = web3modal
 
     // i18n
