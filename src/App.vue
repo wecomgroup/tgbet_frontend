@@ -78,6 +78,7 @@ export default {
     return {
       showPledgeDetail: false,
       showHowToBuy: false,
+      countdownTimer: null
     };
   },
   created() {
@@ -114,21 +115,27 @@ export default {
       this.
         showHowToBuy = false
     }
-    try {
-      this.$Countly.fetch_remote_config(function (err, remoteConfigs) {
-      if (!err) {
-        console.log(remoteConfigs);
-        // or do something else here if you want with remoteConfigs object
-      } else {
-        console.log(err)
-      }
-    });
-    } catch (error) {
-      
-    }
-    
+    this.startCountdownTimer()
   },
+  unmounted() {
+    clearInterval(this.countdownTimer);
+  },
+
   methods: {
+
+    startCountdownTimer() {
+      clearInterval(this.countdownTimer)
+      let that = this
+      this.countdownTimer = setInterval(() => {
+        console.log('start updateCountlyConfig')
+        that.updateCountlyConfig()
+      }, 15000);
+    },
+
+    updateCountlyConfig() {
+      
+    },
+
     togglePledgeDetail(val) {
       this.showPledgeDetail = val
       sessionStorage.setItem('pageName', 'showHowToBuy')

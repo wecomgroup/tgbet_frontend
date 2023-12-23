@@ -539,6 +539,7 @@ export default {
                 console.log(`stakeInfo error${error}`)
             }
         }
+
         return {
             processing,
             infoData,

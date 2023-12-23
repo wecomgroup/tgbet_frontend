@@ -6,7 +6,6 @@
   
 <script>
 import * as echarts from 'echarts';
-import { indexTimeline } from '@/service/api';
 
 let myChar = null;
 
@@ -15,14 +14,11 @@ export default {
         return {
             name: 'PledgeDetailArea',
             // 数据示例，根据你的需求替换成实际数据
-            chartData: {
-                categories: ['2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06'],
-                data: [150, 160, 150, 140, 130, 120, 140, 140, 100, 90]
-            },
             options: {}
         };
     },
     mounted() {
+
         this.renderEChartsArea();
         this.requestTimeline();
     },
@@ -47,15 +43,31 @@ export default {
     methods: {
 
         requestTimeline() {
-            indexTimeline({})
-                .then(response => {
-                    console.log(response);
-                    if (response && response.statusCode === 200) {
-                        console.log(this.chartData.categories)
-                        this.options.xAxis.data = this.chartData.categories
-                        this.options.series[0].data = this.chartData.data
+
+            try {
+                let lineDada = localStorage.getItem('line')
+                if (lineDada && lineDada.length > 0) {
+                    console.log('line')
+                    let timeLine = JSON.parse(lineDada)
+                    // create_at,total_stake
+                    let xlines = []
+                    let ylines = []
+                    timeLine.forEach(element => {
+                        let date = this.$moment(element.create_at).format("YYYY-MM-DD");
+                        xlines.push(date)
+                        ylines.push(element.total_stake)
+                    });
+                    if (xlines.length && ylines.length) {
+                        this.options.xAxis.data = xlines
+                        this.options.series[0].data = ylines
                     }
-                }).catch(() => { })
+                }
+                let date = this.$moment(new Date).format("YYYY-MM-DD HH:mm:ss");
+                console.log(`date: ${date}`)
+                console.log(`date:`)
+            } catch (error) {
+                console.log(error)
+            }
         },
 
 
