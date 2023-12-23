@@ -13,16 +13,19 @@ import { appChain } from './util/contactUtil/client'
 import Vconsole from 'vconsole'
 import { createConfig, mainnet, sepolia } from '@wagmi/core'
 import { appPublicClient } from './util/contactUtil/client'
+import moment from "moment-timezone";
+import 'default-passive-events'
 
 const app = createApp(App)
 
 try {
+
     //countly
     app.use(VueCountly, Countly, {
         app_key: 'fac573e2a0ac85f7410df4c5037fb4e699d5350d',
         url: 'https://analyze.countly.io/',
         app_version: "1.0.0",
-        debug:true,
+        debug:false,
         remote_config: true 
     });
     // inviteCode
@@ -47,8 +50,8 @@ try {
 
     var web3modal = createWeb3Modal({ defaultChain: appChain, wagmiConfig, projectId, chains });
     web3modal.setThemeMode('dark');
-   
     app.config.globalProperties.$web3modal = web3modal
+    app.config.globalProperties.$moment = moment
 
     // i18n
     app.use(ElementPlus, {

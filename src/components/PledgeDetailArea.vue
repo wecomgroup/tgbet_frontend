@@ -7,6 +7,7 @@
 <script>
 import * as echarts from 'echarts';
 import { indexTimeline } from '@/service/api';
+import { getCurrentInstance } from "vue";
 
 let myChar = null;
 
@@ -23,6 +24,7 @@ export default {
         };
     },
     mounted() {
+
         this.renderEChartsArea();
         this.requestTimeline();
     },
@@ -47,15 +49,29 @@ export default {
     methods: {
 
         requestTimeline() {
-            indexTimeline({})
-                .then(response => {
-                    console.log(response);
-                    if (response && response.statusCode === 200) {
-                        console.log(this.chartData.categories)
-                        this.options.xAxis.data = this.chartData.categories
-                        this.options.series[0].data = this.chartData.data
-                    }
-                }).catch(() => { })
+
+            try {
+                let lineDada = localStorage.getItem('line')
+                if (lineDada && lineDada.length > 0) {
+                    console.log('line')
+                    let timeLine = JSON.parse(lineDada)
+                    // create_at,total_stake
+                    let xlines = []
+                    let ylines = []
+                    timeLine.forEach(element => {
+                        let date = this.$moment(element.create_at).format("YYYY-MM-DD");
+                        xlines.push(date)
+                        ylines.push(element.total_stake)
+                    });
+                    this.options.xAxis.data = xlines
+                    this.options.series[0].data = ylines
+                }
+                let date = this.$moment(new Date).format("YYYY-MM-DD HH:mm:ss");
+                console.log(`date: ${date}`)
+                console.log(`date:`)
+            } catch (error) {
+                console.log(error)
+            }
         },
 
 

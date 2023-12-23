@@ -4,7 +4,7 @@
       <div class="buying-text">{{ $t('homeForm.text15') }}</div>
     </div>
     <el-row>
-      <div class="grid-content">$ {{ infoData.saleAmountStr }}</div>
+      <div class="grid-content">$ {{ saleAmountStr }}</div>
     </el-row>
     <el-row>
       <el-col :span="12" class="current-col">
@@ -143,7 +143,6 @@ import {
   switchNetwork,
 } from "@wagmi/core";
 
-import Cookies from 'js-cookie'
 import { Countlykeys } from "@/util/const/countlyKey";
 import { addEvent, updateUserDetail } from "@/util/helper/countlyUtil"
 import { ElMessage } from 'element-plus'
@@ -153,7 +152,6 @@ import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed
 import { appChain, appPublicClient, appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
-import Countly from 'countly-sdk-web';
 
 import {
   getTgbContract,
@@ -183,8 +181,10 @@ export default {
     let approve = ref(false)
     let usdtApproved = ref(false)
     let usdcApproved = ref(false)
-
+    let saleAmountStr = ref()
     const countdownTimer = ref()
+    const configTimer = ref()
+
     let infoData = ref({})
     let leaveTime = ref(0)
     let timeState = reactive({
@@ -395,7 +395,6 @@ export default {
         usdt_to_usd: 1,
         maxTokensToBuy: Number(resultData.maxTokensToBuy),
         paused: resultData.paused,
-        saleAmountStr: '',
         apy: '',
         startTime: resultData.startTime,
         endTime: resultData.endTime,
@@ -454,7 +453,6 @@ export default {
       //saleProress
       info.saleProress = parseFloat((info.saleAmount / info.saleGoal * 100).toFixed(2))
 
-      info.saleAmountStr = parseInt(info.saleAmount).toLocaleString()
       info.saleGoal = parseInt(info.saleGoal).toLocaleString()
 
       info.tgbAddress = tgbAddress
@@ -488,13 +486,51 @@ export default {
       }, 1000);
     }
 
+    const loopCountlyConfig = () => {
+      clearInterval(configTimer.value)
+      configTimer.value = setInterval(() => {
+        requestCountlyConfig()
+      }, 15000);
+    }
+    const requestCountlyConfig = () => {
+      try {
+        $Countly.fetch_remote_config(function (err, remoteConfigs) {
+          if (!err) {
+            console.log('Countly config ', remoteConfigs);
+            if (remoteConfigs) {
+              let price = remoteConfigs.sold.totalSaleUSD
+              console.log('sold is :',price)
+              if (price) {
+                console.log('sold is :',price.toLocaleString())
+                if(saleAmountStr.value != price.toLocaleString()) {
+                   saleAmountStr.value = price.toLocaleString()
+                }
+              }
+              let line = remoteConfigs.line
+              if (line) {
+                localStorage.setItem('line', JSON.stringify(line))
+              }
+            }
+          } else {
+            console.log('Countly fetch config error', err)
+          }
+        });
+      } catch (error) {
+        console.log('Countly ERROR', error)
+      }
+    };
+
     onMounted(() => {
+      requestCountlyConfig()
       startCountdownTimer()
+      loopCountlyConfig()
       homeInfo()
     })
 
     onBeforeUnmount(() => {
       clearInterval(countdownTimer.value)
+      clearInterval(configTimer.value)
+
     })
 
     const {
@@ -1039,6 +1075,7 @@ export default {
       buying,
       approve, usdcApproved, usdtApproved,
       countdownTimer,
+      configTimer,
       timeState,
       infoData,
       leaveTime,
@@ -1053,6 +1090,7 @@ export default {
       tipMsg,
       normalMsg,
       walletTipMsg,
+      saleAmountStr,
       connectWithWalletConnect,
       chooseMoney,
       accountMsg,
@@ -1075,7 +1113,9 @@ export default {
       updateUserDetail,
       Countlykeys,
       dialogVisible,
-      showDialog
+      showDialog,
+      loopCountlyConfig,
+      requestCountlyConfig
     };
   },
 };
