@@ -174,6 +174,7 @@ export default {
   setup: () => {
     const { $t, $Countly } = getCurrentInstance().proxy;
 
+
     let fee = 0.015
     let buying = ref(false)
     let tipMsg = ref()
@@ -205,8 +206,6 @@ export default {
     })
 
     const fetchMyBalance = async () => {
-      let test = $Countly.get_remote_config("sold");
-      console.log(`Countly sold: ${test}`)
 
       try {
         if (!accountMsg || !accountMsg.value.address) {

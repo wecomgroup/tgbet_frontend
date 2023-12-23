@@ -94,11 +94,6 @@ export default {
       this.$Countly.q.push(['track_pageview']);
 
       this.$Countly.q.push(['track_errors']);
-
-      let test = this.$Countly.get_remote_config();
-      
-      console.log(`Countly sold:${test} json${JSON.parse(test)} `)
-
       console.log(`Countly init success`)
 
     } catch (error) {
@@ -116,8 +111,22 @@ export default {
       this.showHowToBuy = true
     } else {
       this.showPledgeDetail = false
-      this.showHowToBuy = false
+      this.
+        showHowToBuy = false
     }
+    try {
+      this.$Countly.fetch_remote_config(function (err, remoteConfigs) {
+      if (!err) {
+        console.log(remoteConfigs);
+        // or do something else here if you want with remoteConfigs object
+      } else {
+        console.log(err)
+      }
+    });
+    } catch (error) {
+      
+    }
+    
   },
   methods: {
     togglePledgeDetail(val) {
