@@ -224,7 +224,7 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
 
                 processing.value = true
-                let wallectClient = appWallectClient()
+                let wallectClient = await appWallectClient()
                 let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "harvestRewards",
@@ -292,13 +292,13 @@ export default {
                     return
                 }
 
-                let wallectClient = appWallectClient()
+                let wallectClient = await appWallectClient()
 
                 let hash = await wallectClient.writeContract({
                     ...stakeContract,
                     functionName: "deposit",
                     args: [amount],
-                    account: accountMsg.value.address
+                    account
                 })
                 console.log('stakeToken tx hash' + hash)
                 if (hash) {
@@ -349,7 +349,7 @@ export default {
                 amount = Math.floor(amount).toFixed(0)
                 processing.value = true
 
-                let wallectClient = appWallectClient()
+                let wallectClient = await appWallectClient()
 
                 let hash = await wallectClient.writeContract({
                     ...stakeContract,
@@ -802,6 +802,11 @@ export default {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.receive:hover {
+  background: linear-gradient(0deg, #2B2E39, #2B2E39),
+    linear-gradient(0deg, #E3C076, #E3C076);
 }
 
 .minePledge {
