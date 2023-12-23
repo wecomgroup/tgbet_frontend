@@ -61,13 +61,13 @@
         </div>
       </el-col>
       <el-col :sm="8" :xs="8">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
-          <img src="../assets/usdc.png" class="icon" />USDC
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
+          <img src="../assets/usdt.png" class="icon" />USDT
         </div>
       </el-col>
       <el-col :sm="8" :xs="8">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
-          <img src="../assets/usdt.png" class="icon" />USDT
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
+          <img src="../assets/usdc.png" class="icon" />USDC
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="24" style="margin-top: 8px;">

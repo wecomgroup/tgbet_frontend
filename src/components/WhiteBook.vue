@@ -88,6 +88,10 @@ export default {
     border: 1px solid #EFD8AA;
 }
 
+.read:hover {
+  background-color: #FFD581;
+}
+
 .whiteBookImg {
     width: 300px;
     height: auto;

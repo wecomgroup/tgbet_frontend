@@ -661,6 +661,11 @@ export default {
     background-color: #181A20;
 }
 
+.learnMore:hover {
+  background: linear-gradient(0deg, #2B2E39, #2B2E39),
+    linear-gradient(0deg, #E3C076, #E3C076);
+}
+
 .actionBtn {
     width: 50%;
     height: 52px;
@@ -675,6 +680,10 @@ export default {
     color: #181A20;
     border: 1px solid #EFD8AA;
     background: #C5AC79;
+}
+
+.actionBtn:hover {
+  background-color: #FFD581;
 }
 
 
@@ -771,6 +780,11 @@ export default {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
+}
+
+.maxVal:hover {
+  background: linear-gradient(0deg, #2B2E39, #2B2E39),
+    linear-gradient(0deg, #E3C076, #E3C076);
 }
 
 .receive {
