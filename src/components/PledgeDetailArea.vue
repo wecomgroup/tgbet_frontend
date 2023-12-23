@@ -63,8 +63,10 @@ export default {
                         xlines.push(date)
                         ylines.push(element.total_stake)
                     });
-                    this.options.xAxis.data = xlines
-                    this.options.series[0].data = ylines
+                    if (xlines.length && ylines.length) {
+                        this.options.xAxis.data = xlines
+                        this.options.series[0].data = ylines
+                    }
                 }
                 let date = this.$moment(new Date).format("YYYY-MM-DD HH:mm:ss");
                 console.log(`date: ${date}`)
