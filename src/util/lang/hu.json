@@ -89,7 +89,8 @@
     "text8": "$TGB kap",
     "text9": "Csatlakoztassa a pénztárcát",
     "text15": "Vásárlás...",
-    "text16": "vásárolt"
+    "text16": "vásárolt",
+    "text17": "A $TGB MÁR ELFOGYOTT!"
   },
   "howToBuy": {
     "text1": "Az előértékesítés során tokenek vásárlásához látogasson el a TG.Bet hivatalos weboldalára.\n\nAz előértékesítést követően a tokeneket közvetlenül a hivatalos webhelyről vagy decentralizált cseréken keresztül lehet beszerezni.",
