@@ -158,6 +158,10 @@ export default {
     border: 1px solid #EFD8AA;
 }
 
+.play:hover {
+  background-color: #FFD581;
+}
+
 .whyPopularLogo {
     color: #C5AC79;
 

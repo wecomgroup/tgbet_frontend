@@ -61,13 +61,13 @@
         </div>
       </el-col>
       <el-col :sm="8" :xs="8">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
-          <img src="../assets/usdc.png" class="icon" />USDC
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
+          <img src="../assets/usdt.png" class="icon" />USDT
         </div>
       </el-col>
       <el-col :sm="8" :xs="8">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
-          <img src="../assets/usdt.png" class="icon" />USDT
+        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
+          <img src="../assets/usdc.png" class="icon" />USDC
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :lg="24" style="margin-top: 8px;">
@@ -123,7 +123,7 @@
         </button>
       </el-col>
     </el-row>
-    <el-dialog v-model="dialogVisible" :title=" $t('tip.text23') + ' (ERC20)'" width="520px">
+    <el-dialog v-model="dialogVisible" :title="$t('tip.text23') + ' (ERC20)'" width="520px">
       <div style="margin-bottom: 20px"> {{ infoData.tgbAddress }}</div>
       <button class="buy-and-stake-btn copy" :data-clipboard-text="infoData.tgbAddress" @click="copy">
         {{ $t('tip.text24') }}
@@ -150,9 +150,11 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appChain, appPublicClient,appWallectClient } from "@/util/contactUtil/client";
+import { appChain, appPublicClient, appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
+import Countly from 'countly-sdk-web';
+
 import {
   getTgbContract,
   getPreSaleContract,
@@ -171,6 +173,7 @@ export default {
   },
   setup: () => {
     const { $t, $Countly } = getCurrentInstance().proxy;
+
 
     let fee = 0.015
     let buying = ref(false)
@@ -203,6 +206,7 @@ export default {
     })
 
     const fetchMyBalance = async () => {
+
       try {
         if (!accountMsg || !accountMsg.value.address) {
           console.log(`Invalid address`)
@@ -1114,14 +1118,14 @@ export default {
 .buying-text {
   color: #c5ac79;
   font-weight: 600;
-  font-family: "Work Sans";
+  /* font-family: "Work Sans"; */
 }
 
 .tip-message {
   padding-bottom: 20px;
   color: #FF494A;
   font-weight: 600;
-  font-family: "Work Sans";
+  /* font-family: "Work Sans"; */
   opacity: 0.8;
   font-size: clamp(14px, 1.1rem, 16px);
   white-space: pre-line;
@@ -1132,7 +1136,7 @@ export default {
   padding-bottom: 20px;
   color: #FFF;
   font-weight: 600;
-  font-family: "Work Sans";
+  /* font-family: "Work Sans"; */
   opacity: 0.8;
   font-size: clamp(14px, 1.1rem, 16px);
   white-space: pre-line;
@@ -1169,7 +1173,7 @@ export default {
   color: #c5ac79;
   text-align: left;
   font-weight: 600;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: clamp(40px, 4vw, 57px);
   /* letter-spacing: 2.32px; */
 }
@@ -1402,9 +1406,10 @@ export default {
 }
 
 @media screen and (max-width: 900px) {
-  .icon{
+  .icon {
     display: none;
   }
+
   .tips {
     font-size: 16px;
     font-weight: 600;

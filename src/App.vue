@@ -85,7 +85,7 @@ export default {
     // console.log(`Countly init result: [${this.$Countly === Countly}]`);
     //> true
     try {
-      document.body.removeChild(document.getElementById('Loading'))
+      // document.body.removeChild(document.getElementById('Loading'))
 
       // Track sessions automatically (recommended)
       this.$Countly.q.push(['track_sessions']);
@@ -94,9 +94,10 @@ export default {
       this.$Countly.q.push(['track_pageview']);
 
       this.$Countly.q.push(['track_errors']);
+      console.log(`Countly init success`)
 
     } catch (error) {
-      console.log(`Countly init fail`)
+      console.log(`Countly init fail ${error}`)
     }
   },
 
@@ -110,8 +111,22 @@ export default {
       this.showHowToBuy = true
     } else {
       this.showPledgeDetail = false
-      this.showHowToBuy = false
+      this.
+        showHowToBuy = false
     }
+    try {
+      this.$Countly.fetch_remote_config(function (err, remoteConfigs) {
+      if (!err) {
+        console.log(remoteConfigs);
+        // or do something else here if you want with remoteConfigs object
+      } else {
+        console.log(err)
+      }
+    });
+    } catch (error) {
+      
+    }
+    
   },
   methods: {
     togglePledgeDetail(val) {

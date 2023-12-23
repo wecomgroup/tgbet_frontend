@@ -71,6 +71,10 @@ export default {
     border: 1px solid #EFD8AA;
 }
 
+.check:hover {
+  background-color: #FFD581;
+}
+
 .licenseDescLogo {
     /* width: 472px; */
     height: auto;

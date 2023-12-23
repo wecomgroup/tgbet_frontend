@@ -96,6 +96,9 @@ export default {
     border: 1px solid #EFD8AA
 }
 
+.open:hover {
+  background-color: #FFD581;
+}
 
 .downLoad {
     width: 240px;
@@ -110,6 +113,10 @@ export default {
     cursor: pointer;
     border: 1px solid #C5AC79;
     background-color: #EFD8AA;
+}
+
+.downLoad:hover {
+  background-color: #FFD581;
 }
 .step {
   margin-top: 40px;

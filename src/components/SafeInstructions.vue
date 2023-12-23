@@ -85,6 +85,10 @@ export default {
     margin-top: 20px;
 }
 
+.play:hover {
+  background-color: #FFD581;
+}
+
 .safeItem {
     color: #ffffff;
     display: flex;
