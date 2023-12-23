@@ -4,7 +4,7 @@
       <div class="buying-text">{{ $t('homeForm.text15') }}</div>
     </div>
     <el-row>
-      <div class="grid-content">$ {{ saleAmountStr }}</div>
+      <div class="grid-content">$ {{ saleInfo.saleAmountStr }}</div>
     </el-row>
     <el-row>
       <el-col :span="12" class="current-col">
@@ -13,12 +13,12 @@
       </el-col>
       <el-col :span="12" class="current-col">
         <p>{{ $t('homeForm.text2') }}</p>
-        <p>$ {{ infoData.saleGoal }}</p>
+        <p>$ {{ saleInfo.saleGoalStr }}</p>
       </el-col>
     </el-row>
     <el-row>
       <el-col :span="24">
-        <el-progress :text-inside="true" :stroke-width="28" :percentage="infoData.saleProress" :color="color" />
+        <el-progress :text-inside="true" :stroke-width="28" :percentage="saleInfo.saleProgress" :color="color" />
       </el-col>
     </el-row>
     <el-row>
@@ -172,7 +172,6 @@ export default {
   setup: () => {
     const { $t, $Countly } = getCurrentInstance().proxy;
 
-
     let fee = 0.015
     let buying = ref(false)
     let tipMsg = ref()
@@ -181,7 +180,14 @@ export default {
     let approve = ref(false)
     let usdtApproved = ref(false)
     let usdcApproved = ref(false)
-    let saleAmountStr = ref()
+
+    let saleInfo = ref({
+      saleAmount:0,
+      saleGoal:5000000,
+      saleAmountStr:'',
+      saleProgress:0,
+      saleGoalStr:''
+    })
     const countdownTimer = ref()
     const configTimer = ref()
 
@@ -388,7 +394,6 @@ export default {
       let info = {
         saleToken: resultData.saleToken,
         baseDecimals: null,
-        saleGoal: 5000000,
         tokenPrice: null,
         saleAmount: null,
         eth_to_usd: null,
@@ -448,12 +453,10 @@ export default {
       leaveTime = tempTime / 1000
 
       //saleAmount
-      info.saleAmount = (info.tokenPrice * Number(resultData.totalTokensSold))
+      //info.saleAmount = (info.tokenPrice * Number(resultData.totalTokensSold))
 
       //saleProress
-      info.saleProress = parseFloat((info.saleAmount / info.saleGoal * 100).toFixed(2))
-
-      info.saleGoal = parseInt(info.saleGoal).toLocaleString()
+      //info.saleProress = parseFloat((info.saleAmount / info.saleGoal * 100).toFixed(2))
 
       info.tgbAddress = tgbAddress
       infoData.value = info
@@ -498,13 +501,19 @@ export default {
           if (!err) {
             console.log('Countly config ', remoteConfigs);
             if (remoteConfigs) {
-              let price = remoteConfigs.sold.totalSaleUSD
-              console.log('sold is :',price)
-              if (price) {
-                console.log('sold is :',price.toLocaleString())
-                if(saleAmountStr.value != price.toLocaleString()) {
-                   saleAmountStr.value = price.toLocaleString()
+              let soldUsd = remoteConfigs.sold.totalSaleUSD
+              console.log('soldUsd is :', soldUsd)
+              if (!saleInfo.value.saleAmount || saleInfo.value.saleAmount != soldUsd) {
+                let info = {}
+                info.saleAmount = soldUsd
+                info.saleAmountStr = soldUsd.toLocaleString()
+                if(soldUsd >= saleInfo.value.saleGoal) {
+                  info.saleProgress = 100
+                } else {
+                  info.saleProgress = parseFloat(((soldUsd / saleInfo.value.saleGoal) * 100).toFixed(2))
                 }
+                info.saleGoalStr = saleInfo.value.saleGoal.toLocaleString()
+                saleInfo.value = info
               }
               let line = remoteConfigs.line
               if (line) {
@@ -1090,7 +1099,7 @@ export default {
       tipMsg,
       normalMsg,
       walletTipMsg,
-      saleAmountStr,
+      saleInfo,
       connectWithWalletConnect,
       chooseMoney,
       accountMsg,

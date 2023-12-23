@@ -6,8 +6,6 @@
   
 <script>
 import * as echarts from 'echarts';
-import { indexTimeline } from '@/service/api';
-import { getCurrentInstance } from "vue";
 
 let myChar = null;
 
@@ -16,10 +14,6 @@ export default {
         return {
             name: 'PledgeDetailArea',
             // 数据示例，根据你的需求替换成实际数据
-            chartData: {
-                categories: ['2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06', '2023-03-06'],
-                data: [150, 160, 150, 140, 130, 120, 140, 140, 100, 90]
-            },
             options: {}
         };
     },
