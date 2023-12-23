@@ -1114,14 +1114,14 @@ export default {
 .buying-text {
   color: #c5ac79;
   font-weight: 600;
-  font-family: "Work Sans";
+  /* font-family: "Work Sans"; */
 }
 
 .tip-message {
   padding-bottom: 20px;
   color: #FF494A;
   font-weight: 600;
-  font-family: "Work Sans";
+  /* font-family: "Work Sans"; */
   opacity: 0.8;
   font-size: clamp(14px, 1.1rem, 16px);
   white-space: pre-line;
@@ -1132,7 +1132,7 @@ export default {
   padding-bottom: 20px;
   color: #FFF;
   font-weight: 600;
-  font-family: "Work Sans";
+  /* font-family: "Work Sans"; */
   opacity: 0.8;
   font-size: clamp(14px, 1.1rem, 16px);
   white-space: pre-line;
@@ -1169,7 +1169,7 @@ export default {
   color: #c5ac79;
   text-align: left;
   font-weight: 600;
-  font-family: sans-serif;
+  /* font-family: sans-serif; */
   font-size: clamp(40px, 4vw, 57px);
   /* letter-spacing: 2.32px; */
 }

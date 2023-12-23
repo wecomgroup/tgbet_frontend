@@ -62,10 +62,6 @@ div:focus {
     src: url("../font/WorkSans.f8112219.ttf");
 }
 
-@font-face {
-    font-family: belarius-serif-wide;
-    src: url("../font/Belarius-Serif-Wide-Regular.ttf");
-}
 
 @media screen and (min-width:960px) {
     .moblie-1 {
