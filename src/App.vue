@@ -85,7 +85,7 @@ export default {
     // console.log(`Countly init result: [${this.$Countly === Countly}]`);
     //> true
     try {
-      document.body.removeChild(document.getElementById('Loading'))
+      // document.body.removeChild(document.getElementById('Loading'))
 
       // Track sessions automatically (recommended)
       this.$Countly.q.push(['track_sessions']);
@@ -95,8 +95,14 @@ export default {
 
       this.$Countly.q.push(['track_errors']);
 
+      let test = this.$Countly.get_remote_config();
+      
+      console.log(`Countly sold:${test} json${JSON.parse(test)} `)
+
+      console.log(`Countly init success`)
+
     } catch (error) {
-      console.log(`Countly init fail`)
+      console.log(`Countly init fail ${error}`)
     }
   },
 

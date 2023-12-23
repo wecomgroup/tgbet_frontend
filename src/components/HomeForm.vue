@@ -123,7 +123,7 @@
         </button>
       </el-col>
     </el-row>
-    <el-dialog v-model="dialogVisible" :title=" $t('tip.text23') + ' (ERC20)'" width="520px">
+    <el-dialog v-model="dialogVisible" :title="$t('tip.text23') + ' (ERC20)'" width="520px">
       <div style="margin-bottom: 20px"> {{ infoData.tgbAddress }}</div>
       <button class="buy-and-stake-btn copy" :data-clipboard-text="infoData.tgbAddress" @click="copy">
         {{ $t('tip.text24') }}
@@ -150,9 +150,11 @@ import { ElMessage } from 'element-plus'
 import { formatUnits, parseUnits, parseEther, formatEther, stringToBytes } from 'viem'
 import { getCurrentInstance, onMounted, onBeforeUnmount, reactive, ref, computed } from "vue";
 
-import { appChain, appPublicClient,appWallectClient } from "@/util/contactUtil/client";
+import { appChain, appPublicClient, appWallectClient } from "@/util/contactUtil/client";
 import { checkApprove, approveContract } from "@/util/contactUtil/approve";
 import { waitTx } from "@/util/contactUtil/transfaction";
+import Countly from 'countly-sdk-web';
+
 import {
   getTgbContract,
   getPreSaleContract,
@@ -203,6 +205,9 @@ export default {
     })
 
     const fetchMyBalance = async () => {
+      let test = $Countly.get_remote_config("sold");
+      console.log(`Countly sold: ${test}`)
+
       try {
         if (!accountMsg || !accountMsg.value.address) {
           console.log(`Invalid address`)
@@ -1402,9 +1407,10 @@ export default {
 }
 
 @media screen and (max-width: 900px) {
-  .icon{
+  .icon {
     display: none;
   }
+
   .tips {
     font-size: 16px;
     font-weight: 600;
