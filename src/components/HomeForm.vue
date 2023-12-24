@@ -131,7 +131,7 @@
         </button>
       </el-dialog>
     </div>
-    <el-row class="sold-out-container">
+    <el-row class="sold-out-container" v-if="infoData.paused || saleInfo.isSoldOut">
       <div class="sold-out-tip">{{ $t('homeForm.text17') }}</div>
     </el-row>
     <!-- <> -->
