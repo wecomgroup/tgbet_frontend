@@ -78,13 +78,11 @@ export default {
     return {
       showPledgeDetail: false,
       showHowToBuy: false,
-      countdownTimer: null
+   //   countdownTimer: null
     };
   },
   created() {
     console.log(`Countly start`)
-    // console.log(`Countly init result: [${this.$Countly === Countly}]`);
-    //> true
     try {
       // document.body.removeChild(document.getElementById('Loading'))
 
@@ -98,7 +96,7 @@ export default {
       console.log(`Countly init success`)
 
     } catch (error) {
-      console.log(`Countly init fail ${error}`)
+      console.log(`Countly init fail`,error)
     }
   },
 
@@ -115,26 +113,9 @@ export default {
       this.
         showHowToBuy = false
     }
-    this.startCountdownTimer()
-  },
-  unmounted() {
-    clearInterval(this.countdownTimer);
   },
 
   methods: {
-
-    startCountdownTimer() {
-      clearInterval(this.countdownTimer)
-      let that = this
-      this.countdownTimer = setInterval(() => {
-        console.log('start updateCountlyConfig')
-        that.updateCountlyConfig()
-      }, 15000);
-    },
-
-    updateCountlyConfig() {
-      
-    },
 
     togglePledgeDetail(val) {
       this.showPledgeDetail = val
@@ -147,8 +128,6 @@ export default {
     }
   }
 }
-
-
 </script>
 
 

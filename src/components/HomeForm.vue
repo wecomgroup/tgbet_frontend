@@ -21,10 +21,10 @@
         <el-progress :text-inside="true" :stroke-width="28" :percentage="saleInfo.saleProgress" :color="color" />
       </el-col>
     </el-row>
-    <el-row>
+    <el-row v-if="!infoData.paused && !saleInfo.isSoldOut">
       <el-col :span="24" class="tips">{{ $t('homeForm.text3') }}</el-col>
     </el-row>
-    <el-row :gutter="10" style="margin-top: 12px;">
+    <el-row :gutter="10" style="margin-top: 12px;" v-if="!infoData.paused && !saleInfo.isSoldOut">
       <el-col :span="6"><span class="time-btn">{{ timeState.day ? timeState.day : '00' }} D</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.hour ? timeState.hour : '00' }} H</span></el-col>
       <el-col :span="6"><span class="time-btn">{{ timeState.minute ? timeState.minute : '00' }} M</span></el-col>
@@ -32,103 +32,109 @@
     </el-row>
     <!-- 线条 -->
     <Line class="pc" style="margin-top: 25px;"></Line>
-
-    <el-row v-if="connect" style="margin-top: 15px; ">
-      <el-col :xs="24" :sm="24" :lg="24">
-        <div class="wallect">
-          <div class="logtips">{{ $t('homeForm.text4') }} </div>
-          <div class="lououtContainer">
-            <p class="logtips" style="margin-right: 15px;">{{ filterAddress(accountMsg.address) }}</p>
-            <img class="logout" @click="disconnect1" src="../assets/logout.png" />
+    <div v-if="!infoData.paused && !saleInfo.isSoldOut">
+      <el-row v-if="connect" style="margin-top: 15px; ">
+        <el-col :xs="24" :sm="24" :lg="24">
+          <div class="wallect">
+            <div class="logtips">{{ $t('homeForm.text4') }} </div>
+            <div class="lououtContainer">
+              <p class="logtips" style="margin-right: 15px;">{{ filterAddress(accountMsg.address) }}</p>
+              <img class="logout" @click="disconnect1" src="../assets/logout.png" />
+            </div>
           </div>
-        </div>
-      </el-col>
+        </el-col>
 
-    </el-row>
-    <el-row v-if="connect && myBalance && (myBalance.tgbDeposits) && (myBalance.tgbDeposits != '0')"
-      style="margin-top: 15px; ">
-      <el-col :xs="24" :sm="24" :lg="24">
-        <div class="wallect">
-          <div class="logtips">$TGB <span style="opacity: 0.6; margin-left: 8px;">{{ $t('homeForm.text16') }}</span></div>
-          <div style="opacity: 0.6;">{{ Number(myBalance.tgbDeposits).toLocaleString() }}</div>
+      </el-row>
+      <el-row v-if="connect && myBalance && (myBalance.tgbDeposits) && (myBalance.tgbDeposits != '0')"
+        style="margin-top: 15px; ">
+        <el-col :xs="24" :sm="24" :lg="24">
+          <div class="wallect">
+            <div class="logtips">$TGB <span style="opacity: 0.6; margin-left: 8px;">{{ $t('homeForm.text16') }}</span>
+            </div>
+            <div style="opacity: 0.6;">{{ Number(myBalance.tgbDeposits).toLocaleString() }}</div>
+          </div>
+        </el-col>
+      </el-row>
+      <el-row :gutter="20" style="margin-top: 8px;">
+        <el-col :sm="8" :xs="8">
+          <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
+            <img src="../assets/eth.png" class="icon" />ETH
+          </div>
+        </el-col>
+        <el-col :sm="8" :xs="8">
+          <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
+            <img src="../assets/usdt.png" class="icon" />USDT
+          </div>
+        </el-col>
+        <el-col :sm="8" :xs="8">
+          <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
+            <img src="../assets/usdc.png" class="icon" />USDC
+          </div>
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="24" style="margin-top: 8px;">
+          <div class="pay-tips" style="display: flex; align-items: center; justify-content:space-between;">
+            <div> {{ filterCoinName() }} {{ $t('homeForm.text5') }} </div>
+            <div class="max-value" @click="maxClick">{{ $t('homeForm.text7') }}</div>
+          </div>
+          <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount" clearable></el-input>
+        </el-col>
+        <el-col :xs="24" :sm="24" :lg="24">
+          <p class="pay-tips">{{ $t('homeForm.text8') }}</p>
+          <el-input placeholder="0" class="f-ipt" style="margin-top: 15px;" v-model="tgbAmount" @input="changeTGBAmount"
+            clearable></el-input>
+        </el-col>
+      </el-row>
+      <el-row :xs="24" :sm="24" :lg="12" v-if="connect">
+        <div class="normal-message" v-if="normalMsg">
+          {{ normalMsg }}
         </div>
-      </el-col>
-    </el-row>
-    <el-row :gutter="20" style="margin-top: 8px;">
-      <el-col :sm="8" :xs="8">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'ETH' }" @click="chooseMoney('ETH')">
-          <img src="../assets/eth.png" class="icon" />ETH
+        <div class="tip-message" v-if="tipMsg">
+          <p>{{ tipMsg }}</p>
         </div>
-      </el-col>
-      <el-col :sm="8" :xs="8">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDT' }" @click="chooseMoney('USDT')">
-          <img src="../assets/usdt.png" class="icon" />USDT
+        <div class="tip-message" v-if="walletTipMsg">
+          <p>{{ walletTipMsg }}</p>
         </div>
-      </el-col>
-      <el-col :sm="8" :xs="8">
-        <div class="eth-btn" :class="{ on: selectedCoin.name === 'USDC' }" @click="chooseMoney('USDC')">
-          <img src="../assets/usdc.png" class="icon" />USDC
-        </div>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="24" style="margin-top: 8px;">
-        <div class="pay-tips" style="display: flex; align-items: center; justify-content:space-between;">
-          <div> {{ filterCoinName() }} {{ $t('homeForm.text5') }} </div>
-          <div class="max-value" @click="maxClick">{{ $t('homeForm.text7') }}</div>
-        </div>
-        <el-input placeholder="0" class="f-ipt" v-model="coinAmount" @input="changeCoinAmount" clearable></el-input>
-      </el-col>
-      <el-col :xs="24" :sm="24" :lg="24">
-        <p class="pay-tips">{{ $t('homeForm.text8') }}</p>
-        <el-input placeholder="0" class="f-ipt" style="margin-top: 15px;" v-model="tgbAmount" @input="changeTGBAmount"
-          clearable></el-input>
-      </el-col>
-    </el-row>
-    <el-row :xs="24" :sm="24" :lg="12" v-if="connect">
-      <div class="normal-message" v-if="normalMsg">
-        {{ normalMsg }}
-      </div>
-      <div class="tip-message" v-if="tipMsg">
-        <p>{{ tipMsg }}</p>
-      </div>
-      <div class="tip-message" v-if="walletTipMsg">
-        <p>{{ walletTipMsg }}</p>
-      </div>
 
-    </el-row>
-    <el-row>
-      <el-col :span="24">
-        <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
-          {{ $t('homeForm.text9') }}
-        </div>
-        <button v-if="connect && !approve" class="buy-and-stake-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
-          {{ $t('homeForm.text10', { APY: infoData.apy }) }}
-        </button>
-        <div class="approve" v-if="connect && approve">
-          <button class="buy-and-stake-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
-            {{ $t('tip.text20') }}
+      </el-row>
+      <el-row>
+        <el-col :span="24">
+          <div v-if="!connect" class="connect-btn" @click="connectWithWalletConnect">
+            {{ $t('homeForm.text9') }}
+          </div>
+          <button v-if="connect && !approve" class="buy-and-stake-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
+            {{ $t('homeForm.text10', { APY: infoData.apy }) }}
           </button>
-          <div class="approve-tip">{{ $t('tip.text19') }}</div>
-        </div>
+          <div class="approve" v-if="connect && approve">
+            <button class="buy-and-stake-btn" @click="buyTokenAndStaking" :disabled="!normalMsg">
+              {{ $t('tip.text20') }}
+            </button>
+            <div class="approve-tip">{{ $t('tip.text19') }}</div>
+          </div>
 
-        <div v-if="connect && !approve" class="stake-buy-btn-container">
-          <button class="stake-buy-btn" @click="buyToken" :disabled="!normalMsg">
-            <p>{{ $t('homeForm.text11') }}</p>
+          <div v-if="connect && !approve" class="stake-buy-btn-container">
+            <button class="stake-buy-btn" @click="buyToken" :disabled="!normalMsg">
+              <p>{{ $t('homeForm.text11') }}</p>
+            </button>
+          </div>
+        </el-col>
+        <el-col v-if="!connect" :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}</el-col>
+        <el-col :span="24" style="margin-top: 12px;">
+          <button class="buy-and-stake-btn" @click="showDialog">
+            {{ $t('tip.text23') }}
           </button>
-        </div>
-      </el-col>
-      <el-col v-if="!connect" :span="24" class="gray-tips">{{ $t('homeForm.text12') }} : {{ infoData.apy }}</el-col>
-      <el-col :span="24" style="margin-top: 12px;">
-        <button class="buy-and-stake-btn" @click="showDialog">
-          {{ $t('tip.text23') }}
+        </el-col>
+      </el-row>
+      <el-dialog v-model="dialogVisible" :title="$t('tip.text23') + ' (ERC20)'" width="520px">
+        <div style="margin-bottom: 20px"> {{ infoData.tgbAddress }}</div>
+        <button class="buy-and-stake-btn copy" :data-clipboard-text="infoData.tgbAddress" @click="copy">
+          {{ $t('tip.text24') }}
         </button>
-      </el-col>
+      </el-dialog>
+    </div>
+    <el-row class="sold-out-container">
+      <div class="sold-out-tip">{{ $t('homeForm.text17') }}</div>
     </el-row>
-    <el-dialog v-model="dialogVisible" :title="$t('tip.text23') + ' (ERC20)'" width="520px">
-      <div style="margin-bottom: 20px"> {{ infoData.tgbAddress }}</div>
-      <button class="buy-and-stake-btn copy" :data-clipboard-text="infoData.tgbAddress" @click="copy">
-        {{ $t('tip.text24') }}
-      </button>
-    </el-dialog>
+    <!-- <> -->
   </div>
 </template>
 <script>
@@ -182,11 +188,12 @@ export default {
     let usdcApproved = ref(false)
 
     let saleInfo = ref({
-      saleAmount:0,
-      saleGoal:5000000,
-      saleAmountStr:'',
-      saleProgress:0,
-      saleGoalStr:''
+      isSoldOut:false,
+      saleAmount: 0,
+      saleGoal: 5000000,
+      saleAmountStr: '',
+      saleProgress: 0,
+      saleGoalStr: ''
     })
     const countdownTimer = ref()
     const configTimer = ref()
@@ -507,9 +514,11 @@ export default {
                 let info = {}
                 info.saleAmount = soldUsd
                 info.saleAmountStr = soldUsd.toLocaleString()
-                if(soldUsd >= saleInfo.value.saleGoal) {
+                if (soldUsd >= saleInfo.value.saleGoal) {
                   info.saleProgress = 100
+                  info.isSoldOut = true
                 } else {
+                  info.isSoldOut = false
                   info.saleProgress = parseFloat(((soldUsd / saleInfo.value.saleGoal) * 100).toFixed(2))
                 }
                 info.saleGoalStr = saleInfo.value.saleGoal.toLocaleString()
@@ -1227,6 +1236,25 @@ export default {
   /* letter-spacing: 2.32px; */
 }
 
+.sold-out-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  margin-top: 10px;
+}
+
+.sold-out-tip {
+  /* margin: 5px 0px 0px; */
+  color: #c5ac79;
+  text-align: center;
+  /* font-weight: 600; */
+  /* font-family: sans-serif; */
+  font-size: clamp(28px, 1vw, 36px);
+  /* letter-spacing: 2.32px; */
+}
+
+
 .current-col {
   color: #fff;
   font-size: 16px;
@@ -1455,9 +1483,6 @@ export default {
 }
 
 @media screen and (max-width: 900px) {
-  .icon {
-    display: none;
-  }
 
   .tips {
     font-size: 16px;
