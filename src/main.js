@@ -42,7 +42,7 @@ try {
     let invite_code = Cookies.get('tgbet.invite_code');
     console.log(`invite_code => ${invite_code}`)
     if (invite_code) {
-        localStorage.setItem("inviteCode", invite_code)
+        localStorage.setItem("inviteCode", invite_code);
     }
 
     const is_production = ['production'].includes(process.env.VUE_APP_ENV)

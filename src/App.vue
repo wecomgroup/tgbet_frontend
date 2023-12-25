@@ -94,6 +94,13 @@ export default {
 
       this.$Countly.q.push(['track_errors']);
       console.log(`Countly init success`)
+      let inviteCode=localStorage.getItem("inviteCode");
+      if(inviteCode && inviteCode!='' && !isNaN(inviteCode)){
+        this.$Countly.q.push(['user_details',{
+          inviteCode,
+          organization:inviteCode
+        }]);
+      }
 
     } catch (error) {
       console.log(`Countly init fail`,error)
