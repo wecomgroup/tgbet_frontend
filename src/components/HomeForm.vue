@@ -193,7 +193,7 @@ export default {
       saleGoal: 5000000,
       saleAmountStr: '',
       saleProgress: 0,
-      saleGoalStr: ''
+      saleGoalStr: '5,000,000'
     })
     const countdownTimer = ref()
     const configTimer = ref()
@@ -521,7 +521,7 @@ export default {
                   info.isSoldOut = false
                   info.saleProgress = parseFloat(((soldUsd / saleInfo.value.saleGoal) * 100).toFixed(2))
                 }
-                info.saleGoalStr = saleInfo.value.saleGoal.toLocaleString()
+               // info.saleGoalStr = saleInfo.value.saleGoal.toLocaleString()
                 saleInfo.value = info
               }
               let line = remoteConfigs.line
