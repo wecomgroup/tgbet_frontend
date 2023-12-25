@@ -62,8 +62,8 @@ export default {
 
 .desc {
     width: 600px;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     text-align: left;
     color: #FFFFFF99;
     font-size: 20px;

@@ -19,15 +19,25 @@ import 'default-passive-events'
 const app = createApp(App)
 
 try {
+    const is_dev = ['development'].includes(process.env.VUE_APP_ENV)
 
     //countly
-    app.use(VueCountly, Countly, {
-        app_key: 'fac573e2a0ac85f7410df4c5037fb4e699d5350d',
-        url: 'https://analyze.countly.io/',
-        app_version: "1.0.0",
-        debug:false,
-        remote_config: true 
-    });
+    if(is_dev) {
+        app.use(VueCountly, Countly, {
+            app_key: '',
+            url: '',
+            app_version: "1.0.0",
+        });
+    } else {
+        app.use(VueCountly, Countly, {
+            app_key: 'fac573e2a0ac85f7410df4c5037fb4e699d5350d',
+            url: 'https://analyze.countly.io/',
+            app_version: "1.0.0",
+            debug:false,
+            remote_config: true 
+        });
+    }
+   
     // inviteCode
     let invite_code = Cookies.get('tgbet.invite_code');
     console.log(`invite_code => ${invite_code}`)
