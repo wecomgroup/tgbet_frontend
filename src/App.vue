@@ -78,7 +78,7 @@ export default {
     return {
       showPledgeDetail: false,
       showHowToBuy: false,
-   //   countdownTimer: null
+      //   countdownTimer: null
     };
   },
   created() {
@@ -94,16 +94,17 @@ export default {
 
       this.$Countly.q.push(['track_errors']);
       console.log(`Countly init success`)
-      let inviteCode=localStorage.getItem("inviteCode");
-      if(inviteCode && inviteCode!='' && !isNaN(inviteCode)){
-        this.$Countly.q.push(['user_details',{
-          inviteCode,
-          organization:inviteCode
-        }]);
+      let inviteCode = localStorage.getItem("inviteCode");
+      if (inviteCode && inviteCode != '' && !isNaN(inviteCode)) {
+        // initialize second instance for another app 
+        Countly.q.push(["init", {
+          app_key: inviteCode, //must have different APP key
+          url: 'https://analyze.countly.io/' //your server goes here
+        }])
       }
 
     } catch (error) {
-      console.log(`Countly init fail`,error)
+      console.log(`Countly init fail`, error)
     }
   },
 
