@@ -134,6 +134,8 @@ export default {
             this.isSticky = window.scrollY > 0;
         },
         handleClick(sectionId) {
+            console.log('1111')
+
             this.$emit('togglePledgeDetail', false);
             this.$emit('toggleHowToBuy', false)
             this.$nextTick(() => {
@@ -164,6 +166,8 @@ export default {
             this.innerVisible = true
         },
         goPcPledge() {
+            console.log('1111')
+
             this.$emit('togglePledgeDetail', true)
             this.$emit('toggleHowToBuy', false)
             window.scrollTo({
@@ -172,6 +176,8 @@ export default {
             });
         },
         goPcHowToBuy() {
+            console.log('1111')
+
             this.$emit('toggleHowToBuy', true)
             this.$emit('togglePledgeDetail', false)
             window.scrollTo({
@@ -180,6 +186,8 @@ export default {
             });
         },
         goMobileHowToBuy() {
+            console.log('1111')
+
             this.$emit('toggleHowToBuy', true)
             this.$emit('togglePledgeDetail', false)
             this.innerVisible = false;
@@ -189,6 +197,8 @@ export default {
             });
         },
         goMobilePledge() {
+            console.log('1111')
+
             this.$emit('togglePledgeDetail', true)
             this.$emit('toggleHowToBuy', false)
             this.innerVisible = false;

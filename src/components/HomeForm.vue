@@ -597,8 +597,9 @@ export default {
     //钱包切换
     watchAccount((changedAccount) => {
       console.log(`change account ${changedAccount}`)
-      if (changedAccount.address != account.address) {
+      if (changedAccount.address && (changedAccount.address != account.address)) {
         // account = changedAccount
+        console.log(`changed account address: ${changedAccount.address}`)
         accountMsg.value = changedAccount;
         connect.value = changedAccount.isConnected;
         account = changedAccount

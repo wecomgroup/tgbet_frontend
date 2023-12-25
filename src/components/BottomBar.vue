@@ -93,6 +93,7 @@ export default {
     },
     methods: {
         goPcHowToBuy() {
+            console.log('1111')
 
             this.$emit('toggleHowToBuy', true)
             this.$emit('togglePledgeDetail', false)
@@ -102,6 +103,7 @@ export default {
             });
         },
         handleClick(sectionId) {
+            console.log('1111')
             this.$emit('togglePledgeDetail', false);
             this.$emit('toggleHowToBuy', false)
             this.$nextTick(() => {
