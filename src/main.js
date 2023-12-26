@@ -20,9 +20,9 @@ const app = createApp(App)
 
 try {
     const is_dev = ['development'].includes(process.env.VUE_APP_ENV)
-
+    
     //countly
-    if(is_dev) {
+    if (is_dev) {
         app.use(VueCountly, Countly, {
             app_key: '',
             url: '',
@@ -33,11 +33,20 @@ try {
             app_key: 'fac573e2a0ac85f7410df4c5037fb4e699d5350d',
             url: 'https://analyze.countly.io/',
             app_version: "1.0.0",
-            debug:false,
-            remote_config: true 
+            debug: false,
+            remote_config: true
         });
+
     }
-   
+    const Countly2 = Object.assign({}, Countly);
+    Countly2.init({
+        app_key: 'c68eb66c54c53b272dfcbe30af18a36c9faa8183',
+        url: 'https://analyze.countly.io/',
+        app_version: "1.0.0",
+        debug: false,
+        remote_config: false
+    });
+    app.config.globalProperties.$Countly2 = Countly2;
     // inviteCode
     let invite_code = Cookies.get('tgbet.invite_code');
     console.log(`invite_code => ${invite_code}`)
@@ -62,10 +71,10 @@ try {
     web3modal.setThemeMode('dark');
     app.config.globalProperties.$web3modal = web3modal
     app.config.globalProperties.$moment = moment
-
+   
     // i18n
     app.use(ElementPlus, {
-        i18n: (key, value) => i18n.t(key, value)
+        i18n: (key, value) => i18n.t(key, value),
     })
     app.use(i18n).mount('#app')
 } catch (error) {

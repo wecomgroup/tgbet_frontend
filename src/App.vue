@@ -93,13 +93,7 @@ export default {
       this.$Countly.q.push(['track_pageview']);
 
       this.$Countly.q.push(['track_errors']);
-      console.log(`Countly init success`)
-      let inviteCode = localStorage.getItem("inviteCode");
-      this.$Countly.q.push(["init", {
-        app_key: "c68eb66c54c53b272dfcbe30af18a36c9faa8183", //must have different APP key
-        url: 'https://analyze.countly.io/' //your server goes here
-      }])
-
+     
     } catch (error) {
       console.log(`Countly init fail`, error)
     }
