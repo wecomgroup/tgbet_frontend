@@ -52,10 +52,10 @@ try {
 
     // web3modal
     const chains = [appChain]
-    const config = createConfig({
-        autoConnect: true,
-        appPublicClient
-    })
+    // const config = createConfig({
+    //     autoConnect: true,
+    //     appPublicClient
+    // })
     const wagmiConfig = defaultWagmiConfig({ chains, projectId });
 
     var web3modal = createWeb3Modal({ defaultChain: appChain, wagmiConfig, projectId, chains });
