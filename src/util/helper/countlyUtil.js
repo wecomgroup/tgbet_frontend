@@ -27,6 +27,7 @@ const updateUserDetail = (address) => {
   let inviteCode = getInviteCode()
   if(inviteCode !== '0') {
     Countly.q.push(['user_details', {
+      username:"IC"+inviteCode,
       "custom": {
         "address": address.toLowerCase(),
         "invite_code": inviteCode
