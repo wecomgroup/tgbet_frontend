@@ -1,6 +1,20 @@
 import Cookies from 'js-cookie'
 import Countly from 'countly-sdk-web';
 
+import { Countlykeys } from '../const/countlyKey';
+
+
+const filterKeys = [
+  Countlykeys.stake_click,
+  Countlykeys.unstake_click,
+  Countlykeys.audit_click,
+  Countlykeys.twitter_click,
+  Countlykeys.tg_click,
+  Countlykeys.gameTg_click,
+  Countlykeys.tgDownload_click,
+  Countlykeys.whitePaper_click,
+  Countlykeys.license_click
+]
 
 const getInviteCode = () => {
   return Cookies.get('inviteCode') || ''
@@ -16,6 +30,11 @@ const addEvent = (eventName, amount) => {
       "channel": Cookies.get('countly.app.name') || ''
     }
   }])
+
+  if(filterKeys.includes(eventName)) {
+    console.log(`countly2 find filter key ${eventName},ignore`)
+    return
+  }
 
   let appKey = Cookies.get('countly.app.key');
   if (appKey) {

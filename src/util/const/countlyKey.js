@@ -7,9 +7,6 @@ const Countlykeys = {
     //断开连接钱包
     disconnect_click: 'walletDisonnect',
 
-    //发起购买并质押
-    buyAndStake_click: 'buyAndStake_click',
-
     //ETH 购买并质押
     buyWithEthAndStake_click: 'buyWithEthAndStake',
 
