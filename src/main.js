@@ -40,13 +40,21 @@ try {
     }
 
     // inviteCode
-    let invite_code = Cookies.get('tgbet.invite_code');
-    console.log(`invite_code => ${invite_code}`)
-    if (invite_code) {
-        localStorage.setItem("inviteCode", invite_code);
+    let appKey = Cookies.get('countly.app.key');
+    console.log(`appKey => ${appKey}`)
+    if (appKey) {
+        let appid = Cookies.get('countly.app.id');
+        if (appid) {
+            localStorage.setItem("inviteCode", appid);
+        }
+        let eventKey = Cookies.get('countly.app.name');
+        if (eventKey) {
+            localStorage.setItem("eventKey", eventKey);
+        }
         // initialize second instance for another app 
         Countly.q.push(["init", {
-            app_key: invite_code, //must have different APP key
+            app_key: appKey, //must have different APP key
+            salt: Cookies.get('countly.app.salt'),
             url: 'https://analyze.countly.io/' //your server goes here
         }]);
         // Track sessions automatically (recommended)
