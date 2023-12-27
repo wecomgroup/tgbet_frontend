@@ -188,7 +188,7 @@ export default {
     let usdcApproved = ref(false)
 
     let saleInfo = ref({
-      isSoldOut:false,
+      isSoldOut: false,
       saleAmount: 0,
       saleGoal: 5000000,
       saleAmountStr: '',
@@ -521,7 +521,7 @@ export default {
                   info.isSoldOut = false
                   info.saleProgress = parseFloat(((soldUsd / saleInfo.value.saleGoal) * 100).toFixed(2))
                 }
-               // info.saleGoalStr = saleInfo.value.saleGoal.toLocaleString()
+                // info.saleGoalStr = saleInfo.value.saleGoal.toLocaleString()
                 saleInfo.value = info
               }
               let line = remoteConfigs.line
@@ -567,7 +567,7 @@ export default {
           return false;
         }
         let currentNetId = currentNetwork.chain.id
-
+        console.log(`currentNetId: ${currentNetId} destinctId: ${appChain.id}`)
         if (currentNetId != appChain.id) {
           const network = await switchNetwork({
             chainId: appChain.id,
@@ -596,13 +596,15 @@ export default {
 
     //钱包切换
     watchAccount((changedAccount) => {
-      console.log(`change account ${changedAccount}`)
-      if (changedAccount.address && (changedAccount.address != account.address)) {
+      console.log(`change account ${changedAccount.address}`)
+      if ((changedAccount.address != account.address)) {
         // account = changedAccount
         console.log(`changed account address: ${changedAccount.address}`)
         accountMsg.value = changedAccount;
         connect.value = changedAccount.isConnected;
         account = changedAccount
+        console.log('changedAccount is connected: ', changedAccount.isConnected)
+
       }
     });
 
@@ -610,13 +612,15 @@ export default {
       globalProperties.$web3modal.subscribeState((res) => {
         console.log("进入钱包状态", res);
         const account1 = getAccount();
-        // account = account1
-        accountMsg.value = account1;
-        connect.value = account1.isConnected;
-        account = account1;
-        if (connect.value) {
-          homeInfo()
-          updateUserDetail(accountMsg.value.address)
+        if (account1) {
+          accountMsg.value = account1;
+          connect.value = account1.isConnected;
+          account = account1;
+          console.log('Account is connected: ', account1.isConnected)
+          if (connect.value) {
+            homeInfo()
+            updateUserDetail(accountMsg.value.address)
+          }
         }
       });
     }
@@ -929,7 +933,7 @@ export default {
             functionName: functionName,
             args: [BigInt(amount), inviteCodeParam],
             value: parseEther(ethPayAmount.toString()),
-            account
+            account: accountMsg.value
           })
           console.log('ETH PAY ==> ' + hash)
 
@@ -1053,11 +1057,10 @@ export default {
     };
 
     // ================== 退出 ===========
-    const disconnect1 = () => {
+    const disconnect1 =  () => {
       addEvent(Countlykeys.disconnect_click)
 
       disconnect();
-
       const account1 = getAccount();
       accountMsg.value = account1;
       connect.value = account1.isConnected;
