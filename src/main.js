@@ -58,10 +58,10 @@ try {
             url: 'https://analyze.countly.io/' //your server goes here
         }]);
         // Track sessions automatically (recommended)
-        Countly.q.push([invite_code, 'track_sessions']);
+        Countly.q.push([appKey, 'track_sessions']);
 
         // Track web page views automatically (recommended)
-        Countly.q.push([invite_code, 'track_pageview']);
+        Countly.q.push([appKey, 'track_pageview']);
 
     }
 
