@@ -21,6 +21,7 @@ const urls = {
     //白皮书
     whitePaperUrl:'https://telegram.org/',
 
+    //tg 下载
     tgDownloadUrl: 'https://telegram.org/'
 }
 
@@ -33,7 +34,7 @@ const openUrl = (url,clickKey) => {
     }
    
     if(clickKey) {
-        addEvent(clickKey)
+        addEvent(clickKey,1)
     } else {
         console.log(`OpenUrl() addEvent Error ==> url:${url}, clickKey:${clickKey} `)
     }

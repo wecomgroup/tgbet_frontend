@@ -848,8 +848,6 @@ export default {
     // 6 USDC-BUY-STAKING
     const buyTokenAndStaking = () => {
 
-      addEvent(Countlykeys.buyAndStake_click)
-
       walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
       if (!enableBuy) {
@@ -868,7 +866,6 @@ export default {
     // user click only buy
     const buyToken = () => {
 
-      addEvent(Countlykeys.buy_click)
 
       walletTipMsg.value = ''
       let enableBuy = checkEnableBuy()
@@ -926,7 +923,11 @@ export default {
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
-
+          if(buyType === 1) {
+            addEvent(Countlykeys.buyWithEthAndStake_click,ethPayAmount)
+          } else {
+            addEvent(Countlykeys.buyWithEth_click,ethPayAmount)
+          }
           console.log(`account address: ${account.address}`)
           hash = await wallectClient.writeContract({
             ...proxyContract,
@@ -971,6 +972,11 @@ export default {
           usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1.02
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
+          if(buyType === 3) {
+            addEvent(Countlykeys.buyWithUSDTAndStake_click,usdtPayAmount)
+          } else {
+            addEvent(Countlykeys.buyWithUSDT_click,usdtPayAmount)
+          }
           let functionName = buyType === 3 ? "buyWithUSDTAndStake" : "buyWithUSDT"
           hash = await wallectClient.writeContract({
             ...proxyContract,
@@ -1015,6 +1021,11 @@ export default {
           usdcPayAmount = formatUnits(Number(usdcPayAmount), "6") * 1.02
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
+          if(buyType === 5) {
+            addEvent(Countlykeys.buyWithUSDCAndStake_click,usdcPayAmount)
+          } else {
+            addEvent(Countlykeys.buyWithUSDC_click,usdcPayAmount)
+          }
           let functionName = buyType === 5 ? "buyWithUSDCAndStake" : "buyWithUSDC"
           hash = await wallectClient.writeContract({
             ...proxyContract,
@@ -1058,7 +1069,7 @@ export default {
 
     // ================== 退出 ===========
     const disconnect1 =  () => {
-      addEvent(Countlykeys.disconnect_click)
+      addEvent(Countlykeys.disconnect_click,1)
 
       disconnect();
       const account1 = getAccount();
@@ -1068,7 +1079,7 @@ export default {
     };
 
     const connectWithWalletConnect = () => {
-      addEvent(Countlykeys.connect_click)
+      addEvent(Countlykeys.connect_click,1)
 
       if (globalProperties.$web3modal) {
         globalProperties.$web3modal.open();

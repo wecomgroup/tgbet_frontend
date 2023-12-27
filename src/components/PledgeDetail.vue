@@ -214,14 +214,16 @@ export default {
 
         const getMyStakeReward = async () => {
             try {
-                addEvent(Countlykeys.stakeReward_click)
                 let stakeContract = getStakeContract()
                 let amount = myRewardAmount.value
+
                 if (!amount || amount < 100) {
                     ElMessage.error($t('tip.text14'))
                     return
                 }
+
                 amount = Math.floor(amount).toFixed(0)
+                addEvent(Countlykeys.stakeReward_click,parseInt(amount))
 
                 processing.value = true
                 let wallectClient = await appWallectClient()
@@ -261,12 +263,13 @@ export default {
 
         const stakeToken = async () => {
             try {
-                addEvent(Countlykeys.stake_click)
                 if (!stakeAmount.value || stakeAmount.value < 100) {
                     ElMessage.error($t('tip.text15'))
 
                     return
                 }
+                addEvent(Countlykeys.stake_click,parseInt(stakeAmount.value))
+
                 let stakeContract = getStakeContract()
                 let tgbContract = getTgbContract()
 
@@ -330,13 +333,14 @@ export default {
 
         const unStakeToken = async () => {
             try {
-                addEvent(Countlykeys.unstake_click)
                 let diffDays = Math.floor((infoData.value.endTime * 1000 - new Date().getTime()) / 1000 / 24 / 3600)
 
                 if (diffDays) {
                     ElMessage.error($t('tip.text17', { days: diffDays }))
                     return
                 }
+                addEvent(Countlykeys.unstake_click,parseInt(unStakeAmount.value))
+
                 let amount = parseEther(unStakeAmount.value)
 
                 if (!amount || amount < 100) {
