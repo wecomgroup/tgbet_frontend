@@ -54,7 +54,6 @@ try {
         // initialize second instance for another app 
         Countly.q.push(["init", {
             app_key: appKey, //must have different APP key
-            salt: Cookies.get('countly.app.salt'),
             url: 'https://analyze.countly.io/' //your server goes here
         }]);
         // Track sessions automatically (recommended)
