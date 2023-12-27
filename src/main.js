@@ -7,7 +7,7 @@ import '../src/assets/style/reset.css'
 import Cookies from 'js-cookie'
 import { projectId } from './util/const/const'
 import Countly from 'countly-sdk-web';
-import VueCountly from 'vue-countly';
+import VueCountly from './util/vue-countly';
 import { createWeb3Modal, defaultWagmiConfig } from '@web3modal/wagmi/vue'
 import { appChain } from './util/contactUtil/client'
 import Vconsole from 'vconsole'
