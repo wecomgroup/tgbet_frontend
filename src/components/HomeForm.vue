@@ -919,7 +919,7 @@ export default {
             args: [amount]
           })
           console.log(ethPayAmount)
-          ethPayAmount = formatUnits(Number(ethPayAmount), "18") * 1.02
+          ethPayAmount = formatUnits(Number(ethPayAmount), "18") + fee
           console.log(`TGB AMOUNT:${amount} ETH PAY Amount: ${ethPayAmount} `)
 
           let functionName = buyType === 1 ? "buyWithEthAndStake" : "buyWithEth"
@@ -969,7 +969,7 @@ export default {
             functionName: 'usdtBuyHelper',
             args: [amount]
           })
-          usdtPayAmount = formatUnits(Number(usdtPayAmount), "6")
+          usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           if(buyType === 3) {
@@ -1018,7 +1018,7 @@ export default {
             functionName: 'usdcBuyHelper',
             args: [amount]
           })
-          usdcPayAmount = formatUnits(Number(usdcPayAmount), "6")
+          usdcPayAmount = formatUnits(Number(usdcPayAmount), "6") * 1
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
           if(buyType === 5) {
