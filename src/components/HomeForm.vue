@@ -969,7 +969,7 @@ export default {
             functionName: 'usdtBuyHelper',
             args: [amount]
           })
-          usdtPayAmount = formatUnits(Number(usdtPayAmount), "6") * 1.02
+          usdtPayAmount = formatUnits(Number(usdtPayAmount), "6")
 
           console.log(`USDT PAY Amount: ${usdtPayAmount} `)
           if(buyType === 3) {
@@ -1018,7 +1018,7 @@ export default {
             functionName: 'usdcBuyHelper',
             args: [amount]
           })
-          usdcPayAmount = formatUnits(Number(usdcPayAmount), "6") * 1.02
+          usdcPayAmount = formatUnits(Number(usdcPayAmount), "6")
 
           console.log(`USDC PAY Amount: ${usdcPayAmount} `)
           if(buyType === 5) {
