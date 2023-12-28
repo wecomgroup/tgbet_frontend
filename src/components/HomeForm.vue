@@ -521,7 +521,7 @@ export default {
                   info.isSoldOut = false
                   info.saleProgress = parseFloat(((soldUsd / saleInfo.value.saleGoal) * 100).toFixed(2))
                 }
-                // info.saleGoalStr = saleInfo.value.saleGoal.toLocaleString()
+                 info.saleGoalStr = '5,000,000'
                 saleInfo.value = info
               }
               let line = remoteConfigs.line
