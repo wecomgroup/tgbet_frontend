@@ -17,7 +17,7 @@ const filterKeys = [
 ]
 
 const getInviteCode = () => {
-  return localStorage.setItem("inviteCode") || ''
+  return localStorage.getItem("inviteCode") || ''
 }
 
 //添加埋点
