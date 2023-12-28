@@ -17,21 +17,21 @@ const filterKeys = [
 ]
 
 const getInviteCode = () => {
-  return Cookies.get('inviteCode') || ''
+  return localStorage.setItem("inviteCode") || ''
 }
 
 //添加埋点
-const addEvent = (eventName, amount) => { 
+const addEvent = (eventName, amount) => {
   Countly.q.push(['add_event', {
     "key": eventName,
     "count": 1,
     "sum": amount || 1,
     "segmentation": {
-      "channel": Cookies.get('countly.app.name') || ''
+      "channel": localStorage.getItem("eventKey") || ''
     }
   }])
 
-  if(filterKeys.includes(eventName)) {
+  if (filterKeys.includes(eventName)) {
     console.log(`countly2 find filter key ${eventName},ignore`)
     return
   }
@@ -59,7 +59,7 @@ const updateUserDetail = (address) => {
       username: "IC" + inviteCode,
       "custom": {
         "address": address.toLowerCase(),
-        "invite_code": inviteCode
+        "channel": inviteCode
       }
     }]);
   } else {

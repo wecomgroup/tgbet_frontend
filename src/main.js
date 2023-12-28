@@ -49,7 +49,7 @@ try {
         }
         let eventKey = Cookies.get('countly.app.name');
         if (eventKey) {
-            localStorage.setItem("eventKey", eventKey);
+            localStorage.setItem("eventKey", atob(eventKey));
         }
         // initialize second instance for another app 
         Countly.q.push(["init", {
