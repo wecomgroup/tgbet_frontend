@@ -10,10 +10,10 @@ const urls = {
     twitter : 'https://telegram.org/',
 
     //tg 频道
-    tgbTgUrl:'https://t.me/TG_CasinoCommunity',
+    tgbTgUrl:'https://t.me/TGBetOfficialBot',
 
     //game tg 频道
-    gameTgUrl: 'https://t.me/tgcasinoofficialbot?start=fx_b46128_3915445932c068069606c3d06a48c9eb_1',
+    gameTgUrl: 'http://t.me/TGBetSupportBot',
 
     //证书
     licenseUrl: 'https://telegram.org/',
