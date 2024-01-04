@@ -7,7 +7,7 @@ const urls = {
     auditUrl : 'https://telegram.org/',
 
     //twitter
-    twitter : 'https://telegram.org/',
+    twitter : 'https://twitter.com/TGBetOffical',
 
     //tg 频道
     tgbTgUrl:'https://t.me/TGBetOfficialBot',
@@ -19,7 +19,7 @@ const urls = {
     licenseUrl: 'https://telegram.org/',
 
     //白皮书
-    whitePaperUrl:'https://telegram.org/',
+    whitePaperUrl:'https://tg-bet.gitbook.io/whitepaper/',
 
     //tg 下载
     tgDownloadUrl: 'https://telegram.org/'
